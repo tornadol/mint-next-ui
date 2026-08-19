@@ -1,0 +1,210 @@
+<!-- @dsCard group="Website" viewport="1440x2000" name="Contact Us" subtitle="Head office, corporate services and store locations" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact Us · The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../../assets/data/categories.js"></script>
+<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<style>
+body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body);overflow-x:hidden}
+.wrap{max-width:1280px;margin:0 auto}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+a{color:inherit}
+a:hover{color:#cf0731}
+/* Hero */
+.c-hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(ellipse 90% 70% at 85% 50%, #c40024 0%, #6b0015 45%, #1a0006 85%, #000 100%);width:100vw;left:50%;margin-left:-50vw}
+.c-hero::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.22;mix-blend-mode:overlay;pointer-events:none;z-index:1}
+.c-hero-inner{max-width:1280px;margin:0 auto;padding:90px 24px 100px;position:relative;z-index:2}
+.c-hero .kicker{font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.24em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 18px;display:inline-flex;align-items:center;gap:12px;animation:riseIn .7s .05s cubic-bezier(.2,.7,.2,1) both}
+.c-hero .kicker::before{content:"";width:36px;height:1px;background:rgba(255,255,255,.5)}
+.c-hero h1{font-family:var(--font-label);font-weight:800;font-size:56px;line-height:1.05;margin:0;text-transform:uppercase;animation:riseIn .7s .15s cubic-bezier(.2,.7,.2,1) both}
+.c-hero p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.85);margin:18px 0 0;max-width:480px;animation:riseIn .7s .25s cubic-bezier(.2,.7,.2,1) both}
+.c-hero .coin{position:absolute;filter:drop-shadow(0 10px 30px rgba(0,0,0,.5));z-index:1;animation:floaty 6s ease-in-out infinite}
+.c-hero .coin.a{width:200px;right:16%;top:30px;animation-delay:0s}
+.c-hero .coin.b{width:140px;right:6%;bottom:-20px;animation-delay:1.4s}
+.c-hero .coin:hover{animation:spinCoin 2.8s linear infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(5deg)}}
+@keyframes spinCoin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+/* Breadcrumb */
+.crumbs{display:flex;align-items:center;gap:8px;padding:20px 0;font-size:13px;color:var(--ink-500)}
+.crumbs a{color:var(--ink-500);text-decoration:none}
+.crumbs a:hover{color:var(--ink-1000);text-decoration:underline}
+.crumbs .sep{color:var(--ink-200)}
+.crumbs .current{color:var(--ink-1000);font-weight:600}
+/* Sections */
+.section{padding:64px 0}
+.section-kicker{font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.18em;color:#cf0731;text-transform:uppercase;margin:0 0 14px;display:inline-flex;align-items:center;gap:12px}
+.section-kicker::before{content:"";width:24px;height:1px;background:#cf0731}
+.section-title{font-family:var(--font-label);font-weight:800;font-size:32px;margin:0 0 28px}
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+/* Contact cards */
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.c-card{border:1px solid var(--ink-75);border-radius:6px;padding:32px;background:#fff;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.c-card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#cf0731,#a30425);transform:scaleY(0);transform-origin:top;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.c-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px -18px rgba(0,0,0,.2);border-color:var(--ink-200)}
+.c-card:hover::after{transform:scaleY(1)}
+.c-card h3{font-family:var(--font-label);font-weight:800;font-size:20px;margin:0 0 20px}
+.c-row{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--ink-50)}
+.c-row:last-child{border-bottom:0}
+.c-row .ic{width:38px;height:38px;border-radius:10px;background:#fff2f4;color:#cf0731;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s,color .2s}
+.c-row:hover .ic{transform:scale(1.12) rotate(-6deg);background:#cf0731;color:#fff}
+.c-row .v{font-family:var(--font-label);font-weight:700;font-size:15px;color:var(--ink-1000);line-height:1.4;word-break:break-word}
+.c-row .l{font-size:12.5px;color:var(--ink-500);margin-top:2px;line-height:1.5}
+.c-row a.v{text-decoration:none}
+.c-row a.v:hover{color:#cf0731}
+/* Stores */
+.stores-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.store-card{border:1px solid var(--ink-75);border-radius:6px;padding:28px;background:#fff;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.store-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#cf0731,#a30425);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.store-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px -20px rgba(0,0,0,.25)}
+.store-card:hover::before{transform:scaleX(1)}
+.store-card .pin{width:44px;height:44px;border-radius:999px;background:#fff2f4;color:#cf0731;display:inline-flex;align-items:center;justify-content:center;margin-bottom:18px;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.store-card:hover .pin{transform:scale(1.15);animation:pinBounce .6s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pinBounce{0%{transform:scale(1)}40%{transform:scale(1.3) translateY(-4px)}100%{transform:scale(1.15)}}
+.store-card h4{font-family:var(--font-label);font-weight:800;font-size:16px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.04em}
+.store-card .line{font-size:14px;color:var(--ink-800);line-height:1.6;margin:0 0 6px}
+.store-card .line.muted{color:var(--ink-500);font-size:13px}
+/* Hours ticker */
+.hours-note{display:inline-flex;align-items:center;gap:10px;background:#fff8ea;border:1px solid #f0e2bb;border-radius:999px;padding:8px 16px;font-size:13px;color:#7a6b1a;font-family:var(--font-label);font-weight:600;margin-top:20px}
+.hours-note .dot{width:8px;height:8px;border-radius:999px;background:#d9a514;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,165,20,.5)}50%{box-shadow:0 0 0 6px rgba(217,165,20,0)}}
+/* Footer shared */
+/*om-footer*/
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:64px;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+
+
+
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+.stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+@media(max-width:900px){
+  .c-hero h1{font-size:34px}
+  .c-hero .coin{opacity:.35}
+  .c-grid{grid-template-columns:1fr}
+  .stores-grid{grid-template-columns:1fr}
+  footer.site .cols{grid-template-columns:1fr;gap:24px}
+  footer.site .footer-inner{padding:0 24px}
+  .stores-strip>div{padding:0 24px!important}
+  .stores-strip>div>div[style*='grid-template-columns']{grid-template-columns:1fr!important}
+}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+function useReveal(){
+  React.useEffect(()=>{
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    return ()=>io.disconnect();
+  },[]);
+}
+
+const PhoneIc = () => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.35 1.79.68 2.64a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.44-1.25a2 2 0 012.11-.45c.85.33 1.74.56 2.64.68A2 2 0 0122 16.92z"/></svg>;
+const MailIc = () => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>;
+const ClockIc = () => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>;
+const UserIc = () => <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>;
+const PinIc = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>;
+
+const stores = [
+  {name:'Coin Gallery (Head Office)',addr:'20 Teban Gardens Crescent, S 608928',tel:'+65 6895 0288',hours:'Mon – Fri, 8.30am – 4.30pm'},
+  {name:'Chinatown Point',addr:'133 New Bridge Road, #02-18, S 059413',tel:'+65 6222 2486',hours:'Daily, 11.00am – 9.30pm'},
+  {name:'Suntec City Mall',addr:'3 Temasek Blvd, #02-719 East Wing Tower 3, S 038983',tel:'+65 6336 2878',hours:'Daily, 11.00am – 9.30pm'},
+];
+
+const App = () => {
+  useReveal();
+  return (
+    <div className="wrap">
+      {Navi ? <Navi active="Contact Us"/> : null}
+
+      <section className="c-hero">
+        <div className="c-hero-inner">
+          <div className="kicker">We're here to help</div>
+          <h1>Contact Us</h1>
+          <p>Questions about an order, a custom minting project, or just want to visit? Reach us through any channel below.</p>
+        </div>
+        <img className="coin a" src="../../assets/imagery/coins/coin-11.png" alt=""/>
+        <img className="coin b" src="../../assets/imagery/coins/coin-07.png" alt=""/>
+      </section>
+
+      <div className="container">
+        <nav className="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span className="sep">/</span>
+          <span className="current">Contact Us</span>
+        </nav>
+      </div>
+
+      <section className="section container" style={{paddingTop:32}}>
+        <div className="section-kicker">Get in touch</div>
+        <h2 className="section-title">Talk to the Mint.</h2>
+        <div className="c-grid">
+          <div className="c-card reveal">
+            <h3>Head Office</h3>
+            <div className="c-row">
+              <span className="ic"><PhoneIc/></span>
+              <div><a className="v" href="tel:+6565662626">+65 6566 2626</a><div className="l">Hotline</div></div>
+            </div>
+            <div className="c-row">
+              <span className="ic"><MailIc/></span>
+              <div><a className="v" href="mailto:salesadmin@singaporemint.com.sg">salesadmin@singaporemint.com.sg</a><div className="l">General Enquiries</div></div>
+            </div>
+            <div className="c-row">
+              <span className="ic"><ClockIc/></span>
+              <div><span className="v">Mon – Fri, 8.30am – 4.30pm</span><div className="l">Closed weekends &amp; Public Holidays</div></div>
+            </div>
+            <div className="hours-note"><span className="dot"></span> Fastest response during office hours</div>
+          </div>
+          <div className="c-card reveal" style={{transitionDelay:'.1s'}}>
+            <h3>Corporate Services</h3>
+            <div className="c-row">
+              <span className="ic"><MailIc/></span>
+              <div><a className="v" href="mailto:corporate@singaporemint.com.sg">corporate@singaporemint.com.sg</a><div className="l">Corporate Gifts &amp; Customised Services</div></div>
+            </div>
+            <div className="c-row">
+              <span className="ic"><UserIc/></span>
+              <div><a className="v" href="mailto:tan.jookiang@singaporemint.com.sg">tan.jookiang@singaporemint.com.sg</a><div className="l">Overseas Customised Minting — Mr. Tan Joo Kiang</div></div>
+            </div>
+            <div className="c-row">
+              <span className="ic"><UserIc/></span>
+              <div><a className="v" href="mailto:tay.hweeping@singaporemint.com.sg">tay.hweeping@singaporemint.com.sg</a><div className="l">International Sales — Ms. Tay Hwee Ping</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section container" style={{paddingTop:0}}>
+        <div className="section-kicker">Visit us</div>
+        <h2 className="section-title">Our Stores.</h2>
+        <div className="stores-grid">
+          {stores.map((s,i)=>(
+            <div key={s.name} className="store-card reveal" style={{transitionDelay:`${i*0.12}s`}}>
+              <span className="pin"><PinIc/></span>
+              <h4>{s.name}</h4>
+              <p className="line">{s.addr}</p>
+              <p className="line"><a href={`tel:${s.tel.replace(/\s/g,'')}`} style={{textDecoration:'none',fontWeight:600}}>{s.tel}</a></p>
+              <p className="line muted">{s.hours}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <SiteFooter Icon={Icon}/>
+    </div>
+  );
+};
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

@@ -1,0 +1,211 @@
+<!-- @dsCard group="Website" viewport="1440x1400" name="Compare" subtitle="Side-by-side product comparison matrix" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Compare · The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../../assets/data/categories.js"></script>
+<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<style>
+body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
+.wrap{max-width:1280px;margin:0 auto}
+.page-pad{padding:0 24px}
+.crumbs{display:flex;align-items:center;gap:8px;padding:20px 0;font-family:var(--font-body);font-size:13px;color:var(--ink-500)}
+.crumbs a{color:var(--ink-500);text-decoration:none}
+.crumbs a:hover{color:var(--ink-1000);text-decoration:underline}
+.crumbs .sep{color:var(--ink-200)}
+.crumbs .current{color:var(--ink-1000);font-weight:600}
+h1.page{font:var(--text-section);font-size:36px;margin:8px 0 6px}
+.sub{font-family:var(--font-body);font-size:14px;color:var(--ink-500);margin-bottom:24px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.clear-btn{background:none;border:0;color:#cf0731;font-family:var(--font-label);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.clear-btn:hover{text-decoration:underline}
+.matrix-wrap{border:1px solid var(--ink-75);border-radius:6px;overflow:hidden;overflow-x:auto;margin-bottom:64px}
+table.matrix{width:100%;border-collapse:collapse;min-width:800px}
+table.matrix th,table.matrix td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--ink-50);vertical-align:top}
+table.matrix thead th{background:var(--ink-25);border-bottom:1px solid var(--ink-75);position:sticky;top:0;z-index:1}
+table.matrix th.label{width:220px;background:var(--ink-25);font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-500);vertical-align:middle}
+table.matrix td{font-family:var(--font-body);font-size:14px;color:var(--ink-1000);line-height:1.5}
+.prod-head{display:flex;flex-direction:column;gap:10px;min-width:180px}
+.prod-photo{width:100%;height:180px;background:#fff;border:1px solid var(--ink-75);display:flex;align-items:center;justify-content:center;border-radius:4px}
+.prod-photo img{max-width:70%;max-height:80%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(67,80,95,.20))}
+.prod-name{font-family:var(--font-label);font-weight:700;font-size:14px;color:var(--ink-1000);line-height:1.35;min-height:38px}
+.prod-price{font-family:var(--font-label);font-weight:800;font-size:16px;color:var(--ink-1000)}
+.prod-actions{display:flex;gap:6px;margin-top:4px}
+.prod-actions button,.prod-actions a{flex:1;padding:8px 10px;font-family:var(--font-label);font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer;border-radius:4px;border:1px solid var(--ink-100);background:#fff;color:var(--ink-1000);text-align:center;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:4px}
+.prod-actions .add{background:#cf0731;color:#fff;border-color:#cf0731}
+.prod-actions .add:hover{background:#a30425}
+.prod-actions .rem{color:#cf0731;border-color:#ffd1d1}
+.prod-actions .rem:hover{background:#cf0731;color:#fff;border-color:#cf0731}
+.badge-diff{display:inline-block;padding:2px 6px;background:#fff2f4;color:#cf0731;font-family:var(--font-label);font-weight:700;font-size:10px;letter-spacing:.05em;text-transform:uppercase;border-radius:2px;margin-left:6px;vertical-align:middle}
+.empty{padding:80px 40px;text-align:center;color:var(--ink-500);font-family:var(--font-body);border:1px dashed var(--ink-100);border-radius:6px}
+.empty h3{font-family:var(--font-label);font-weight:700;color:var(--ink-1000);font-size:20px;margin:0 0 8px}
+.empty a{display:inline-block;margin-top:14px;background:#cf0731;color:#fff;text-decoration:none;padding:12px 24px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:4px}
+
+/* full-bleed escape hatch for sections whose backgrounds should span viewport */
+.hero,.banner,footer.site,.stats-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+.hero > *,.banner > *,footer.site > *,.stats-strip > *{max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+/*om-footer*/
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+
+
+
+
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+.stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+@media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}.stores-strip>div{padding:0 24px!important}.stores-strip>div>div[style*='grid-template-columns']{grid-template-columns:1fr!important}}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+// Mock spec DB keyed by img (works for whatever is stored)
+const SPEC_DEFAULTS = {
+  metal: '999 Fine Silver',
+  weight: '1 oz (31.1g)',
+  dimensions: '45mm × 27mm × 3mm',
+  finish: 'Proof, Coloured',
+  mintage: '888 pieces',
+  packaging: 'Presentation case with certificate',
+  origin: 'Singapore',
+  year: '2026',
+};
+
+const specRows = [
+  {key:'sku', label:'Product Code', get:(p)=>p.sku || '—'},
+  {key:'price', label:'Price', get:(p)=>'$' + (p.price||0).toFixed(2)},
+  {key:'metal', label:'Metal'},
+  {key:'weight', label:'Weight'},
+  {key:'dimensions', label:'Dimensions'},
+  {key:'finish', label:'Finish'},
+  {key:'mintage', label:'Mintage'},
+  {key:'packaging', label:'Packaging'},
+  {key:'origin', label:'Country of Origin'},
+  {key:'year', label:'Year Issued'},
+];
+
+const App = () => {
+  const [items, setItems] = React.useState([]);
+  const [onlyDiff, setOnlyDiff] = React.useState(false);
+  const read = React.useCallback(() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem('sm-compare') || '[]');
+      setItems(raw.map(x => typeof x === 'string' ? { img:x } : x).filter(x => x && x.img));
+    } catch(_){ setItems([]); }
+  }, []);
+  React.useEffect(() => {
+    read();
+    const h = () => read();
+    window.addEventListener('sm-compare-updated', h);
+    window.addEventListener('storage', h);
+    return () => { window.removeEventListener('sm-compare-updated', h); window.removeEventListener('storage', h); };
+  }, [read]);
+  const write = (next) => {
+    setItems(next);
+    try { localStorage.setItem('sm-compare', JSON.stringify(next)); } catch(_){}
+    window.dispatchEvent(new CustomEvent('sm-compare-updated'));
+  };
+  const removeItem = (img) => write(items.filter(x => (x.img||x) !== img));
+  const clearAll = () => write([]);
+  const addToCart = (it) => {
+    try {
+      const list = JSON.parse(localStorage.getItem('sm-cart') || '[]');
+      const existing = list.find(x => x.img === it.img);
+      if (existing) existing.qty = (existing.qty||1) + 1;
+      else list.push({ img:it.img, name:it.name || 'Product', meta:(it.sku?it.sku+' · 45mm':'—'), price:it.price||0, qty:1 });
+      localStorage.setItem('sm-cart', JSON.stringify(list));
+      window.dispatchEvent(new CustomEvent('sm-cart-updated'));
+    } catch(_){}
+  };
+
+  // Enrich items with defaults for any missing fields
+  const enriched = items.map(it => ({ ...SPEC_DEFAULTS, ...it }));
+
+  const valueOf = (row, p) => row.get ? row.get(p) : (p[row.key] ?? SPEC_DEFAULTS[row.key] ?? '—');
+  const isDiff = (row) => {
+    const vals = enriched.map(p => valueOf(row, p));
+    return new Set(vals).size > 1;
+  };
+
+  return (
+    <div className="wrap">
+      {Navi ? <Navi/> : null}
+      <div className="page-pad">
+        <nav className="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span className="sep">/</span>
+          <span className="current">Compare</span>
+        </nav>
+        <h1 className="page">Compare Products</h1>
+        <div className="sub">Side-by-side matrix of specifications for the items you saved to compare.</div>
+
+        {enriched.length === 0 ? (
+          <div className="empty">
+            <h3>No products to compare</h3>
+            <div>Browse the shop and click the compare icon on any product to add it here.</div>
+            <a href="product-list.html">Browse Shop</a>
+          </div>
+        ) : (
+          <>
+            <div className="toolbar">
+              <div style={{fontFamily:'var(--font-body)',fontSize:14,color:'var(--ink-500)'}}>{enriched.length} product{enriched.length>1?'s':''} in comparison</div>
+              <div style={{display:'flex',alignItems:'center',gap:16}}>
+                <label style={{display:'inline-flex',alignItems:'center',gap:8,fontFamily:'var(--font-body)',fontSize:13,color:'var(--ink-800)',cursor:'pointer'}}>
+                  <input type="checkbox" checked={onlyDiff} onChange={e=>setOnlyDiff(e.target.checked)} style={{accentColor:'#cf0731'}}/>
+                  Show only differences
+                </label>
+                <button className="clear-btn" onClick={clearAll}>Clear All</button>
+              </div>
+            </div>
+
+            <div className="matrix-wrap">
+              <table className="matrix">
+                <thead>
+                  <tr>
+                    <th className="label"></th>
+                    {enriched.map((p,i) => (
+                      <th key={p.img || i}>
+                        <div className="prod-head">
+                          <a href="product-detail.html" className="prod-photo"><img src={p.img} alt=""/></a>
+                          <div className="prod-name">{p.name || 'Product'}</div>
+                          <div className="prod-price">${(p.price||0).toFixed(2)}</div>
+                          <div className="prod-actions">
+                            <button className="add" onClick={()=>addToCart(p)}>Add to Cart</button>
+                            <button className="rem" onClick={()=>removeItem(p.img)} aria-label="Remove"><Icon name="X" size={12}/></button>
+                          </div>
+                        </div>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {specRows.filter(r => !onlyDiff || isDiff(r)).map(row => {
+                    const diff = enriched.length > 1 && isDiff(row);
+                    return (
+                      <tr key={row.key}>
+                        <th className="label">{row.label}{diff && <span className="badge-diff">Diff</span>}</th>
+                        {enriched.map((p,i) => (
+                          <td key={p.img || i}>{valueOf(row, p)}</td>
+                        ))}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

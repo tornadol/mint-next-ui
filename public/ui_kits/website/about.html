@@ -1,0 +1,281 @@
+<!-- @dsCard group="Website" viewport="1440x2400" name="About Us" subtitle="Company story, heritage and craftsmanship" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About Us · The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../../assets/data/categories.js"></script>
+<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<style>
+body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
+.wrap{margin:0 auto}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+.page-pad{padding:0 56px}
+a{color:inherit}
+a:hover{color:#cf0731}
+/* Hero — mirrors homepage */
+.hero{position:relative;height:520px;overflow:hidden;color:#fff;background:radial-gradient(ellipse 90% 70% at 90% 55%, #c40024 0%, #6b0015 45%, #1a0006 85%, #000 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.22;mix-blend-mode:overlay;pointer-events:none;z-index:1}
+.hero .coins{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:520px;height:520px;z-index:2;pointer-events:none}
+.hero .coins img{position:absolute;filter:drop-shadow(0 8px 24px rgba(0,0,0,.55));opacity:.95;transition:transform 1.2s ease}
+.hero .coins img.c1{top:8%;left:2%;width:180px;height:180px;object-fit:contain}
+.hero .coins img.c2{bottom:6%;right:6%;width:230px;height:230px;object-fit:contain}
+.hero .coins img.c3{top:38%;right:36%;width:150px;height:150px;object-fit:contain}
+.hero .coins:hover img{animation:spinCoin 3.6s linear infinite}
+.hero .coins:hover img.c2{animation-duration:5s;animation-direction:reverse}
+.hero .coins:hover img.c3{animation-duration:4.2s}
+@keyframes spinCoin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero .copy{position:absolute;left:50%;transform:translate(-50%,-50%);top:50%;z-index:3;max-width:1232px;width:100%;padding:0 24px;box-sizing:border-box}
+.hero .kicker{font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.24em;color:rgba(255,255,255,.7);text-transform:uppercase;margin:0 0 18px;display:inline-flex;align-items:center;gap:12px}
+.hero .kicker::before{content:"";width:36px;height:1px;background:rgba(255,255,255,.5)}
+.hero h1{font-family:var(--font-label);font-weight:800;font-size:64px;line-height:1;letter-spacing:.005em;margin:0;color:#fff;text-transform:uppercase;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:#ffd6dc;background:linear-gradient(180deg,#fff,#ffb9c3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-family:var(--font-body);font-size:16px;line-height:1.6;color:rgba(255,255,255,.85);margin:20px 0 0;max-width:520px}
+.crumbs{display:flex;align-items:center;gap:8px;padding:20px 0;font-family:var(--font-body);font-size:13px;color:var(--ink-500)}
+.crumbs a{color:var(--ink-500);text-decoration:none}
+.crumbs a:hover{color:var(--ink-1000);text-decoration:underline}
+.crumbs .sep{color:var(--ink-200)}
+.crumbs .current{color:var(--ink-1000);font-weight:600}
+.section{padding:80px 0}
+.section-title{font-family:var(--font-label);font-weight:800;font-size:36px;letter-spacing:-.01em;margin:0 0 24px;color:var(--ink-1000)}
+.section-kicker{font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.18em;color:#cf0731;text-transform:uppercase;margin:0 0 14px;display:inline-flex;align-items:center;gap:12px}
+.section-kicker::before{content:"";width:24px;height:1px;background:#cf0731}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.story-copy p{font-family:var(--font-body);font-size:16px;line-height:1.75;color:var(--ink-800);margin:0 0 16px}
+.story-copy p:first-of-type::first-letter{font-family:var(--font-label);font-weight:800;font-size:64px;line-height:1;float:left;padding:6px 14px 0 0;color:#cf0731}
+.story-visual{position:relative;height:520px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#faf6f2,#f5efe6);border-radius:6px;overflow:hidden}
+.story-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 40%, rgba(207,7,49,.06), transparent 60%)}
+.story-visual img{position:absolute;filter:drop-shadow(0 20px 40px rgba(0,0,0,.15));transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.story-visual .h1{width:280px;height:280px;object-fit:contain;top:60px;left:80px}
+.story-visual .h2{width:200px;height:200px;object-fit:contain;bottom:70px;right:60px}
+.story-visual:hover img{animation:spinCoin 4s linear infinite}
+.story-visual:hover .h2{animation-direction:reverse;animation-duration:5.5s}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#000;color:#fff}
+.stat{padding:56px 32px;border-right:1px solid rgba(255,255,255,.1);position:relative}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--font-label);font-weight:800;font-size:52px;letter-spacing:-.02em;color:#fff;line-height:1;margin:0 0 12px;background:linear-gradient(180deg,#fff,#ffb9c3);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat .l{font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.7);line-height:1.5;margin:0}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.pillar{background:#fff;border:1px solid var(--ink-75);border-radius:6px;padding:36px 28px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.pillar:hover{transform:translateY(-4px);box-shadow:0 12px 30px -14px rgba(0,0,0,.15);border-color:var(--ink-200)}
+.pillar .icon{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#cf0731,#a30425);color:#fff;display:inline-flex;align-items:center;justify-content:center;margin-bottom:24px;box-shadow:0 8px 20px -8px rgba(207,7,49,.6)}
+.pillar h3{font-family:var(--font-label);font-weight:800;font-size:20px;margin:0 0 12px;color:var(--ink-1000)}
+.pillar p{font-family:var(--font-body);font-size:14px;line-height:1.65;color:var(--ink-800);margin:0}
+.timeline{position:relative;padding:20px 0;margin-top:40px}
+.timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#cf0731,transparent);transform:translateX(-50%)}
+.tl-row{display:grid;grid-template-columns:1fr 60px 1fr;gap:20px;align-items:center;margin-bottom:36px;position:relative}
+.tl-row:last-child{margin-bottom:0}
+.tl-year{font-family:var(--font-label);font-weight:800;font-size:36px;color:#cf0731;text-align:right}
+.tl-row:nth-child(even) .tl-year{grid-column:3;text-align:left;order:3}
+.tl-row:nth-child(even) .tl-body{grid-column:1;text-align:right;order:1}
+.tl-dot{width:16px;height:16px;border-radius:999px;background:#cf0731;border:3px solid #fff;box-shadow:0 0 0 3px #cf0731;justify-self:center;position:relative;z-index:1}
+.tl-body{font-family:var(--font-body);font-size:15px;color:var(--ink-800);line-height:1.6}
+.tl-body strong{font-family:var(--font-label);font-weight:700;color:var(--ink-1000);display:block;margin-bottom:4px;font-size:16px}
+.banner{margin-top:0;background:linear-gradient(90deg,var(--brand-red-800) 0%,var(--brand-red-900) 100%);color:#fff;position:relative;overflow:hidden}
+.banner .container{padding:56px 24px;display:flex;align-items:center;justify-content:space-between;gap:36px}
+.banner::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.15;mix-blend-mode:overlay;pointer-events:none}
+.banner h3{font-family:var(--font-label);font-weight:800;font-size:32px;margin:0;position:relative}
+.banner p{font-family:var(--font-body);font-size:15px;margin:6px 0 0;opacity:.9;position:relative}
+.banner .btn-dark{background:#000;color:#fff;padding:14px 36px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border:0;cursor:pointer;position:relative;text-decoration:none}
+.banner .btn-dark:hover{background:#1a1a1a}
+footer.site{background:#000;color:#fff;margin-top:0}
+footer.site .container{padding:60px 24px 24px}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+footer.site h4{font-family:var(--font-label);text-transform:uppercase;font-size:14px;margin:0 0 20px;letter-spacing:.06em;color:#fff}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+footer.site .base{display:flex;align-items:center;justify-content:space-between;padding-top:32px;margin-top:40px;border-top:1px solid rgba(255,255,255,.12);color:var(--ink-300);font-family:var(--font-body);font-size:12px}
+@media(max-width:900px){
+  .page-pad{padding:0 24px}
+  .hero{height:440px}
+  .hero h1{font-size:38px}
+  .hero .coins{width:340px;height:340px;right:-8%;opacity:.5}
+  .hero .copy{left:24px;right:24px;max-width:none}
+  .section{padding:56px 0}
+  .section-title{font-size:28px}
+  .story{grid-template-columns:1fr;gap:32px}
+  .story-visual{height:360px}
+  .story-visual .h1{width:200px;height:200px;top:40px;left:20px}
+  .story-visual .h2{width:150px;height:150px;bottom:40px;right:20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-right:0;border-bottom:1px solid rgba(255,255,255,.1);padding:36px 20px}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}
+  .stat:nth-child(3),.stat:nth-child(4){border-bottom:0}
+  .stat .n{font-size:36px}
+  .pillars{grid-template-columns:1fr;gap:16px}
+  .timeline::before{left:20px}
+  .tl-row{grid-template-columns:40px 1fr;gap:16px}
+  .tl-year{grid-column:2;text-align:left;font-size:24px;order:1}
+  .tl-row:nth-child(even) .tl-year{grid-column:2;text-align:left;order:1}
+  .tl-body{grid-column:2;text-align:left!important;order:2}
+  .tl-row:nth-child(even) .tl-body{grid-column:2;text-align:left;order:2}
+  .tl-dot{grid-column:1;grid-row:1/3;justify-self:center;align-self:start;margin-top:8px}
+  .banner{flex-direction:column;padding:36px 24px;text-align:center}
+  footer.site{padding:40px 24px 24px}
+  footer.site .cols{grid-template-columns:1fr;gap:24px}
+  footer.site .base{flex-direction:column;gap:16px;text-align:center}
+}
+/*om-footer*/
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+
+
+
+
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+.stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+@media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}.stores-strip>div{padding:0 24px!important}.stores-strip>div>div[style*='grid-template-columns']{grid-template-columns:1fr!important}}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+const App = () => {
+  return (
+    <div className="wrap">
+      {Navi ? <Navi/> : null}
+      <section className="hero">
+        <div className="copy">
+          <div className="kicker">Since 1968</div>
+          <h1>The Craft of<br/><em>Legacy</em></h1>
+          <p>The Singapore Mint has spent over five decades transforming precious metal into stories worth keeping — coins, medallions and gifts that carry a nation's memory.</p>
+        </div>
+        <div className="coins">
+          <img className="c1" src="../../assets/imagery/coins/coin-01.png" alt=""/>
+          <img className="c2" src="../../assets/imagery/coins/coin-11.png" alt=""/>
+          <img className="c3" src="../../assets/imagery/coins/coin-07.png" alt=""/>
+        </div>
+      </section>
+
+      <div className="container">
+        <nav className="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span className="sep">/</span>
+          <span className="current">About Us</span>
+        </nav>
+      </div>
+
+      <section className="section">
+        <div className="container">
+        <div className="story">
+          <div className="story-copy">
+            <div className="section-kicker">Our Story</div>
+            <h2 className="section-title">A Legacy Cast in Metal</h2>
+            <p>The Singapore Mint was established in 1968 as a subsidiary of the Board of Commissioners of Currency, Singapore. Since then, we have grown into Southeast Asia's most respected mint — producing circulating coins, commemorative medallions, precious-metal collectibles and bespoke corporate gifts for governments, institutions and connoisseurs around the world.</p>
+            <p>Every piece we mint is a small monument: a hand-tooled die, a struck flan, a polished proof surface that lets light do the storytelling. We work in gold, silver, and bimetallic alloys, applying the same meticulous standards to a nation-day medallion as we do to a limited-edition art coin.</p>
+            <p>Today The Singapore Mint remains a wholly owned subsidiary of MND Holdings, serving collectors, corporates and central banks — and quietly turning ordinary moments into keepsakes for the generations that follow.</p>
+          </div>
+          <div className="story-visual">
+            <img className="h1" src="../../assets/imagery/coins/coin-05.png" alt=""/>
+            <img className="h2" src="../../assets/imagery/coins/coin-08.png" alt=""/>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section className="stats-wrap" style={{background:'#000'}}>
+        <div className="container" style={{padding:0}}>
+        <div className="stats">
+        <div className="stat"><div className="n">55+</div><p className="l">Years of minting excellence since 1968.</p></div>
+        <div className="stat"><div className="n">120M</div><p className="l">Coins and medallions produced to date.</p></div>
+        <div className="stat"><div className="n">40+</div><p className="l">Nations served with commemorative issues.</p></div>
+        <div className="stat"><div className="n">99.99%</div><p className="l">Fine-metal purity across our precious-metal range.</p></div>
+        </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+        <div className="section-kicker">What We Stand For</div>
+        <h2 className="section-title">Craft, care, and continuity.</h2>
+        <div className="pillars">
+          <div className="pillar">
+            <div className="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2l2.4 7.2H22l-6.2 4.5 2.4 7.3L12 16.7 5.8 21l2.4-7.3L2 9.2h7.6z"/></svg></div>
+            <h3>Master Craftsmanship</h3>
+            <p>Every die is hand-finished by artisans who have spent decades reading how light moves across polished metal. It's why our proofs still stop collectors mid-scroll.</p>
+          </div>
+          <div className="pillar">
+            <div className="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+            <h3>Heritage &amp; Meaning</h3>
+            <p>From Bicentennial commemoratives to Peranakan-motif ingots, our releases tell Singapore's story — one meticulously composed edge inscription at a time.</p>
+          </div>
+          <div className="pillar">
+            <div className="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+            <h3>Global Trust</h3>
+            <p>Central banks, governments and Fortune-500 partners choose the Mint because every certificate we issue is backed by half a century of unbroken authenticity.</p>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section className="section" style={{background:'#faf6f2'}}>
+        <div className="container">
+        <div className="section-kicker">Milestones</div>
+        <h2 className="section-title">A journey through the decades.</h2>
+        <div className="timeline">
+          <div className="tl-row"><div className="tl-year">1968</div><div className="tl-dot"/><div className="tl-body"><strong>The Mint is founded</strong>Established as a subsidiary of the Board of Commissioners of Currency to strike Singapore's own coinage.</div></div>
+          <div className="tl-row"><div className="tl-year">1980</div><div className="tl-dot"/><div className="tl-body"><strong>First commemorative gold coin</strong>Marking the nation's early years with our inaugural precious-metal issue.</div></div>
+          <div className="tl-row"><div className="tl-year">2002</div><div className="tl-dot"/><div className="tl-body"><strong>Global partnerships</strong>Producing commemorative coinage for governments across Southeast Asia and beyond.</div></div>
+          <div className="tl-row"><div className="tl-year">2019</div><div className="tl-dot"/><div className="tl-body"><strong>Bicentennial series</strong>200 years of Singapore, captured across a landmark gold and silver programme.</div></div>
+          <div className="tl-row"><div className="tl-year">2024</div><div className="tl-dot"/><div className="tl-body"><strong>Next-generation collectibles</strong>Colour-printed medallions, digital certificates, and craft that meets a new generation of collectors.</div></div>
+        </div>
+        </div>
+      </section>
+
+      <section className="banner">
+        <div className="container">
+        <div>
+          <h3>Discover our latest collections.</h3>
+          <p>New arrivals, limited editions and bespoke gifts — all struck in Singapore.</p>
+        </div>
+        <a className="btn-dark" href="product-list.html">Shop Now</a>
+        </div>
+      </section>
+
+      <footer className="site">
+        <div className="container">
+        <div className="cols">
+          <div className="col">
+            <h4>ABOUT US</h4>
+            <ul><li><a href="about.html">Our Story</a></li><li><a href="#">News</a></li><li><a href="#">Careers</a></li></ul>
+          </div>
+          <div className="col">
+            <h4>GET HELP</h4>
+            <ul><li><a href="#">Order Status</a></li><li><a href="#">Delivery</a></li><li><a href="#">Returns</a></li><li><a href="#">Find a Store</a></li></ul>
+          </div>
+          <div className="col">
+            <h4>LEGAL</h4>
+            <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+          </div>
+          <div className="col">
+            <h4>TALK TO US</h4>
+            <ul>
+              <li>salesadmin@singaporemint.com.sg</li>
+              <li>+65 6566 2626</li>
+            </ul>
+            <div className="socials">
+              <a href="#" aria-label="Facebook"><Icon name="BrandFacebook" size={16}/></a>
+              <a href="#" aria-label="LinkedIn"><Icon name="BrandLinkedin" size={16}/></a>
+              <a href="#" aria-label="Twitter"><Icon name="BrandTwitter" size={16}/></a>
+            </div>
+          </div>
+        </div>
+        <div className="base">
+          <span>© 2026 The Singapore Mint. All rights reserved.</span>
+          <span>MND Holdings</span>
+        </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

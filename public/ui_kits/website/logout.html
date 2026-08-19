@@ -1,0 +1,70 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Logout" subtitle="Signed-out confirmation page" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Signed Out — The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-body);color:var(--ink-1000);background:#fff;min-height:100vh;display:flex;flex-direction:column}
+.main{flex:1;display:flex;align-items:center;justify-content:center;background:var(--warm-1);padding:80px 24px;position:relative;overflow:hidden}
+.main::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/hero-bg.png') center/cover no-repeat;opacity:.12}
+.card{background:#fff;border:1px solid var(--ink-100);padding:64px 56px;max-width:520px;width:100%;text-align:center;position:relative;z-index:1;box-shadow:var(--shadow-drop)}
+.icon-ring{width:72px;height:72px;border-radius:50%;border:2px solid var(--ink-100);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;background:var(--warm-1)}
+.card h1{font-family:var(--font-label);font-weight:800;font-size:26px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 10px}
+.card p{font:var(--text-body-reg);color:var(--ink-500);margin:0 0 36px;line-height:26px}
+.btn-primary{display:block;width:100%;height:52px;background:var(--brand-red-800);color:#fff;border:0;font-family:var(--font-label);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:opacity .15s;margin-bottom:14px;text-decoration:none;line-height:52px}
+.btn-primary:hover{opacity:.9}
+.btn-ghost{display:block;width:100%;height:52px;background:transparent;color:var(--ink-700);border:1px solid var(--ink-200);font-family:var(--font-label);font-weight:600;font-size:14px;cursor:pointer;transition:border-color .15s;text-decoration:none;line-height:52px}
+.btn-ghost:hover{border-color:var(--ink-400)}
+.divider{height:1px;background:var(--ink-100);margin:28px 0}
+.also{font:var(--text-meta);color:var(--ink-400);margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
+.links{display:flex;justify-content:center;gap:24px}
+.links a{font:var(--text-meta);color:var(--brand-red-800);text-decoration:none}
+.links a:hover{text-decoration:underline}
+footer.mini{background:#000;color:var(--ink-300);font-family:var(--font-label);font-size:12px;padding:20px 56px;display:flex;align-items:center;justify-content:space-between}
+footer.mini img{height:22px;filter:invert(1) hue-rotate(180deg)}
+@media(max-width:768px){
+  .card{padding:40px 24px}
+  .links{flex-wrap:wrap;gap:16px}
+  footer.mini{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+</style></head>
+<body><div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+const App = () => (
+  <div style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
+    <div className="main">
+      <div className="card">
+        <div className="icon-ring">
+          <Icon name="User" size={32} style={{color:'var(--ink-400)'}}/>
+        </div>
+        <h1>You've been signed out</h1>
+        <p>Thank you for visiting The Singapore Mint. Your session has ended safely.</p>
+
+        <a href="login.html" className="btn-primary">SIGN BACK IN</a>
+        <a href="index.html" className="btn-ghost">Return to Homepage</a>
+
+        <div className="divider"/>
+        <div className="also">You might also like</div>
+        <div className="links">
+          <a href="#">New Arrivals</a>
+          <a href="#">Best Sellers</a>
+          <a href="#">Collections</a>
+          <a href="#">Corporate Gifts</a>
+        </div>
+      </div>
+    </div>
+
+    <footer className="mini">
+      <img src="../../assets/brand/sm-logo-slogan.png" alt="The Singapore Mint"/>
+      <span>© 2019 Singapore Mint. All Rights Reserved.</span>
+    </footer>
+  </div>
+);
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

@@ -1,0 +1,626 @@
+<!-- @dsCard group="Website" viewport="1440x2600" name="Homepage" subtitle="Marketing storefront" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../../assets/data/categories.js"></script>
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-01.webp" data-resource-id="coin_01_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-02.webp" data-resource-id="coin_02_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-03.webp" data-resource-id="coin_03_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-04.webp" data-resource-id="coin_04_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-05.webp" data-resource-id="coin_05_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-06.webp" data-resource-id="coin_06_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-07.webp" data-resource-id="coin_07_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-08.webp" data-resource-id="coin_08_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-10.webp" data-resource-id="coin_10_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-11.webp" data-resource-id="coin_11_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-12.webp" data-resource-id="coin_12_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/coin-13.webp" data-resource-id="coin_13_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/gift-01.webp" data-resource-id="gift_01_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/gift-03.webp" data-resource-id="gift_03_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/gift-05.webp" data-resource-id="gift_05_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/hero-coins.webp" data-resource-id="hero_coins_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/campaign-sky.webp" data-resource-id="campaign_sky_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/noise.webp" data-resource-id="noise_webp" />
+<meta name="ext-resource-dependency" content="../../assets/standalone/logo.webp" data-resource-id="logo_webp" />
+<script>
+(function(){
+  var MAP = {"assets/imagery/coins/coin-01.png":"coin_01_webp","assets/standalone/coin-01.webp":"coin_01_webp","assets/imagery/coins/coin-02.png":"coin_02_webp","assets/standalone/coin-02.webp":"coin_02_webp","assets/imagery/coins/coin-03.png":"coin_03_webp","assets/standalone/coin-03.webp":"coin_03_webp","assets/imagery/coins/coin-04.png":"coin_04_webp","assets/standalone/coin-04.webp":"coin_04_webp","assets/imagery/coins/coin-05.png":"coin_05_webp","assets/standalone/coin-05.webp":"coin_05_webp","assets/imagery/coins/coin-06.png":"coin_06_webp","assets/standalone/coin-06.webp":"coin_06_webp","assets/imagery/coins/coin-07.png":"coin_07_webp","assets/standalone/coin-07.webp":"coin_07_webp","assets/imagery/coins/coin-08.png":"coin_08_webp","assets/standalone/coin-08.webp":"coin_08_webp","assets/imagery/coins/coin-10.png":"coin_10_webp","assets/standalone/coin-10.webp":"coin_10_webp","assets/imagery/coins/coin-11.png":"coin_11_webp","assets/standalone/coin-11.webp":"coin_11_webp","assets/imagery/coins/coin-12.png":"coin_12_webp","assets/standalone/coin-12.webp":"coin_12_webp","assets/imagery/coins/coin-13.png":"coin_13_webp","assets/standalone/coin-13.webp":"coin_13_webp","assets/imagery/gifts/gift-01.png":"gift_01_webp","assets/standalone/gift-01.webp":"gift_01_webp","assets/imagery/gifts/gift-03.png":"gift_03_webp","assets/standalone/gift-03.webp":"gift_03_webp","assets/imagery/gifts/gift-05.png":"gift_05_webp","assets/standalone/gift-05.webp":"gift_05_webp","assets/imagery/hero-coins.png":"hero_coins_webp","assets/standalone/hero-coins.webp":"hero_coins_webp","assets/imagery/campaign-sky.png":"campaign_sky_webp","assets/standalone/campaign-sky.webp":"campaign_sky_webp","assets/imagery/noise.png":"noise_webp","assets/standalone/noise.webp":"noise_webp","assets/brand/sm-logo-slogan.png":"logo_webp","assets/standalone/logo.webp":"logo_webp"};
+  function resolve(u){
+    if(!u||typeof u!=='string') return u;
+    if(u.indexOf('data:')===0||u.indexOf('blob:')===0) return u;
+    var key=u.replace(/^.*?assets\//,'assets/').split('?')[0];
+    var id=MAP[key];
+    if(id&&window.__resources&&window.__resources[id]) return window.__resources[id];
+    return u;
+  }
+  window.__resolveAsset=resolve;
+  var d=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');
+  if(d&&d.set) Object.defineProperty(HTMLImageElement.prototype,'src',{
+    get:function(){return d.get.call(this);},
+    set:function(v){d.set.call(this,resolve(v));},configurable:true});
+  var sa=Element.prototype.setAttribute;
+  Element.prototype.setAttribute=function(n,v){
+    if(n==='src'&&typeof v==='string') v=resolve(v);
+    if(n==='style'&&typeof v==='string') v=v.replace(/url\((['"]?)([^'")]+)\1\)/g,function(m,q,u){return 'url('+resolve(u)+')';});
+    return sa.call(this,n,v);
+  };
+  var ss=Object.getOwnPropertyDescriptor(CSSStyleDeclaration.prototype,'backgroundImage');
+  if(ss&&ss.set) Object.defineProperty(CSSStyleDeclaration.prototype,'backgroundImage',{
+    get:function(){return ss.get.call(this);},
+    set:function(v){if(typeof v==='string')v=v.replace(/url\((['"]?)([^'")]+)\1\)/g,function(m,q,u){return 'url('+resolve(u)+')';});ss.set.call(this,v);},
+    configurable:true});
+})();
+</script>
+<style>
+body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
+.wrap{max-width:1280px;margin:0 auto}
+.page-pad{max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+.rail{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:56px 0 20px}
+.section-head h2{font:var(--text-section);margin:0}
+.arrow-btns{display:flex;gap:8px}
+.arrow-btn{width:40px;height:40px;border:1px solid var(--ink-200);background:#fff;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--ink-700);box-shadow:var(--shadow-xs);transition:border-color .15s,box-shadow .15s,color .15s}
+.arrow-btn:hover{border-color:var(--ink-400);box-shadow:0 2px 8px rgba(0,0,0,.1);color:var(--ink-1000)}
+.arrow-btn:active{box-shadow:none;background:var(--ink-25)}
+.chips{display:flex;gap:8px;margin:8px 0 20px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:4px;border:1px solid var(--ink-100);background:#fff;font:var(--text-util);color:var(--ink-800);cursor:pointer}
+.chip.on{background:var(--ink-1000);color:#fff;border-color:var(--ink-1000)}
+.chip .dot{width:14px;height:14px;border-radius:50%;background:var(--ink-800)}
+.chip.on .dot{background:#fff}
+.chip .dot.green{background:#3d9a5a}.chip .dot.blue{background:#3277b8}.chip .dot.red{background:var(--brand-red-800)}
+.card{background:#fff;border:1px solid var(--ink-75);padding:24px 20px 20px;position:relative;min-height:340px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.card .quick-actions{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.card .qa-btn{width:32px;height:32px;border-radius:999px;background:#fff;border:1px solid var(--ink-75);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#cf0731;opacity:0;transform:translateY(-4px);transition:opacity .15s,transform .15s,background .12s,color .12s,border-color .12s}
+.card:hover .qa-btn{opacity:1;transform:translateY(0)}
+.card .qa-btn.on{opacity:1;transform:translateY(0);background:#cf0731;color:#fff;border-color:#cf0731}
+.card .qa-btn:hover{background:#cf0731;color:#fff;border-color:#cf0731}
+.card .add-cart{margin-top:auto;background:#cf0731;color:#fff;border:0;padding:11px 14px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .12s}
+.card .add-cart:hover{background:#a30425}
+@media(max-width:900px){
+  .card .qa-btn{opacity:1!important;transform:none!important;width:28px;height:28px}
+}
+.card .coin-photo{width:100%;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:0}
+.card .coin-photo img{max-width:100%;max-height:180px;width:180px;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(67,80,95,.20))}
+.card .meta{font:var(--text-meta);color:var(--ink-500)}
+.card .name{font-family:var(--font-body);font-size:13px;line-height:1.35;color:var(--ink-1000);margin-top:6px;min-height:36px;overflow-wrap:break-word;word-break:break-word;flex:1}
+.card .price{font-family:var(--font-label);font-weight:700;font-size:14px;color:var(--ink-1000);margin-top:8px;margin-bottom:14px}
+.tile{position:relative;overflow:hidden;color:#fff}
+.tile img{width:100%;height:100%;object-fit:cover;display:block}
+.tile .label{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink-1000);padding:6px 14px;font:var(--text-cta);text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+.tile .title-lg{position:absolute;left:24px;bottom:56px;color:#fff;font:var(--text-section);font-size:28px;line-height:1.15;max-width:60%}
+.promo{background:radial-gradient(ellipse 100% 100% at 75% 60%, #c40024 0%, #6b0015 55%, #1a0006 100%);color:#fff;border:none;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;min-height:340px}
+.promo::before{content:"";position:absolute;inset:0;background:url('../../assets/standalone/noise.webp');opacity:.15;mix-blend-mode:overlay;pointer-events:none;z-index:0}
+.promo h3{font-family:var(--font-label);font-weight:800;font-size:26px;line-height:1.15;margin:0 0 8px;max-width:70%;text-transform:uppercase;letter-spacing:.005em;position:relative;z-index:2;color:#fff}
+.promo .sub{font:var(--text-body-reg);color:rgba(255,255,255,.75);max-width:70%;margin:0 0 20px;position:relative;z-index:2}
+.promo .btn{position:relative;z-index:2;background:#fff!important;color:var(--ink-1000)!important}
+.promo .btn:hover{background:var(--ink-25)!important}
+.promo .img{position:absolute;right:-40px;bottom:-40px;width:70%;height:80%;background-position:right bottom;background-repeat:no-repeat;background-size:contain;z-index:1;mix-blend-mode:screen;opacity:.9}
+.promo .btn{align-self:flex-start}
+.banner{margin-top:80px;background:linear-gradient(90deg,var(--brand-red-800) 0%,var(--brand-red-900) 100%);color:#fff;padding:0;display:block;position:relative;overflow:hidden}osition:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:url('../../assets/standalone/noise.webp');opacity:.15;mix-blend-mode:overlay;pointer-events:none}
+.banner h3{font:var(--text-section);font-size:32px;margin:0}
+.banner p{font:var(--text-body-reg);margin:6px 0 0;opacity:.9}
+.banner .btn-dark{background:#000;color:#fff;padding:14px 36px;font:var(--text-cta);text-transform:uppercase;letter-spacing:.04em;border:0;cursor:pointer}
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0}
+footer.site .footer-inner{padding:0 56px}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+footer.site h4{font:var(--text-label);text-transform:uppercase;font-size:14px;margin:0 0 20px;letter-spacing:.06em;color:#fff}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+footer.site .base{display:flex;align-items:center;justify-content:space-between;padding-top:32px;margin-top:40px;border-top:1px solid rgba(255,255,255,.12);color:var(--ink-300);font-family:var(--font-label);font-size:12px}
+footer.site details{border:0}
+footer.site details summary{list-style:none;font:var(--text-label);text-transform:uppercase;font-size:14px;letter-spacing:.06em;color:#fff;margin:0 0 20px;cursor:default}
+footer.site details summary::-webkit-details-marker{display:none}
+footer.site details summary::after{content:""}
+footer.site details[open] summary::after{content:""}
+.hero{position:relative;height:640px;overflow:hidden;color:#fff;background:radial-gradient(ellipse 90% 70% at 90% 55%, #c40024 0%, #6b0015 45%, #1a0006 85%, #000 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:url('../../assets/standalone/noise.webp');opacity:.22;mix-blend-mode:overlay;pointer-events:none;z-index:1}
+.hero .coins{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:640px;height:640px;z-index:2;pointer-events:none}
+.hero .coins img{position:absolute;filter:drop-shadow(0 8px 24px rgba(0,0,0,.55));opacity:.95}
+.hero .copy{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);z-index:3;max-width:640px;text-align:center}
+.hero h1{font-family:var(--font-label);font-weight:800;font-size:56px;line-height:1.02;letter-spacing:.005em;margin:0;color:#fff;text-transform:uppercase;text-shadow:0 2px 40px rgba(0,0,0,.35);text-align:center;max-width:520px}
+.hero h1 span{display:block}
+.hero .actions{display:flex;gap:14px;margin-top:28px;justify-content:center}
+.hero .pill{padding:12px 28px;border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:999px;font-family:var(--font-label);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.hero .pill:hover{background:rgba(255,255,255,.12)}
+.hero .pill.solid{background:rgba(255,255,255,.12)}
+.hero .dots{position:absolute;left:0;right:0;bottom:36px;display:flex;justify-content:center;gap:14px;z-index:3}
+.hero .dots i{display:inline-block;width:36px;height:2px;background:rgba(255,255,255,.35)}
+.hero .dots i.on{background:#fff}
+.hero .side-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.hero .side-nav.left{left:24px}.hero .side-nav.right{right:24px}
+.collections-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.collection-tile{position:relative;overflow:hidden;height:320px;color:#fff}
+.collection-tile img{width:100%;height:100%;object-fit:cover;display:block}
+.collection-tile .grad{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.55) 100%)}
+.collection-tile .title{position:absolute;left:20px;right:20px;bottom:56px;color:#fff;font:var(--text-section);font-size:24px;line-height:1.1;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.collection-tile .shop{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink-1000);padding:8px 16px;font:var(--text-cta);text-transform:uppercase;font-size:12px;letter-spacing:.06em}
+
+@media(max-width:900px){
+  .rail{grid-template-columns:repeat(2,1fr)!important}
+  .section-head{padding:0 16px;margin:32px 0 14px}
+  .page-pad{padding:0 16px}
+  .chips{flex-wrap:wrap}
+  .hero{height:420px}
+  .hero h1{font-size:36px}
+  .hero .coins{width:320px;height:320px}
+  .banner{flex-direction:column;gap:20px;padding:28px 24px;text-align:center}
+  .banner h3{font-size:22px}
+  .collections-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 16px;margin:0 -16px;-webkit-overflow-scrolling:touch}
+  .collections-grid::-webkit-scrollbar{display:none}
+  .collection-tile{flex:0 0 78%;max-width:280px;aspect-ratio:1/1;height:auto!important;scroll-snap-align:start}
+  .collection-tile .title{font-size:20px;bottom:52px;left:16px;right:16px}
+  .collection-tile .shop{padding:6px 14px;font-size:11px}
+  footer.site{padding:40px 24px 24px}
+  footer.site .cols{grid-template-columns:1fr;gap:0}
+  footer.site details{border-bottom:1px solid rgba(255,255,255,.12)}
+  footer.site details:first-child{border-top:1px solid rgba(255,255,255,.12)}
+  footer.site details summary{list-style:none;padding:18px 0;font:var(--text-label);text-transform:uppercase;font-size:13px;letter-spacing:.06em;color:#fff;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  footer.site details summary::-webkit-details-marker{display:none}
+  footer.site details summary::after{content:"+";font-family:var(--font-utility);font-size:20px;font-weight:400;color:var(--ink-300);transition:transform .2s}
+  footer.site details[open] summary::after{content:"–";transform:rotate(0)}
+  footer.site details ul{padding-bottom:16px;gap:8px}
+  footer.site .contact-mobile{padding:20px 0 24px;border-bottom:1px solid rgba(255,255,255,.12);text-align:center}
+  footer.site .contact-mobile h4{margin-bottom:16px}
+  footer.site .contact-mobile ul{align-items:center;gap:8px}
+  footer.site .contact-mobile .socials{justify-content:center;margin-top:20px}
+  footer.site .base{flex-direction:column;gap:16px;margin-top:24px;padding-top:20px;text-align:center;font-size:11px}
+  footer.site .base img{height:20px}
+
+  .hero .side-nav{display:none}
+}
+@media(max-width:600px){
+  .rail{grid-template-columns:repeat(2,1fr)!important}
+  .promo{padding:24px;min-height:260px}
+  .promo h3{font-size:18px;max-width:60%;margin-bottom:6px}
+  .promo .sub{font-size:12px;max-width:60%;margin-bottom:14px}
+  .promo .img{width:55%;height:65%;right:-20px;bottom:-20px}
+  .promo .btn{padding:9px 14px!important;font-size:11px!important;gap:4px!important}
+  .hero{height:360px}
+  .hero h1{font-size:28px}
+  .hero .copy{max-width:90%}
+  .hero .actions{flex-direction:column;align-items:center}
+  .hero .coins{display:none}
+  footer.site .cols{grid-template-columns:1fr}
+  footer.site .cols{grid-template-columns:1fr!important}
+  .banner .btn-dark{width:100%}
+}
+/* full-bleed inners cap at 1280 */
+.banner-inner{max-width:1280px;margin:0 auto;padding:36px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-sizing:border-box;width:100%;position:relative;z-index:1}
+.footer-inner,.stores-inner{max-width:1280px;margin:0 auto;box-sizing:border-box;width:100%}
+@media(max-width:900px){
+  .banner-inner{flex-direction:column;padding:28px 24px;text-align:center;gap:20px}
+}
+.cat-nav-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:8px 0 20px}
+.cat-nav-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 14px 18px;background:#fff;border:1px solid var(--ink-75);border-radius:6px;text-decoration:none;color:var(--ink-1000);overflow:hidden;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s}
+.cat-nav-item::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#cf0731,#ff5a75);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.cat-nav-item:hover{transform:translateY(-6px);box-shadow:0 16px 34px -18px rgba(0,0,0,.28);border-color:var(--ink-200);color:var(--ink-1000)}
+.cat-nav-item:hover::before{transform:scaleX(1)}
+.cat-nav-thumb{width:78px;height:78px;border-radius:999px;background:radial-gradient(circle at 35% 30%,#fff,#f4efe8);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.cat-nav-thumb img{width:58px;height:58px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(67,80,95,.22));transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.cat-nav-item:hover .cat-nav-thumb{transform:scale(1.06);box-shadow:0 10px 24px -12px rgba(207,7,49,.5)}
+.cat-nav-item:hover .cat-nav-thumb img{transform:rotate(18deg) scale(1.08)}
+.cat-nav-label{font-family:var(--font-label);font-weight:700;font-size:12.5px;line-height:1.35;text-align:center;letter-spacing:.01em;text-wrap:pretty}
+.cat-nav-arrow{width:26px;height:26px;border-radius:999px;background:#fff2f4;color:#cf0731;display:inline-flex;align-items:center;justify-content:center;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+.cat-nav-item:hover .cat-nav-arrow{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){.cat-nav-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.cat-nav-grid{grid-template-columns:repeat(2,1fr);gap:10px}.cat-nav-item{padding:16px 10px 14px;gap:10px}.cat-nav-thumb{width:62px;height:62px}.cat-nav-thumb img{width:46px;height:46px}.cat-nav-label{font-size:11.5px}.cat-nav-arrow{opacity:1;transform:none;width:22px;height:22px}}
+/*om-anim*/
+.card{transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);z-index:1}
+.card .coin-photo img{transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .3s}
+.card:hover .coin-photo img{transform:rotate(8deg) scale(1.06);filter:drop-shadow(0 10px 22px rgba(67,80,95,.28))}
+.card .qa-btn{transition:opacity .15s,transform .2s cubic-bezier(.34,1.56,.64,1),background .12s,color .12s,border-color .12s}
+.card .qa-btn:active{transform:scale(.85)}
+.card .qa-btn.on{animation:qaPop .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes qaPop{0%{transform:scale(1)}45%{transform:scale(1.35)}100%{transform:scale(1)}}
+.card .add-cart{transition:background .12s,transform .15s cubic-bezier(.34,1.56,.64,1)}
+.card .add-cart:active{transform:scale(.96)}
+.card .add-cart.added{animation:cartBump .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes cartBump{0%{transform:scale(1)}30%{transform:scale(1.05)}60%{transform:scale(.98)}100%{transform:scale(1)}}
+.fly-coin{position:fixed;z-index:9999;pointer-events:none;width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(0,0,0,.35));animation:flyToCart .8s cubic-bezier(.5,-0.2,.7,1) forwards}
+@keyframes flyToCart{0%{opacity:1;transform:scale(1) rotate(0)}70%{opacity:.9;transform:scale(.6) rotate(120deg)}100%{opacity:0;transform:scale(.15) rotate(240deg)}}
+
+/* full-bleed escape hatch for sections whose backgrounds should span viewport */
+.hero,.banner,footer.site,.stats-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+.hero > *,.banner > *,footer.site > *,.stats-strip > *{max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+</style></head>
+<body><template id="__bundler_thumbnail" data-bg-color="#1a0006">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#1a0006"/>
+  <ellipse cx="820" cy="420" rx="520" ry="380" fill="#6b0015"/>
+  <ellipse cx="900" cy="440" rx="300" ry="230" fill="#c40024" opacity=".7"/>
+  <circle cx="560" cy="400" r="150" fill="#e8c887"/>
+  <circle cx="560" cy="400" r="122" fill="none" stroke="#8a6a24" stroke-width="10"/>
+  <text x="560" y="428" font-family="Georgia,serif" font-size="92" font-weight="700" fill="#4a3410" text-anchor="middle">SM</text>
+</svg>
+</template>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const { Navi, Button, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+const bsAll = [
+  {img:'../../assets/standalone/coin-01.webp', meta:'L233 · 45mm', name:'Landmarks of Singapore Medallion - Attraction', price:'$ 120'},
+  {img:'../../assets/standalone/coin-03.webp', meta:'L221 · 40mm', name:'Canada Winning Goal 1oz Fine Silver Proof Coin', price:'$ 128'},
+  {img:'../../assets/standalone/coin-05.webp', meta:'L233 · 45mm', name:'National Day 2023 Silver Proof Medallion', price:'$ 148'},
+  {img:'../../assets/standalone/coin-08.webp', meta:'L288 · 32mm', name:'Chinese Zodiac Rabbit 1/4 oz Gold Proof Coin', price:'$ 640'},
+  {img:'../../assets/standalone/coin-11.webp', meta:'L299 · 55mm', name:'Merlion 55th Anniversary Silver Medallion', price:'$ 208'},
+  {img:'../../assets/standalone/coin-07.webp', meta:'L266 · 45mm', name:'Peranakan Heritage 1oz Silver Proof', price:'$ 168'},
+  {img:'../../assets/standalone/coin-12.webp', meta:'L301 · 32mm', name:'Orchid Series — Vanda Miss Joaquim', price:'$ 88'},
+  {img:'../../assets/standalone/coin-13.webp', meta:'L310 · 38mm', name:'MRT 40th Anniversary Coloured Medallion', price:'$ 108'},
+  {img:'../../assets/standalone/coin-02.webp', meta:'L245 · 40mm', name:'SG Bicentennial Commemorative Silver Coin', price:'$ 158'},
+  {img:'../../assets/standalone/coin-04.webp', meta:'L258 · 45mm', name:'Raffles Hotel Centenary Silver Medallion', price:'$ 138'},
+  {img:'../../assets/standalone/coin-06.webp', meta:'L272 · 32mm', name:'Chinese Zodiac Dragon 1/4 oz Gold Proof', price:'$ 688'},
+  {img:'../../assets/standalone/coin-10.webp', meta:'L284 · 40mm', name:'Vanishing Trades of Singapore Silver Set', price:'$ 198'},
+];
+
+const BestSeller = () => {
+  const [idx, setIdx] = React.useState(0);
+  const cols = 6;
+  const visible = bsAll.slice(idx, idx + cols);
+  return (<>
+    <div className="section-head"><h2>Best seller</h2>
+      <div className="arrow-btns">
+        <button className="arrow-btn" aria-label="Previous" onClick={()=>setIdx(i=>Math.max(0,i-cols))}><Icon name="ChevronLeft" size={20}/></button>
+        <button className="arrow-btn" aria-label="Next" onClick={()=>setIdx(i=>i+cols>=bsAll.length?0:i+cols)}><Icon name="ChevronRight" size={20}/></button>
+      </div>
+    </div>
+    <div className="rail">{visible.map((it,i)=><CoinTile key={idx+i} item={it}/>)}</div>
+  </>);
+};
+
+const justIn = [
+  {img:'../../assets/standalone/coin-01.webp'},
+  {img:'../../assets/standalone/coin-02.webp'},
+  {img:'../../assets/standalone/coin-03.webp'},
+  {img:'../../assets/standalone/coin-04.webp'},
+  {img:'../../assets/standalone/coin-05.webp'},
+  {img:'../../assets/standalone/coin-06.webp'},
+  {img:'../../assets/standalone/coin-13.webp'},
+  {img:'../../assets/standalone/coin-10.webp'},
+  {img:'../../assets/standalone/coin-07.webp'},
+  {img:'../../assets/standalone/coin-11.webp'},
+];
+const perfectPick = [
+  {img:'../../assets/standalone/coin-07.webp'},
+  {img:'../../assets/standalone/coin-08.webp'},
+  {img:'../../assets/standalone/coin-10.webp'},
+  {img:'../../assets/standalone/coin-11.webp'},
+  {img:'../../assets/standalone/coin-02.webp'},
+  {img:'../../assets/standalone/coin-12.webp'},
+  {img:'../../assets/standalone/coin-03.webp'},
+  {img:'../../assets/standalone/coin-13.webp'},
+];
+
+const CoinTile = ({item, small}) => {
+  const [wish, setWish] = React.useState(false);
+  const [cmp, setCmp] = React.useState(false);
+  const [added, setAdded] = React.useState(false);
+  const toggle = (setter, key) => (e) => {
+    e.preventDefault(); e.stopPropagation();
+    setter(v => {
+      try {
+        const list = JSON.parse(localStorage.getItem('sm-'+key) || '[]');
+        const idx = list.findIndex(x => (x.img||x) === item.img);
+        if (v) { if (idx>=0) list.splice(idx,1); } else if (idx<0) {
+          const priceNum = (typeof item.price === 'number') ? item.price : (parseFloat(String(item.price||'').replace(/[^0-9.]/g,''))||0);
+          list.push({ img:item.img, name:item.name||'', sku:item.sku||(item.meta||'').split('·')[0].trim()||'', price:priceNum, meta:item.meta||(item.sku?item.sku+' · 45mm':'') });
+        }
+        localStorage.setItem('sm-'+key, JSON.stringify(list));
+        window.dispatchEvent(new CustomEvent('sm-'+key+'-updated'));
+      } catch(_){}
+      return !v;
+    });
+  };
+  const addToCart = (e) => {
+    e.preventDefault(); e.stopPropagation();
+    try {
+      const list = JSON.parse(localStorage.getItem('sm-cart') || '[]');
+      const key = item.img;
+      const existing = list.find(x => x.img === key);
+      const priceNum = parseFloat(String(item.price||'$ 120').replace(/[^0-9.]/g,'')) || 0;
+      if (existing) { existing.qty = (existing.qty||1) + 1; }
+      else { list.push({ img:item.img, name:item.name || 'Landmarks of Singapore Medallion - Attraction', meta:item.meta || 'L233 · 45mm', price: priceNum, qty:1 }); }
+      localStorage.setItem('sm-cart', JSON.stringify(list));
+      window.dispatchEvent(new CustomEvent('sm-cart-updated'));
+    } catch(_){}
+    setAdded(true);
+    setTimeout(()=>setAdded(false), 1400);
+  };
+  return (
+  <div className="card" onClick={()=>{window.location.href='product-detail.html';}} style={{cursor:'pointer'}}>
+    <div className="quick-actions">
+      <button className={`qa-btn${wish?' on':''}`} aria-label="Add to wishlist" onClick={toggle(setWish,'wishlist')}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill={wish?'currentColor':'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </button>
+      <button className={`qa-btn${cmp?' on':''}`} aria-label="Add to compare" onClick={toggle(setCmp,'compare')}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 4v17"/><path d="M7 21h10"/><path d="M6 8l-4 8a4 4 0 008 0L6 8z"/><path d="M18 8l-4 8a4 4 0 008 0L18 8z"/><path d="M3 7l9-1 9 1"/></svg>
+      </button>
+    </div>
+    <div className="coin-photo"><img src={item.img} alt=""/></div>
+    <div className="meta">{item.meta || 'L233 · 45mm'}</div>
+    <div className="name">{item.name || 'Landmarks of Singapore Medallion - Attraction'}</div>
+    <div className="price">{item.price || '$ 120'}</div>
+    <button className="add-cart" onClick={addToCart}>{added ? 'Added to Cart' : 'Add to Cart'}</button>
+  </div>
+);};
+
+const ArrowNav = () => (
+  <div className="arrow-btns">
+    <button className="arrow-btn" aria-label="Previous">←</button>
+    <button className="arrow-btn" aria-label="Next">→</button>
+  </div>
+);
+
+const PromoTile = () => (
+  <div className="promo">
+    <div className="img" style={{backgroundImage:'url(../../assets/standalone/hero-coins.webp)'}}/>
+    <div style={{position:'relative',zIndex:2}}>
+      <div style={{fontFamily:'var(--font-label)',fontSize:11,letterSpacing:'.14em',textTransform:'uppercase',opacity:.7,marginBottom:14}}>Featured Collection</div>
+      <h3>Collect commemorative coins &amp; limited editions</h3>
+      <p className="sub">Rare mintings, released in small runs — each piece a tribute to a moment in time.</p>
+    </div>
+        <a className="btn" href="product-list.html" style={{background:'#fff',color:'var(--ink-1000)',border:0,padding:'12px 22px',display:'inline-flex',alignItems:'center',gap:8,font:'var(--text-cta)',textTransform:'uppercase',letterSpacing:'.04em',cursor:'pointer',alignSelf:'flex-start',textDecoration:'none'}}>EXPLORE MORE <span>→</span></a>
+  </div>
+);
+
+const collections = [
+  {img:'../../assets/standalone/gift-01.webp', label:'Celebrating Singapore', title:'Celebrating Singapore'},
+  {img:'../../assets/standalone/gift-03.webp', label:'Reminiscing Singapore', title:'Reminiscing Singapore'},
+  {img:'../../assets/standalone/gift-05.webp', label:'Orchid Accessories', title:'Orchid Accessories'},
+];
+
+const slides = [
+  {
+    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #c40024 0%, #6b0015 45%, #1a0006 85%, #000 100%)',
+    title:['Treasure of pride,','recognized by the world'],
+    coins:[
+      {img:'coin-01.png',w:180,l:'42%',t:'2%',r:'-12deg'},
+      {img:'coin-03.png',w:150,l:'70%',t:'8%',r:'18deg'},
+      {img:'coin-08.png',w:140,l:'82%',t:'32%',r:'-8deg'},
+      {img:'coin-05.png',w:130,l:'22%',t:'34%',r:'24deg'},
+      {img:'coin-11.png',w:120,l:'58%',t:'56%',r:'-20deg'},
+    ],
+  },
+  {
+    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #0b3d6b 0%, #051e35 50%, #000 100%)',
+    title:['Crafted in Singapore','since 1968'],
+    coins:[
+      {img:'coin-07.png',w:180,l:'45%',t:'4%',r:'10deg'},
+      {img:'coin-12.png',w:150,l:'72%',t:'12%',r:'-18deg'},
+      {img:'coin-02.png',w:140,l:'80%',t:'40%',r:'8deg'},
+      {img:'coin-13.png',w:120,l:'20%',t:'38%',r:'-14deg'},
+      {img:'coin-04.png',w:110,l:'60%',t:'62%',r:'22deg'},
+    ],
+  },
+  {
+    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #3d6b0b 0%, #1e3505 50%, #000 100%)',
+    title:['Limited editions','now available'],
+    coins:[
+      {img:'coin-10.png',w:180,l:'40%',t:'6%',r:'-16deg'},
+      {img:'coin-06.png',w:155,l:'68%',t:'10%',r:'20deg'},
+      {img:'coin-11.png',w:140,l:'84%',t:'36%',r:'-6deg'},
+      {img:'coin-05.png',w:120,l:'24%',t:'40%',r:'18deg'},
+      {img:'coin-08.png',w:110,l:'56%',t:'60%',r:'-24deg'},
+    ],
+  },
+  {
+    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #6b3d0b 0%, #351e05 50%, #000 100%)',
+    title:['Gifts that endure,','moments that matter'],
+    coins:[
+      {img:'coin-01.png',w:170,l:'44%',t:'3%',r:'14deg'},
+      {img:'coin-03.png',w:145,l:'74%',t:'9%',r:'-22deg'},
+      {img:'coin-07.png',w:135,l:'81%',t:'38%',r:'10deg'},
+      {img:'coin-12.png',w:115,l:'18%',t:'42%',r:'-10deg'},
+      {img:'coin-13.png',w:105,l:'62%',t:'64%',r:'28deg'},
+    ],
+  },
+];
+
+const Hero = () => {
+  const [idx, setIdx] = React.useState(0);
+  const prev = () => setIdx(i => (i - 1 + slides.length) % slides.length);
+  const next = () => setIdx(i => (i + 1) % slides.length);
+  const s = slides[idx];
+  return (
+    <section className="hero" style={{background:s.bg,transition:'background .5s'}}>
+      <div className="coins">
+        {s.coins.map((c,i)=>(
+          <img key={i} src={`../../assets/imagery/coins/${c.img}`}
+            style={{width:c.w,left:c.l,top:c.t,transform:`rotate(${c.r})`,transition:'opacity .4s',position:'absolute',filter:'drop-shadow(0 8px 24px rgba(0,0,0,.55))'}}/>
+        ))}
+      </div>
+      <button className="side-nav left" aria-label="Previous slide" onClick={prev}>‹</button>
+      <button className="side-nav right" aria-label="Next slide" onClick={next}>›</button>
+      <div className="copy">
+        <h1>{s.title.map((l,i)=><span key={i}>{l}</span>)}</h1>
+        <div className="actions">
+                    <button className="pill solid" onClick={()=>{window.location.href='product-list.html';}}>SHOP NOW</button>
+          <button className="pill">VIEW CAMPAIGN</button>
+        </div>
+      </div>
+      <div className="dots">
+        {slides.map((_,i)=><i key={i} className={i===idx?'on':''} onClick={()=>setIdx(i)} style={{cursor:'pointer'}}></i>)}
+      </div>
+    </section>
+  );
+};
+
+const App = () => (
+  <div>
+    <Navi active="Home" />
+    <Hero />
+
+    <div className="page-pad">
+      <BestSeller />
+
+      {/* JUST IN */}
+      <div className="section-head" style={{marginBottom:8}}><h2>Just in</h2></div>
+      <div className="cat-nav-grid">
+        {[
+          {slug:'coins',      label:'Coins & Numismatics',  img:'../../assets/standalone/coin-02.webp'},
+          {slug:'medallions', label:'Ingots & Medallions',  img:'../../assets/standalone/coin-11.webp'},
+          {slug:'gifts',      label:'Gifts & Collectibles', img:'../../assets/standalone/coin-12.webp'},
+          {slug:'character',  label:'Character Collectibles',img:'../../assets/standalone/coin-08.webp'},
+          {slug:'catalogue',  label:'July / Aug Catalogue', img:'../../assets/standalone/coin-05.webp'},
+          {slug:'promo',      label:'Online Promotion',     img:'../../assets/standalone/coin-07.webp'},
+        ].map(c => (
+          <a key={c.slug} className="cat-nav-item" href={`product-list.html#/${c.slug}`}>
+            <span className="cat-nav-thumb"><img src={c.img} alt=""/></span>
+            <span className="cat-nav-label">{c.label}</span>
+            <span className="cat-nav-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+      <div className="rail">
+        {justIn.slice(0,6).map((it,i)=><CoinTile key={i} item={it}/>)}
+      </div>
+      <div className="rail" style={{gridTemplateColumns:'1fr 1fr 1fr 1fr 2fr'}}>
+        <CoinTile item={justIn[6]}/>
+        <CoinTile item={justIn[7]}/>
+        <CoinTile item={justIn[8]}/>
+        <CoinTile item={justIn[9]}/>
+        <PromoTile/>
+      </div>
+
+      {/* COLLECTIONS */}
+      <div className="section-head"><h2>Collections</h2>
+        <div className="arrow-btns">
+          <button className="arrow-btn" aria-label="Previous"><Icon name="ChevronLeft" size={20}/></button>
+          <button className="arrow-btn" aria-label="Next"><Icon name="ChevronRight" size={20}/></button>
+        </div>
+      </div>
+      <div className="collections-grid">
+        {collections.map((c,i)=>(
+          <a key={i} href="product-list.html" className="collection-tile" style={{textDecoration:'none',color:'#fff',display:'block'}}>
+            <img src={c.img} alt=""/>
+            <div className="grad"/>
+            <div className="title">{c.title}</div>
+            <div className="shop">SHOP</div>
+          </a>
+        ))}
+      </div>
+
+      {/* PERFECT PICK */}
+      <div className="section-head"><h2>Perfect pick</h2></div>
+      <div className="rail" style={{gridTemplateColumns:'2fr 1fr 1fr 1fr 1fr'}}>
+        <PromoTile/>
+        <CoinTile item={perfectPick[0]}/>
+        <CoinTile item={perfectPick[1]}/>
+        <CoinTile item={perfectPick[2]}/>
+        <CoinTile item={perfectPick[3]}/>
+      </div>
+      <div className="rail">
+        {perfectPick.slice(4).map((it,i)=><CoinTile key={i} item={it}/>)}
+      </div>
+    </div>
+
+    {/* BANNER */}
+    <section className="banner">
+      <div className="banner-inner">
+        <div>
+          <h3>Become a member &amp; Get 15% off</h3>
+          <p>Be first to receive updates on new collections, inspiration, gift ideas and exclusive access</p>
+        </div>
+        <button className="btn-dark">JOIN THE CLUB</button>
+      </div>
+    </section>
+
+    {/* FOOTER */}
+    <footer className="site">
+      <div className="footer-inner">
+        <div className="cols">
+        <details className="col" open>
+          <summary>ABOUT US</summary>
+          <ul><li><a href="#">News</a></li><li><a href="#">Careers</a></li><li><a href="#">Events</a></li></ul>
+        </details>
+        <details className="col" open>
+          <summary>GET HELP</summary>
+          <ul><li><a href="#">Order Status</a></li><li><a href="#">Delivery</a></li><li><a href="#">Returns</a></li><li><a href="#">Payment Options</a></li><li><a href="#">Find a Store</a></li></ul>
+        </details>
+        <details className="col" open>
+          <summary>LEGAL</summary>
+          <ul><li><a href="#">General Info</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
+        </details>
+        <div className="contact-mobile">
+          <h4>TALK TO US</h4>
+          <ul>
+            <li>salesadmin@singaporemint.com.sg</li>
+            <li>+65 6566 2626</li>
+            <li><a href="#">Send Us Feedbacks</a></li>
+          </ul>
+          <div className="socials">
+            <a href="#" aria-label="Facebook"><Icon name="BrandFacebook" size={16}/></a>
+            <a href="#" aria-label="LinkedIn"><Icon name="BrandLinkedin" size={16}/></a>
+            <a href="#" aria-label="Twitter"><Icon name="BrandTwitter" size={16}/></a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </footer>
+
+    {/* OUR STORES */}
+    <section className="stores-strip" style={{background:'#000',padding:'40px 0 32px'}}>
+      <div className="stores-inner" style={{padding:'0 56px'}}>
+      <h2 style={{fontFamily:'var(--font-label)',fontWeight:800,fontSize:22,letterSpacing:'.06em',textTransform:'uppercase',margin:'0 0 36px',color:'#fff'}}>Our Stores</h2>
+      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:40}}>
+        {[
+          {name:'Coin Gallery (Head Office)',addr:'20 Teban Gardens Crescent, S 608928',tel:'+65 6895 0288',hours:'Mon – Fri, 8.30am – 4.30pm'},
+          {name:'Chinatown Point',addr:'133 New Bridge Road, #02-18, S 059413',tel:'+65 6222 2486',hours:'Daily, 11.00am – 9.30pm'},
+          {name:'Suntec City Mall',addr:'3 Temasek Blvd, #02-719 East Wing Tower 3, S 038983',tel:'+65 6336 2878',hours:'Daily, 11.00am – 9.30pm'},
+        ].map((s,i)=>(
+          <div key={i} style={{borderTop:'2px solid var(--brand-red-800)',paddingTop:20}}>
+            <div style={{fontFamily:'var(--font-label)',fontWeight:700,fontSize:14,textTransform:'uppercase',letterSpacing:'.05em',marginBottom:14,color:'#fff'}}>{s.name}</div>
+            <div style={{fontFamily:'var(--font-body)',fontSize:14,lineHeight:'22px',color:'var(--ink-300)',marginBottom:6}}>{s.addr}</div>
+            <div style={{fontFamily:'var(--font-body)',fontSize:14,lineHeight:'22px',color:'var(--ink-300)',marginBottom:4}}>{s.tel}</div>
+            <div style={{fontFamily:'var(--font-body)',fontSize:14,lineHeight:'22px',color:'var(--ink-400)'}}>{s.hours}</div>
+          </div>
+        ))}
+      </div>
+        <div className="base" style={{marginTop:40,color:'#fff',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+          <img src="../../assets/standalone/logo.webp" alt="The Singapore Mint" style={{height:28,filter:'brightness(0) invert(1)'}}/>
+          © 2019 Singapore Mint. All Rights Reserved.
+        </div>
+      </div>
+    </section>
+  </div>
+);
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+<script id="om-fly-cart-js">
+(function(){
+  function fly(fromEl){
+    var img = fromEl && fromEl.closest('.card') && fromEl.closest('.card').querySelector('.coin-photo img');
+    var target = document.querySelector('[aria-label="Cart"]') || document.querySelector('.sm-navi-right');
+    if(!img || !target) return;
+    var s = img.getBoundingClientRect(), t = target.getBoundingClientRect();
+    var clone = document.createElement('img');
+    clone.src = img.src; clone.className = 'fly-coin';
+    clone.style.left = s.left + s.width/2 - 28 + 'px';
+    clone.style.top = s.top + s.height/2 - 28 + 'px';
+    clone.style.setProperty('--dx', (t.left + t.width/2 - s.left - s.width/2) + 'px');
+    clone.style.setProperty('--dy', (t.top + t.height/2 - s.top - s.height/2) + 'px');
+    var kf = [
+      {transform:'translate(0,0) scale(1) rotate(0)', opacity:1},
+      {transform:'translate(calc(var(--dx)*.5), calc(var(--dy)*.2 - 80px)) scale(.7) rotate(120deg)', opacity:.9, offset:.5},
+      {transform:'translate(var(--dx), var(--dy)) scale(.15) rotate(240deg)', opacity:0}
+    ];
+    document.body.appendChild(clone);
+    var a = clone.animate(kf, {duration:800, easing:'cubic-bezier(.5,0,.7,1)', fill:'forwards'});
+    a.onfinish = function(){ clone.remove(); target.animate([{transform:'scale(1)'},{transform:'scale(1.25)'},{transform:'scale(1)'}], {duration:400, easing:'cubic-bezier(.34,1.56,.64,1)'}); };
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest && e.target.closest('.add-cart');
+    if(b){ b.classList.remove('added'); void b.offsetWidth; b.classList.add('added'); fly(b); }
+  }, true);
+})();
+</script>
+</body></html>

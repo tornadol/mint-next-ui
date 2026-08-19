@@ -1,0 +1,374 @@
+<!-- @dsCard group="Website" viewport="1440x1600" name="Checkout" subtitle="DBS Bank Singapore payment flow" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Checkout · The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../assets/data/categories.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<style>
+body{margin:0;background:#f7f6f2;color:var(--ink-1000);font-family:var(--font-body)}
+.wrap{max-width:1280px;margin:0 auto}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+a{color:inherit}a:hover{color:#cf0731}
+.crumbs{display:flex;gap:8px;padding:20px 0;font-size:13px;color:var(--ink-500)}
+.crumbs a{color:var(--ink-500);text-decoration:none}
+.crumbs a:hover{color:var(--ink-1000);text-decoration:underline}
+.crumbs .current{color:var(--ink-1000);font-weight:600}
+h1{font-family:var(--font-label);font-weight:800;font-size:32px;margin:0 0 24px}
+.steps{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+.step{display:flex;align-items:center;gap:10px;color:var(--ink-500);font-family:var(--font-label);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.step .n{width:26px;height:26px;border-radius:999px;background:var(--ink-100);color:var(--ink-500);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.step.on{color:var(--ink-1000)}.step.on .n{background:#cf0731;color:#fff}
+.step.done .n{background:#0a8a4a;color:#fff}
+.step.done{color:#0a8a4a}
+.dash{flex:1;height:1px;background:var(--ink-100)}
+.dash.done{background:#0a8a4a}
+.grid{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;padding-bottom:64px}
+.card{background:#fff;border:1px solid var(--ink-75);border-radius:6px;padding:26px 28px}
+.card + .card{margin-top:20px}
+.card h2{font-family:var(--font-label);font-weight:800;font-size:17px;margin:0 0 6px}
+.card .sub{font-family:var(--font-body);font-size:13px;color:var(--ink-500);margin:0 0 22px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--font-label);font-weight:600;font-size:12px;color:var(--ink-800);letter-spacing:.02em}
+.field input,.field select{padding:11px 14px;border:1px solid var(--ink-100);border-radius:4px;font-family:var(--font-body);font-size:14px;outline:0;background:#fff;transition:border-color .12s,box-shadow .12s}
+.field input:focus,.field select:focus{border-color:#cf0731;box-shadow:0 0 0 3px rgba(207,7,49,.10)}
+.pay-methods{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.pay-method{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--ink-100);border-radius:6px;cursor:pointer;transition:border-color .15s,background .15s}
+.pay-method:hover{border-color:var(--ink-400)}
+.pay-method.on{border-color:#cf0731;background:#fff8f9;box-shadow:0 0 0 4px rgba(207,7,49,.06)}
+.pay-radio{width:18px;height:18px;border-radius:999px;border:2px solid var(--ink-200);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;transition:border-color .15s}
+.pay-method.on .pay-radio{border-color:#cf0731}
+.pay-method.on .pay-radio::after{content:"";width:9px;height:9px;border-radius:999px;background:#cf0731}
+.pay-logo{height:24px;flex-shrink:0}
+.pay-title{font-family:var(--font-label);font-weight:700;font-size:14px;flex:1}
+.pay-meta{font-size:12px;color:var(--ink-500);font-family:var(--font-body)}
+.dbs-panel{margin-top:16px;padding:22px;border-radius:6px;background:linear-gradient(140deg,#e30613 0%,#a30f0f 100%);color:#fff;position:relative;overflow:hidden}
+.dbs-panel::before{content:"";position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:999px;background:rgba(255,255,255,.06)}
+.dbs-panel::after{content:"";position:absolute;left:-30px;bottom:-30px;width:140px;height:140px;border-radius:999px;background:rgba(0,0,0,.12)}
+.dbs-brand{display:flex;align-items:center;gap:10px;position:relative;font-family:var(--font-label);font-weight:800;font-size:15px;letter-spacing:.06em}
+.dbs-brand .mark{width:34px;height:34px;background:#fff;color:#e30613;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:14px}
+.dbs-panel .card-visual{margin-top:22px;background:rgba(0,0,0,.18);border-radius:8px;padding:18px;position:relative;z-index:1;backdrop-filter:blur(4px)}
+.card-visual .number{font-family:'Menlo',monospace;font-size:18px;letter-spacing:.18em;margin:14px 0 18px;color:#fff}
+.card-visual .row{display:flex;justify-content:space-between;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.85}
+.card-visual .row div strong{display:block;font-size:14px;font-family:var(--font-label);font-weight:700;letter-spacing:.06em;margin-top:2px;opacity:1}
+.summary{position:sticky;top:100px;background:#fff;border:1px solid var(--ink-75);border-radius:6px;padding:24px;height:fit-content}
+.summary h3{font-family:var(--font-label);font-weight:800;font-size:15px;margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid var(--ink-75)}
+.sum-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--ink-50)}
+.sum-row:last-of-type{border-bottom:0}
+.sum-row img{width:56px;height:56px;border:1px solid var(--ink-75);object-fit:contain;background:#fff;padding:4px;flex-shrink:0}
+.sum-row .info{flex:1;min-width:0}
+.sum-row .n{font-family:var(--font-label);font-weight:700;font-size:13px;line-height:1.35;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.sum-row .m{font-size:12px;color:var(--ink-500);margin-top:2px}
+.sum-row .p{font-family:var(--font-label);font-weight:700;font-size:13px}
+.totals{border-top:1px solid var(--ink-75);margin-top:14px;padding-top:14px}
+.totals .line{display:flex;justify-content:space-between;font-family:var(--font-body);font-size:14px;color:var(--ink-1000);padding:5px 0}
+.totals .line.total{font-family:var(--font-label);font-weight:800;font-size:18px;padding-top:12px;margin-top:8px;border-top:1px solid var(--ink-75)}
+.pay-btn{width:100%;background:#cf0731;color:#fff;border:0;padding:16px;font-family:var(--font-label);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px;margin-top:18px;transition:background .12s}
+.pay-btn:hover{background:#a30425}
+.pay-btn:disabled{opacity:.5;cursor:not-allowed}
+.secure{display:flex;align-items:center;gap:8px;justify-content:center;font-size:11.5px;color:var(--ink-500);margin-top:12px;font-family:var(--font-body)}
+/* DBS 3DS modal */
+.dbs-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px}
+.dbs-modal{background:#fff;width:520px;max-width:100%;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:mIn .18s ease}
+@keyframes mIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.dbs-modal-head{background:#e30613;color:#fff;padding:22px 26px;display:flex;align-items:center;gap:12px}
+.dbs-modal-head .mark{width:36px;height:36px;background:#fff;color:#e30613;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-label);font-weight:900;font-size:15px}
+.dbs-modal-head .t{font-family:var(--font-label);font-weight:800;font-size:15px;letter-spacing:.06em}
+.dbs-modal-body{padding:28px 30px}
+.dbs-modal-body h3{font-family:var(--font-label);font-weight:800;font-size:18px;margin:0 0 6px}
+.dbs-modal-body .sub{color:var(--ink-500);font-size:13px;margin:0 0 22px}
+.otp-boxes{display:flex;gap:10px;justify-content:center;margin:22px 0 8px}
+.otp-boxes input{width:46px;height:56px;text-align:center;font-family:var(--font-label);font-weight:800;font-size:22px;border:1.5px solid var(--ink-100);border-radius:6px;outline:0}
+.otp-boxes input:focus{border-color:#e30613;box-shadow:0 0 0 3px rgba(227,6,19,.15)}
+.otp-note{text-align:center;color:var(--ink-500);font-size:12px;margin:8px 0 20px}
+.dbs-modal-actions{display:flex;gap:12px}
+.dbs-btn{flex:1;padding:13px;border-radius:4px;border:0;font-family:var(--font-label);font-weight:700;font-size:13px;letter-spacing:.05em;text-transform:uppercase;cursor:pointer}
+.dbs-btn.primary{background:#e30613;color:#fff}.dbs-btn.primary:hover{background:#b30410}
+.dbs-btn.primary:disabled{opacity:.5;cursor:not-allowed}
+.dbs-btn.ghost{background:#fff;border:1px solid var(--ink-100);color:var(--ink-1000)}
+.processing{text-align:center;padding:40px 0}
+.spinner{width:52px;height:52px;border-radius:999px;border:4px solid #f5d3d6;border-top-color:#e30613;margin:0 auto 20px;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.success{text-align:center;padding:20px 0 8px}
+.success .check{width:66px;height:66px;margin:0 auto 16px;border-radius:999px;background:#e8f6ec;color:#0a8a4a;display:flex;align-items:center;justify-content:center;animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+.success h3{font-size:22px;margin:0 0 8px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.summary{position:static}.field-row{grid-template-columns:1fr}}
+/*om-footer*/
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+footer.site h4{font-family:var(--font-label);text-transform:uppercase;font-size:14px;margin:0 0 20px;letter-spacing:.06em;color:#fff}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+.stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+@media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+const fmt = n => 'S$' + (n||0).toFixed(2);
+
+const App = () => {
+  const [cart, setCart] = React.useState([]);
+  const [method, setMethod] = React.useState('dbs-card');
+  const [step, setStep] = React.useState(1); // 1 form 2 dbs 3 done
+  const [dbs, setDbs] = React.useState('form'); // form|processing|otp|verifying|done
+  const [otp, setOtp] = React.useState(['','','','','','']);
+  const [order, setOrder] = React.useState(null);
+  const [f, setF] = React.useState({
+    email:'', firstName:'', lastName:'', phone:'',
+    addr:'', city:'Singapore', postcode:'', country:'Singapore',
+    cardName:'', cardNum:'4111 2222 3333 4444', exp:'12/28', cvv:'123'
+  });
+  React.useEffect(() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem('sm-cart') || '[]');
+      setCart(raw);
+      const user = JSON.parse(localStorage.getItem('sm-user') || 'null');
+      if (user) setF(s => ({...s, email:user.email||'', firstName:(user.name||'').split(' ')[0]||'', lastName:(user.name||'').split(' ').slice(1).join(' ')||''}));
+    } catch(_){}
+  }, []);
+  const subtotal = cart.reduce((s,i)=>s + (i.price||0)*(i.qty||1), 0);
+  const delivery = subtotal >= 150 || cart.length===0 ? 0 : 8;
+  const gst = subtotal * 0.09;
+  const total = subtotal + delivery;
+  const orderNo = React.useMemo(()=>('TSM'+Math.floor(100000+Math.random()*900000)),[]);
+
+  const startPayment = () => {
+    if (cart.length === 0) return;
+    setStep(2);
+    setDbs('processing');
+    setTimeout(()=>setDbs('otp'), 1400);
+  };
+  const submitOtp = () => {
+    const val = otp.join('');
+    if (val.length !== 6) return;
+    setDbs('verifying');
+    setTimeout(()=>{
+      setDbs('done');
+      // save order
+      try {
+        const orders = JSON.parse(localStorage.getItem('sm-orders') || '[]');
+        const o = {
+          id: orderNo, date: new Date().toISOString(),
+          items: cart, subtotal, delivery, gst, total,
+          method: 'DBS Bank · **** '+ (f.cardNum.slice(-4)),
+          address: `${f.firstName} ${f.lastName}, ${f.addr}, ${f.city} ${f.postcode}, ${f.country}`,
+          status: 'Paid'
+        };
+        orders.unshift(o);
+        localStorage.setItem('sm-orders', JSON.stringify(orders));
+        localStorage.setItem('sm-cart','[]');
+        window.dispatchEvent(new CustomEvent('sm-cart-updated'));
+        setOrder(o);
+        setStep(3);
+      } catch(_){}
+    }, 1400);
+  };
+  const setOtpAt = (i,v) => {
+    v = v.replace(/\D/g,'').slice(-1);
+    setOtp(prev => { const n=[...prev]; n[i]=v; return n; });
+    if (v && i < 5) { const next = document.getElementById('otp-'+(i+1)); if (next) next.focus(); }
+  };
+
+  return (
+    <div className="wrap">
+      {Navi ? <Navi active="Home"/> : null}
+      <div className="container">
+        <nav className="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> / <a href="product-list.html">Shop</a> / <span className="current">Checkout</span>
+        </nav>
+        <h1>Checkout</h1>
+        <div className="steps">
+          <div className={`step ${step===1?'on':step>1?'done':''}`}><span className="n">{step>1?'✓':'1'}</span> Details</div>
+          <div className={`dash ${step>1?'done':''}`}/>
+          <div className={`step ${step===2?'on':step>2?'done':''}`}><span className="n">{step>2?'✓':'2'}</span> Payment</div>
+          <div className={`dash ${step>2?'done':''}`}/>
+          <div className={`step ${step===3?'on':''}`}><span className="n">3</span> Confirmation</div>
+        </div>
+
+        {step === 3 ? (
+          <div className="card" style={{textAlign:'center',padding:'64px 32px',maxWidth:640,margin:'0 auto'}}>
+            <div className="success">
+              <div className="check"><Icon name="Check" size={30}/></div>
+              <h3 style={{fontFamily:'var(--font-label)',fontWeight:800,fontSize:24}}>Payment successful</h3>
+              <p style={{color:'var(--ink-500)',fontSize:14,margin:'0 0 24px'}}>Order <strong>{order?.id}</strong> was confirmed. A receipt has been sent to {order?.address.split(',')[0] ? f.email : 'your email'}.</p>
+              <div style={{background:'var(--ink-25)',borderRadius:6,padding:'16px 20px',display:'flex',justifyContent:'space-between',fontFamily:'var(--font-label)',fontWeight:700,fontSize:14,marginBottom:24}}>
+                <span>Amount charged</span><span>{fmt(order?.total||0)}</span>
+              </div>
+              <div style={{display:'flex',gap:12,justifyContent:'center'}}>
+                <a href="order-history.html" className="pay-btn" style={{background:'#fff',color:'#cf0731',border:'1px solid #cf0731',textDecoration:'none',display:'inline-block',padding:'14px 24px',width:'auto',marginTop:0}}>View Orders</a>
+                <a href="index.html" className="pay-btn" style={{width:'auto',padding:'14px 24px',textDecoration:'none',display:'inline-block',marginTop:0}}>Continue Shopping</a>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="grid">
+            <div>
+              <div className="card">
+                <h2>Contact Information</h2>
+                <p className="sub">We'll send your receipt and shipping updates here.</p>
+                <div className="field-row">
+                  <div className="field full"><label>Email address</label><input value={f.email} onChange={e=>setF({...f,email:e.target.value})} placeholder="you@example.com"/></div>
+                  <div className="field"><label>First name</label><input value={f.firstName} onChange={e=>setF({...f,firstName:e.target.value})}/></div>
+                  <div className="field"><label>Last name</label><input value={f.lastName} onChange={e=>setF({...f,lastName:e.target.value})}/></div>
+                  <div className="field full"><label>Phone</label><input value={f.phone} onChange={e=>setF({...f,phone:e.target.value})} placeholder="+65 8123 4567"/></div>
+                </div>
+              </div>
+
+              <div className="card">
+                <h2>Shipping Address</h2>
+                <p className="sub">Delivery is free on orders over S$150.</p>
+                <div className="field-row">
+                  <div className="field full"><label>Street address</label><input value={f.addr} onChange={e=>setF({...f,addr:e.target.value})} placeholder="20 Teban Gardens Crescent"/></div>
+                  <div className="field"><label>City</label><input value={f.city} onChange={e=>setF({...f,city:e.target.value})}/></div>
+                  <div className="field"><label>Postal code</label><input value={f.postcode} onChange={e=>setF({...f,postcode:e.target.value})} placeholder="608928"/></div>
+                  <div className="field full"><label>Country</label>
+                    <select value={f.country} onChange={e=>setF({...f,country:e.target.value})}>
+                      <option>Singapore</option><option>Malaysia</option><option>Indonesia</option><option>Thailand</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card">
+                <h2>Payment Method</h2>
+                <p className="sub">Secure checkout powered by DBS Bank Singapore.</p>
+                <div className="pay-methods">
+                  <div className={`pay-method ${method==='dbs-card'?'on':''}`} onClick={()=>setMethod('dbs-card')}>
+                    <span className="pay-radio"/>
+                    <div style={{width:44,height:28,borderRadius:4,background:'#e30613',color:'#fff',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-label)',fontWeight:900,fontSize:11,letterSpacing:'.08em'}}>DBS</div>
+                    <span className="pay-title">DBS Credit / Debit Card</span>
+                    <span className="pay-meta">Visa · Mastercard</span>
+                  </div>
+                  <div className={`pay-method ${method==='paynow'?'on':''}`} onClick={()=>setMethod('paynow')}>
+                    <span className="pay-radio"/>
+                    <div style={{width:44,height:28,borderRadius:4,background:'#0f2f52',color:'#fff',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-label)',fontWeight:900,fontSize:9,letterSpacing:'.04em'}}>PayNow</div>
+                    <span className="pay-title">PayNow QR (DBS/POSB)</span>
+                    <span className="pay-meta">Scan &amp; pay</span>
+                  </div>
+                  <div className={`pay-method ${method==='paylah'?'on':''}`} onClick={()=>setMethod('paylah')}>
+                    <span className="pay-radio"/>
+                    <div style={{width:44,height:28,borderRadius:4,background:'#e30613',color:'#fff',display:'inline-flex',alignItems:'center',justifyContent:'center',fontFamily:'var(--font-label)',fontWeight:900,fontSize:9,letterSpacing:'.04em'}}>PayLah!</div>
+                    <span className="pay-title">DBS PayLah!</span>
+                    <span className="pay-meta">Instant transfer</span>
+                  </div>
+                </div>
+
+                {method === 'dbs-card' && (
+                  <div className="dbs-panel">
+                    <div className="dbs-brand"><span className="mark">DBS</span> BANK SINGAPORE</div>
+                    <div className="card-visual">
+                      <div style={{fontSize:11,opacity:.85,letterSpacing:'.08em',textTransform:'uppercase'}}>Card number</div>
+                      <div className="number">{f.cardNum}</div>
+                      <div className="row">
+                        <div>Cardholder<strong>{(f.firstName+' '+f.lastName).trim() || 'YOUR NAME'}</strong></div>
+                        <div>Expires<strong>{f.exp}</strong></div>
+                        <div>CVV<strong>•••</strong></div>
+                      </div>
+                    </div>
+                    <div style={{marginTop:18,position:'relative',zIndex:1}}>
+                      <div className="field-row">
+                        <div className="field full" style={{marginBottom:8}}><label style={{color:'#ffd9de'}}>Card number</label><input value={f.cardNum} onChange={e=>setF({...f,cardNum:e.target.value})}/></div>
+                        <div className="field" style={{marginBottom:0}}><label style={{color:'#ffd9de'}}>Expiry (MM/YY)</label><input value={f.exp} onChange={e=>setF({...f,exp:e.target.value})}/></div>
+                        <div className="field" style={{marginBottom:0}}><label style={{color:'#ffd9de'}}>CVV</label><input value={f.cvv} onChange={e=>setF({...f,cvv:e.target.value})} maxLength={3}/></div>
+                        <div className="field full" style={{marginBottom:0,marginTop:12}}><label style={{color:'#ffd9de'}}>Name on card</label><input value={f.cardName} onChange={e=>setF({...f,cardName:e.target.value})} placeholder="As shown on card"/></div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="summary">
+              <h3>Order Summary ({cart.reduce((s,i)=>s+(i.qty||1),0)} items)</h3>
+              {cart.length === 0 ? (
+                <p style={{color:'var(--ink-500)',fontSize:13,textAlign:'center',padding:'30px 0'}}>Your cart is empty. <a href="product-list.html">Continue shopping</a>.</p>
+              ) : (
+                <>
+                  {cart.map((it,i) => (
+                    <div key={i} className="sum-row">
+                      <img src={it.img} alt=""/>
+                      <div className="info">
+                        <div className="n">{it.name}</div>
+                        <div className="m">Qty: {it.qty||1}</div>
+                      </div>
+                      <div className="p">{fmt((it.price||0)*(it.qty||1))}</div>
+                    </div>
+                  ))}
+                  <div className="totals">
+                    <div className="line"><span>Subtotal</span><span>{fmt(subtotal)}</span></div>
+                    <div className="line"><span>GST (9%, incl.)</span><span>{fmt(gst)}</span></div>
+                    <div className="line"><span>Delivery</span><span>{delivery===0?'FREE':fmt(delivery)}</span></div>
+                    <div className="line total"><span>Total</span><span>{fmt(total)}</span></div>
+                  </div>
+                </>
+              )}
+              <button className="pay-btn" disabled={cart.length===0} onClick={startPayment}>Pay {fmt(total)} with DBS</button>
+              <div className="secure"><Icon name="Lock" size={12}/> Secured by DBS Bank · 256-bit SSL encryption</div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {step === 2 && (
+        <div className="dbs-modal-backdrop">
+          <div className="dbs-modal">
+            <div className="dbs-modal-head">
+              <span className="mark">DBS</span>
+              <div>
+                <div className="t">DBS SECURE PAYMENT</div>
+                <div style={{fontSize:11,opacity:.85,marginTop:2}}>3-D Secure Verification</div>
+              </div>
+            </div>
+            <div className="dbs-modal-body">
+              {dbs === 'processing' && (
+                <div className="processing">
+                  <div className="spinner"/>
+                  <h3>Contacting DBS Bank…</h3>
+                  <p className="sub">Verifying your card ending in •••• {f.cardNum.slice(-4)}</p>
+                </div>
+              )}
+              {dbs === 'otp' && (
+                <>
+                  <h3>Enter your 6-digit OTP</h3>
+                  <p className="sub">A one-time password has been sent to your DBS-registered mobile ending in <strong>••••23</strong>. Use <strong>123456</strong> for this demo.</p>
+                  <div style={{background:'#fff8ea',border:'1px solid #f0e2bb',borderRadius:4,padding:'10px 14px',fontSize:12.5,color:'#7a6b1a',marginBottom:12}}>
+                    <strong>Merchant:</strong> THE SINGAPORE MINT · <strong>Amount:</strong> {fmt(total)}
+                  </div>
+                  <div className="otp-boxes">
+                    {otp.map((v,i)=><input key={i} id={`otp-${i}`} value={v} onChange={e=>setOtpAt(i,e.target.value)} inputMode="numeric" maxLength={1}/>)}
+                  </div>
+                  <div className="otp-note">OTP is valid for 3 minutes · <a href="#" onClick={e=>e.preventDefault()} style={{color:'#e30613'}}>Resend</a></div>
+                  <div className="dbs-modal-actions">
+                    <button className="dbs-btn ghost" onClick={()=>{setStep(1);setOtp(['','','','','','']);}}>Cancel</button>
+                    <button className="dbs-btn primary" onClick={submitOtp} disabled={otp.join('').length !== 6}>Verify &amp; Pay</button>
+                  </div>
+                </>
+              )}
+              {dbs === 'verifying' && (
+                <div className="processing">
+                  <div className="spinner"/>
+                  <h3>Verifying OTP…</h3>
+                  <p className="sub">Processing your payment of {fmt(total)}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <SiteFooter Icon={Icon} noStores={true}/>
+    </div>
+  );
+};
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

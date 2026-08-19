@@ -1,0 +1,160 @@
+<!-- @dsCard group="Website" viewport="1440x1200" name="Wishlist" subtitle="Saved products grid with remove and add-to-cart" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wishlist · The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../../assets/data/categories.js"></script>
+<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<style>
+body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
+.wrap{max-width:1280px;margin:0 auto}
+.page-pad{padding:0 24px}
+.crumbs{display:flex;align-items:center;gap:8px;padding:20px 0;font-family:var(--font-body);font-size:13px;color:var(--ink-500)}
+.crumbs a{color:var(--ink-500);text-decoration:none}
+.crumbs a:hover{color:var(--ink-1000);text-decoration:underline}
+.crumbs .sep{color:var(--ink-200)}
+.crumbs .current{color:var(--ink-1000);font-weight:600}
+h1.page{font:var(--text-section);font-size:36px;margin:8px 0 6px}
+.sub{font-family:var(--font-body);font-size:14px;color:var(--ink-500);margin-bottom:24px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:12px}
+.clear-btn{background:none;border:0;color:#cf0731;font-family:var(--font-label);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.clear-btn:hover{text-decoration:underline}
+.actions-right{display:flex;gap:12px;align-items:center}
+.btn-outline{background:#fff;border:1px solid var(--ink-100);color:var(--ink-1000);padding:10px 14px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px}
+.btn-outline:hover{border-color:var(--ink-400)}
+.btn-primary{background:#cf0731;border:0;color:#fff;padding:11px 16px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;border-radius:4px}
+.btn-primary:hover{background:#a30425}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:64px}
+.card{background:#fff;border:1px solid var(--ink-75);padding:24px 20px 20px;position:relative;min-height:340px;display:flex;flex-direction:column;min-width:0;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);z-index:1}
+.card .quick-actions{position:absolute;top:12px;right:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.card .qa-btn{width:32px;height:32px;border-radius:999px;background:#fff;border:1px solid #ffd1d1;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#cf0731;transition:background .12s,color .12s,border-color .12s}
+.card .qa-btn:hover{background:#cf0731;color:#fff;border-color:#cf0731}
+.card .coin-photo{width:100%;height:200px;display:flex;align-items:center;justify-content:center;margin-bottom:0}
+.card .coin-photo img{max-width:100%;max-height:180px;width:180px;object-fit:contain;filter:drop-shadow(0 4px 14px rgba(67,80,95,.20));transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .3s}
+.card:hover .coin-photo img{transform:rotate(8deg) scale(1.06);filter:drop-shadow(0 10px 22px rgba(67,80,95,.28))}
+.card .meta{font:var(--text-meta);color:var(--ink-500)}
+.card .name{font-family:var(--font-body);font-size:13px;line-height:1.35;color:var(--ink-1000);margin-top:6px;min-height:36px;overflow-wrap:break-word;word-break:break-word;flex:1}
+.card .price{font-family:var(--font-label);font-weight:700;font-size:14px;color:var(--ink-1000);margin-top:8px;margin-bottom:14px}
+.card .add-cart{margin-top:auto;background:#cf0731;color:#fff;border:0;padding:11px 14px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .12s}
+.card .add-cart:hover{background:#a30425}
+.empty{padding:80px 40px;text-align:center;color:var(--ink-500);font-family:var(--font-body);border:1px dashed var(--ink-100);border-radius:6px;margin-bottom:64px}
+.empty h3{font-family:var(--font-label);font-weight:700;color:var(--ink-1000);font-size:20px;margin:0 0 8px}
+.empty a{display:inline-block;margin-top:14px;background:#cf0731;color:#fff;text-decoration:none;padding:12px 24px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;border-radius:4px}
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  h1.page{font-size:28px}
+}
+
+/* full-bleed escape hatch for sections whose backgrounds should span viewport */
+.hero,.banner,footer.site,.stats-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+.hero > *,.banner > *,footer.site > *,.stats-strip > *{max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+/*om-footer*/
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+
+
+
+
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+.stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+@media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}.stores-strip>div{padding:0 24px!important}.stores-strip>div>div[style*='grid-template-columns']{grid-template-columns:1fr!important}}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+const App = () => {
+  const [items, setItems] = React.useState([]);
+  const read = React.useCallback(() => {
+    try {
+      const raw = JSON.parse(localStorage.getItem('sm-wishlist') || '[]');
+      setItems(raw.map(x => typeof x === 'string' ? { img:x } : x).filter(x => x && x.img));
+    } catch(_){ setItems([]); }
+  }, []);
+  React.useEffect(() => {
+    read();
+    const h = () => read();
+    window.addEventListener('sm-wishlist-updated', h);
+    window.addEventListener('storage', h);
+    return () => { window.removeEventListener('sm-wishlist-updated', h); window.removeEventListener('storage', h); };
+  }, [read]);
+  const write = (next) => {
+    setItems(next);
+    try { localStorage.setItem('sm-wishlist', JSON.stringify(next)); } catch(_){}
+    window.dispatchEvent(new CustomEvent('sm-wishlist-updated'));
+  };
+  const removeItem = (img) => write(items.filter(x => (x.img||x) !== img));
+  const clearAll = () => write([]);
+  const addToCart = (it) => {
+    try {
+      const list = JSON.parse(localStorage.getItem('sm-cart') || '[]');
+      const existing = list.find(x => x.img === it.img);
+      if (existing) existing.qty = (existing.qty||1) + 1;
+      else list.push({ img:it.img, name:it.name || 'Product', meta:it.meta || (it.sku?it.sku+' · 45mm':''), price:it.price||0, qty:1 });
+      localStorage.setItem('sm-cart', JSON.stringify(list));
+      window.dispatchEvent(new CustomEvent('sm-cart-updated'));
+    } catch(_){}
+  };
+  const addAll = () => { items.forEach(addToCart); };
+
+  return (
+    <div className="wrap">
+      {Navi ? <Navi/> : null}
+      <div className="page-pad">
+        <nav className="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span className="sep">/</span>
+          <span className="current">Wishlist</span>
+        </nav>
+        <h1 className="page">My Wishlist</h1>
+        <div className="sub">{items.length} {items.length===1?'item':'items'} saved</div>
+
+        {items.length === 0 ? (
+          <div className="empty">
+            <h3>Your wishlist is empty</h3>
+            <div>Browse the shop and tap the heart icon on any product to save it here.</div>
+            <a href="product-list.html">Browse Shop</a>
+          </div>
+        ) : (
+          <>
+            <div className="toolbar">
+              <button className="clear-btn" onClick={clearAll}>Clear All</button>
+              <div className="actions-right">
+                <a href="product-list.html" className="btn-outline" style={{textDecoration:'none',display:'inline-flex',alignItems:'center'}}>Continue Shopping</a>
+                <button className="btn-primary" onClick={addAll}>Add All to Cart</button>
+              </div>
+            </div>
+
+            <div className="grid">
+              {items.map((it,i) => (
+                <div key={it.img||i} className="card" onClick={()=>{window.location.href='product-detail.html';}}>
+                  <div className="quick-actions">
+                    <button className="qa-btn" aria-label="Remove from wishlist" onClick={(e)=>{e.stopPropagation();removeItem(it.img);}}>
+                      <Icon name="X" size={14}/>
+                    </button>
+                  </div>
+                  <div className="coin-photo"><img src={it.img} alt=""/></div>
+                  <div className="meta">{it.sku ? it.sku+' · 45mm' : '—'}</div>
+                  <div className="name">{it.name || 'Product'}</div>
+                  <div className="price">${(it.price||0).toFixed(2)}</div>
+                  <button className="add-cart" onClick={(e)=>{e.stopPropagation();addToCart(it);}}>Add to Cart</button>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

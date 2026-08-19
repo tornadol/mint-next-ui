@@ -1,0 +1,18 @@
+/* The Singapore Mint — Design System entry.
+   This file is the ONLY stylesheet consumers link. Everything else is @imported below. */
+
+@import './tokens/fonts.css';
+@import './tokens/colors.css';
+@import './tokens/typography.css';
+@import './tokens/spacing.css';
+@import './tokens/fig-tokens.css';
+@import './components/figma/fig-assets.css';
+
+/* Global reset just enough for previews */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--surface); }
+
+/* Baseline link */
+a { color: var(--text-primary); text-decoration: none; }
+a:hover { color: var(--brand-red-800); }
