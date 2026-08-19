@@ -1,0 +1,40 @@
+/* Spacing scale — values transcribed verbatim from the Figma frame,
+   not snapped to 4/8-px. The homepage lives on a 1440-wide canvas with a 56px gutter. */
+:root {
+  --gutter: 56px;         /* left/right edge on 1440 */
+  --gutter-hero: 80px;    /* hero tittle offset */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 56px;
+  --space-10: 64px;
+  --space-12: 80px;
+  --space-14: 96px;
+  --space-16: 128px;
+
+  /* Card & control geometry — from figma inline styles */
+  --card-h: 468px;
+  --card-w: 332px;
+  --card-inner: 300px;
+  --card-image: 200px;
+
+  /* Radii — the kit's underlying UI (buttons/inputs) uses small radii; storefront cards are square */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 999px;
+
+  /* Control heights */
+  --h-btn-sm: 32px;
+  --h-btn:    36px;
+  --h-btn-lg: 48px;   /* hero CTA */
+  --h-input:  40px;
+  --h-nav:    80px;
+}

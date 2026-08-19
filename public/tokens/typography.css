@@ -1,0 +1,30 @@
+/* Type system — IBM Plex Serif for display, Mona Sans for body copy,
+   Open Sans (600/700) for uppercase labels & CTA text, Inter for utility rows. */
+:root {
+  --font-display: "IBM Plex Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-body: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-utility: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Display (serif) — hero + section headers */
+  --text-hero:      600 100px/120px var(--font-display);   /* "SALE NOW ON" */
+  --text-section:   600 40px/56px var(--font-display);     /* "Best seller", "Just in", "Collections" */
+  --text-price-l:   500 28px/32px var(--font-display);
+  --text-price:     500 18px/24px var(--font-display);     /* card price */
+
+  /* Body sans (Mona Sans) */
+  --text-body-lg:   500 18px/32px var(--font-body);        /* hero lede */
+  --text-body:      500 16px/24px var(--font-body);        /* card title */
+  --text-body-reg:  400 16px/24px var(--font-body);
+  --text-meta:      400 14px/20px var(--font-body);        /* "L233 • 45mm" */
+  --text-eyebrow:   500 14px/20px var(--font-body);
+
+  /* Uppercase labels (Open Sans) */
+  --text-cta:       700 16px/24px var(--font-label);       /* "GET COLLECTING" */
+  --text-label:     600 16px/100% var(--font-label);       /* footer col heads */
+  --text-nav:       700 16px/24px var(--font-label);       /* "LOGIN" */
+
+  /* Utility (Inter) — for admin & tabular rows in the base UI kit */
+  --text-util:      500 14px/20px var(--font-utility);
+  --text-util-sm:   400 14px/20px var(--font-utility);
+}

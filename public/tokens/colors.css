@@ -1,0 +1,61 @@
+/* Brand colors — The Singapore Mint
+   Primary red is drawn from the hero CTA (rgb 206,7,48) plus the two other reds seen in imagery.
+   Iris blue (71,71,194) is inherited from the underlying UI kit — used only for utility buttons.
+   Neutrals mirror the raw values from Figma (no snapping). */
+:root {
+  /* Brand red */
+  --brand-red-900: rgb(163, 4, 36);
+  --brand-red-800: rgb(206, 7, 48);   /* Primary red — hero CTA */
+  --brand-red-700: rgb(226, 10, 22);
+  --brand-red-600: rgb(231, 0, 11);
+  --brand-red-500: rgb(251, 55, 6);
+
+  /* Neutrals — direct from figma usage counts */
+  --ink-1000: rgb(0, 0, 0);
+  --ink-900: rgb(15, 15, 15);
+  --ink-800: rgb(17, 17, 17);
+  --ink-700: rgb(28, 32, 36);
+  --ink-600: rgb(64, 72, 83);
+  --ink-500: rgb(84, 82, 80);
+  --ink-400: rgb(96, 100, 108);
+  --ink-300: rgb(149, 149, 149);
+  --ink-200: rgb(210, 213, 219);
+  --ink-100: rgb(226, 232, 240);
+  --ink-75:  rgb(230, 230, 230);
+  --ink-50:  rgb(241, 245, 249);
+  --ink-25:  rgb(248, 250, 252);
+  --white:   rgb(255, 255, 255);
+
+  /* Warm off-white (from token collection "Brand") */
+  --warm-1: rgb(254, 253, 250);
+  --warm-2: rgb(252, 252, 252);
+  --warm-3: rgb(240, 236, 223);
+
+  /* Utility accents inherited from the underlying UI kit */
+  --iris-11: rgb(71, 71, 194);
+  --iris-11-hover: rgba(71, 71, 194, 0.9);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 14px 0 rgba(67, 80, 95, 0.20);
+  --shadow-lift: 18px 8px 30px 0 rgba(40, 35, 27, 0.12);
+  --shadow-drop: 0 8px 30px 0 rgba(40, 35, 27, 0.18);
+  --shadow-xs:   0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  /* Semantic aliases */
+  --surface: var(--white);
+  --surface-warm: var(--warm-1);
+  --surface-panel: rgba(255, 255, 255, 0.6);       /* glassy sticky nav */
+  --surface-inverse: var(--ink-1000);
+  --text-primary: var(--ink-1000);
+  --text-secondary: var(--ink-500);
+  --text-muted: var(--ink-300);
+  --text-on-brand: var(--white);
+  --text-on-inverse: var(--white);
+  --border-hairline: var(--ink-200);
+  --border-card: var(--ink-75);
+  --border-nav: rgb(243, 244, 246);
+
+  --accent-primary: var(--brand-red-800);
+  --accent-primary-hover: var(--brand-red-900);
+  --accent-secondary: var(--iris-11);
+}
