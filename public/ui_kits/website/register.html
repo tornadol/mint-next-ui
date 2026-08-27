@@ -1,0 +1,198 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Register" subtitle="Create an account" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Create Account — The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="../../assets/data/categories.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font-body);color:var(--ink-1000);background:#fff;min-height:100vh;display:flex;flex-direction:column}
+.main{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.left{background:radial-gradient(ellipse 120% 90% at 60% 60%, #c40024 0%, #6b0015 50%, #0d0003 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.left::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.18;mix-blend-mode:overlay}
+.left .coins{position:relative;z-index:1;width:420px;height:420px}
+.left .coins img{position:absolute;filter:drop-shadow(0 8px 24px rgba(0,0,0,.6))}
+.left .tagline{position:absolute;bottom:48px;left:48px;right:48px;z-index:2;color:#fff}
+.left .tagline h2{font-family:var(--font-label);font-weight:800;font-size:32px;line-height:1.1;text-transform:uppercase;margin:0 0 8px}
+.left .tagline p{font:var(--text-body-reg);color:rgba(255,255,255,.75);margin:0}
+.right{display:flex;align-items:center;justify-content:center;padding:56px 80px;background:var(--warm-1)}
+.form-box{width:100%;max-width:440px}
+.form-box h1{font-family:var(--font-label);font-weight:800;font-size:28px;text-transform:uppercase;letter-spacing:.04em;margin:0 0 6px}
+.form-box .sub{font:var(--text-meta);color:var(--ink-500);margin:0 0 28px}
+.form-box .sub a{color:var(--brand-red-800);text-decoration:none;font-weight:600}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label{font-family:var(--font-label);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-700)}
+.field input{height:48px;padding:0 14px;border:1px solid var(--ink-200);border-radius:0;background:#fff;font:var(--text-body-reg);color:var(--ink-1000);outline:none;transition:border-color .15s}
+.field input:focus{border-color:var(--brand-red-800)}
+.field .err{font-size:12px;color:#cf0731;margin-top:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pw-strength{display:flex;gap:4px;margin-top:6px}
+.pw-strength .bar{flex:1;height:4px;background:var(--ink-50);transition:background .2s}
+.pw-strength .bar.on-1{background:#e6b800}
+.pw-strength .bar.on-2{background:#f59e0b}
+.pw-strength .bar.on-3{background:#0a8a4a}
+.pw-hint{font-size:12px;color:var(--ink-500);margin-top:6px}
+.check{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-700);margin:8px 0 22px;line-height:1.5;cursor:pointer;user-select:none}
+.check input{margin-top:3px;accent-color:var(--brand-red-800);width:16px;height:16px}
+.check a{color:var(--brand-red-800);text-decoration:none;font-weight:600}
+.btn-primary{width:100%;height:52px;background:var(--brand-red-800);color:#fff;border:0;font-family:var(--font-label);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:opacity .15s;margin-bottom:16px}
+.btn-primary:hover:not(:disabled){opacity:.9}
+.btn-primary:disabled{background:var(--ink-100);color:var(--ink-400);cursor:not-allowed}
+.btn-outline{width:100%;height:52px;background:#fff;color:var(--ink-1000);border:1px solid var(--ink-200);font-family:var(--font-label);font-weight:600;font-size:14px;letter-spacing:.04em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:border-color .15s}
+.btn-outline:hover{border-color:var(--ink-400)}
+.divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--ink-300);font:var(--text-meta)}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--ink-100)}
+.login-link{margin-top:22px;text-align:center;font:var(--text-meta);color:var(--ink-500)}
+.login-link a{color:var(--brand-red-800);text-decoration:none;font-weight:600}
+.err-box{background:#fff2f4;border:1px solid #ffd1d1;padding:10px 14px;color:#cf0731;font-family:var(--font-label);font-weight:600;font-size:13px;margin-bottom:14px}
+footer.mini{background:#000;color:var(--ink-300);font-family:var(--font-label);font-size:12px;padding:20px 56px;display:flex;align-items:center;justify-content:space-between}
+footer.mini img{height:22px;filter:invert(1) hue-rotate(180deg)}
+@media(max-width:768px){
+  .main{grid-template-columns:1fr}
+  .left{display:none}
+  .right{padding:40px 24px}
+  .two{grid-template-columns:1fr;gap:0}
+  footer.mini{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+</style><script src="../../components/core/chat-bubble.js" defer></script>
+</head>
+<body><div id="root"></div>
+<script type="text/babel" data-presets="react">
+function pwScore(pw){
+  if(!pw) return 0;
+  let s = 0;
+  if(pw.length >= 8) s++;
+  if(/[A-Z]/.test(pw) && /[a-z]/.test(pw)) s++;
+  if(/\d/.test(pw) && /[^A-Za-z0-9]/.test(pw)) s++;
+  return s;
+}
+
+const App = () => {
+  const [first, setFirst] = React.useState('');
+  const [last, setLast] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [pw, setPw] = React.useState('');
+  const [cf, setCf] = React.useState('');
+  const [agree, setAgree] = React.useState(false);
+  const [errs, setErrs] = React.useState({});
+  const [formErr, setFormErr] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+  const score = pwScore(pw);
+
+  const submit = () => {
+    setFormErr('');
+    const ne = {};
+    if(!first.trim()) ne.first = 'Required';
+    if(!last.trim()) ne.last = 'Required';
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ne.email = 'Enter a valid email';
+    if(pw.length < 8) ne.pw = 'At least 8 characters';
+    if(pw !== cf) ne.cf = 'Passwords do not match';
+    if(!agree) ne.agree = true;
+    setErrs(ne);
+    if(Object.keys(ne).length){
+      if(ne.agree) setFormErr('Please accept the Terms and Privacy Policy to continue.');
+      return;
+    }
+    setLoading(true);
+    try {
+      const name = `${first.trim()} ${last.trim()}`;
+      localStorage.setItem('sm-user', JSON.stringify({ email: email.trim(), name }));
+      window.dispatchEvent(new CustomEvent('sm-user-updated'));
+    } catch(_){}
+    setTimeout(() => { window.location.href = '/'; }, 700);
+  };
+
+  const onKey = (e) => { if(e.key === 'Enter') submit(); };
+
+  return (
+    <div style={{display:'flex',flexDirection:'column',minHeight:'100vh'}}>
+      <div className="main">
+        <div className="left">
+          <div className="coins">
+            <img src="../../assets/imagery/coins/coin-02.png" style={{width:180,left:'10%',top:'5%',transform:'rotate(-14deg)'}}/>
+            <img src="../../assets/imagery/coins/coin-06.png" style={{width:150,left:'52%',top:'0%',transform:'rotate(20deg)'}}/>
+            <img src="../../assets/imagery/coins/coin-07.png" style={{width:130,left:'68%',top:'40%',transform:'rotate(-8deg)'}}/>
+            <img src="../../assets/imagery/coins/coin-12.png" style={{width:120,left:'5%',top:'52%',transform:'rotate(18deg)'}}/>
+            <img src="../../assets/imagery/coins/coin-04.png" style={{width:110,left:'42%',top:'65%',transform:'rotate(-22deg)'}}/>
+          </div>
+          <div className="tagline">
+            <h2>Start Your<br/>Collection</h2>
+            <p>Join The Singapore Mint to save wishlists, track orders, and unlock member-only releases.</p>
+          </div>
+        </div>
+
+        <div className="right">
+          <div className="form-box">
+            <h1>Create Account</h1>
+            <p className="sub">Already a member? <a href="/login">Sign in</a></p>
+
+            {formErr && <div className="err-box">{formErr}</div>}
+
+            <div className="two">
+              <div className="field">
+                <label>First name</label>
+                <input type="text" placeholder="Alex" value={first} onChange={e=>setFirst(e.target.value)} onKeyDown={onKey}/>
+                {errs.first && <span className="err">{errs.first}</span>}
+              </div>
+              <div className="field">
+                <label>Last name</label>
+                <input type="text" placeholder="Tan" value={last} onChange={e=>setLast(e.target.value)} onKeyDown={onKey}/>
+                {errs.last && <span className="err">{errs.last}</span>}
+              </div>
+            </div>
+
+            <div className="field">
+              <label>Email address</label>
+              <input type="email" placeholder="you@example.com" value={email} onChange={e=>setEmail(e.target.value)} onKeyDown={onKey}/>
+              {errs.email && <span className="err">{errs.email}</span>}
+            </div>
+
+            <div className="field">
+              <label>Password</label>
+              <input type="password" placeholder="At least 8 characters" value={pw} onChange={e=>setPw(e.target.value)} onKeyDown={onKey}/>
+              {pw && (
+                <div className="pw-strength">
+                  <div className={`bar ${score>=1?'on-'+Math.min(score,3):''}`}/>
+                  <div className={`bar ${score>=2?'on-'+Math.min(score,3):''}`}/>
+                  <div className={`bar ${score>=3?'on-3':''}`}/>
+                </div>
+              )}
+              {errs.pw ? <span className="err">{errs.pw}</span> : <span className="pw-hint">Mix letters, numbers, and symbols for a stronger password.</span>}
+            </div>
+
+            <div className="field">
+              <label>Confirm password</label>
+              <input type="password" placeholder="Re-enter password" value={cf} onChange={e=>setCf(e.target.value)} onKeyDown={onKey}/>
+              {errs.cf && <span className="err">{errs.cf}</span>}
+            </div>
+
+            <label className="check">
+              <input type="checkbox" checked={agree} onChange={e=>setAgree(e.target.checked)}/>
+              <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>, and to receiving occasional product updates.</span>
+            </label>
+
+            <button className="btn-primary" onClick={submit} disabled={loading}>{loading ? 'Creating account…' : 'CREATE ACCOUNT'}</button>
+
+            <div className="divider">or sign up with</div>
+            <button className="btn-outline">
+              <svg width="18" height="18" viewBox="0 0 21 21"><path fill="#f25022" d="M1 1h9v9H1z"/><path fill="#7fba00" d="M11 1h9v9h-9z"/><path fill="#00a4ef" d="M1 11h9v9H1z"/><path fill="#ffb900" d="M11 11h9v9h-9z"/></svg>
+              Continue with Microsoft
+            </button>
+
+            <div className="login-link">Already have an account? <a href="/login">Sign in</a></div>
+          </div>
+        </div>
+      </div>
+
+      <footer className="mini">
+        <img src="../../assets/brand/sm-logo-slogan.png" alt="The Singapore Mint"/>
+        <span>© 2019 Singapore Mint. All Rights Reserved.</span>
+      </footer>
+    </div>
+  );
+};
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

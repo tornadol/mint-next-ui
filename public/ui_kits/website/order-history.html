@@ -7,7 +7,7 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../assets/data/categories.js"></script>
 <script src="../../_ds_bundle.js"></script>
-<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<script type="text/babel" src="../../components/core/site-footer.runtime.js"></script>
 <style>
 body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
 .wrap{max-width:1280px;margin:0 auto}
@@ -57,11 +57,12 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
 footer.site .contact-mobile h4{color:#fff}
 .stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}.stores-strip>div{padding:0 24px!important}}
-</style></head><body>
+</style><script src="../../components/core/chat-bubble.js" defer></script>
+</head><body>
 <div id="root"></div>
 <script type="text/babel">
 const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
-const fmt = n => 'S$' + (n||0).toFixed(2);
+const fmt = n => '$' + (n||0).toFixed(2);
 
 const App = () => {
   const [orders, setOrders] = React.useState([]);
@@ -74,7 +75,7 @@ const App = () => {
     <div className="wrap">
       {Navi ? <Navi active="Home"/> : null}
       <div className="container">
-        <nav className="crumbs"><a href="index.html">Home</a> / <span>Order History</span></nav>
+        <nav className="crumbs"><a href="/">Home</a> / <span>Order History</span></nav>
         <h1>Order History</h1>
         <div className="sub">{orders.length} order{orders.length===1?'':'s'} on this account.</div>
         {orders.length > 0 && (
@@ -90,7 +91,7 @@ const App = () => {
             <div className="empty">
               <h3>No orders yet</h3>
               <div>{filter==='all' ? "Your past orders will appear here after you check out." : `No ${filter} orders.`}</div>
-              {filter==='all' && <a href="product-list.html">Start Shopping</a>}
+              {filter==='all' && <a href="/product-list">Start Shopping</a>}
             </div>
           )}
           {shown.map(o => (
@@ -120,7 +121,7 @@ const App = () => {
                 <div className="order-total">Total {fmt(o.total)}</div>
                 <div style={{display:'flex',gap:10}}>
                   <a className="btn-outline" href="#" onClick={e=>e.preventDefault()}>View Receipt</a>
-                  <a className="btn-outline" href="product-list.html">Buy Again</a>
+                  <a className="btn-outline" href="/product-list">Buy Again</a>
                 </div>
               </div>
             </div>

@@ -44,7 +44,8 @@ footer.mini img{height:22px;filter:invert(1) hue-rotate(180deg)}
   .right{padding:40px 24px}
   footer.mini{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
 }
-</style></head>
+</style><script src="../../components/core/chat-bubble.js" defer></script>
+</head>
 <body><div id="root"></div>
 <script type="text/babel" data-presets="react">
 const { } = window.TheSingaporeMintDesignSystem_6a655a;
@@ -68,7 +69,7 @@ const App = () => {
       localStorage.setItem('sm-user', JSON.stringify({ email: match.email, name: match.name }));
       window.dispatchEvent(new CustomEvent('sm-user-updated'));
     } catch(_){}
-    setTimeout(() => { window.location.href = 'index.html'; }, 600);
+    setTimeout(() => { window.location.href = '/'; }, 600);
   };
 
   const handleKey = (e) => { if (e.key === 'Enter') handleLogin(); };
@@ -95,7 +96,7 @@ const App = () => {
         <div className="right">
           <div className="form-box">
             <h1>Sign In</h1>
-            <p className="sub">New here? <a href="register.html">Create an account</a></p>
+            <p className="sub">New here? <a href="/register">Create an account</a></p>
 
             <div className="field">
               <label>Email address</label>
@@ -122,7 +123,7 @@ const App = () => {
               Continue with Microsoft
             </button>
 
-            <div className="register">Don't have an account? <a href="#">Register now</a></div>
+            <div className="register">Don't have an account? <a href="/register">Register now</a></div>
           </div>
         </div>
       </div>

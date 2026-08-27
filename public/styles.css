@@ -17,20 +17,18 @@ body { font-family: var(--font-body); color: var(--text-primary); background: va
 a { color: var(--text-primary); text-decoration: none; }
 a:hover { color: var(--brand-red-800); }
 
-/* Kill horizontal page scroll caused by `width:100vw` full-bleed strips
-   (100vw includes the scrollbar; content max-width doesn't → 15-17px overflow).
-   `clip` (not `hidden`) preserves position:sticky on the nav. */
-html, body { overflow-x: clip; }
-
-/* Mobile header: shrink logo + icons */
-@media (max-width: 600px) {
-  header a[aria-label="Home"] img { height: 22px !important; }
-  .sm-navi-right { gap: 10px !important; }
-  .sm-navi-right svg { width: 20px !important; height: 20px !important; }
-  .sm-navi-hamburger svg { width: 22px !important; height: 22px !important; }
-  /* Tighten header padding + height on mobile (inline-styled in _ds_bundle.js) */
-  header[style*="sticky"] > div,
-  header[style*="relative"] > div { padding: 0 12px !important; }
-  header[style*="height: 80px"],
-  header[style*="height:80px"] { height: 60px !important; }
+/* Footer mobile fixes (SiteFooter renders inline styles; these override on small screens) */
+@media(max-width:900px){
+  footer.site .cols{display:grid;grid-template-columns:repeat(3,1fr)!important;gap:20px 12px}
+  footer.site .contact-mobile{grid-column:1/-1}
+  footer.site .col h4{font-size:12px}
+  footer.site .col a,footer.site .col li{font-size:12px;line-height:20px}
+  .stores-strip .stores-grid{grid-template-columns:1fr!important;gap:28px!important}
+  .stores-strip .base{flex-direction:row!important;align-items:center!important;flex-wrap:nowrap!important;gap:12px!important;text-align:left}
+  .stores-strip .base img{height:20px!important}
+  .stores-strip .base span{font-size:11px!important;white-space:normal!important}
+}
+@media(max-width:480px){
+  footer.site .col h4{font-size:11px;letter-spacing:.02em}
+  footer.site .col a,footer.site .col li{font-size:11px}
 }

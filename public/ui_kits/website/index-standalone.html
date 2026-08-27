@@ -1,4 +1,4 @@
-<!-- @dsCard group="Website" viewport="1440x2600" name="Homepage" subtitle="Marketing storefront" -->
+<!-- @dsCard group="Website" viewport="1440x2600" name="Homepage (standalone)" subtitle="Self-contained single-file build" -->
 <!doctype html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Singapore Mint</title>
 <link rel="stylesheet" href="../../styles.css">
@@ -230,7 +230,8 @@ footer.site details[open] summary::after{content:""}
 /* full-bleed escape hatch for sections whose backgrounds should span viewport */
 .hero,.banner,footer.site,.stats-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
 .hero > *,.banner > *,footer.site > *,.stats-strip > *{max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:border-box}
-</style></head>
+</style><script src="../../components/core/chat-bubble.js" defer></script>
+</head>
 <body><template id="__bundler_thumbnail" data-bg-color="#1a0006">
 <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="800" fill="#1a0006"/>
@@ -246,18 +247,18 @@ footer.site details[open] summary::after{content:""}
 const { Navi, Button, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
 
 const bsAll = [
-  {img:'../../assets/standalone/coin-01.webp', meta:'L233 · 45mm', name:'Landmarks of Singapore Medallion - Attraction', price:'$ 120'},
-  {img:'../../assets/standalone/coin-03.webp', meta:'L221 · 40mm', name:'Canada Winning Goal 1oz Fine Silver Proof Coin', price:'$ 128'},
-  {img:'../../assets/standalone/coin-05.webp', meta:'L233 · 45mm', name:'National Day 2023 Silver Proof Medallion', price:'$ 148'},
-  {img:'../../assets/standalone/coin-08.webp', meta:'L288 · 32mm', name:'Chinese Zodiac Rabbit 1/4 oz Gold Proof Coin', price:'$ 640'},
-  {img:'../../assets/standalone/coin-11.webp', meta:'L299 · 55mm', name:'Merlion 55th Anniversary Silver Medallion', price:'$ 208'},
-  {img:'../../assets/standalone/coin-07.webp', meta:'L266 · 45mm', name:'Peranakan Heritage 1oz Silver Proof', price:'$ 168'},
-  {img:'../../assets/standalone/coin-12.webp', meta:'L301 · 32mm', name:'Orchid Series — Vanda Miss Joaquim', price:'$ 88'},
-  {img:'../../assets/standalone/coin-13.webp', meta:'L310 · 38mm', name:'MRT 40th Anniversary Coloured Medallion', price:'$ 108'},
-  {img:'../../assets/standalone/coin-02.webp', meta:'L245 · 40mm', name:'SG Bicentennial Commemorative Silver Coin', price:'$ 158'},
-  {img:'../../assets/standalone/coin-04.webp', meta:'L258 · 45mm', name:'Raffles Hotel Centenary Silver Medallion', price:'$ 138'},
-  {img:'../../assets/standalone/coin-06.webp', meta:'L272 · 32mm', name:'Chinese Zodiac Dragon 1/4 oz Gold Proof', price:'$ 688'},
-  {img:'../../assets/standalone/coin-10.webp', meta:'L284 · 40mm', name:'Vanishing Trades of Singapore Silver Set', price:'$ 198'},
+  {img:'../../assets/standalone/coin-01.webp', meta:'L233 · 45mm', name:'Landmarks of Singapore Medallion - Attraction', price:'$120'},
+  {img:'../../assets/standalone/coin-03.webp', meta:'L221 · 40mm', name:'Canada Winning Goal 1oz Fine Silver Proof Coin', price:'$128'},
+  {img:'../../assets/standalone/coin-05.webp', meta:'L233 · 45mm', name:'National Day 2023 Silver Proof Medallion', price:'$148'},
+  {img:'../../assets/standalone/coin-08.webp', meta:'L288 · 32mm', name:'Chinese Zodiac Rabbit 1/4 oz Gold Proof Coin', price:'$640'},
+  {img:'../../assets/standalone/coin-11.webp', meta:'L299 · 55mm', name:'Merlion 55th Anniversary Silver Medallion', price:'$208'},
+  {img:'../../assets/standalone/coin-07.webp', meta:'L266 · 45mm', name:'Peranakan Heritage 1oz Silver Proof', price:'$168'},
+  {img:'../../assets/standalone/coin-12.webp', meta:'L301 · 32mm', name:'Orchid Series — Vanda Miss Joaquim', price:'$88'},
+  {img:'../../assets/standalone/coin-13.webp', meta:'L310 · 38mm', name:'MRT 40th Anniversary Coloured Medallion', price:'$108'},
+  {img:'../../assets/standalone/coin-02.webp', meta:'L245 · 40mm', name:'SG Bicentennial Commemorative Silver Coin', price:'$158'},
+  {img:'../../assets/standalone/coin-04.webp', meta:'L258 · 45mm', name:'Raffles Hotel Centenary Silver Medallion', price:'$138'},
+  {img:'../../assets/standalone/coin-06.webp', meta:'L272 · 32mm', name:'Chinese Zodiac Dragon 1/4 oz Gold Proof', price:'$688'},
+  {img:'../../assets/standalone/coin-10.webp', meta:'L284 · 40mm', name:'Vanishing Trades of Singapore Silver Set', price:'$198'},
 ];
 
 const BestSeller = () => {
@@ -324,7 +325,7 @@ const CoinTile = ({item, small}) => {
       const list = JSON.parse(localStorage.getItem('sm-cart') || '[]');
       const key = item.img;
       const existing = list.find(x => x.img === key);
-      const priceNum = parseFloat(String(item.price||'$ 120').replace(/[^0-9.]/g,'')) || 0;
+      const priceNum = parseFloat(String(item.price||'$120').replace(/[^0-9.]/g,'')) || 0;
       if (existing) { existing.qty = (existing.qty||1) + 1; }
       else { list.push({ img:item.img, name:item.name || 'Landmarks of Singapore Medallion - Attraction', meta:item.meta || 'L233 · 45mm', price: priceNum, qty:1 }); }
       localStorage.setItem('sm-cart', JSON.stringify(list));
@@ -334,7 +335,7 @@ const CoinTile = ({item, small}) => {
     setTimeout(()=>setAdded(false), 1400);
   };
   return (
-  <div className="card" onClick={()=>{window.location.href='product-detail.html';}} style={{cursor:'pointer'}}>
+  <div className="card" onClick={()=>{window.location.href='/product-detail';}} style={{cursor:'pointer'}}>
     <div className="quick-actions">
       <button className={`qa-btn${wish?' on':''}`} aria-label="Add to wishlist" onClick={toggle(setWish,'wishlist')}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill={wish?'currentColor':'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -346,7 +347,7 @@ const CoinTile = ({item, small}) => {
     <div className="coin-photo"><img src={item.img} alt=""/></div>
     <div className="meta">{item.meta || 'L233 · 45mm'}</div>
     <div className="name">{item.name || 'Landmarks of Singapore Medallion - Attraction'}</div>
-    <div className="price">{item.price || '$ 120'}</div>
+    <div className="price">{item.price || '$120'}</div>
     <button className="add-cart" onClick={addToCart}>{added ? 'Added to Cart' : 'Add to Cart'}</button>
   </div>
 );};
@@ -366,7 +367,7 @@ const PromoTile = () => (
       <h3>Collect commemorative coins &amp; limited editions</h3>
       <p className="sub">Rare mintings, released in small runs — each piece a tribute to a moment in time.</p>
     </div>
-        <a className="btn" href="product-list.html" style={{background:'#fff',color:'var(--ink-1000)',border:0,padding:'12px 22px',display:'inline-flex',alignItems:'center',gap:8,font:'var(--text-cta)',textTransform:'uppercase',letterSpacing:'.04em',cursor:'pointer',alignSelf:'flex-start',textDecoration:'none'}}>EXPLORE MORE <span>→</span></a>
+        <a className="btn" href="/product-list" style={{background:'#fff',color:'var(--ink-1000)',border:0,padding:'12px 22px',display:'inline-flex',alignItems:'center',gap:8,font:'var(--text-cta)',textTransform:'uppercase',letterSpacing:'.04em',cursor:'pointer',alignSelf:'flex-start',textDecoration:'none'}}>EXPLORE MORE <span>→</span></a>
   </div>
 );
 
@@ -441,7 +442,7 @@ const Hero = () => {
       <div className="copy">
         <h1>{s.title.map((l,i)=><span key={i}>{l}</span>)}</h1>
         <div className="actions">
-                    <button className="pill solid" onClick={()=>{window.location.href='product-list.html';}}>SHOP NOW</button>
+                    <button className="pill solid" onClick={()=>{window.location.href='/product-list';}}>SHOP NOW</button>
           <button className="pill">VIEW CAMPAIGN</button>
         </div>
       </div>
@@ -471,7 +472,7 @@ const App = () => (
           {slug:'catalogue',  label:'July / Aug Catalogue', img:'../../assets/standalone/coin-05.webp'},
           {slug:'promo',      label:'Online Promotion',     img:'../../assets/standalone/coin-07.webp'},
         ].map(c => (
-          <a key={c.slug} className="cat-nav-item" href={`product-list.html#/${c.slug}`}>
+          <a key={c.slug} className="cat-nav-item" href={`/product-list#/${c.slug}`}>
             <span className="cat-nav-thumb"><img src={c.img} alt=""/></span>
             <span className="cat-nav-label">{c.label}</span>
             <span className="cat-nav-arrow">
@@ -500,7 +501,7 @@ const App = () => (
       </div>
       <div className="collections-grid">
         {collections.map((c,i)=>(
-          <a key={i} href="product-list.html" className="collection-tile" style={{textDecoration:'none',color:'#fff',display:'block'}}>
+                    <a key={i} href="/product-list" className="collection-tile" style={{textDecoration:'none',color:'#fff',display:'block'}}>
             <img src={c.img} alt=""/>
             <div className="grad"/>
             <div className="title">{c.title}</div>

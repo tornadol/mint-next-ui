@@ -1,0 +1,172 @@
+<!-- @dsCard group="Website" viewport="1440x1800" name="Events" subtitle="Singapore International Coin Fair 2026" -->
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Events · The Singapore Mint</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../assets/data/categories.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel" src="../../components/core/site-footer.runtime.js"></script>
+<script src="../../components/core/chat-bubble.js" defer></script>
+<style>
+body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
+a{color:inherit}a:hover{color:#cf0731}
+.wrap{max-width:1280px;margin:0 auto}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+.crumbs{display:flex;gap:8px;padding:20px 0 8px;font-size:13px;color:var(--ink-500)}
+.crumbs a{color:var(--ink-500);text-decoration:none}
+.crumbs a:hover{color:var(--ink-1000);text-decoration:underline}
+
+.hero{position:relative;background:radial-gradient(120% 100% at 65% 30%, #cf0731 0%, #8a0522 60%, #34000a 100%);color:#fff;padding:56px 40px;border-radius:14px;margin:8px 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.15;mix-blend-mode:overlay;pointer-events:none}
+.hero .kicker{font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.15em;text-transform:uppercase;opacity:.85;margin:0 0 10px}
+.hero h1{font-family:var(--font-label);font-weight:800;font-size:44px;letter-spacing:-.01em;margin:0 0 12px;line-height:1.05}
+.hero p{font-size:15px;line-height:1.6;max-width:640px;color:rgba(255,255,255,.85);margin:0}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 12px;border-radius:999px;font-family:var(--font-label);font-weight:700;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;backdrop-filter:blur(6px)}
+
+.event{border:1px solid var(--ink-75);border-radius:14px;overflow:hidden;margin-bottom:48px;background:#fff}
+.event-banner{position:relative;background:linear-gradient(120deg,#1a1a2e 0,#16213e 55%,#0f3460 100%);color:#fff;padding:40px 44px;overflow:hidden}
+.event-banner::before{content:"";position:absolute;right:-40px;top:-40px;width:280px;height:280px;background:radial-gradient(circle,rgba(207,7,49,.5) 0,transparent 70%);pointer-events:none}
+.event-banner .tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:999px;font-family:var(--font-label);font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.event-banner .tag .live{width:7px;height:7px;border-radius:999px;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.25)}
+.event-banner h2{font-family:var(--font-label);font-weight:800;font-size:34px;line-height:1.08;margin:0 0 10px;letter-spacing:-.01em;position:relative}
+.event-banner p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.82);margin:0;max-width:560px;position:relative}
+
+.event-body{padding:36px 44px}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink-75);border-radius:12px;overflow:hidden;margin-bottom:36px}
+.detail{padding:22px 24px;border-right:1px solid var(--ink-75)}
+.detail:last-child{border-right:0}
+.detail .l{display:flex;align-items:center;gap:8px;font-family:var(--font-label);font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#cf0731;margin-bottom:10px}
+.detail .v{font-family:var(--font-label);font-weight:800;font-size:15px;color:var(--ink-1000);line-height:1.4}
+.detail .v span{display:block;font-family:var(--font-body);font-weight:400;font-size:13px;color:var(--ink-600);margin-top:3px}
+
+.subhead{font-family:var(--font-label);font-weight:800;font-size:20px;margin:0 0 4px;color:var(--ink-1000)}
+.subhead-note{font-size:13px;color:var(--ink-500);margin:0 0 20px}
+.subhead-note b{color:#cf0731;font-weight:700}
+
+.promos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:32px}
+.promo{border:1px solid var(--ink-75);border-radius:12px;padding:24px;background:#fff;position:relative;overflow:hidden}
+.promo .ic{width:44px;height:44px;border-radius:10px;background:#fde5ec;color:#cf0731;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.promo h3{font-family:var(--font-label);font-weight:800;font-size:16px;margin:0 0 12px}
+.promo ul{padding-left:18px;margin:0;font-size:13.5px;line-height:1.65;color:var(--ink-700)}
+.promo li{margin-bottom:6px}
+.promo li b{color:var(--ink-1000)}
+
+.tc{background:var(--ink-25);border-radius:10px;padding:16px 20px;font-size:12.5px;color:var(--ink-600);line-height:1.6}
+.tc b{color:var(--ink-800)}
+
+.map-strip{display:flex;align-items:center;gap:12px;background:var(--ink-25);border:1px solid var(--ink-75);border-radius:10px;padding:16px 20px;margin-bottom:36px;flex-wrap:wrap}
+.map-strip .txt{flex:1;min-width:200px;font-size:13.5px;color:var(--ink-700);line-height:1.5}
+.map-strip .txt b{color:var(--ink-1000);font-family:var(--font-label);font-weight:800}
+.map-strip a{display:inline-flex;align-items:center;gap:7px;background:#cf0731;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-family:var(--font-label);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.map-strip a:hover{background:#a80527;color:#fff}
+
+@media(max-width:900px){
+  .hero{padding:40px 24px;border-radius:0;margin-left:-24px;margin-right:-24px}
+  .hero h1{font-size:32px}
+  .event-banner{padding:32px 24px}
+  .event-banner h2{font-size:26px}
+  .event-body{padding:26px 24px}
+  .detail-grid{grid-template-columns:1fr}
+  .detail{border-right:0;border-bottom:1px solid var(--ink-75)}
+  .detail:last-child{border-bottom:0}
+  .promos{grid-template-columns:1fr}
+}
+
+/*om-footer*/
+footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
+footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+footer.site h4{font-family:var(--font-label);text-transform:uppercase;font-size:14px;margin:0 0 20px;letter-spacing:.06em;color:#fff}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+footer.site a,footer.site li{color:var(--ink-300);font-family:var(--font-label);font-size:13px;line-height:22px;text-decoration:none}
+footer.site .socials{display:flex;gap:12px;margin-top:20px}
+footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
+footer.site .base{display:flex;align-items:center;justify-content:space-between;padding-top:32px;margin-top:40px;border-top:1px solid rgba(255,255,255,.12);color:var(--ink-300);font-family:var(--font-label);font-size:13px}
+.stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
+@media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
+
+const App = () => {
+  return (
+    <div className="wrap">
+      {Navi ? <Navi active="Latest"/> : null}
+      <div className="container">
+        <nav className="crumbs"><a href="/">Home</a> / <span>Events</span></nav>
+
+        <section className="hero">
+          <span className="badge">Upcoming Event</span>
+          <div className="kicker">What's On</div>
+          <h1>Events</h1>
+          <p>Meet us in person at trade fairs and exhibitions across Singapore, with event-exclusive prices and gifts you won't find anywhere else.</p>
+        </section>
+
+        <article className="event">
+          <div className="event-banner">
+            <div className="tag"><span className="live"></span> 20 – 22 March 2026</div>
+            <h2>Singapore International Coin Fair 2026</h2>
+            <p>Singapore International Coin Fair 2026 is back! Come join The Singapore Mint at the region's premier numismatic event.</p>
+          </div>
+
+          <div className="event-body">
+            <div className="detail-grid">
+              <div className="detail">
+                <div className="l"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Venue</div>
+                <div className="v">Marina Bay Sands Expo & Convention Centre<span>Hall C, Level 1 · Booth No. S38</span></div>
+              </div>
+              <div className="detail">
+                <div className="l"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Dates</div>
+                <div className="v">20 – 22 March 2026<span>Friday – Sunday</span></div>
+              </div>
+              <div className="detail">
+                <div className="l"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Hours</div>
+                <div className="v">10am – 6pm<span>Fri & Sat, 20 – 21 Mar</span><span style={{marginTop:6,color:'var(--ink-800)',fontWeight:600}}>10am – 5pm · Sun, 22 Mar</span></div>
+              </div>
+            </div>
+
+            <div className="map-strip">
+              <div className="txt"><b>The Singapore Mint at Booth No. S38.</b> Look for us in Hall C, Level 1. Come early for the best selection — event pieces are limited.</div>
+              <a href="https://maps.google.com/?q=Marina+Bay+Sands+Expo+and+Convention+Centre" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Get Directions</a>
+            </div>
+
+            <h3 className="subhead">Event Exclusive Promotions*</h3>
+            <p className="subhead-note">Available <b>only</b> at The Singapore Mint Booth No. S38 during the fair.</p>
+
+            <div className="promos">
+              <div className="promo">
+                <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+                <h3>Gift with Purchase</h3>
+                <ul>
+                  <li>GWP promotion is valid <b>only</b> for purchases made at Booth No. S38.</li>
+                  <li>Promotion applies only to <b>single receipt</b> purchases.</li>
+                  <li>Minimum spend requirements must be met to qualify for the free gift.</li>
+                </ul>
+              </div>
+              <div className="promo">
+                <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                <h3>Event Exclusive Prices</h3>
+                <ul>
+                  <li>SICF Special Prices may be valid for <b>only a limited number</b> of pieces / sets.</li>
+                  <li>First-come, first-served while stocks last.</li>
+                  <li>Prices available exclusively on-site at the fair.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="tc">
+              <b>*Terms and conditions apply.</b> The management reserves the right to amend terms and conditions at any time without prior notice.
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <SiteFooter Icon={Icon}/>
+    </div>
+  );
+};
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

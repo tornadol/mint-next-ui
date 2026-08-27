@@ -7,7 +7,7 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
 <script src="../../assets/data/categories.js"></script>
-<script type="text/babel" src="../../components/core/SiteFooter.jsx"></script>
+<script type="text/babel" src="../../components/core/site-footer.runtime.js"></script>
 <style>
 body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
 .wrap{max-width:1280px;margin:0 auto}
@@ -61,7 +61,8 @@ footer.site .socials{display:flex;gap:12px;margin-top:20px}
 footer.site .socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff}
 .stores-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
 @media(max-width:900px){footer.site .cols{grid-template-columns:1fr;gap:24px}footer.site .footer-inner{padding:0 24px}.stores-strip>div{padding:0 24px!important}.stores-strip>div>div[style*='grid-template-columns']{grid-template-columns:1fr!important}}
-</style></head><body>
+</style><script src="../../components/core/chat-bubble.js" defer></script>
+</head><body>
 <div id="root"></div>
 <script type="text/babel">
 const { Navi, Icon } = window.TheSingaporeMintDesignSystem_6a655a;
@@ -139,7 +140,7 @@ const App = () => {
       {Navi ? <Navi/> : null}
       <div className="page-pad">
         <nav className="crumbs" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
+          <a href="/">Home</a>
           <span className="sep">/</span>
           <span className="current">Compare</span>
         </nav>
@@ -150,7 +151,7 @@ const App = () => {
           <div className="empty">
             <h3>No products to compare</h3>
             <div>Browse the shop and click the compare icon on any product to add it here.</div>
-            <a href="product-list.html">Browse Shop</a>
+            <a href="/product-list">Browse Shop</a>
           </div>
         ) : (
           <>
@@ -173,7 +174,7 @@ const App = () => {
                     {enriched.map((p,i) => (
                       <th key={p.img || i}>
                         <div className="prod-head">
-                          <a href="product-detail.html" className="prod-photo"><img src={p.img} alt=""/></a>
+                          <a href="/product-detail" className="prod-photo"><img src={p.img} alt=""/></a>
                           <div className="prod-name">{p.name || 'Product'}</div>
                           <div className="prod-price">${(p.price||0).toFixed(2)}</div>
                           <div className="prod-actions">

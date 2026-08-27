@@ -31,7 +31,8 @@ footer.mini img{height:22px;filter:invert(1) hue-rotate(180deg)}
   .links{flex-wrap:wrap;gap:16px}
   footer.mini{padding:16px 24px;flex-direction:column;gap:8px;text-align:center}
 }
-</style></head>
+</style><script src="../../components/core/chat-bubble.js" defer></script>
+</head>
 <body><div id="root"></div>
 <script type="text/babel" data-presets="react">
 const { Icon } = window.TheSingaporeMintDesignSystem_6a655a;
@@ -46,8 +47,8 @@ const App = () => (
         <h1>You've been signed out</h1>
         <p>Thank you for visiting The Singapore Mint. Your session has ended safely.</p>
 
-        <a href="login.html" className="btn-primary">SIGN BACK IN</a>
-        <a href="index.html" className="btn-ghost">Return to Homepage</a>
+        <a href="/login" className="btn-primary">SIGN BACK IN</a>
+        <a href="/" className="btn-ghost">Return to Homepage</a>
 
         <div className="divider"/>
         <div className="also">You might also like</div>

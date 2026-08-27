@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"TheSingaporeMintDesignSystem_6a655a","components":[{"name":"Icon","sourcePath":"assets/icons/Icon.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CoinCard","sourcePath":"components/core/CoinCard.jsx"},{"name":"ContextMenu","sourcePath":"components/core/ContextMenu.jsx"},{"name":"Footer","sourcePath":"components/core/Footer.jsx"},{"name":"Hero","sourcePath":"components/core/Hero.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"MenuItem","sourcePath":"components/core/MenuItem.jsx"},{"name":"Navi","sourcePath":"components/core/Navi.jsx"},{"name":"SectionHeader","sourcePath":"components/core/SectionHeader.jsx"}],"sourceHashes":{"assets/data/categories.js":"9f17e9b9a571","assets/icons/Icon.jsx":"b81dfc2559d3","assets/icons/icon-data.js":"6db9ccfe3eb0","components/core/Badge.jsx":"5708e14a569f","components/core/Button.jsx":"3c1b2979dbc6","components/core/CoinCard.jsx":"e411a8059380","components/core/ContextMenu.jsx":"0e72715b30d5","components/core/Footer.jsx":"66406a164d49","components/core/Hero.jsx":"738fd634c91e","components/core/Input.jsx":"d9cfb450de42","components/core/MenuItem.jsx":"0db2a220510d","components/core/Navi.jsx":"b1db646dc957","components/core/SectionHeader.jsx":"40b7b328463b","components/core/SiteFooter.jsx":"43a3a3795cae"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"TheSingaporeMintDesignSystem_6a655a","components":[{"name":"Icon","sourcePath":"assets/icons/Icon.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CoinCard","sourcePath":"components/core/CoinCard.jsx"},{"name":"ContextMenu","sourcePath":"components/core/ContextMenu.jsx"},{"name":"Footer","sourcePath":"components/core/Footer.jsx"},{"name":"Hero","sourcePath":"components/core/Hero.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"MenuItem","sourcePath":"components/core/MenuItem.jsx"},{"name":"Navi","sourcePath":"components/core/Navi.jsx"},{"name":"SectionHeader","sourcePath":"components/core/SectionHeader.jsx"},{"name":"Home","sourcePath":"next-export/pages/index.js"}],"sourceHashes":{"assets/data/categories.js":"9f17e9b9a571","assets/icons/Icon.jsx":"b81dfc2559d3","assets/icons/icon-data.js":"6db9ccfe3eb0","components/core/Badge.jsx":"5708e14a569f","components/core/Button.jsx":"3c1b2979dbc6","components/core/CoinCard.jsx":"e411a8059380","components/core/ContextMenu.jsx":"0e72715b30d5","components/core/Footer.jsx":"66406a164d49","components/core/Hero.jsx":"738fd634c91e","components/core/Input.jsx":"d9cfb450de42","components/core/MenuItem.jsx":"0db2a220510d","components/core/Navi.jsx":"6051f84177db","components/core/SectionHeader.jsx":"40b7b328463b","components/core/SiteFooter.jsx":"808ac26411e3","components/core/chat-bubble.js":"0af0e20bfa21","components/core/click-collect.js":"3bc5f1b6e394","next-export/next.config.js":"9d21b881efb5","next-export/pages/index.js":"286390f745c3","next-export/public/assets/data/categories.js":"9f17e9b9a571","next-export/public/components/core/chat-bubble.js":"0af0e20bfa21","next-export/public/components/core/click-collect.js":"3bc5f1b6e394","next-export/public/components/core/site-footer.runtime.js":"808ac26411e3"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -861,29 +861,29 @@ try { (() => {
 const LOGO = '../../assets/brand/sm-logo-slogan.png';
 const shopItems = [{
   label: 'New Arrivals',
-  href: 'product-list.html#/?tags=New',
+  href: '/product-list#/?tags=New',
   badge: {
     text: 'NEW',
     bg: 'var(--brand-red-800)'
   }
 }, {
   label: 'Coins & Numismatics',
-  href: 'product-list.html#/coins'
+  href: '/product-list#/coins'
 }, {
   label: 'Ingots & Medallions',
-  href: 'product-list.html#/medallions'
+  href: '/product-list#/medallions'
 }, {
   label: 'Gifts & Collectibles',
-  href: 'product-list.html#/gifts'
+  href: '/product-list#/gifts'
 }, {
   label: 'Character Collectibles',
-  href: 'product-list.html#/character'
+  href: '/product-list#/character'
 }, {
   label: 'July / August Catalogue',
-  href: 'product-list.html#/catalogue'
+  href: '/product-list#/catalogue'
 }, {
   label: 'Online Promotion',
-  href: 'product-list.html#/promo',
+  href: '/product-list#/promo',
   badge: {
     text: 'SALE',
     bg: '#7a6b1a'
@@ -893,42 +893,42 @@ const popularProducts = [{
   img: '../../assets/imagery/coins/coin-01.png',
   title: 'Landmarks of Singapore Medallion',
   code: 'L233',
-  price: 'S$ 120'
+  price: '$120'
 }, {
   img: '../../assets/imagery/coins/coin-03.png',
   title: 'Canada Winning Goal 1oz Silver Proof',
   code: 'L221',
-  price: 'S$ 128'
+  price: '$128'
 }, {
   img: '../../assets/imagery/coins/coin-08.png',
   title: 'Chinese Zodiac Rabbit 1/4 oz Gold Proof',
   code: 'L288',
-  price: 'S$ 640'
+  price: '$640'
 }, {
   img: '../../assets/imagery/coins/coin-11.png',
   title: 'Merlion 55th Anniversary Silver Medallion',
   code: 'L299',
-  price: 'S$ 208'
+  price: '$208'
 }, {
   img: '../../assets/imagery/coins/coin-07.png',
   title: 'Peranakan Heritage 1oz Silver Proof',
   code: 'L266',
-  price: 'S$ 168'
+  price: '$168'
 }, {
   img: '../../assets/imagery/coins/coin-12.png',
   title: 'Orchid Series — Vanda Miss Joaquim',
   code: 'L301',
-  price: 'S$ 88'
+  price: '$88'
 }, {
   img: '../../assets/imagery/coins/coin-13.png',
   title: 'MRT 40th Anniversary Coloured Medallion',
   code: 'L310',
-  price: 'S$ 108'
+  price: '$108'
 }, {
   img: '../../assets/imagery/coins/coin-05.png',
   title: 'National Day 2023 Silver Proof Medallion',
   code: 'S217',
-  price: 'S$ 65'
+  price: '$65'
 }];
 function Navi({
   items = ['Shop', 'About Us', 'Latest', 'Contact Us'],
@@ -938,7 +938,9 @@ function Navi({
   style
 }) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [drawerSection, setDrawerSection] = React.useState(null);
   const [shopOpen, setShopOpen] = React.useState(false);
+  const [latestOpen, setLatestOpen] = React.useState(false);
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [cartOpen, setCartOpen] = React.useState(false);
   const [cart, setCart] = React.useState([]);
@@ -1064,6 +1066,7 @@ function Navi({
     };
   }, []);
   const shopRef = React.useRef(null);
+  const latestRef = React.useRef(null);
   const readCart = React.useCallback(() => {
     try {
       setCart(JSON.parse(localStorage.getItem('sm-cart') || '[]'));
@@ -1106,6 +1109,7 @@ function Navi({
   React.useEffect(() => {
     const handler = e => {
       if (shopRef.current && !shopRef.current.contains(e.target)) setShopOpen(false);
+      if (latestRef.current && !latestRef.current.contains(e.target)) setLatestOpen(false);
     };
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
@@ -1120,6 +1124,9 @@ function Navi({
   }, [searchOpen]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, `
         .sm-navi-links{display:flex;gap:8px;margin-left:32px;align-items:center}
+        html,body{overflow-x:hidden}
+        @media(max-width:900px){.sm-navi-logo{height:24px!important}}
+        @media(max-width:600px){.sm-navi-logo{height:22px!important}}
         .sm-navi-right{margin-left:auto;display:flex;align-items:center;gap:16px}
         .sm-navi-hamburger{display:none}
         .sm-navi-login{display:inline-flex;align-items:center;gap:8px;color:var(--ink-1000);font-family:var(--font-label);font-weight:700;font-size:16px;text-decoration:none}
@@ -1214,13 +1221,28 @@ function Navi({
         .sm-drawer-panel{position:relative;width:80%;max-width:320px;height:100%;background:#fff;display:flex;flex-direction:column;overflow-y:auto;z-index:1}
         .sm-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid var(--ink-100)}
         .sm-drawer-nav{display:flex;flex-direction:column;padding:8px 0}
+        .sm-drawer-nav .sm-drawer-top,.sm-drawer-acc{display:flex;align-items:center;justify-content:space-between;width:100%;box-sizing:border-box;padding:16px 24px;font-family:var(--font-label);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-1000);text-decoration:none;border-bottom:1px solid var(--ink-50);background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;text-align:left}
+        .sm-drawer-nav .sm-drawer-top:hover,.sm-drawer-acc:hover{background:var(--ink-25)}
+        .sm-drawer-acc .acc-chev{transition:transform .18s;color:var(--ink-400);flex-shrink:0}
+        .sm-drawer-sub{display:flex;flex-direction:column;background:var(--ink-25);border-bottom:1px solid var(--ink-50)}
+        .sm-drawer-sub a{padding:12px 24px 12px 36px;font-family:var(--font-label);font-weight:600;font-size:13.5px;color:var(--ink-700);text-decoration:none;letter-spacing:.02em;text-transform:none}
+        .sm-drawer-sub a:hover{background:#fff;color:#cf0731}
         .sm-drawer-nav a{padding:14px 24px;font-family:var(--font-label);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-1000);text-decoration:none;border-bottom:1px solid var(--ink-50)}
+        .sm-drawer-sub a{padding:12px 24px 12px 36px!important;font-weight:600!important;font-size:13.5px!important;color:var(--ink-700)!important;text-transform:none!important;border-bottom:0!important}
         .sm-drawer-nav a:hover{background:var(--ink-25)}
+        .sm-drawer-sub a:hover{background:#fff!important;color:#cf0731!important}
         .sm-drawer-footer{margin-top:auto;padding:24px;border-top:1px solid var(--ink-100);display:flex;flex-direction:column;gap:12px}
         @media(max-width:900px){
           .sm-navi-links{display:none}
           .sm-navi-hamburger{display:inline-flex!important}
-          .sm-navi-login span{display:none}
+          .sm-navi-login span:last-child{display:none}
+          .sm-navi-right{gap:12px}
+          .sm-navi-right svg{width:20px!important;height:20px!important}
+          .sm-navi-right .sm-navi-login span:first-child{width:24px!important;height:24px!important;font-size:11px!important}
+        }
+        @media(max-width:600px){
+          .sm-navi-right{gap:8px}
+          .sm-navi-right svg{width:18px!important;height:18px!important}
         }
       `), /*#__PURE__*/React.createElement("header", {
     style: {
@@ -1247,7 +1269,7 @@ function Navi({
       boxSizing: 'border-box'
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "index.html",
+    href: "/",
     "aria-label": "Home",
     style: {
       display: 'inline-flex',
@@ -1255,6 +1277,7 @@ function Navi({
       flexShrink: 0
     }
   }, /*#__PURE__*/React.createElement("img", {
+    className: "sm-navi-logo",
     src: logoSrc,
     alt: "The Singapore Mint",
     style: {
@@ -1271,13 +1294,13 @@ function Navi({
     className: `sm-nav-item${shopOpen ? ' shop-active' : ''}`,
     onClick: e => {
       if (e.shiftKey || e.metaKey || e.ctrlKey) {
-        window.location.href = 'product-list.html';
+        window.location.href = '/product-list';
         return;
       }
       setShopOpen(o => !o);
     },
     onDoubleClick: () => {
-      window.location.href = 'product-list.html';
+      window.location.href = '/product-list';
     }
   }, "Shop", /*#__PURE__*/React.createElement("svg", {
     width: "14",
@@ -1300,7 +1323,7 @@ function Navi({
     className: "sm-shop-top-row"
   }, shopItems.slice(0, 1).map(it => /*#__PURE__*/React.createElement("a", {
     key: it.label,
-    href: it.href || 'product-list.html',
+    href: it.href || '/product-list',
     className: "sm-shop-item",
     onClick: () => setShopOpen(false)
   }, /*#__PURE__*/React.createElement("span", null, it.label), it.badge && /*#__PURE__*/React.createElement("span", {
@@ -1312,7 +1335,7 @@ function Navi({
     key: cat.slug,
     className: "sm-mega-cat"
   }, /*#__PURE__*/React.createElement("a", {
-    href: `product-list.html#/${cat.slug}`,
+    href: `/product-list#/${cat.slug}`,
     className: "sm-mega-cat-title",
     onClick: () => setShopOpen(false)
   }, cat.label), cat.groups.map(g => /*#__PURE__*/React.createElement("div", {
@@ -1324,11 +1347,85 @@ function Navi({
     className: "sm-mega-subs"
   }, g.subs.map(sub => /*#__PURE__*/React.createElement("a", {
     key: sub.slug,
-    href: `product-list.html#/${cat.slug}/${sub.slug}`,
+    href: `/product-list#/${cat.slug}/${sub.slug}`,
     className: "sm-mega-sub",
     onClick: () => setShopOpen(false)
   }, sub.label))))))))), items.filter(i => i !== 'Shop').map(i => {
-    const href = i === 'About Us' ? 'about.html' : i === 'Contact Us' ? 'contact.html' : '#';
+    if (i === 'Latest') {
+      const latestItems = [{
+        label: 'Promotions',
+    href: '/promotion'
+      }, {
+        label: 'Events',
+    href: '/events'
+      }, {
+        label: 'Catalogues & Order Form',
+    href: '/catalogues'
+      }, {
+        label: 'Stay Connected with Us',
+    href: '/stay-connected'
+      }, {
+        label: 'FAQ & Help Centre',
+    href: '/faq'
+      }];
+      return /*#__PURE__*/React.createElement("div", {
+        key: i,
+        className: "sm-latest-wrap",
+        ref: latestRef,
+        style: {
+          position: 'relative'
+        }
+      }, /*#__PURE__*/React.createElement("button", {
+        className: `sm-nav-item${i === active || latestOpen ? ' shop-active' : ''}`,
+        onClick: () => setLatestOpen(o => !o)
+      }, i, /*#__PURE__*/React.createElement("svg", {
+        width: "10",
+        height: "10",
+        viewBox: "0 0 24 24",
+        fill: "none",
+        stroke: "currentColor",
+        strokeWidth: "2.5",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        style: {
+          marginLeft: 2,
+          transition: 'transform .15s',
+          transform: latestOpen ? 'rotate(180deg)' : 'none'
+        }
+      }, /*#__PURE__*/React.createElement("polyline", {
+        points: "6 9 12 15 18 9"
+      }))), latestOpen && /*#__PURE__*/React.createElement("div", {
+        style: {
+          position: 'absolute',
+          top: 'calc(100% + 10px)',
+          left: 0,
+          minWidth: 260,
+          background: '#fff',
+          borderRadius: 8,
+          boxShadow: '0 8px 32px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.06)',
+          padding: '10px 6px',
+          zIndex: 1000
+        }
+      }, latestItems.map(it => /*#__PURE__*/React.createElement("a", {
+        key: it.label,
+        href: it.href,
+        onClick: () => setLatestOpen(false),
+        style: {
+          display: 'block',
+          padding: '12px 18px',
+          fontFamily: 'var(--font-label)',
+          fontWeight: 600,
+          fontSize: 15,
+          color: 'var(--ink-1000)',
+          textDecoration: 'none',
+          borderRadius: 6,
+          transition: 'background .12s'
+        },
+        onMouseEnter: e => e.currentTarget.style.background = 'var(--ink-25)',
+        onMouseLeave: e => e.currentTarget.style.background = 'transparent'
+      }, it.label))));
+    }
+    const href = i === 'About Us' ? '/about' : i === 'Contact Us' ? '/contact' : '#';
     return /*#__PURE__*/React.createElement("a", {
       key: i,
       href: href,
@@ -1412,7 +1509,7 @@ function Navi({
       } catch (_) {}
       window.dispatchEvent(new CustomEvent('sm-user-updated'));
       setLogoutModal(false);
-      window.location.href = 'login.html';
+      window.location.href = '/login';
     },
     style: {
       flex: 1,
@@ -1509,7 +1606,7 @@ function Navi({
       textOverflow: 'ellipsis'
     }
   }, user.email)), /*#__PURE__*/React.createElement("a", {
-    href: "account.html",
+    href: "/account#info",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -1525,28 +1622,9 @@ function Navi({
     onMouseEnter: e => e.currentTarget.style.background = 'var(--ink-25)',
     onMouseLeave: e => e.currentTarget.style.background = 'transparent'
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "Info",
+    name: "Settings",
     size: 16
-  }), " Info"), /*#__PURE__*/React.createElement("a", {
-    href: "order-history.html",
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 10,
-      padding: '9px 12px',
-      borderRadius: 4,
-      color: 'var(--ink-1000)',
-      fontFamily: 'var(--font-label)',
-      fontWeight: 600,
-      fontSize: 13,
-      textDecoration: 'none'
-    },
-    onMouseEnter: e => e.currentTarget.style.background = 'var(--ink-25)',
-    onMouseLeave: e => e.currentTarget.style.background = 'transparent'
-  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
-    name: "Receipt",
-    size: 16
-  }), " Order History"), /*#__PURE__*/React.createElement("button", {
+  }), " Dashboard"), /*#__PURE__*/React.createElement("button", {
     onClick: () => {
       setUserMenuOpen(false);
       setLogoutModal(true);
@@ -1576,7 +1654,7 @@ function Navi({
     name: "LogOut",
     size: 16
   }), " Sign Out")))) : /*#__PURE__*/React.createElement("a", {
-    href: "login.html",
+    href: "/login",
     className: "sm-navi-login",
     "aria-label": "Login"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
@@ -1640,6 +1718,7 @@ function Navi({
     className: "sm-search-meta"
   }, p.code, " \xB7 ", p.price))))))), /*#__PURE__*/React.createElement("div", {
     ref: wishRef,
+    className: "sm-nav-extra",
     style: {
       position: 'relative',
       display: 'inline-flex'
@@ -1652,7 +1731,7 @@ function Navi({
       wishCloseTimer.current = setTimeout(() => setWishOpen(false), 180);
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "wishlist.html",
+    href: "/wishlist",
     "aria-label": "Wishlist",
     style: {
       color: 'var(--ink-1000)',
@@ -1829,7 +1908,7 @@ function Navi({
     name: "X",
     size: 14
   }))))), /*#__PURE__*/React.createElement("a", {
-    href: "wishlist.html",
+      href: "/wishlist",
     style: {
       display: 'block',
       marginTop: 10,
@@ -1851,6 +1930,7 @@ function Navi({
     }
   }, "View Wishlist")))), /*#__PURE__*/React.createElement("div", {
     ref: compareRef,
+    className: "sm-nav-extra",
     style: {
       position: 'relative',
       display: 'inline-flex'
@@ -1863,7 +1943,7 @@ function Navi({
       compareCloseTimer.current = setTimeout(() => setCompareOpen(false), 180);
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "compare.html",
+    href: "/compare",
     "aria-label": "Compare products",
     style: {
       color: 'var(--ink-1000)',
@@ -2036,7 +2116,7 @@ function Navi({
     name: "X",
     size: 14
   }))))), /*#__PURE__*/React.createElement("a", {
-    href: "compare.html",
+      href: "/compare",
     style: {
       display: 'block',
       marginTop: 10,
@@ -2115,7 +2195,7 @@ function Navi({
   }, /*#__PURE__*/React.createElement("div", {
     className: "sm-drawer-head"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "index.html",
+    href: "/",
     "aria-label": "Home",
     style: {
       display: 'inline-flex',
@@ -2142,18 +2222,101 @@ function Navi({
     size: 22
   }))), /*#__PURE__*/React.createElement("nav", {
     className: "sm-drawer-nav"
-  }, ['Shop', ...items.filter(i => i !== 'Shop')].map(i => /*#__PURE__*/React.createElement("a", {
-    key: i,
-    href: i === 'Shop' ? 'product-list.html' : '#',
-    onClick: () => setDrawerOpen(false),
-    style: {
-      fontWeight: i === active ? 800 : 700,
-      color: i === active ? 'var(--brand-red-800)' : 'var(--ink-1000)'
-    }
-  }, i))), /*#__PURE__*/React.createElement("div", {
+  }, (() => {
+    const latestItems = [{
+      label: 'Promotions',
+      href: '/promotion'
+    }, {
+      label: 'Events',
+      href: '/events'
+    }, {
+      label: 'Catalogues & Order Form',
+      href: '/catalogues'
+    }, {
+      label: 'Stay Connected with Us',
+      href: '/stay-connected'
+    }, {
+      label: 'FAQ & Help Centre',
+      href: '/faq'
+    }];
+    const cats = window.SM_CATEGORIES || [];
+    const [msec, setMsec] = [drawerSection, setDrawerSection];
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+      className: "sm-drawer-acc",
+      onClick: () => setDrawerSection(s => s === 'shop' ? null : 'shop'),
+      style: {
+        color: active === 'Shop' ? 'var(--brand-red-800)' : 'var(--ink-1000)'
+      }
+    }, "Shop", /*#__PURE__*/React.createElement("svg", {
+      className: "acc-chev",
+      width: "14",
+      height: "14",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      style: {
+        transform: drawerSection === 'shop' ? 'rotate(180deg)' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("polyline", {
+      points: "6 9 12 15 18 9"
+    }))), drawerSection === 'shop' && /*#__PURE__*/React.createElement("div", {
+      className: "sm-drawer-sub"
+    }, /*#__PURE__*/React.createElement("a", {
+      href: "/product-list",
+      onClick: () => setDrawerOpen(false)
+    }, "All Products"), cats.map(cat => /*#__PURE__*/React.createElement("a", {
+      key: cat.slug,
+      href: `/product-list#/${cat.slug}`,
+      onClick: () => setDrawerOpen(false)
+    }, cat.label))), /*#__PURE__*/React.createElement("a", {
+      href: "/about",
+      className: "sm-drawer-top",
+      onClick: () => setDrawerOpen(false),
+      style: {
+        color: active === 'About Us' ? 'var(--brand-red-800)' : 'var(--ink-1000)'
+      }
+    }, "About Us"), /*#__PURE__*/React.createElement("button", {
+      className: "sm-drawer-acc",
+      onClick: () => setDrawerSection(s => s === 'latest' ? null : 'latest'),
+      style: {
+        color: active === 'Latest' ? 'var(--brand-red-800)' : 'var(--ink-1000)'
+      }
+    }, "Latest", /*#__PURE__*/React.createElement("svg", {
+      className: "acc-chev",
+      width: "14",
+      height: "14",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2.5",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      style: {
+        transform: drawerSection === 'latest' ? 'rotate(180deg)' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("polyline", {
+      points: "6 9 12 15 18 9"
+    }))), drawerSection === 'latest' && /*#__PURE__*/React.createElement("div", {
+      className: "sm-drawer-sub"
+    }, latestItems.map(it => /*#__PURE__*/React.createElement("a", {
+      key: it.label,
+      href: it.href,
+      onClick: () => setDrawerOpen(false)
+    }, it.label))), /*#__PURE__*/React.createElement("a", {
+      href: "/contact",
+      className: "sm-drawer-top",
+      onClick: () => setDrawerOpen(false),
+      style: {
+        color: active === 'Contact Us' ? 'var(--brand-red-800)' : 'var(--ink-1000)'
+      }
+    }, "Contact Us"));
+  })()), /*#__PURE__*/React.createElement("div", {
     className: "sm-drawer-footer"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "login.html",
+    href: "/login",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -2284,7 +2447,7 @@ function Navi({
     onClick: () => {
       if (cart.length) {
         setCartOpen(false);
-        window.location.href = 'checkout.html';
+        window.location.href = '/checkout';
       }
     }
   }, "Proceed to Checkout \xB7 ", fmt(subtotal + delivery)), /*#__PURE__*/React.createElement("button", {
@@ -2385,7 +2548,7 @@ function SiteFooter({
   }, /*#__PURE__*/React.createElement("div", {
     className: "col"
   }, /*#__PURE__*/React.createElement("h4", null, "ABOUT US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "about.html"
+    href: "/about"
   }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "#"
   }, "News")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
@@ -2461,6 +2624,7 @@ function SiteFooter({
       color: '#fff'
     }
   }, "Our Stores"), /*#__PURE__*/React.createElement("div", {
+    className: "stores-grid",
     style: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3,1fr)',
@@ -2512,19 +2676,709 @@ function SiteFooter({
       color: '#fff',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: '14px 24px'
     }
   }, /*#__PURE__*/React.createElement("img", {
     src: "../../assets/brand/sm-logo-slogan.png",
     alt: "The Singapore Mint",
     style: {
-      height: 28,
-      filter: 'brightness(0) invert(1)'
+      height: 26,
+      filter: 'brightness(0) invert(1)',
+      flexShrink: 0
     }
-  }), "\xA9 2019 Singapore Mint. All Rights Reserved."))));
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: 'var(--ink-400)',
+      whiteSpace: 'nowrap'
+    }
+  }, "\xA9 2019 Singapore Mint. All Rights Reserved.")))));
+}
+function ChatBubble() {
+  return null;
 }
 window.SiteFooter = SiteFooter;
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/SiteFooter.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/chat-bubble.js
+try { (() => {
+/* Floating chat bubble — self-injects into every page it's loaded on. */
+(function () {
+  if (window.__smChatBubbleMounted) return;
+  window.__smChatBubbleMounted = true;
+  var css = '@keyframes smChatIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}' + '.sm-chat-wrap{position:fixed;right:24px;bottom:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none;font-family:var(--font-body,system-ui,sans-serif)}' + '.sm-chat-btn{pointer-events:auto;width:52px;height:52px;border-radius:50%;border:0;background:transparent;padding:0;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.24);display:flex;align-items:center;justify-content:center;transition:transform .15s;overflow:hidden}' + '.sm-chat-btn:hover{transform:scale(1.06)}' + '.sm-chat-btn img,.sm-chat-btn svg{width:100%;height:100%;display:block;border-radius:50%}' + '.sm-chat-panel{pointer-events:auto;width:300px;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.18);overflow:hidden;border:1px solid rgba(0,0,0,.06);animation:smChatIn .18s ease-out}' + '.sm-chat-head{background:#03363d;color:#fff;padding:14px 16px;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-label,inherit)}' + '.sm-chat-close{background:none;border:0;color:#fff;cursor:pointer;padding:4px;display:inline-flex}' + '.sm-chat-body{padding:16px;font-size:13px;color:#555;line-height:1.55}' + '.sm-chat-row{padding:0 16px 16px;display:flex;gap:8px}' + '.sm-chat-row input{flex:1;padding:10px 12px;border:1px solid #e5e5e5;border-radius:6px;font-size:13px;outline:none;font-family:inherit}' + '.sm-chat-row button{background:#cf0731;color:#fff;border:0;border-radius:6px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:var(--font-label,inherit)}' + '@media(max-width:600px){.sm-chat-wrap{right:16px;bottom:16px}.sm-chat-btn{width:44px;height:44px}.sm-chat-panel{width:calc(100vw - 32px);max-width:320px}}';
+  var style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+
+  // Resolve icon path relative to this script's src.
+  var here = document.currentScript && document.currentScript.src || '';
+  var ICON_SVG = '<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="400" cy="400" r="400" fill="#03363d"/><path fill="#fff" d="M383 359V541H236zM383 289q0 61-43 103.5T236 435V289zM417 541q0-61 43-103.5T564 395v146zM417 471 564 289v182z"/></svg>';
+  function mount() {
+    if (document.querySelector('.sm-chat-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'sm-chat-wrap';
+    wrap.innerHTML = '<div class="sm-chat-panel" hidden>' + '<div class="sm-chat-head"><span>Chat with us</span>' + '<button class="sm-chat-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' + '</div>' + '<div class="sm-chat-body">Hi! Our team typically replies in a few minutes. How can we help you today?</div>' + '<div class="sm-chat-row"><input placeholder="Type a message…"/><button>Send</button></div>' + '</div>' + '<button class="sm-chat-btn" aria-label="Chat with support">' + ICON_SVG + '</button>';
+    document.body.appendChild(wrap);
+    var panel = wrap.querySelector('.sm-chat-panel');
+    wrap.querySelector('.sm-chat-btn').addEventListener('click', function () {
+      panel.hidden = !panel.hidden;
+    });
+    wrap.querySelector('.sm-chat-close').addEventListener('click', function () {
+      panel.hidden = true;
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);else mount();
+})();
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/chat-bubble.js", error: String((e && e.message) || e) }); }
+
+// components/core/click-collect.js
+try { (() => {
+/* <click-collect sku="S001"></click-collect>
+   Compact "Click & Collect" real-time store stock UI. Self-registering web component.
+   Deterministic pseudo-stock per sku so it looks live but stays stable per product. */
+(function () {
+  if (window.customElements && customElements.get('click-collect')) return;
+  var STORES = [{
+    name: 'Coin Gallery (Head Office)',
+    short: 'Coin Gallery'
+  }, {
+    name: 'Chinatown Point',
+    short: 'Chinatown Point'
+  }, {
+    name: 'Suntec City Mall',
+    short: 'Suntec City'
+  }];
+  function hash(str) {
+    var h = 0;
+    str = String(str || '');
+    for (var i = 0; i < str.length; i++) {
+      h = h * 31 + str.charCodeAt(i) >>> 0;
+    }
+    return h;
+  }
+  function stockFor(sku) {
+    var h = hash(sku || 'x');
+    return STORES.map(function (s, i) {
+      var q = (h >> i * 3) % 9; // 0..8
+      return {
+        name: s.name,
+        short: s.short,
+        qty: q
+      };
+    });
+  }
+  var CSS = '' + '.cc-root{font-family:var(--font-label,system-ui,sans-serif);margin-top:8px}' + '.cc-trigger{display:inline-flex;align-items:center;gap:7px;background:none;border:0;padding:0;cursor:pointer;font-family:inherit;font-weight:600;font-size:11.5px;color:#0a8a4a;letter-spacing:.01em}' + '.cc-trigger.out{color:var(--ink-500,#888)}' + '.cc-dot{width:7px;height:7px;border-radius:999px;background:#0a8a4a;box-shadow:0 0 0 3px rgba(10,138,74,.16);flex-shrink:0;position:relative}' + '.cc-dot::after{content:"";position:absolute;inset:0;border-radius:999px;background:#0a8a4a;animation:ccPulse 1.8s ease-out infinite}' + '.cc-dot.out{background:var(--ink-300,#bbb);box-shadow:none}' + '.cc-dot.out::after{display:none}' + '@keyframes ccPulse{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(2.6);opacity:0}}' + '.cc-trigger .chev{transition:transform .15s}' + '.cc-root.open .cc-trigger .chev{transform:rotate(180deg)}' + '.cc-pop{margin-top:8px;border:1px solid var(--ink-75,#eee);border-radius:8px;background:#fff;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08)}' + '.cc-pop .hd{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500,#888);padding:9px 12px 6px}' + '.cc-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-top:1px solid var(--ink-50,#f2f2f2)}' + '.cc-row .nm{flex:1;min-width:0;font-size:12px;font-weight:600;color:var(--ink-900,#222);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' + '.cc-badge{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}' + '.cc-badge.hi{background:#e8f6ec;color:#0a8a4a}' + '.cc-badge.lo{background:#fff3e0;color:#c26a00}' + '.cc-badge.no{background:var(--ink-25,#f5f5f5);color:var(--ink-400,#aaa)}' + '.cc-foot{padding:8px 12px;border-top:1px solid var(--ink-50,#f2f2f2);font-size:10.5px;color:var(--ink-400,#aaa);display:flex;align-items:center;gap:5px}';
+  var styleEl = document.createElement('style');
+  styleEl.textContent = CSS;
+  document.head.appendChild(styleEl);
+  class ClickCollect extends HTMLElement {
+    connectedCallback() {
+      if (this._built) return;
+      this._built = true;
+      var sku = this.getAttribute('sku') || '';
+      var data = stockFor(sku);
+      var total = data.reduce(function (a, s) {
+        return a + s.qty;
+      }, 0);
+      var count = data.filter(function (s) {
+        return s.qty > 0;
+      }).length;
+      var open = false;
+      var root = document.createElement('div');
+      root.className = 'cc-root';
+      var label = total > 0 ? 'In stock at ' + count + ' store' + (count > 1 ? 's' : '') : 'Out of stock — notify me';
+      root.innerHTML = '<button type="button" class="cc-trigger' + (total > 0 ? '' : ' out') + '">' + '<span class="cc-dot' + (total > 0 ? '' : ' out') + '"></span>' + '<span class="cc-lbl">' + label + '</span>' + '<svg class="chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' + '</button>';
+      var pop = document.createElement('div');
+      pop.className = 'cc-pop';
+      pop.style.display = 'none';
+      var rows = '<div class="hd">Click & Collect — real-time stock</div>';
+      data.forEach(function (s) {
+        var cls = s.qty >= 3 ? 'hi' : s.qty > 0 ? 'lo' : 'no';
+        var txt = s.qty >= 3 ? 'In stock' : s.qty > 0 ? 'Low · ' + s.qty + ' left' : 'Unavailable';
+        rows += '<div class="cc-row"><span class="nm">' + s.name + '</span><span class="cc-badge ' + cls + '">' + txt + '</span></div>';
+      });
+      rows += '<div class="cc-foot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Updated just now · Reserve online, collect in 1–2 hrs</div>';
+      pop.innerHTML = rows;
+      root.appendChild(pop);
+      this.appendChild(root);
+      var trigger = root.querySelector('.cc-trigger');
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        open = !open;
+        pop.style.display = open ? 'block' : 'none';
+        root.classList.toggle('open', open);
+      });
+    }
+  }
+  customElements.define('click-collect', ClickCollect);
+})();
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/click-collect.js", error: String((e && e.message) || e) }); }
+
+// next-export/next.config.js
+try { (() => {
+/** @type {import('next').NextConfig} */
+const pages = ['product-list', 'product-detail', 'about', 'contact', 'wishlist', 'compare', 'checkout', 'order-history', 'login', 'logout', 'account', 'promotion', 'events', 'catalogues', 'stay-connected', 'faq', 'register'];
+module.exports = {
+  reactStrictMode: true,
+  async rewrites() {
+    return [{
+      source: '/',
+      destination: '/ui_kits/website/index.html'
+    }, ...pages.map(p => ({
+      source: '/' + p,
+      destination: '/ui_kits/website/' + p + '.html'
+    }))];
+  }
+};
+})(); } catch (e) { __ds_ns.__errors.push({ path: "next-export/next.config.js", error: String((e && e.message) || e) }); }
+
+// next-export/pages/index.js
+try { (() => {
+// Rewrites in next.config.js handle '/' → homepage. This page is fallback only.
+function Home() {
+  return null;
+}
+Object.assign(__ds_scope, { Home, __ds_default_next_export_pages_q99z0y: Home });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "next-export/pages/index.js", error: String((e && e.message) || e) }); }
+
+// next-export/public/assets/data/categories.js
+try { (() => {
+// Shared 3-level category hierarchy for The Singapore Mint
+window.SM_CATEGORIES = [{
+  slug: 'coins',
+  label: 'Coins & Numismatics',
+  groups: [{
+    slug: 'sm-coins',
+    label: 'The Singapore Mint — Coins',
+    subs: [{
+      slug: 'sg-lunar-coins',
+      label: 'Singapore Lunar Coins'
+    }, {
+      slug: 'macau-bhutan-lunar',
+      label: 'Macau & Bhutan Lunar Coin'
+    }]
+  }, {
+    slug: 'intl-coins',
+    label: 'International Coins',
+    subs: [{
+      slug: 'intl-lunar',
+      label: 'Lunar & Auspicious Coins'
+    }, {
+      slug: 'licensed-coins',
+      label: 'Licensed Coins'
+    }, {
+      slug: 'other-intl-coins',
+      label: 'Other International Coins'
+    }]
+  }]
+}, {
+  slug: 'medallions',
+  label: 'Ingots & Medallions',
+  groups: [{
+    slug: 'sm-medallions',
+    label: 'The Singapore Mint — Medallions',
+    subs: [{
+      slug: 'sm-lunar-series',
+      label: 'The Singapore Mint Lunar Series'
+    }, {
+      slug: 'lunar-auspicious-med',
+      label: 'Lunar & Auspicious Medallions'
+    }, {
+      slug: 'currency-souvenir',
+      label: 'Currency Souvenir'
+    }, {
+      slug: 'sg-thematic',
+      label: 'Singapore Thematic Medallions'
+    }]
+  }, {
+    slug: 'intl-medallions',
+    label: 'International Medallions',
+    subs: [{
+      slug: 'all-intl-medallions',
+      label: 'All International Medallions'
+    }]
+  }]
+}, {
+  slug: 'gifts',
+  label: 'Gifts & Collectibles',
+  groups: [{
+    slug: 'gram-gold',
+    label: 'Gram Gold Collection',
+    subs: [{
+      slug: '1g-fine-gold',
+      label: '1 Gram 999 Fine Gold Ingots'
+    }]
+  }, {
+    slug: 'festive',
+    label: 'Festive / Thematic Gifts',
+    subs: [{
+      slug: 'lunar-gifts',
+      label: 'Lunar Gifts'
+    }, {
+      slug: 'sacred-blessings',
+      label: 'Sacred Blessings'
+    }, {
+      slug: 'vesak',
+      label: 'Vesak Collectibles'
+    }, {
+      slug: 'deepavali',
+      label: 'Deepavali Collectibles'
+    }, {
+      slug: 'christmas',
+      label: 'Christmas Gifts'
+    }, {
+      slug: 'love-wedding',
+      label: 'Love & Wedding Collection'
+    }, {
+      slug: 'baby',
+      label: 'Baby Collection'
+    }, {
+      slug: 'sg-souvenirs',
+      label: 'Souvenirs from Singapore'
+    }]
+  }, {
+    slug: 'collectibles-other',
+    label: 'Collectibles & Others',
+    subs: [{
+      slug: 'foil-collectibles',
+      label: 'Gold & Silver Foil Collectibles'
+    }, {
+      slug: 'figurines',
+      label: 'Figurines'
+    }, {
+      slug: 'jewelry',
+      label: 'Jewelry & Personal Accessories'
+    }, {
+      slug: 'money-banks',
+      label: 'Money Banks'
+    }, {
+      slug: 'ornaments',
+      label: 'Home / Desktop Ornaments'
+    }]
+  }]
+}, {
+  slug: 'character',
+  label: 'Character Collectibles',
+  groups: [{
+    slug: 'sanrio',
+    label: 'Sanrio',
+    subs: [{
+      slug: 'sanrio-gold',
+      label: '999 Fine Gold'
+    }, {
+      slug: 'sanrio-medallions',
+      label: 'Medallions'
+    }, {
+      slug: 'sanrio-frames',
+      label: 'Frames & Figurines'
+    }, {
+      slug: 'sanrio-accessories',
+      label: 'Accessories'
+    }]
+  }, {
+    slug: 'peanuts',
+    label: 'Peanuts',
+    subs: [{
+      slug: 'peanuts-gold',
+      label: '999 Fine Gold'
+    }, {
+      slug: 'peanuts-medallions',
+      label: 'Medallions'
+    }, {
+      slug: 'peanuts-frames',
+      label: 'Frames & Figurines'
+    }, {
+      slug: 'peanuts-accessories',
+      label: 'Accessories'
+    }]
+  }, {
+    slug: 'pokemon',
+    label: 'Pokemon',
+    subs: [{
+      slug: 'pokemon-medallions',
+      label: 'Medallions'
+    }]
+  }, {
+    slug: 'teletubbies',
+    label: 'Teletubbies',
+    subs: [{
+      slug: 'teletubbies-accessories',
+      label: 'Accessories'
+    }]
+  }, {
+    slug: 'strawberry-shortcake',
+    label: 'Strawberry Shortcake',
+    subs: [{
+      slug: 'ssc-accessories',
+      label: 'Accessories'
+    }]
+  }, {
+    slug: 'mr-merlion',
+    label: 'Mr. Merlion',
+    subs: [{
+      slug: 'merlion-medallions',
+      label: 'Medallions'
+    }, {
+      slug: 'merlion-accessories',
+      label: 'Accessories'
+    }, {
+      slug: 'merlion-gold',
+      label: '999 Fine Gold'
+    }]
+  }]
+}, {
+  slug: 'catalogue',
+  label: 'July / August Catalogue',
+  groups: [{
+    slug: 'catalogue-all',
+    label: 'Catalogue',
+    subs: [{
+      slug: 'celebrating-sg',
+      label: 'Celebrating Singapore'
+    }, {
+      slug: 'cat-sacred',
+      label: 'Sacred Blessings'
+    }, {
+      slug: 'lunar-goat-2027',
+      label: '2027 Lunar Goat Preorder'
+    }, {
+      slug: 'cat-international',
+      label: 'International'
+    }, {
+      slug: 'cat-sanrio',
+      label: 'Sanrio'
+    }, {
+      slug: 'cat-snoopy',
+      label: 'Snoopy'
+    }, {
+      slug: 'cat-merlion',
+      label: 'Mr. Merlion'
+    }]
+  }]
+}, {
+  slug: 'promo',
+  label: 'Online Promotion',
+  groups: [{
+    slug: 'promo-all',
+    label: 'Promotions',
+    subs: [{
+      slug: 'promo-licensed',
+      label: 'Licensed Collectibles'
+    }, {
+      slug: 'promo-sale',
+      label: 'Limited Time Sale'
+    }, {
+      slug: 'promo-birthday',
+      label: 'Singapore Birthday Specials'
+    }]
+  }]
+}];
+})(); } catch (e) { __ds_ns.__errors.push({ path: "next-export/public/assets/data/categories.js", error: String((e && e.message) || e) }); }
+
+// next-export/public/components/core/chat-bubble.js
+try { (() => {
+/* Floating chat bubble — self-injects into every page it's loaded on. */
+(function () {
+  if (window.__smChatBubbleMounted) return;
+  window.__smChatBubbleMounted = true;
+  var css = '@keyframes smChatIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}' + '.sm-chat-wrap{position:fixed;right:24px;bottom:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none;font-family:var(--font-body,system-ui,sans-serif)}' + '.sm-chat-btn{pointer-events:auto;width:52px;height:52px;border-radius:50%;border:0;background:transparent;padding:0;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.24);display:flex;align-items:center;justify-content:center;transition:transform .15s;overflow:hidden}' + '.sm-chat-btn:hover{transform:scale(1.06)}' + '.sm-chat-btn img,.sm-chat-btn svg{width:100%;height:100%;display:block;border-radius:50%}' + '.sm-chat-panel{pointer-events:auto;width:300px;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.18);overflow:hidden;border:1px solid rgba(0,0,0,.06);animation:smChatIn .18s ease-out}' + '.sm-chat-head{background:#03363d;color:#fff;padding:14px 16px;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-label,inherit)}' + '.sm-chat-close{background:none;border:0;color:#fff;cursor:pointer;padding:4px;display:inline-flex}' + '.sm-chat-body{padding:16px;font-size:13px;color:#555;line-height:1.55}' + '.sm-chat-row{padding:0 16px 16px;display:flex;gap:8px}' + '.sm-chat-row input{flex:1;padding:10px 12px;border:1px solid #e5e5e5;border-radius:6px;font-size:13px;outline:none;font-family:inherit}' + '.sm-chat-row button{background:#cf0731;color:#fff;border:0;border-radius:6px;padding:10px 14px;font-weight:700;font-size:12px;cursor:pointer;font-family:var(--font-label,inherit)}' + '@media(max-width:600px){.sm-chat-wrap{right:16px;bottom:16px}.sm-chat-btn{width:44px;height:44px}.sm-chat-panel{width:calc(100vw - 32px);max-width:320px}}';
+  var style = document.createElement('style');
+  style.textContent = css;
+  document.head.appendChild(style);
+
+  // Resolve icon path relative to this script's src.
+  var here = document.currentScript && document.currentScript.src || '';
+  var ICON_SVG = '<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="400" cy="400" r="400" fill="#03363d"/><path fill="#fff" d="M383 359V541H236zM383 289q0 61-43 103.5T236 435V289zM417 541q0-61 43-103.5T564 395v146zM417 471 564 289v182z"/></svg>';
+  function mount() {
+    if (document.querySelector('.sm-chat-wrap')) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'sm-chat-wrap';
+    wrap.innerHTML = '<div class="sm-chat-panel" hidden>' + '<div class="sm-chat-head"><span>Chat with us</span>' + '<button class="sm-chat-close" aria-label="Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>' + '</div>' + '<div class="sm-chat-body">Hi! Our team typically replies in a few minutes. How can we help you today?</div>' + '<div class="sm-chat-row"><input placeholder="Type a message…"/><button>Send</button></div>' + '</div>' + '<button class="sm-chat-btn" aria-label="Chat with support">' + ICON_SVG + '</button>';
+    document.body.appendChild(wrap);
+    var panel = wrap.querySelector('.sm-chat-panel');
+    wrap.querySelector('.sm-chat-btn').addEventListener('click', function () {
+      panel.hidden = !panel.hidden;
+    });
+    wrap.querySelector('.sm-chat-close').addEventListener('click', function () {
+      panel.hidden = true;
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);else mount();
+})();
+})(); } catch (e) { __ds_ns.__errors.push({ path: "next-export/public/components/core/chat-bubble.js", error: String((e && e.message) || e) }); }
+
+// next-export/public/components/core/click-collect.js
+try { (() => {
+/* <click-collect sku="S001"></click-collect>
+   Compact "Click & Collect" real-time store stock UI. Self-registering web component.
+   Deterministic pseudo-stock per sku so it looks live but stays stable per product. */
+(function () {
+  if (window.customElements && customElements.get('click-collect')) return;
+  var STORES = [{
+    name: 'Coin Gallery (Head Office)',
+    short: 'Coin Gallery'
+  }, {
+    name: 'Chinatown Point',
+    short: 'Chinatown Point'
+  }, {
+    name: 'Suntec City Mall',
+    short: 'Suntec City'
+  }];
+  function hash(str) {
+    var h = 0;
+    str = String(str || '');
+    for (var i = 0; i < str.length; i++) {
+      h = h * 31 + str.charCodeAt(i) >>> 0;
+    }
+    return h;
+  }
+  function stockFor(sku) {
+    var h = hash(sku || 'x');
+    return STORES.map(function (s, i) {
+      var q = (h >> i * 3) % 9; // 0..8
+      return {
+        name: s.name,
+        short: s.short,
+        qty: q
+      };
+    });
+  }
+  var CSS = '' + '.cc-root{font-family:var(--font-label,system-ui,sans-serif);margin-top:8px}' + '.cc-trigger{display:inline-flex;align-items:center;gap:7px;background:none;border:0;padding:0;cursor:pointer;font-family:inherit;font-weight:600;font-size:11.5px;color:#0a8a4a;letter-spacing:.01em}' + '.cc-trigger.out{color:var(--ink-500,#888)}' + '.cc-dot{width:7px;height:7px;border-radius:999px;background:#0a8a4a;box-shadow:0 0 0 3px rgba(10,138,74,.16);flex-shrink:0;position:relative}' + '.cc-dot::after{content:"";position:absolute;inset:0;border-radius:999px;background:#0a8a4a;animation:ccPulse 1.8s ease-out infinite}' + '.cc-dot.out{background:var(--ink-300,#bbb);box-shadow:none}' + '.cc-dot.out::after{display:none}' + '@keyframes ccPulse{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(2.6);opacity:0}}' + '.cc-trigger .chev{transition:transform .15s}' + '.cc-root.open .cc-trigger .chev{transform:rotate(180deg)}' + '.cc-pop{margin-top:8px;border:1px solid var(--ink-75,#eee);border-radius:8px;background:#fff;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08)}' + '.cc-pop .hd{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-500,#888);padding:9px 12px 6px}' + '.cc-row{display:flex;align-items:center;gap:8px;padding:7px 12px;border-top:1px solid var(--ink-50,#f2f2f2)}' + '.cc-row .nm{flex:1;min-width:0;font-size:12px;font-weight:600;color:var(--ink-900,#222);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}' + '.cc-badge{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap}' + '.cc-badge.hi{background:#e8f6ec;color:#0a8a4a}' + '.cc-badge.lo{background:#fff3e0;color:#c26a00}' + '.cc-badge.no{background:var(--ink-25,#f5f5f5);color:var(--ink-400,#aaa)}' + '.cc-foot{padding:8px 12px;border-top:1px solid var(--ink-50,#f2f2f2);font-size:10.5px;color:var(--ink-400,#aaa);display:flex;align-items:center;gap:5px}';
+  var styleEl = document.createElement('style');
+  styleEl.textContent = CSS;
+  document.head.appendChild(styleEl);
+  class ClickCollect extends HTMLElement {
+    connectedCallback() {
+      if (this._built) return;
+      this._built = true;
+      var sku = this.getAttribute('sku') || '';
+      var data = stockFor(sku);
+      var total = data.reduce(function (a, s) {
+        return a + s.qty;
+      }, 0);
+      var count = data.filter(function (s) {
+        return s.qty > 0;
+      }).length;
+      var open = false;
+      var root = document.createElement('div');
+      root.className = 'cc-root';
+      var label = total > 0 ? 'In stock at ' + count + ' store' + (count > 1 ? 's' : '') : 'Out of stock — notify me';
+      root.innerHTML = '<button type="button" class="cc-trigger' + (total > 0 ? '' : ' out') + '">' + '<span class="cc-dot' + (total > 0 ? '' : ' out') + '"></span>' + '<span class="cc-lbl">' + label + '</span>' + '<svg class="chev" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>' + '</button>';
+      var pop = document.createElement('div');
+      pop.className = 'cc-pop';
+      pop.style.display = 'none';
+      var rows = '<div class="hd">Click & Collect — real-time stock</div>';
+      data.forEach(function (s) {
+        var cls = s.qty >= 3 ? 'hi' : s.qty > 0 ? 'lo' : 'no';
+        var txt = s.qty >= 3 ? 'In stock' : s.qty > 0 ? 'Low · ' + s.qty + ' left' : 'Unavailable';
+        rows += '<div class="cc-row"><span class="nm">' + s.name + '</span><span class="cc-badge ' + cls + '">' + txt + '</span></div>';
+      });
+      rows += '<div class="cc-foot"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Updated just now · Reserve online, collect in 1–2 hrs</div>';
+      pop.innerHTML = rows;
+      root.appendChild(pop);
+      this.appendChild(root);
+      var trigger = root.querySelector('.cc-trigger');
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        open = !open;
+        pop.style.display = open ? 'block' : 'none';
+        root.classList.toggle('open', open);
+      });
+    }
+  }
+  customElements.define('click-collect', ClickCollect);
+})();
+})(); } catch (e) { __ds_ns.__errors.push({ path: "next-export/public/components/core/click-collect.js", error: String((e && e.message) || e) }); }
+
+// next-export/public/components/core/site-footer.runtime.js
+try { (() => {
+function SiteFooter({
+  Icon,
+  noStores
+}) {
+  const stores = [{
+    name: 'Coin Gallery (Head Office)',
+    addr: '20 Teban Gardens Crescent, S 608928',
+    tel: '+65 6895 0288',
+    hours: 'Mon – Fri, 8.30am – 4.30pm'
+  }, {
+    name: 'Chinatown Point',
+    addr: '133 New Bridge Road, #02-18, S 059413',
+    tel: '+65 6222 2486',
+    hours: 'Daily, 11.00am – 9.30pm'
+  }, {
+    name: 'Suntec City Mall',
+    addr: '3 Temasek Blvd, #02-719 East Wing Tower 3, S 038983',
+    tel: '+65 6336 2878',
+    hours: 'Daily, 11.00am – 9.30pm'
+  }];
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("footer", {
+    className: "site"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "footer-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "cols"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col"
+  }, /*#__PURE__*/React.createElement("h4", null, "ABOUT US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "/about"
+  }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "News")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Careers")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Events")))), /*#__PURE__*/React.createElement("div", {
+    className: "col"
+  }, /*#__PURE__*/React.createElement("h4", null, "GET HELP"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Order Status")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Delivery")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Returns")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Payment Options")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Find a Store")))), /*#__PURE__*/React.createElement("div", {
+    className: "col"
+  }, /*#__PURE__*/React.createElement("h4", null, "LEGAL"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "General Info")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Privacy Policy")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Terms of Service")))), /*#__PURE__*/React.createElement("div", {
+    className: "contact-mobile"
+  }, /*#__PURE__*/React.createElement("h4", null, "TALK TO US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "salesadmin@singaporemint.com.sg"), /*#__PURE__*/React.createElement("li", null, "+65 6566 2626"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Send Us Feedbacks"))), /*#__PURE__*/React.createElement("div", {
+    className: "socials"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: "#",
+    "aria-label": "Facebook"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "BrandFacebook",
+    size: 16
+  })), /*#__PURE__*/React.createElement("a", {
+    href: "#",
+    "aria-label": "LinkedIn"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "BrandLinkedin",
+    size: 16
+  })), /*#__PURE__*/React.createElement("a", {
+    href: "#",
+    "aria-label": "Twitter"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: "BrandTwitter",
+    size: 16
+  }))))))), !noStores && /*#__PURE__*/React.createElement("section", {
+    className: "stores-strip",
+    style: {
+      background: '#000',
+      padding: '40px 0 32px'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stores-inner",
+    style: {
+      padding: '0 56px',
+      maxWidth: 1280,
+      margin: '0 auto',
+      boxSizing: 'border-box'
+    }
+  }, /*#__PURE__*/React.createElement("h2", {
+    style: {
+      fontFamily: 'var(--font-label)',
+      fontWeight: 800,
+      fontSize: 22,
+      letterSpacing: '.06em',
+      textTransform: 'uppercase',
+      margin: '0 0 36px',
+      color: '#fff'
+    }
+  }, "Our Stores"), /*#__PURE__*/React.createElement("div", {
+    className: "stores-grid",
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(3,1fr)',
+      gap: 40
+    }
+  }, stores.map((s, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: {
+      borderTop: '2px solid var(--brand-red-800)',
+      paddingTop: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-label)',
+      fontWeight: 700,
+      fontSize: 14,
+      textTransform: 'uppercase',
+      letterSpacing: '.05em',
+      marginBottom: 14,
+      color: '#fff'
+    }
+  }, s.name), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-body)',
+      fontSize: 14,
+      lineHeight: '22px',
+      color: 'var(--ink-300)',
+      marginBottom: 6
+    }
+  }, s.addr), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-body)',
+      fontSize: 14,
+      lineHeight: '22px',
+      color: 'var(--ink-300)',
+      marginBottom: 4
+    }
+  }, s.tel), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: 'var(--font-body)',
+      fontSize: 14,
+      lineHeight: '22px',
+      color: 'var(--ink-400)'
+    }
+  }, s.hours)))), /*#__PURE__*/React.createElement("div", {
+    className: "base",
+    style: {
+      marginTop: 40,
+      color: '#fff',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flexWrap: 'wrap',
+      gap: '14px 24px'
+    }
+  }, /*#__PURE__*/React.createElement("img", {
+    src: "../../assets/brand/sm-logo-slogan.png",
+    alt: "The Singapore Mint",
+    style: {
+      height: 26,
+      filter: 'brightness(0) invert(1)',
+      flexShrink: 0
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 13,
+      color: 'var(--ink-400)',
+      whiteSpace: 'nowrap'
+    }
+  }, "\xA9 2019 Singapore Mint. All Rights Reserved.")))));
+}
+function ChatBubble() {
+  return null;
+}
+window.SiteFooter = SiteFooter;
+})(); } catch (e) { __ds_ns.__errors.push({ path: "next-export/public/components/core/site-footer.runtime.js", error: String((e && e.message) || e) }); }
 
 if (__ds_scope.__ds_default_assets_icons_icon_data_imae2q$nab192 === undefined) __ds_scope.__ds_default_assets_icons_icon_data_imae2q$nab192 = __ds_scope.__ds_default_assets_icons_icon_data_imae2q;
 
@@ -2549,5 +3403,7 @@ __ds_ns.MenuItem = __ds_scope.MenuItem;
 __ds_ns.Navi = __ds_scope.Navi;
 
 __ds_ns.SectionHeader = __ds_scope.SectionHeader;
+
+__ds_ns.Home = __ds_scope.Home;
 
 })();
