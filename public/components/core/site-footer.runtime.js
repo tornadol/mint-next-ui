@@ -6,6 +6,16 @@ function SiteFooter({ Icon, noStores }) {
   ];
   return (
     <React.Fragment>
+      <style>{`@media(max-width:1024px){.member-inner{flex-direction:column!important;align-items:center!important;text-align:center;gap:18px!important;padding:32px 24px!important}.member-inner > div{width:100%}.member-banner h3{font-size:clamp(20px,5vw,28px)!important}.member-banner p{margin:6px auto 0!important;max-width:460px}.member-banner .btn-dark{width:100%!important;max-width:320px}}`}</style>
+      <section className="member-banner" style={{width:'100vw',position:'relative',left:'50%',right:'50%',marginLeft:'-50vw',marginRight:'-50vw',background:'linear-gradient(90deg,var(--brand-red-800) 0%,var(--brand-red-900) 100%)',color:'#fff',overflow:'hidden'}}>
+        <div className="member-inner" style={{maxWidth:1280,margin:'0 auto',padding:'36px 56px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:24,boxSizing:'border-box'}}>
+          <div>
+            <h3 style={{fontFamily:'var(--font-label)',fontWeight:800,fontSize:32,margin:0,lineHeight:1.1}}>Become a member &amp; Get 15% off</h3>
+            <p style={{fontFamily:'var(--font-body)',margin:'6px 0 0',opacity:.9}}>Be first to receive updates on new collections, inspiration, gift ideas and exclusive access</p>
+          </div>
+          <button className="btn-dark" style={{background:'#000',color:'#fff',padding:'14px 36px',fontFamily:'var(--font-label)',fontWeight:700,textTransform:'uppercase',letterSpacing:'.04em',border:0,cursor:'pointer',whiteSpace:'nowrap',flexShrink:0}}>JOIN THE CLUB</button>
+        </div>
+      </section>
       <footer className="site">
         <div className="footer-inner">
           <div className="cols">
