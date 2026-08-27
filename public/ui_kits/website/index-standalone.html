@@ -176,6 +176,11 @@ footer.site details[open] summary::after{content:""}
   .hero .side-nav{display:none}
 }
 @media(max-width:600px){
+  .banner-inner{display:grid!important;grid-template-columns:1fr!important;align-items:stretch!important;gap:18px!important;padding:28px 20px!important}
+  .banner-inner > div{width:100%!important;min-width:0}
+  .banner h3{font-size:24px;line-height:1.15;overflow-wrap:normal}
+  .banner p{max-width:none;width:100%;line-height:1.45}
+  .banner .btn-dark{width:auto!important;justify-self:center;max-width:100%}
   .rail{grid-template-columns:repeat(2,1fr)!important}
   .promo{padding:24px;min-height:260px}
   .promo h3{font-size:18px;max-width:60%;margin-bottom:6px}
