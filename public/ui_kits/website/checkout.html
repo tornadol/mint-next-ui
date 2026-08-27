@@ -99,6 +99,12 @@ h1{font-family:var(--font-label);font-weight:800;font-size:32px;margin:0 0 24px}
 @keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
 .success h3{font-size:22px;margin:0 0 8px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}.summary{position:static}.field-row{grid-template-columns:1fr}}
+@media(max-width:600px){
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:20px}
+  .steps .dash{display:none}
+  .step{min-width:0;flex-direction:column;gap:6px;text-align:center;font-size:11px;line-height:1.2;white-space:normal}
+  .step .n{width:36px;height:36px;font-size:16px}
+}
 @media(min-width:901px){
   body{overflow-y:hidden}
   .crumbs{padding:12px 0}
