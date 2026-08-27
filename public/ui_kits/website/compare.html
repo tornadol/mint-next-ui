@@ -140,7 +140,7 @@ const App = () => {
       {Navi ? <Navi/> : null}
       <div className="page-pad">
         <nav className="crumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="index.html">Home</a>
           <span className="sep">/</span>
           <span className="current">Compare</span>
         </nav>
@@ -151,7 +151,7 @@ const App = () => {
           <div className="empty">
             <h3>No products to compare</h3>
             <div>Browse the shop and click the compare icon on any product to add it here.</div>
-            <a href="/product-list">Browse Shop</a>
+            <a href="product-list.html">Browse Shop</a>
           </div>
         ) : (
           <>
@@ -174,7 +174,7 @@ const App = () => {
                     {enriched.map((p,i) => (
                       <th key={p.img || i}>
                         <div className="prod-head">
-                          <a href="/product-detail" className="prod-photo"><img src={p.img} alt=""/></a>
+                          <a href="product-detail.html" className="prod-photo"><img src={p.img} alt=""/></a>
                           <div className="prod-name">{p.name || 'Product'}</div>
                           <div className="prod-price">${(p.price||0).toFixed(2)}</div>
                           <div className="prod-actions">

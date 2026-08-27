@@ -861,29 +861,29 @@ try { (() => {
 const LOGO = '../../assets/brand/sm-logo-slogan.png';
 const shopItems = [{
   label: 'New Arrivals',
-  href: '/product-list#/?tags=New',
+  href: 'product-list.html#/?tags=New',
   badge: {
     text: 'NEW',
     bg: 'var(--brand-red-800)'
   }
 }, {
   label: 'Coins & Numismatics',
-  href: '/product-list#/coins'
+  href: 'product-list.html#/coins'
 }, {
   label: 'Ingots & Medallions',
-  href: '/product-list#/medallions'
+  href: 'product-list.html#/medallions'
 }, {
   label: 'Gifts & Collectibles',
-  href: '/product-list#/gifts'
+  href: 'product-list.html#/gifts'
 }, {
   label: 'Character Collectibles',
-  href: '/product-list#/character'
+  href: 'product-list.html#/character'
 }, {
   label: 'July / August Catalogue',
-  href: '/product-list#/catalogue'
+  href: 'product-list.html#/catalogue'
 }, {
   label: 'Online Promotion',
-  href: '/product-list#/promo',
+  href: 'product-list.html#/promo',
   badge: {
     text: 'SALE',
     bg: '#7a6b1a'
@@ -1269,7 +1269,7 @@ function Navi({
       boxSizing: 'border-box'
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "/",
+    href: "index.html",
     "aria-label": "Home",
     style: {
       display: 'inline-flex',
@@ -1294,13 +1294,13 @@ function Navi({
     className: `sm-nav-item${shopOpen ? ' shop-active' : ''}`,
     onClick: e => {
       if (e.shiftKey || e.metaKey || e.ctrlKey) {
-        window.location.href = '/product-list';
+        window.location.href = 'product-list.html';
         return;
       }
       setShopOpen(o => !o);
     },
     onDoubleClick: () => {
-      window.location.href = '/product-list';
+      window.location.href = 'product-list.html';
     }
   }, "Shop", /*#__PURE__*/React.createElement("svg", {
     width: "14",
@@ -1323,7 +1323,7 @@ function Navi({
     className: "sm-shop-top-row"
   }, shopItems.slice(0, 1).map(it => /*#__PURE__*/React.createElement("a", {
     key: it.label,
-    href: it.href || '/product-list',
+    href: it.href || 'product-list.html',
     className: "sm-shop-item",
     onClick: () => setShopOpen(false)
   }, /*#__PURE__*/React.createElement("span", null, it.label), it.badge && /*#__PURE__*/React.createElement("span", {
@@ -1335,7 +1335,7 @@ function Navi({
     key: cat.slug,
     className: "sm-mega-cat"
   }, /*#__PURE__*/React.createElement("a", {
-    href: `/product-list#/${cat.slug}`,
+    href: `product-list.html#/${cat.slug}`,
     className: "sm-mega-cat-title",
     onClick: () => setShopOpen(false)
   }, cat.label), cat.groups.map(g => /*#__PURE__*/React.createElement("div", {
@@ -1347,26 +1347,26 @@ function Navi({
     className: "sm-mega-subs"
   }, g.subs.map(sub => /*#__PURE__*/React.createElement("a", {
     key: sub.slug,
-    href: `/product-list#/${cat.slug}/${sub.slug}`,
+    href: `product-list.html#/${cat.slug}/${sub.slug}`,
     className: "sm-mega-sub",
     onClick: () => setShopOpen(false)
   }, sub.label))))))))), items.filter(i => i !== 'Shop').map(i => {
     if (i === 'Latest') {
       const latestItems = [{
         label: 'Promotions',
-    href: '/promotion'
+        href: 'promotion.html'
       }, {
         label: 'Events',
-    href: '/events'
+        href: 'events.html'
       }, {
         label: 'Catalogues & Order Form',
-    href: '/catalogues'
+        href: 'catalogues.html'
       }, {
         label: 'Stay Connected with Us',
-    href: '/stay-connected'
+        href: 'stay-connected.html'
       }, {
         label: 'FAQ & Help Centre',
-    href: '/faq'
+        href: 'faq.html'
       }];
       return /*#__PURE__*/React.createElement("div", {
         key: i,
@@ -1425,7 +1425,7 @@ function Navi({
         onMouseLeave: e => e.currentTarget.style.background = 'transparent'
       }, it.label))));
     }
-    const href = i === 'About Us' ? '/about' : i === 'Contact Us' ? '/contact' : '#';
+    const href = i === 'About Us' ? 'about.html' : i === 'Contact Us' ? 'contact.html' : '#';
     return /*#__PURE__*/React.createElement("a", {
       key: i,
       href: href,
@@ -1509,7 +1509,7 @@ function Navi({
       } catch (_) {}
       window.dispatchEvent(new CustomEvent('sm-user-updated'));
       setLogoutModal(false);
-      window.location.href = '/login';
+      window.location.href = 'login.html';
     },
     style: {
       flex: 1,
@@ -1606,7 +1606,7 @@ function Navi({
       textOverflow: 'ellipsis'
     }
   }, user.email)), /*#__PURE__*/React.createElement("a", {
-    href: "/account#info",
+    href: "account.html#info",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -1654,7 +1654,7 @@ function Navi({
     name: "LogOut",
     size: 16
   }), " Sign Out")))) : /*#__PURE__*/React.createElement("a", {
-    href: "/login",
+    href: "login.html",
     className: "sm-navi-login",
     "aria-label": "Login"
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
@@ -1731,7 +1731,7 @@ function Navi({
       wishCloseTimer.current = setTimeout(() => setWishOpen(false), 180);
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "/wishlist",
+    href: "wishlist.html",
     "aria-label": "Wishlist",
     style: {
       color: 'var(--ink-1000)',
@@ -1908,7 +1908,7 @@ function Navi({
     name: "X",
     size: 14
   }))))), /*#__PURE__*/React.createElement("a", {
-      href: "/wishlist",
+    href: "wishlist.html",
     style: {
       display: 'block',
       marginTop: 10,
@@ -1943,7 +1943,7 @@ function Navi({
       compareCloseTimer.current = setTimeout(() => setCompareOpen(false), 180);
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "/compare",
+    href: "compare.html",
     "aria-label": "Compare products",
     style: {
       color: 'var(--ink-1000)',
@@ -2116,7 +2116,7 @@ function Navi({
     name: "X",
     size: 14
   }))))), /*#__PURE__*/React.createElement("a", {
-      href: "/compare",
+    href: "compare.html",
     style: {
       display: 'block',
       marginTop: 10,
@@ -2195,7 +2195,7 @@ function Navi({
   }, /*#__PURE__*/React.createElement("div", {
     className: "sm-drawer-head"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "/",
+    href: "index.html",
     "aria-label": "Home",
     style: {
       display: 'inline-flex',
@@ -2225,19 +2225,19 @@ function Navi({
   }, (() => {
     const latestItems = [{
       label: 'Promotions',
-      href: '/promotion'
+      href: 'promotion.html'
     }, {
       label: 'Events',
-      href: '/events'
+      href: 'events.html'
     }, {
       label: 'Catalogues & Order Form',
-      href: '/catalogues'
+      href: 'catalogues.html'
     }, {
       label: 'Stay Connected with Us',
-      href: '/stay-connected'
+      href: 'stay-connected.html'
     }, {
       label: 'FAQ & Help Centre',
-      href: '/faq'
+      href: 'faq.html'
     }];
     const cats = window.SM_CATEGORIES || [];
     const [msec, setMsec] = [drawerSection, setDrawerSection];
@@ -2265,14 +2265,14 @@ function Navi({
     }))), drawerSection === 'shop' && /*#__PURE__*/React.createElement("div", {
       className: "sm-drawer-sub"
     }, /*#__PURE__*/React.createElement("a", {
-      href: "/product-list",
+      href: "product-list.html",
       onClick: () => setDrawerOpen(false)
     }, "All Products"), cats.map(cat => /*#__PURE__*/React.createElement("a", {
       key: cat.slug,
-      href: `/product-list#/${cat.slug}`,
+      href: `product-list.html#/${cat.slug}`,
       onClick: () => setDrawerOpen(false)
     }, cat.label))), /*#__PURE__*/React.createElement("a", {
-      href: "/about",
+      href: "about.html",
       className: "sm-drawer-top",
       onClick: () => setDrawerOpen(false),
       style: {
@@ -2306,7 +2306,7 @@ function Navi({
       href: it.href,
       onClick: () => setDrawerOpen(false)
     }, it.label))), /*#__PURE__*/React.createElement("a", {
-      href: "/contact",
+      href: "contact.html",
       className: "sm-drawer-top",
       onClick: () => setDrawerOpen(false),
       style: {
@@ -2316,7 +2316,7 @@ function Navi({
   })()), /*#__PURE__*/React.createElement("div", {
     className: "sm-drawer-footer"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "/login",
+    href: "login.html",
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -2447,7 +2447,7 @@ function Navi({
     onClick: () => {
       if (cart.length) {
         setCartOpen(false);
-        window.location.href = '/checkout';
+        window.location.href = 'checkout.html';
       }
     }
   }, "Proceed to Checkout \xB7 ", fmt(subtotal + delivery)), /*#__PURE__*/React.createElement("button", {
@@ -2548,7 +2548,7 @@ function SiteFooter({
   }, /*#__PURE__*/React.createElement("div", {
     className: "col"
   }, /*#__PURE__*/React.createElement("h4", null, "ABOUT US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "/about"
+    href: "about.html"
   }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "#"
   }, "News")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
@@ -3226,7 +3226,7 @@ function SiteFooter({
   }, /*#__PURE__*/React.createElement("div", {
     className: "col"
   }, /*#__PURE__*/React.createElement("h4", null, "ABOUT US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "/about"
+    href: "about.html"
   }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "#"
   }, "News")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {

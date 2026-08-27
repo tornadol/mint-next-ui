@@ -98,7 +98,7 @@ const GROUPS = [
       { q:'How do I place an order?', a:'You can order online at singaporemint.com, in person at any of our retail stores, or by mail order. To order by mail, download the order form from the Catalogues & Order Form page and email your completed form to order@singaporemint.com.sg.' },
       { q:'What payment methods do you accept?', a:'Online checkout is powered by DBS Bank Singapore and accepts Visa and Mastercard credit/debit cards as well as PayNow. Payment is secured with 256-bit SSL encryption.' },
       { q:'Can I use Singapore Mint gift vouchers?', a:'Yes. Gift vouchers may be used to offset up to <b>50%</b> of the total transaction value in a single receipt. Vouchers are not valid for precious metal products, coins, or notes.' },
-      { q:'Where can I find the latest catalogue and order form?', a:'All current and past e-Catalogues, plus the July / August order form, are available on the <a href="/catalogues">Catalogues & Order Form</a> page.' },
+      { q:'Where can I find the latest catalogue and order form?', a:'All current and past e-Catalogues, plus the July / August order form, are available on the <a href="catalogues.html">Catalogues & Order Form</a> page.' },
     ]
   },
   {
@@ -127,9 +127,9 @@ const GROUPS = [
     icon:<><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></>,
     sub:'Gifts with purchase, gift tiers and fairs.',
     items:[
-      { q:'How does Spend & Be Rewarded work?', a:'Spend across a single receipt to earn Singapore Mint gift vouchers: $30 voucher for $300–$599, $50 for $600–$899, and $100 for $900 and above. See the <a href="/promotion">Promotions</a> page for full terms.' },
+      { q:'How does Spend & Be Rewarded work?', a:'Spend across a single receipt to earn Singapore Mint gift vouchers: $30 voucher for $300–$599, $50 for $600–$899, and $100 for $900 and above. See the <a href="promotion.html">Promotions</a> page for full terms.' },
       { q:'Where can I redeem gift-with-purchase items?', a:'GWP redemption is available at our retail shops (Coin Gallery, Chinatown Point, Suntec City). Orders opting for delivery may redeem in store by presenting the original delivery letter. One receipt is entitled to one gift tier.' },
-      { q:'When is the next event?', a:'The Singapore Mint will be at the <b>Singapore International Coin Fair 2026</b>, 20–22 March 2026 at Marina Bay Sands, Booth S38. Details are on the <a href="/events">Events</a> page.' },
+      { q:'When is the next event?', a:'The Singapore Mint will be at the <b>Singapore International Coin Fair 2026</b>, 20–22 March 2026 at Marina Bay Sands, Booth S38. Details are on the <a href="events.html">Events</a> page.' },
     ]
   },
   {
@@ -137,8 +137,8 @@ const GROUPS = [
     icon:<><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></>,
     sub:'Your account, addresses and the Return & Reward scheme.',
     items:[
-      { q:'How do I manage my saved addresses?', a:'Sign in and go to your <a href="/account#info">Dashboard → Settings</a>. There you can add, edit, remove and set a default address, which is then used automatically at checkout.' },
-      { q:'Where can I view my past orders and receipts?', a:'Your <a href="/account#orders">Order History</a> tab lists all past orders with itemised receipts you can download.' },
+      { q:'How do I manage my saved addresses?', a:'Sign in and go to your <a href="account.html#info">Dashboard → Settings</a>. There you can add, edit, remove and set a default address, which is then used automatically at checkout.' },
+      { q:'Where can I view my past orders and receipts?', a:'Your <a href="account.html#orders">Order History</a> tab lists all past orders with itemised receipts you can download.' },
       { q:'What is the Return & Reward scheme?', a:'Bring your empty S001 / S002 coin boxes back to any retail shop and enjoy <b>$2 off</b> your next purchase for every box returned (excludes S624 Lunar Horse Red Packets). Terms and conditions apply.' },
     ]
   },
@@ -161,7 +161,7 @@ const App = () => {
     <div className="wrap">
       {Navi ? <Navi active="Latest"/> : null}
       <div className="container">
-        <nav className="crumbs"><a href="/">Home</a> / <span>FAQ & Help Centre</span></nav>
+        <nav className="crumbs"><a href="index.html">Home</a> / <span>FAQ & Help Centre</span></nav>
 
         <section className="hero">
           <div className="kicker">Help Centre</div>
@@ -176,7 +176,7 @@ const App = () => {
           <div style={{paddingBottom:64}}>
             <p style={{fontFamily:'var(--font-label)',fontWeight:700,fontSize:14,color:'var(--ink-500)',margin:'0 0 16px'}}>{matches.length} result{matches.length!==1?'s':''} for "{query}"</p>
             {matches.length === 0 ? (
-              <div className="no-res"><b>No matching answers.</b><div style={{marginTop:8}}>Try another keyword or <a href="/contact" style={{color:'#cf0731',fontWeight:600}}>contact our team</a>.</div></div>
+              <div className="no-res"><b>No matching answers.</b><div style={{marginTop:8}}>Try another keyword or <a href="contact.html" style={{color:'#cf0731',fontWeight:600}}>contact our team</a>.</div></div>
             ) : matches.map((it,i) => (
               <div key={i} className={`qa${open['s'+i]?' open':''}`}>
                 <button className="q" onClick={()=>toggle('s'+i)}>{it.q}<span className="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></button>
@@ -212,7 +212,7 @@ const App = () => {
               <h2 className="help-head">Still need help?</h2>
               <p className="help-sub">Our customer care team is here to assist.</p>
               <div className="help-cta">
-                <a className="help-card" href="/contact">
+                <a className="help-card" href="contact.html">
                   <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                   <h3>Contact Us</h3>
                   <p>Reach our head office and customer service line.</p>
@@ -222,7 +222,7 @@ const App = () => {
                   <h3>Email Orders</h3>
                   <p>order@singaporemint.com.sg</p>
                 </a>
-                <a className="help-card" href="/stay-connected">
+                <a className="help-card" href="stay-connected.html">
                   <div className="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <h3>Stay Connected</h3>
                   <p>Join our mailing list and social channels.</p>

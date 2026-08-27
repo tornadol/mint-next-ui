@@ -102,7 +102,7 @@ const App = () => {
       localStorage.setItem('sm-user', JSON.stringify({ email: email.trim(), name }));
       window.dispatchEvent(new CustomEvent('sm-user-updated'));
     } catch(_){}
-    setTimeout(() => { window.location.href = '/'; }, 700);
+    setTimeout(() => { window.location.href = 'index.html'; }, 700);
   };
 
   const onKey = (e) => { if(e.key === 'Enter') submit(); };
@@ -127,7 +127,7 @@ const App = () => {
         <div className="right">
           <div className="form-box">
             <h1>Create Account</h1>
-            <p className="sub">Already a member? <a href="/login">Sign in</a></p>
+            <p className="sub">Already a member? <a href="login.html">Sign in</a></p>
 
             {formErr && <div className="err-box">{formErr}</div>}
 
@@ -182,7 +182,7 @@ const App = () => {
               Continue with Microsoft
             </button>
 
-            <div className="login-link">Already have an account? <a href="/login">Sign in</a></div>
+            <div className="login-link">Already have an account? <a href="login.html">Sign in</a></div>
           </div>
         </div>
       </div>

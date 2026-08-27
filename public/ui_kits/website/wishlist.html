@@ -125,7 +125,7 @@ const App = () => {
       {Navi ? <Navi/> : null}
       <div className="page-pad">
         <nav className="crumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="index.html">Home</a>
           <span className="sep">/</span>
           <span className="current">Wishlist</span>
         </nav>
@@ -136,21 +136,21 @@ const App = () => {
           <div className="empty">
             <h3>Your wishlist is empty</h3>
             <div>Browse the shop and tap the heart icon on any product to save it here.</div>
-            <a href="/product-list">Browse Shop</a>
+            <a href="product-list.html">Browse Shop</a>
           </div>
         ) : (
           <>
             <div className="toolbar">
               <button className="clear-btn" onClick={clearAll}>Clear All</button>
               <div className="actions-right">
-            <a href="/product-list" className="btn-outline" style={{textDecoration:'none',display:'inline-flex',alignItems:'center'}}>Continue Shopping</a>
+                <a href="product-list.html" className="btn-outline" style={{textDecoration:'none',display:'inline-flex',alignItems:'center'}}>Continue Shopping</a>
                 <button className="btn-primary" onClick={addAll}>Add All to Cart</button>
               </div>
             </div>
 
             <div className="grid">
               {items.map((it,i) => (
-                <div key={it.img||i} className="card" onClick={()=>{window.location.href='/product-detail';}}>
+                <div key={it.img||i} className="card" onClick={()=>{window.location.href='product-detail.html';}}>
                   <div className="quick-actions">
                     <button className="qa-btn" aria-label="Remove from wishlist" onClick={(e)=>{e.stopPropagation();removeItem(it.img);}}>
                       <Icon name="X" size={14}/>

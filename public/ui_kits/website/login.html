@@ -69,7 +69,7 @@ const App = () => {
       localStorage.setItem('sm-user', JSON.stringify({ email: match.email, name: match.name }));
       window.dispatchEvent(new CustomEvent('sm-user-updated'));
     } catch(_){}
-    setTimeout(() => { window.location.href = '/'; }, 600);
+    setTimeout(() => { window.location.href = 'index.html'; }, 600);
   };
 
   const handleKey = (e) => { if (e.key === 'Enter') handleLogin(); };
@@ -96,7 +96,7 @@ const App = () => {
         <div className="right">
           <div className="form-box">
             <h1>Sign In</h1>
-            <p className="sub">New here? <a href="/register">Create an account</a></p>
+            <p className="sub">New here? <a href="register.html">Create an account</a></p>
 
             <div className="field">
               <label>Email address</label>
@@ -123,7 +123,7 @@ const App = () => {
               Continue with Microsoft
             </button>
 
-            <div className="register">Don't have an account? <a href="/register">Register now</a></div>
+            <div className="register">Don't have an account? <a href="register.html">Register now</a></div>
           </div>
         </div>
       </div>

@@ -275,7 +275,7 @@ const RelatedTile = ({item}) => {
   };
   const goDetail = (e) => {
     if (e.target.closest('.quick-actions') || e.target.closest('.add-cart')) return;
-    window.location.href = `/product-detail?sku=${encodeURIComponent(item.sku)}`;
+    window.location.href = `product-detail.html?sku=${encodeURIComponent(item.sku)}`;
   };
   return (
     <div className="card" onClick={goDetail} style={{cursor:'pointer'}}>
@@ -336,9 +336,9 @@ const App = () => {
       {Navi ? <Navi/> : null}
       <div className="page-pad">
         <nav className="crumbs" aria-label="Breadcrumb">
-          <a href="/">Home</a>
+          <a href="index.html">Home</a>
           <span className="sep">/</span>
-          <a href="/product-list">Shop</a>
+          <a href="product-list.html">Shop</a>
           <span className="sep">/</span>
           <span className="current">Tabebuia Rosea Silver Ingot</span>
         </nav>

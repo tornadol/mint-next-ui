@@ -452,7 +452,7 @@ function DashboardOverview({orders, gotoOrders}){
             {orders.length>0 && <a href="#orders" onClick={e=>{e.preventDefault();gotoOrders();}}>View all</a>}
           </div>
           {recent.length===0 ? (
-            <div className="empty-mini">No orders yet. <a href="/product-list" style={{color:'#cf0731',fontWeight:700}}>Start shopping</a></div>
+            <div className="empty-mini">No orders yet. <a href="product-list.html" style={{color:'#cf0731',fontWeight:700}}>Start shopping</a></div>
           ) : recent.map(o => (
             <div key={o.id} className="mini-order">
               <img src={(o.items[0]||{}).img} alt=""/>
@@ -512,7 +512,7 @@ function OrdersPanel(){
       <div className="empty">
         <h3>No orders yet</h3>
         <div>Your past orders will appear here after you check out.</div>
-        <a href="/product-list">Start Shopping</a>
+        <a href="product-list.html">Start Shopping</a>
       </div>
     );
   }
@@ -545,7 +545,7 @@ function OrdersPanel(){
             <div className="order-total">Total {fmt(o.total)}</div>
             <div style={{display:'flex',gap:10}}>
               <a className="btn btn-outline" href="#" onClick={e=>e.preventDefault()}>View Receipt</a>
-              <a className="btn btn-outline" href="/product-list">Buy Again</a>
+              <a className="btn btn-outline" href="product-list.html">Buy Again</a>
             </div>
           </div>
         </div>
@@ -574,7 +574,7 @@ const App = () => {
     <div className="wrap">
       {Navi ? <Navi active="Home"/> : null}
       <div className="container">
-        <nav className="crumbs"><a href="/">Home</a> / <span>Dashboard</span></nav>
+        <nav className="crumbs"><a href="index.html">Home</a> / <span>Dashboard</span></nav>
         <h1>Dashboard</h1>
         <div className="sub">Your orders, addresses, receipts and profile in one place.</div>
         <div className="tabs" role="tablist">

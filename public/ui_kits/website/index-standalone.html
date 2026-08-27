@@ -176,11 +176,6 @@ footer.site details[open] summary::after{content:""}
   .hero .side-nav{display:none}
 }
 @media(max-width:600px){
-  .banner-inner{display:grid!important;grid-template-columns:1fr!important;align-items:stretch!important;gap:18px!important;padding:28px 20px!important}
-  .banner-inner > div{width:100%!important;min-width:0}
-  .banner h3{font-size:24px;line-height:1.15;overflow-wrap:normal}
-  .banner p{max-width:none;width:100%;line-height:1.45}
-  .banner .btn-dark{width:auto!important;justify-self:center;max-width:100%}
   .rail{grid-template-columns:repeat(2,1fr)!important}
   .promo{padding:24px;min-height:260px}
   .promo h3{font-size:18px;max-width:60%;margin-bottom:6px}
@@ -340,7 +335,7 @@ const CoinTile = ({item, small}) => {
     setTimeout(()=>setAdded(false), 1400);
   };
   return (
-  <div className="card" onClick={()=>{window.location.href='/product-detail';}} style={{cursor:'pointer'}}>
+  <div className="card" onClick={()=>{window.location.href='product-detail.html';}} style={{cursor:'pointer'}}>
     <div className="quick-actions">
       <button className={`qa-btn${wish?' on':''}`} aria-label="Add to wishlist" onClick={toggle(setWish,'wishlist')}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill={wish?'currentColor':'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -372,7 +367,7 @@ const PromoTile = () => (
       <h3>Collect commemorative coins &amp; limited editions</h3>
       <p className="sub">Rare mintings, released in small runs — each piece a tribute to a moment in time.</p>
     </div>
-        <a className="btn" href="/product-list" style={{background:'#fff',color:'var(--ink-1000)',border:0,padding:'12px 22px',display:'inline-flex',alignItems:'center',gap:8,font:'var(--text-cta)',textTransform:'uppercase',letterSpacing:'.04em',cursor:'pointer',alignSelf:'flex-start',textDecoration:'none'}}>EXPLORE MORE <span>→</span></a>
+        <a className="btn" href="product-list.html" style={{background:'#fff',color:'var(--ink-1000)',border:0,padding:'12px 22px',display:'inline-flex',alignItems:'center',gap:8,font:'var(--text-cta)',textTransform:'uppercase',letterSpacing:'.04em',cursor:'pointer',alignSelf:'flex-start',textDecoration:'none'}}>EXPLORE MORE <span>→</span></a>
   </div>
 );
 
@@ -447,7 +442,7 @@ const Hero = () => {
       <div className="copy">
         <h1>{s.title.map((l,i)=><span key={i}>{l}</span>)}</h1>
         <div className="actions">
-                    <button className="pill solid" onClick={()=>{window.location.href='/product-list';}}>SHOP NOW</button>
+                    <button className="pill solid" onClick={()=>{window.location.href='product-list.html';}}>SHOP NOW</button>
           <button className="pill">VIEW CAMPAIGN</button>
         </div>
       </div>
@@ -477,7 +472,7 @@ const App = () => (
           {slug:'catalogue',  label:'July / Aug Catalogue', img:'../../assets/standalone/coin-05.webp'},
           {slug:'promo',      label:'Online Promotion',     img:'../../assets/standalone/coin-07.webp'},
         ].map(c => (
-          <a key={c.slug} className="cat-nav-item" href={`/product-list#/${c.slug}`}>
+          <a key={c.slug} className="cat-nav-item" href={`product-list.html#/${c.slug}`}>
             <span className="cat-nav-thumb"><img src={c.img} alt=""/></span>
             <span className="cat-nav-label">{c.label}</span>
             <span className="cat-nav-arrow">
@@ -506,7 +501,7 @@ const App = () => (
       </div>
       <div className="collections-grid">
         {collections.map((c,i)=>(
-                    <a key={i} href="/product-list" className="collection-tile" style={{textDecoration:'none',color:'#fff',display:'block'}}>
+          <a key={i} href="product-list.html" className="collection-tile" style={{textDecoration:'none',color:'#fff',display:'block'}}>
             <img src={c.img} alt=""/>
             <div className="grad"/>
             <div className="title">{c.title}</div>
