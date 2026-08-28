@@ -133,7 +133,7 @@ h1{font-family:var(--font-label);font-weight:800;font-size:32px;margin:0 0 24px}
   .checkout-scroll::-webkit-scrollbar{width:6px}
   .checkout-scroll::-webkit-scrollbar-thumb{background:var(--ink-100);border-radius:3px}
 }
-.fulfill{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px}
+.fulfill{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
 .saved-addrs{display:flex;flex-direction:column;gap:10px;margin-bottom:4px}
 .saved-addr{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--ink-100);border-radius:8px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background .15s}
 .saved-addr:hover{border-color:var(--ink-400)}
@@ -191,7 +191,28 @@ h1{font-family:var(--font-label);font-weight:800;font-size:32px;margin:0 0 24px}
 .pickup-store .addr{font-size:12.5px;color:var(--ink-500);margin-top:4px;line-height:1.55}
 .pickup-store .hours{font-size:12px;color:var(--ink-500);margin-top:4px;display:inline-flex;align-items:center;gap:6px}
 .pickup-note{background:#f4faf6;border:1px solid #cce6d6;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:12.5px;color:#0a8a4a;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.slot-sec{margin-top:18px;padding-top:16px;border-top:1px solid var(--ink-75)}
+.slot-sec .slot-h{display:flex;align-items:center;gap:8px;font-family:var(--font-label);font-weight:800;font-size:13px;color:var(--ink-1000);margin-bottom:12px}
+.slot-sec .slot-h .ic{color:#cf0731;display:inline-flex}
+.slot-label{font-family:var(--font-label);font-weight:700;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-500);margin:0 0 8px}
+.slot-days{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.slot-day{border:1.5px solid var(--ink-100);border-radius:8px;padding:8px 14px;cursor:pointer;font-family:var(--font-label);font-weight:700;font-size:12.5px;color:var(--ink-700);background:#fff;transition:border-color .15s,background .15s;white-space:nowrap}
+.slot-day:hover{border-color:var(--ink-400)}
+.slot-day.on{border-color:#cf0731;background:#fff7f9;color:#cf0731}
+.slot-day-custom{display:inline-flex;align-items:center;gap:7px;position:relative;cursor:pointer;overflow:hidden}
+.slot-day-custom svg{color:#cf0731}
+.slot-day-custom input[type=date]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;border:0;padding:0;margin:0}
+.slot-day-custom input[type=date]::-webkit-calendar-picker-indicator{position:absolute;inset:0;width:100%;height:100%;margin:0;cursor:pointer;opacity:0}
+.slot-times{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.slot-time{display:flex;align-items:center;gap:9px;border:1.5px solid var(--ink-100);border-radius:8px;padding:11px 14px;cursor:pointer;font-family:var(--font-label);font-weight:600;font-size:12.5px;color:var(--ink-800);background:#fff;transition:border-color .15s,background .15s}
+.slot-time:hover{border-color:var(--ink-400)}
+.slot-time.on{border-color:#cf0731;background:#fff7f9;color:#cf0731}
+.slot-time .radio{width:16px;height:16px;border-radius:999px;border:2px solid var(--ink-200);flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.slot-time.on .radio{border-color:#cf0731}
+.slot-time.on .radio::after{content:"";width:7px;height:7px;border-radius:999px;background:#cf0731}
+@media(max-width:600px){.slot-times{grid-template-columns:1fr}}
 @media(max-width:600px){.fulfill{grid-template-columns:1fr}}
+@media(max-width:820px){.fulfill{grid-template-columns:1fr}}
 /*om-footer*/
 footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
 footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
@@ -215,7 +236,30 @@ function readAddresses(){
 
 const App = () => {
   const [cart, setCart] = React.useState([]);
-  const [fulfill, setFulfill] = React.useState('ship'); // ship | pickup
+  const [fulfill, setFulfill] = React.useState('ship'); // ship | pickup | popstation
+  const POPSTATIONS = [
+    {id:'ps-tampines',name:'Tampines Central',addr:'Tampines Mall, B1 Lift Lobby, S 529510',lockers:'12 lockers free'},
+    {id:'ps-jurong',name:'Jurong Point',addr:'1 Jurong West Central 2, #B1, S 648886',lockers:'8 lockers free'},
+    {id:'ps-amk',name:'AMK Hub',addr:'53 Ang Mo Kio Ave 3, #01 Concourse, S 569933',lockers:'5 lockers free'},
+    {id:'ps-vivo',name:'VivoCity',addr:'1 HarbourFront Walk, B2 Atrium, S 098585',lockers:'15 lockers free'},
+    {id:'ps-nex',name:'NEX Serangoon',addr:'23 Serangoon Central, #B1, S 556083',lockers:'9 lockers free'},
+  ];
+  const [popStation, setPopStation] = React.useState(POPSTATIONS[0].id);
+  const SLOT_DAYS = React.useMemo(()=>{
+    const arr=[]; const d=new Date();
+    for(let i=1;i<=4;i++){ const x=new Date(d); x.setDate(d.getDate()+i); arr.push(x); }
+    return arr;
+  },[]);
+  const SLOT_TIMES = ['9:00 AM – 12:00 PM','12:00 PM – 3:00 PM','3:00 PM – 6:00 PM','6:00 PM – 9:00 PM'];
+  const [slotDay, setSlotDay] = React.useState(0);
+  const [slotTime, setSlotTime] = React.useState(1);
+  const [customDate, setCustomDate] = React.useState('');
+  const fmtDay = (dt)=>dt.toLocaleDateString('en-SG',{weekday:'short',day:'numeric',month:'short'});
+  const minDate = React.useMemo(()=>{ const d=new Date(); d.setDate(d.getDate()+1); return d.toISOString().slice(0,10); },[]);
+  const activeDayLabel = slotDay==='custom'
+    ? (customDate ? fmtDay(new Date(customDate+'T00:00:00')) : 'Custom date')
+    : fmtDay(SLOT_DAYS[slotDay]);
+  const chosenSlot = `${activeDayLabel}, ${SLOT_TIMES[slotTime]}`;
   const STORES = [
     {id:'coin-gallery',name:'Coin Gallery (Head Office)',addr:'20 Teban Gardens Crescent, S 608928',tel:'+65 6895 0288',hours:'Mon–Fri, 8.30am–4.30pm'},
     {id:'chinatown',name:'Chinatown Point',addr:'133 New Bridge Road, #02-18, S 059413',tel:'+65 6222 2486',hours:'Daily, 11.00am–9.30pm'},
@@ -290,7 +334,8 @@ const App = () => {
   const isOverseas = fulfill==='ship';
   const fedex = FEDEX_ZONES[f.country] || FEDEX_ZONES['Singapore'];
   const fedexRate = (isOverseas && fedex) ? Math.round((fedex.base + fedex.perKg * weightKg) * 100)/100 : 0;
-  const delivery = fulfill==='pickup' ? 0 : fedexRate;
+  const POPSTATION_RATE = 3.99;
+  const delivery = fulfill==='pickup' ? 0 : (fulfill==='popstation' ? POPSTATION_RATE : fedexRate);
   const gst = subtotal * 0.09;
   const total = subtotal + delivery;
   const orderNo = React.useMemo(()=>('TSM'+Math.floor(100000+Math.random()*900000)),[]);
@@ -315,9 +360,12 @@ const App = () => {
           items: cart, subtotal, delivery, gst, total,
           method: 'DBS Bank · **** '+ (f.cardNum.slice(-4)),
           fulfill: fulfill,
+          timeSlot: chosenSlot,
           pickupStore: fulfill==='pickup' ? STORES.find(s=>s.id===pickupStore) : null,
           address: fulfill==='pickup'
             ? `Pickup at ${STORES.find(s=>s.id===pickupStore).name} — ${STORES.find(s=>s.id===pickupStore).addr}`
+            : fulfill==='popstation'
+            ? `POPStation: ${POPSTATIONS.find(s=>s.id===popStation).name} — ${POPSTATIONS.find(s=>s.id===popStation).addr}`
             : `${f.firstName} ${f.lastName}, ${f.addr}, ${f.city} ${f.postcode}, ${f.country}`,
           status: 'Paid'
         };
@@ -361,9 +409,13 @@ const App = () => {
               <div style={{background:'var(--ink-25)',borderRadius:6,padding:'16px 20px',display:'flex',justifyContent:'space-between',fontFamily:'var(--font-label)',fontWeight:700,fontSize:14,marginBottom:24}}>
                 <span>Amount charged</span><span>{fmt(order?.total||0)}</span>
               </div>
-              <div style={{display:'flex',gap:12,justifyContent:'center'}}>
+              <div style={{display:'flex',gap:12,justifyContent:'center',flexWrap:'wrap'}}>
+                {order?.fulfill!=='pickup' && <a href={`order-tracking.html?order=${encodeURIComponent(order?.id||'')}`} className="pay-btn" style={{width:'auto',padding:'14px 24px',textDecoration:'none',display:'inline-flex',alignItems:'center',gap:8,marginTop:0}}>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  Track Order
+                </a>}
                 <a href="order-history.html" className="pay-btn" style={{background:'#fff',color:'#cf0731',border:'1px solid #cf0731',textDecoration:'none',display:'inline-block',padding:'14px 24px',width:'auto',marginTop:0}}>View Orders</a>
-                <a href="index.html" className="pay-btn" style={{width:'auto',padding:'14px 24px',textDecoration:'none',display:'inline-block',marginTop:0}}>Continue Shopping</a>
+                <a href="index.html" className="pay-btn" style={{width:'auto',padding:'14px 24px',textDecoration:'none',display:'inline-block',marginTop:0,background:'#fff',color:'var(--ink-800)',border:'1px solid var(--ink-100)'}}>Continue Shopping</a>
               </div>
             </div>
           </div>
@@ -399,7 +451,34 @@ const App = () => {
                       <div className="s">Collect from any of our 3 stores. Ready in 1–2 hours.</div>
                     </div>
                   </div>
+                  <div className={`opt${fulfill==='popstation'?' on':''}`} onClick={()=>setFulfill('popstation')}>
+                    <div className="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="13" y1="6" x2="15" y2="6"/><line x1="13" y1="10" x2="15" y2="10"/></svg></div>
+                    <div className="m">
+                      <div className="l">POPStation <span className="free" style={{background:'#fff3e0',color:'#c26a00'}}>$3.99</span></div>
+                      <div className="s">Self-collect from a locker 24/7. Pick a station below.</div>
+                    </div>
+                  </div>
                 </div>
+                {fulfill==='popstation' && (
+                  <React.Fragment>
+                    <div className="pickup-stores">
+                      {POPSTATIONS.map(s => (
+                        <div key={s.id} className={`pickup-store${popStation===s.id?' on':''}`} onClick={()=>setPopStation(s.id)}>
+                          <div className="radio"/>
+                          <div className="info">
+                            <div className="name">{s.name} <span className="tag" style={{background:'#fff3e0',color:'#c26a00'}}>{s.lockers}</span></div>
+                            <div className="addr">{s.addr}</div>
+                            <div className="hours"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Collect anytime, 24/7 · Held for 3 days</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="pickup-note" style={{background:'#fff8f0',borderColor:'#f0d9b8',color:'#c26a00'}}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink:0,marginTop:1}}><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                      <span>We’ll SMS you a collection PIN when your parcel arrives at the selected POPStation. Parcels are held for 3 days.</span>
+                    </div>
+                  </React.Fragment>
+                )}
                 {fulfill==='pickup' && (
                   <React.Fragment>
                     <div className="pickup-stores">
@@ -420,6 +499,29 @@ const App = () => {
                     </div>
                   </React.Fragment>
                 )}
+
+                <div className="slot-sec">
+                  <div className="slot-h"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>{fulfill==='ship'?'Preferred delivery time':fulfill==='popstation'?'Preferred drop-off time':'Preferred collection time'}</div>
+                  <p className="slot-label">Select a day</p>
+                  <div className="slot-days">
+                    {SLOT_DAYS.map((d,i)=>(
+                      <div key={i} className={`slot-day${slotDay===i?' on':''}`} onClick={()=>setSlotDay(i)}>{fmtDay(d)}</div>
+                    ))}
+                    <label className={`slot-day slot-day-custom${slotDay==='custom'?' on':''}`}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                      <span>{slotDay==='custom' && customDate ? fmtDay(new Date(customDate+'T00:00:00')) : 'Pick a date'}</span>
+                      <input id="slotDateInput" type="date" min={minDate} value={customDate} onChange={e=>{setCustomDate(e.target.value); setSlotDay('custom');}}/>
+                    </label>
+                  </div>
+                  <p className="slot-label">Select a time slot</p>
+                  <div className="slot-times">
+                    {SLOT_TIMES.map((t,i)=>(
+                      <div key={i} className={`slot-time${slotTime===i?' on':''}`} onClick={()=>setSlotTime(i)}>
+                        <span className="radio"/>{t}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {fulfill==='ship' && (
@@ -549,7 +651,8 @@ const App = () => {
                   <div className="totals">
                     <div className="line"><span>Subtotal</span><span>{fmt(subtotal)}</span></div>
                     <div className="line"><span>GST (9%, incl.)</span><span>{fmt(gst)}</span></div>
-                    <div className="line"><span>{fulfill==='pickup'?'Store pickup':'Delivery'}{isOverseas && <span className="fx-tag">FedEx {fedex?fedex.zone:''}</span>}</span><span>{delivery===0?'FREE':fmt(delivery)}</span></div>
+                    <div className="line"><span>{fulfill==='pickup'?'Store pickup':fulfill==='popstation'?'POPStation':'Delivery'}{isOverseas && <span className="fx-tag">FedEx {fedex?fedex.zone:''}</span>}</span><span>{delivery===0?'FREE':fmt(delivery)}</span></div>
+                    <div className="line fx-sub"><span>{fulfill==='ship'?'Delivery':fulfill==='popstation'?'Drop-off':'Collection'} slot · {chosenSlot}</span><span></span></div>
                     {isOverseas && fedex && <div className="line fx-sub"><span>FedEx Intl Priority · {weightKg.toFixed(2)}kg · {fedex.days} days</span><span></span></div>}
                     <div className="line total"><span>Total</span><span>{fmt(total)}</span></div>
                   </div>

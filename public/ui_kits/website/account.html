@@ -449,7 +449,7 @@ function DashboardOverview({orders, gotoOrders}){
         <div className="section">
           <div className="section-head">
             <h3>Recent Orders</h3>
-            {orders.length>0 && <a href="#orders" onClick={e=>{e.preventDefault();gotoOrders();}}>View all</a>}
+            {orders.length>0 && <a href="order-history.html">View all</a>}
           </div>
           {recent.length===0 ? (
             <div className="empty-mini">No orders yet. <a href="product-list.html" style={{color:'#cf0731',fontWeight:700}}>Start shopping</a></div>
@@ -483,7 +483,7 @@ function DashboardOverview({orders, gotoOrders}){
       <div className="section" style={{marginBottom:28}}>
         <div className="section-head">
           <h3>Receipts</h3>
-          {orders.length>0 && <a href="#orders" onClick={e=>{e.preventDefault();gotoOrders();}}>All receipts</a>}
+          {orders.length>0 && <a href="order-history.html">All receipts</a>}
         </div>
         {orders.length===0 ? (
           <div className="empty-mini">Receipts appear here after your first order.</div>
