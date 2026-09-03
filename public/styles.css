@@ -17,6 +17,9 @@ body { font-family: var(--font-body); color: var(--text-primary); background: va
 a { color: var(--text-primary); text-decoration: none; }
 a:hover { color: var(--brand-red-800); }
 
+/* Section titles — consistent site-wide (Mona Sans, regular, 24px, uppercase) */
+.section-head h2{font-family:var(--font-body);font-weight:400;font-size:24px;line-height:1.2;text-transform:uppercase;margin:0}
+
 /* Footer mobile fixes (SiteFooter renders inline styles; these override on small screens) */
 @media(max-width:900px){
   footer.site .cols{display:grid;grid-template-columns:repeat(3,1fr)!important;gap:20px 12px}

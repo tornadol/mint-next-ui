@@ -1,30 +1,36 @@
 /* Type system — IBM Plex Serif for display, Mona Sans for body copy,
    Open Sans (600/700) for uppercase labels & CTA text, Inter for utility rows. */
 :root {
-  --font-display: "IBM Plex Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-display: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-body: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-label: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-utility: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-label: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-utility: "Mona Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  /* Display (serif) — hero + section headers */
-  --text-hero:      600 100px/120px var(--font-display);   /* "SALE NOW ON" */
-  --text-section:   600 40px/56px var(--font-display);     /* "Best seller", "Just in", "Collections" */
-  --text-price-l:   500 28px/32px var(--font-display);
-  --text-price:     500 18px/24px var(--font-display);     /* card price */
+  /* Figma text styles — all Mona Sans */
+  --text-header:        700 22px/1.2 var(--font-body);     /* Header · 22/Auto */
+  --text-section:       600 18px/1.2 var(--font-body);     /* Section · 18/Auto */
+  --text-section-med:   500 18px/1.2 var(--font-body);     /* Section Medium · 18/Auto */
+  --text-body:          400 16px/1.3 var(--font-body);     /* Body · 16/130 */
+  --text-body-med:      500 16px/1.3 var(--font-body);     /* Body Medium · 16/130 */
+  --text-link:          500 16px/1.3 var(--font-body);     /* Link Text · 16/130 */
+  --text-label:         400 14px/1.3 var(--font-body);     /* Label · 14/130 */
+  --text-helper:        400 14px/1.3 var(--font-body);     /* Helper · 14/130 */
+  --text-helper-med:    500 14px/1.3 var(--font-body);     /* Helper Medium · 14/130 */
+  --text-helper-bold:   700 14px/1.3 var(--font-body);     /* Helper Bold · 14/130 */
+  --text-button:        600 14px/1.3 var(--font-body);     /* Button text · 14/130 */
 
-  /* Body sans (Mona Sans) */
-  --text-body-lg:   500 18px/32px var(--font-body);        /* hero lede */
-  --text-body:      500 16px/24px var(--font-body);        /* card title */
-  --text-body-reg:  400 16px/24px var(--font-body);
-  --text-meta:      400 14px/20px var(--font-body);        /* "L233 • 45mm" */
-  --text-eyebrow:   500 14px/20px var(--font-body);
+  /* Display (kept for hero/large marketing type) */
+  --text-hero:      800 100px/1.05 var(--font-display);
+  --text-price-l:   700 28px/1.15 var(--font-display);
+  --text-price:     700 18px/1.3 var(--font-display);     /* card price */
 
-  /* Uppercase labels (Open Sans) */
-  --text-cta:       700 16px/24px var(--font-label);       /* "GET COLLECTING" */
-  --text-label:     600 16px/100% var(--font-label);       /* footer col heads */
-  --text-nav:       700 16px/24px var(--font-label);       /* "LOGIN" */
-
-  /* Utility (Inter) — for admin & tabular rows in the base UI kit */
-  --text-util:      500 14px/20px var(--font-utility);
-  --text-util-sm:   400 14px/20px var(--font-utility);
+  /* Legacy aliases mapped onto the new scale */
+  --text-body-lg:   var(--text-section-med);
+  --text-body-reg:  var(--text-body);
+  --text-meta:      var(--text-helper);
+  --text-eyebrow:   var(--text-helper-med);
+  --text-cta:       var(--text-button);
+  --text-nav:       var(--text-button);
+  --text-util:      var(--text-helper);
+  --text-util-sm:   var(--text-label);
 }

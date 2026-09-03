@@ -11,9 +11,9 @@
 body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)}
 .wrap{max-width:1280px;margin:0 auto}
 .page-pad{max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
-.rail{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+.rail{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:56px 0 20px}
-.section-head h2{font:var(--text-section);margin:0}
+.section-head h2{font-family:var(--font-body);font-weight:400;font-size:24px;line-height:1.2;text-transform:uppercase;margin:0}
 .arrow-btns{display:flex;gap:8px}
 .arrow-btn{width:40px;height:40px;border:1px solid var(--ink-200);background:#fff;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;color:var(--ink-700);box-shadow:var(--shadow-xs);transition:border-color .15s,box-shadow .15s,color .15s}
 .arrow-btn:hover{border-color:var(--ink-400);box-shadow:0 2px 8px rgba(0,0,0,.1);color:var(--ink-1000)}
@@ -52,11 +52,12 @@ body{margin:0;background:#fff;color:var(--ink-1000);font-family:var(--font-body)
 .promo .btn:hover{background:var(--ink-25)!important}
 .promo .img{position:absolute;right:-40px;bottom:-40px;width:70%;height:80%;background-position:right bottom;background-repeat:no-repeat;background-size:contain;z-index:1;mix-blend-mode:screen;opacity:.9}
 .promo .btn{align-self:flex-start}
-.banner{margin-top:80px;background:linear-gradient(90deg,var(--brand-red-800) 0%,var(--brand-red-900) 100%);color:#fff;padding:0;display:block;position:relative;overflow:hidden}
-.banner::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.15;mix-blend-mode:overlay;pointer-events:none}
-.banner h3{font:var(--text-section);font-size:32px;margin:0}
-.banner p{font:var(--text-body-reg);margin:6px 0 0;opacity:.9}
-.banner .btn-dark{background:#000;color:#fff;padding:14px 36px;font:var(--text-cta);text-transform:uppercase;letter-spacing:.04em;border:0;cursor:pointer}
+.banner{margin-top:80px;background:linear-gradient(105deg, #a80018 0%, #cc0020 40%, #e01028 62%, #c1001c 100%);color:#fff;padding:0;display:block;position:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/member-wave.jpg') center/cover no-repeat;opacity:.5;mix-blend-mode:overlay;pointer-events:none}
+.banner::after{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.12;mix-blend-mode:overlay;pointer-events:none}
+.banner h3{font:var(--text-section);font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:.01em;margin:0}
+.banner p{font:var(--text-body-reg);margin:0;opacity:.92;max-width:none;white-space:nowrap}
+.banner .btn-dark{margin-top:8px;background:transparent;color:#fff;padding:13px 40px;font:var(--text-cta);font-weight:600;text-transform:uppercase;letter-spacing:.06em;border:1px solid rgba(255,255,255,.7);border-radius:999px;cursor:pointer}
 footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0}
 footer.site .footer-inner{padding:0 56px}
 footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
@@ -71,12 +72,28 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
 
 
 
-.hero{position:relative;height:640px;overflow:hidden;color:#fff;background:radial-gradient(ellipse 90% 70% at 90% 55%, #c40024 0%, #6b0015 45%, #1a0006 85%, #000 100%)}
+.hero{position:relative;min-height:clamp(640px,90vh,880px);overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 48% 104%, #d80b2f 0%, #c40024 22%, #6b0015 46%, #1a0006 74%, #000 100%)}
 .hero::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.22;mix-blend-mode:overlay;pointer-events:none;z-index:1}
-.hero .coins{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:640px;height:640px;z-index:2;pointer-events:none}
+.hero .coins{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(720px,92vw);height:auto;z-index:2;pointer-events:none}
+.hero .coins video{width:100%;height:auto;display:block;filter:brightness(.95) contrast(1.08)}
+.hero .copy{position:relative;z-index:3;text-align:left;padding:0 24px}
+.hero h1{font-family:var(--font-label);font-weight:800;font-size:clamp(40px,7vw,92px);line-height:.98;letter-spacing:.01em;margin:0;color:#fff;text-transform:uppercase;text-shadow:0 2px 40px rgba(0,0,0,.4)}
+.hero h1 span{display:block}
+.hero .actions{display:flex;gap:14px;margin-top:34px}
+.hero .pill{padding:14px 30px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.14);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;border-radius:999px;font-family:var(--font-label);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
+.hero .pill:hover{background:rgba(255,255,255,.26)}
+.hero .pill.outline{background:transparent}
+.hero .segs{position:absolute;left:50%;transform:translateX(-50%);bottom:40px;display:flex;gap:10px;z-index:5;width:min(520px,70%)}
+.hero .segs i{flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:2px;cursor:pointer}
+.hero .segs i.on{background:rgba(255,255,255,.9)}
+.hero .coins{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(520px,78vw);height:auto;z-index:1;pointer-events:none;mix-blend-mode:screen}
+.hero .hero-tint{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.8;mix-blend-mode:color;transition:background .5s}
+.hero .hero-tint2{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.35;mix-blend-mode:multiply;transition:background .5s}
+.hero .hero-dark{position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(70% 80% at 0% 100%, rgba(0,0,0,.72) 0%, rgba(0,0,0,.35) 34%, transparent 62%)}
+.hero > .hero-dark{max-width:none;margin:0}
 .hero .coins img{position:absolute;filter:drop-shadow(0 8px 24px rgba(0,0,0,.55));opacity:.95}
 .hero .copy{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);z-index:3;max-width:640px;text-align:center}
-.hero h1{font-family:var(--font-label);font-weight:800;font-size:56px;line-height:1.02;letter-spacing:.005em;margin:0;color:#fff;text-transform:uppercase;text-shadow:0 2px 40px rgba(0,0,0,.35);text-align:center;max-width:520px}
+.hero h1{font-family:var(--font-label);font-weight:600;font-size:64px;line-height:1.02;letter-spacing:.005em;margin:0;color:#fff;text-transform:uppercase;text-shadow:0 2px 40px rgba(0,0,0,.35);text-align:center;max-width:520px}
 .hero h1 span{display:block}
 .hero .actions{display:flex;gap:14px;margin-top:28px;justify-content:center}
 .hero .pill{padding:12px 28px;border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:999px;font-family:var(--font-label);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .15s}
@@ -88,6 +105,24 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
 .hero .side-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:4;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
 .hero .side-nav.left{left:24px}.hero .side-nav.right{right:24px}
 .collections-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.parade{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:#fff;cursor:grab;margin-top:12px}
+.parade-clip{overflow:hidden}
+.parade.drag{cursor:grabbing}
+.parade-track{display:flex;align-items:flex-end;gap:56px;padding:40px 48px 0;height:340px;width:max-content;will-change:transform}
+.parade-item{flex:0 0 auto;display:flex;align-items:flex-end;height:100%;text-decoration:none}
+.parade-item img{width:auto;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none}
+.parade-pop{position:absolute;top:50%;transform:translate(-50%,-50%);width:340px;max-width:86vw;background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.26);text-decoration:none;color:var(--ink-1000);z-index:6;animation:ppIn .16s ease}
+@keyframes ppIn{from{opacity:0}to{opacity:1}}
+.parade-pop .pp-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(30px) saturate(1.1);opacity:.45;transform:scale(1.3)}
+.parade-pop .pp-body{position:relative;z-index:1;padding:16px 18px 10px}
+.parade-pop .pp-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:20px}
+.parade-pop .pp-kicker{font-family:var(--font-body);font-size:11px;color:var(--ink-600)}
+.parade-pop .pp-coll{font-family:var(--font-label);font-weight:600;font-size:19px;line-height:1.15;color:var(--ink-1000);letter-spacing:-.01em}
+.parade-pop .pp-arrow{flex:0 0 auto;width:36px;height:36px;border-radius:999px;border:1px solid rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;color:var(--ink-1000)}
+.parade-pop .pp-arrow svg{width:15px;height:15px}
+.parade-pop .pp-name{position:relative;z-index:1;font-family:var(--font-label);font-weight:500;font-size:14px;line-height:1.3;padding:0 18px;color:var(--ink-1000)}
+.parade-pop .pp-price{position:relative;z-index:1;font-family:var(--font-label);font-weight:700;font-size:15px;padding:8px 18px 14px;color:var(--ink-1000)}
+.parade-pop .pp-cta{position:relative;z-index:1;background:rgba(20,16,14,.8);color:#fff;text-align:center;padding:12px;font-family:var(--font-label);font-weight:600;font-size:12px;letter-spacing:.05em}
 .collection-tile{position:relative;overflow:hidden;height:320px;color:#fff}
 .collection-tile img{width:100%;height:100%;object-fit:cover;display:block}
 .collection-tile .grad{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,.55) 100%)}
@@ -100,17 +135,18 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
   .section-head h2{font-size:19px}
   .page-pad{padding:0 16px}
   .chips{flex-wrap:wrap}
-  .hero{height:420px}
-  .hero h1{font-size:36px}
-  .hero .coins{width:320px;height:320px}
+  .hero{min-height:clamp(520px,78vh,700px)}
+  .hero .coins{width:400px;height:400px}
   .banner{flex-direction:column;gap:20px;padding:28px 24px;text-align:center}
   .banner-inner{flex-direction:column!important;align-items:center!important;text-align:center;gap:18px!important;padding:32px 24px!important}
   .banner-inner > div{width:100%}
   .banner h3{font-size:22px;line-height:1.3}
-  .banner p{margin:6px auto 0;max-width:420px}
+  .banner p{margin:6px auto 0;max-width:420px;white-space:normal}
   .banner .btn-dark{width:100%!important;max-width:320px}
   .collections-grid{display:flex!important;grid-template-columns:none!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:0 16px;margin:0 -16px;-webkit-overflow-scrolling:touch}
   .collections-grid::-webkit-scrollbar{display:none}
+  .parade-track{height:210px!important;gap:28px!important;padding:24px 16px 0!important}
+  .parade-item img{max-height:150px!important}
   .collection-tile{flex:0 0 78%;max-width:280px;aspect-ratio:1/1;height:auto!important;scroll-snap-align:start}
   .collection-tile .title{font-size:20px;bottom:52px;left:16px;right:16px}
   .collection-tile .shop{padding:6px 14px;font-size:11px}
@@ -135,11 +171,11 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
   .promo .sub{font-size:clamp(12px,3.6vw,14px);line-height:1.45;max-width:100%;margin-bottom:18px}
   .promo .img{width:34%;height:40%;right:-8px;bottom:-6px;opacity:.8}
   .promo .btn{padding:12px 20px!important;font-size:clamp(10.5px,3vw,12px)!important;gap:8px!important;align-self:flex-start!important;width:fit-content!important;max-width:max-content!important;white-space:nowrap;flex-direction:row!important;display:inline-flex!important}
-  .hero{height:360px}
-  .hero h1{font-size:28px}
-  .hero .copy{max-width:90%}
-  .hero .actions{flex-direction:column;align-items:center}
-  .hero .coins{display:none}
+  .hero{min-height:clamp(480px,76vh,640px)}
+  .hero .copy{max-width:100%;padding:0 12px}
+  .hero h1{font-size:clamp(30px,9.5vw,58px)!important;line-height:1.04}
+  .hero .actions{flex-wrap:wrap}
+  .hero .coins{width:300px;height:300px;opacity:.5}
   footer.site .cols{grid-template-columns:repeat(3,1fr)}
   footer.site .cols{grid-template-columns:repeat(3,1fr)!important}
   .banner .btn-dark{width:100%}
@@ -149,7 +185,7 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
   .section-head{margin:18px 0 10px}
 }
 /* full-bleed inners cap at 1280 */
-.banner-inner{max-width:1280px;margin:0 auto;padding:36px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-sizing:border-box;width:100%;position:relative;z-index:1}
+.banner-inner{max-width:1280px;margin:0 auto;padding:44px 56px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;box-sizing:border-box;width:100%;position:relative;z-index:1}
 @media(max-width:1024px){
   .banner-inner{flex-direction:column!important;align-items:center!important;text-align:center;gap:18px!important;padding:32px 24px!important}
   .banner-inner > div{width:100%}
@@ -194,7 +230,37 @@ footer.site .base{display:flex;align-items:center;justify-content:space-between;
 /* full-bleed escape hatch for sections whose backgrounds should span viewport */
 .hero,.banner,footer.site,.stats-strip{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
 .hero > *,.banner > *,footer.site > *,.stats-strip > *{max-width:1280px;margin-left:auto;margin-right:auto;box-sizing:border-box}
+.hero > .hero-tint,.hero > .hero-tint2,.hero > .coins,.hero > .segs{max-width:none;margin:0}
 /*om-footer*/
+.smf{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:#1f1f1f;color:#fff;overflow:hidden;font-family:'Mona Sans',Inter,system-ui,sans-serif;margin-top:0}
+.smf::before{content:"";position:absolute;inset:0;background:#0a0406 url('../../assets/imagery/hero-bg-red.png') center/cover no-repeat;opacity:.5;pointer-events:none}
+.smf::after{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.34;mix-blend-mode:screen;pointer-events:none}
+.smf-inner{position:relative;z-index:1;width:100%;max-width:none;margin:0;padding:0 48px;box-sizing:border-box}
+.smf-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.smf-intro{display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px 28px 0;gap:24px}
+.smf-logo{width:64px;height:48px;object-fit:contain;filter:brightness(0) invert(1)}
+.smf-member p{font-size:18px;font-weight:400;line-height:1.3;letter-spacing:-.02em;max-width:520px;margin:0 0 16px}
+.smf-cols{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}
+.smf-col{border-left:1px solid rgba(255,255,255,.15);padding:36px 40px 28px;display:flex;flex-direction:column}
+.smf-col h4{font-size:16px;font-weight:500;line-height:32px;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 12px}
+.smf-acc-cb{display:none}
+.smf-acc{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.smf-chev{display:none;flex:0 0 auto;align-self:center;transition:transform .25s;opacity:.7}
+.smf-acc-body{display:block}
+.smf-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.smf-col a{font-size:14px;font-weight:500;line-height:24px;color:#fff;opacity:.85;text-decoration:none}
+.smf-col a:hover{opacity:1}
+.smf-circle{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.30);color:#fff;display:inline-flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;transition:border-color .15s}
+.smf-circle:hover{border-color:rgba(255,255,255,.80)}
+.smf-socials{display:flex;gap:12px;margin-top:auto;padding-top:24px}
+.smf-bottom{position:relative;z-index:1;width:100%;max-width:none;margin:0;padding:16px 48px 28px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:1px solid rgba(255,255,255,.15)}
+.smf-bottom span{font-size:14px;color:rgba(255,255,255,.60)}
+.smf a:focus-visible,.smf-circle:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
+@media(max-width:920px){.smf-grid{grid-template-columns:1fr;gap:40px}.smf-intro{padding-right:0}}
+@media(max-width:560px){.smf-inner{padding:28px 22px 18px}.smf-grid{gap:0}.smf-intro{padding:6px 0 22px;gap:16px}.smf-logo{width:52px;height:40px}.smf-member p{font-size:15px;line-height:1.4;margin:0 0 14px}.smf-cols{grid-template-columns:1fr}.smf-col{border-left:0;margin:0 -22px;padding:16px 22px 0;border-top:1px solid rgba(255,255,255,.15)}.smf-col h4{line-height:1.4;margin:0}.smf-acc{cursor:pointer;padding-bottom:16px}.smf-chev{display:block}.smf-acc-body{max-height:0;overflow:hidden;transition:max-height .28s ease;padding-bottom:0}.smf-acc-cb:checked ~ .smf-acc-body{max-height:420px;padding-bottom:16px}.smf-acc-cb:checked ~ .smf-acc{padding-bottom:12px}.smf-acc-cb:checked ~ .smf-acc .smf-chev{transform:rotate(180deg)}.smf-col a{line-height:22px}.smf-socials{padding-top:14px}.smf-bottom{padding:14px 22px 22px;gap:6px}.smf-bottom span{font-size:12px}}
+/*om-footer-mobile-done*/
+@media(max-width:559.9px){.smf-old-noop{padding:16px 24px 24px}}
+/*om-footer-old*/
 footer.site{background:#000;color:#fff;padding:60px 0 24px;margin-top:0;width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
 footer.site .footer-inner{max-width:1280px;margin:0 auto;padding:0 56px;box-sizing:border-box}
 footer.site .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
@@ -247,7 +313,7 @@ const BestSeller = () => {
   const cols = 6;
   const visible = bsAll.slice(idx, idx + cols);
   return (<>
-    <div className="section-head"><h2>Best seller</h2>
+    <div className="section-head"><h2>New Arrival</h2>
       <div className="arrow-btns">
         <button className="arrow-btn" aria-label="Previous" onClick={()=>setIdx(i=>Math.max(0,i-cols))}><Icon name="ChevronLeft" size={20}/></button>
         <button className="arrow-btn" aria-label="Next" onClick={()=>setIdx(i=>i+cols>=bsAll.length?0:i+cols)}><Icon name="ChevronRight" size={20}/></button>
@@ -358,9 +424,77 @@ const collections = [
   {img:'../../assets/imagery/gifts/gift-05.png', label:'Orchid Accessories', title:'Orchid Accessories'},
 ];
 
+const paradeItems = [
+  {img:'../../assets/imagery/gifts/gift-01.png', h:250, collection:'Love & weddings', name:'Blissful Couple in Traditional Wedding 24K Gold Foil Frame - Medium', price:'SGD $ 108.00'},
+  {img:'../../assets/imagery/gifts/gift-03.png', h:300, collection:'Reminiscing Singapore', name:'Singapore Icons 24K Gold Foil Frame - Large', price:'SGD $ 168.00'},
+  {img:'../../assets/imagery/gifts/gift-05.png', h:240, collection:'Orchid accessories', name:'Vanda Miss Joaquim Gold-Plated Orchid Brooch', price:'SGD $ 88.00'},
+];
+const Parade = () => {
+  const trackRef = React.useRef(null);
+  const wrapRef = React.useRef(null);
+  const [hover, setHover] = React.useState(null);
+  const [popX, setPopX] = React.useState(0);
+  const st = React.useRef({x:0,dragging:false,startX:0,startTx:0,moved:false,paused:false});
+  React.useEffect(()=>{
+    const track = trackRef.current;
+    let raf;
+    const step = ()=>{
+      const s = st.current;
+      if(!s.dragging && !s.paused) s.x -= 0.55;
+      const half = track.scrollWidth/2;
+      if(half>0){ if(s.x <= -half) s.x += half; if(s.x > 0) s.x -= half; }
+      track.style.transform = 'translateX('+s.x+'px)';
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    const cx = e => e.touches ? e.touches[0].clientX : e.clientX;
+    const onMove = e => { const s=st.current; if(!s.dragging) return; s.x = s.startTx + (cx(e) - s.startX); s.moved=true; };
+    const onUp = () => { const s=st.current; if(!s.dragging) return; s.dragging=false; wrapRef.current && wrapRef.current.classList.remove('drag'); };
+    window.addEventListener('mousemove',onMove); window.addEventListener('mouseup',onUp);
+    window.addEventListener('touchmove',onMove,{passive:true}); window.addEventListener('touchend',onUp);
+    return ()=>{ cancelAnimationFrame(raf); window.removeEventListener('mousemove',onMove); window.removeEventListener('mouseup',onUp); window.removeEventListener('touchmove',onMove); window.removeEventListener('touchend',onUp); };
+  },[]);
+  const onDown = e => { const s=st.current; s.dragging=true; s.moved=false; s.startX = e.touches?e.touches[0].clientX:e.clientX; s.startTx=s.x; wrapRef.current.classList.add('drag'); };
+  const base = [...paradeItems, ...paradeItems, ...paradeItems, ...paradeItems];
+  const list = [...base, ...base];
+  const enter = (idx, e) => { st.current.paused = true; try{ const wr=wrapRef.current.getBoundingClientRect(); const ir=e.currentTarget.getBoundingClientRect(); setPopX(ir.left - wr.left + ir.width/2); }catch(_){} setHover(idx % paradeItems.length); };
+  const leave = () => { st.current.paused = false; setHover(null); };
+  const hv = hover!=null ? paradeItems[hover] : null;
+  return (
+    <div className="parade" ref={wrapRef} onMouseDown={onDown} onTouchStart={onDown} onMouseLeave={leave}>
+      <div className="parade-clip">
+      <div className="parade-track" ref={trackRef}>
+        {list.map((p,i)=>(
+          <a key={i} href="product-list.html" className="parade-item" onMouseEnter={(e)=>enter(i,e)} onClick={e=>{if(st.current.moved)e.preventDefault();}}>
+            <img src={p.img} alt="" style={{maxHeight:p.h}} draggable="false"/>
+          </a>
+        ))}
+      </div>
+      </div>
+      {hv && (
+        <a className="parade-pop" href="product-list.html" style={{left:popX}}>
+          <div className="pp-bg" style={{backgroundImage:'url('+hv.img+')'}}></div>
+          <div className="pp-body">
+            <div className="pp-top">
+              <div>
+                <div className="pp-kicker">Collection</div>
+                <div className="pp-coll">{hv.collection}</div>
+              </div>
+              <span className="pp-arrow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+            <div className="pp-name">{hv.name}</div>
+            <div className="pp-price">{hv.price}</div>
+          </div>
+          <div className="pp-cta">VIEW PRODUCT</div>
+        </a>
+      )}
+    </div>
+  );
+};
+
 const slides = [
   {
-    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #c40024 0%, #6b0015 45%, #1a0006 85%, #000 100%)',
+    bg:"#0a0406 url('../../assets/imagery/hero-bg-red.png') center/cover no-repeat",
     title:['Treasure of pride,','recognized by the world'],
     coins:[
       {img:'coin-01.png',w:180,l:'42%',t:'2%',r:'-12deg'},
@@ -371,7 +505,7 @@ const slides = [
     ],
   },
   {
-    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #0b3d6b 0%, #051e35 50%, #000 100%)',
+    bg:"#0a0704 url('../../assets/imagery/hero-bg-gold.png') center/cover no-repeat",
     title:['Crafted in Singapore','since 1968'],
     coins:[
       {img:'coin-07.png',w:180,l:'45%',t:'4%',r:'10deg'},
@@ -382,7 +516,7 @@ const slides = [
     ],
   },
   {
-    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #3d6b0b 0%, #1e3505 50%, #000 100%)',
+    bg:'radial-gradient(120% 130% at 82% 92%, #2f9c8f 0%, #16544d 26%, #0a2b28 52%, #04110f 78%, #000 100%)',
     title:['Limited editions','now available'],
     coins:[
       {img:'coin-10.png',w:180,l:'40%',t:'6%',r:'-16deg'},
@@ -393,7 +527,7 @@ const slides = [
     ],
   },
   {
-    bg:'radial-gradient(ellipse 90% 70% at 90% 55%, #6b3d0b 0%, #351e05 50%, #000 100%)',
+    bg:'radial-gradient(120% 120% at 48% 104%, #d99a2b 0%, #8a5a12 26%, #4a3208 50%, #1a1103 76%, #000 100%)',
     title:['Gifts that endure,','moments that matter'],
     coins:[
       {img:'coin-01.png',w:170,l:'44%',t:'3%',r:'14deg'},
@@ -409,26 +543,29 @@ const Hero = () => {
   const [idx, setIdx] = React.useState(0);
   const prev = () => setIdx(i => (i - 1 + slides.length) % slides.length);
   const next = () => setIdx(i => (i + 1) % slides.length);
+  React.useEffect(() => {
+    const t = setInterval(() => setIdx(i => (i + 1) % slides.length), 6000);
+    return () => clearInterval(t);
+  }, []);
   const s = slides[idx];
+  const words = ['Treasure','of','pride,','recognized','by','the','world'];
   return (
     <section className="hero" style={{background:s.bg,transition:'background .5s'}}>
       <div className="coins">
-        {s.coins.map((c,i)=>(
-          <img key={i} src={`../../assets/imagery/coins/${c.img}`}
-            style={{width:c.w,left:c.l,top:c.t,transform:`rotate(${c.r})`,transition:'opacity .4s',position:'absolute',filter:'drop-shadow(0 8px 24px rgba(0,0,0,.55))'}}/>
-        ))}
+        <video src="../../assets/video/hero-coins.mp4" autoPlay loop muted playsInline aria-hidden="true"></video>
       </div>
-      <button className="side-nav left" aria-label="Previous slide" onClick={prev}>‹</button>
-      <button className="side-nav right" aria-label="Next slide" onClick={next}>›</button>
+      <div className="hero-tint" style={{background:s.bg}}></div>
+      <div className="hero-tint2" style={{background:s.bg}}></div>
+      <div className="hero-dark"></div>
       <div className="copy">
-        <h1>{s.title.map((l,i)=><span key={i}>{l}</span>)}</h1>
+        <h1 style={{textAlign:'center'}}>{words.map((w,i)=><span key={i} style={{display:'block'}}>{w}</span>)}</h1>
         <div className="actions">
-                    <button className="pill solid" onClick={()=>{window.location.href='product-list.html';}}>SHOP NOW</button>
-          <button className="pill">VIEW CAMPAIGN</button>
+          <button className="pill" onClick={()=>{window.location.href='product-list.html';}}>SHOP NOW</button>
+          <button className="pill outline" onClick={()=>{window.location.href='promotion.html';}}>VIEW CAMPAIGN</button>
         </div>
       </div>
-      <div className="dots">
-        {slides.map((_,i)=><i key={i} className={i===idx?'on':''} onClick={()=>setIdx(i)} style={{cursor:'pointer'}}></i>)}
+      <div className="segs">
+        {slides.map((_,i)=><i key={i} className={i===idx?'on':''} onClick={()=>setIdx(i)}></i>)}
       </div>
     </section>
   );
@@ -436,21 +573,21 @@ const Hero = () => {
 
 const App = () => (
   <div>
-    <Navi active="Home" />
+    <Navi active="Home" overlay sticky={false} />
     <Hero />
 
     <div className="page-pad">
       <BestSeller />
 
       {/* JUST IN */}
-      <div className="section-head" style={{marginBottom:8}}><h2>Just in</h2></div>
+      <div className="section-head" style={{marginBottom:8}}><h2>Best selling Ingots &amp; Medallion</h2></div>
       <div className="cat-nav-grid">
         {[
-          {slug:'coins',      label:'Coins & Numismatics',  img:'../../assets/imagery/coins/coin-02.png'},
+          {slug:'',          label:'View all',            img:'../../assets/imagery/coins/coin-02.png'},
+          {slug:'coins',      label:'Coins & Numismatics',  img:'../../assets/imagery/coins/coin-01.png'},
           {slug:'medallions', label:'Ingots & Medallions',  img:'../../assets/imagery/coins/coin-11.png'},
           {slug:'gifts',      label:'Gifts & Collectibles', img:'../../assets/imagery/coins/coin-12.png'},
           {slug:'character',  label:'Character Collectibles',img:'../../assets/imagery/coins/coin-08.png'},
-          {slug:'catalogue',  label:'July / Aug Catalogue', img:'../../assets/imagery/coins/coin-05.png'},
           {slug:'promo',      label:'Online Promotion',     img:'../../assets/imagery/coins/coin-07.png'},
         ].map(c => (
           <a key={c.slug} className="cat-nav-item" href={`product-list.html#/${c.slug}`}>
@@ -465,36 +602,16 @@ const App = () => (
       <div className="rail">
         {justIn.slice(0,6).map((it,i)=><CoinTile key={i} item={it}/>)}
       </div>
-      <div className="rail" style={{gridTemplateColumns:'1fr 1fr 1fr 1fr 2fr'}}>
+      <div className="rail" style={{gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
         <CoinTile item={justIn[6]}/>
         <CoinTile item={justIn[7]}/>
         <CoinTile item={justIn[8]}/>
         <CoinTile item={justIn[9]}/>
-        <PromoTile/>
-      </div>
-
-      {/* COLLECTIONS */}
-      <div className="section-head"><h2>Collections</h2>
-        <div className="arrow-btns">
-          <button className="arrow-btn" aria-label="Previous"><Icon name="ChevronLeft" size={20}/></button>
-          <button className="arrow-btn" aria-label="Next"><Icon name="ChevronRight" size={20}/></button>
-        </div>
-      </div>
-      <div className="collections-grid">
-        {collections.map((c,i)=>(
-          <a key={i} href="product-list.html" className="collection-tile" style={{textDecoration:'none',color:'#fff',display:'block'}}>
-            <img src={c.img} alt=""/>
-            <div className="grad"/>
-            <div className="title">{c.title}</div>
-            <div className="shop">SHOP</div>
-          </a>
-        ))}
       </div>
 
       {/* PERFECT PICK */}
       <div className="section-head"><h2>Perfect pick</h2></div>
-      <div className="rail" style={{gridTemplateColumns:'2fr 1fr 1fr 1fr 1fr'}}>
-        <PromoTile/>
+      <div className="rail" style={{gridTemplateColumns:'1fr 1fr 1fr 1fr'}}>
         <CoinTile item={perfectPick[0]}/>
         <CoinTile item={perfectPick[1]}/>
         <CoinTile item={perfectPick[2]}/>
@@ -505,74 +622,82 @@ const App = () => (
       </div>
     </div>
 
+    {/* COLLECTIONS PARADE */}
+    <div className="section-head" style={{maxWidth:1280,margin:'0 auto',padding:'32px 24px 0',boxSizing:'border-box'}}><h2>Collections</h2></div>
+    <Parade/>
+
     {/* BANNER */}
     <section className="banner">
       <div className="banner-inner">
-        <div>
-          <h3>Become a member &amp; Get 15% off</h3>
-          <p>Be first to receive updates on new collections, inspiration, gift ideas and exclusive access</p>
-        </div>
-        <button className="btn-dark">JOIN THE CLUB</button>
+        <h3>Become a member &amp; Get 15% off</h3>
+        <p>Be first to receive updates on new collections, inspiration, gift ideas and exclusive access</p>
+        <button className="btn-dark">Sign Up</button>
       </div>
     </section>
 
     {/* FOOTER */}
-    <footer className="site">
-      <div className="footer-inner">
-        <div className="cols">
-        <details className="col" open>
-          <summary>ABOUT US</summary>
-          <ul><li><a href="#">News</a></li><li><a href="#">Careers</a></li><li><a href="#">Events</a></li></ul>
-        </details>
-        <details className="col" open>
-          <summary>GET HELP</summary>
-          <ul><li><a href="#">Order Status</a></li><li><a href="#">Delivery</a></li><li><a href="#">Returns</a></li><li><a href="#">Payment Options</a></li><li><a href="#">Find a Store</a></li></ul>
-        </details>
-        <details className="col" open>
-          <summary>LEGAL</summary>
-          <ul><li><a href="#">General Info</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul>
-        </details>
-        <div className="contact-mobile">
-          <h4>TALK TO US</h4>
-          <ul>
-            <li>salesadmin@singaporemint.com.sg</li>
-            <li>+65 6566 2626</li>
-            <li><a href="#">Send Us Feedbacks</a></li>
-          </ul>
-          <div className="socials">
-            <a href="#" aria-label="Facebook"><Icon name="BrandFacebook" size={16}/></a>
-            <a href="#" aria-label="LinkedIn"><Icon name="BrandLinkedin" size={16}/></a>
-            <a href="#" aria-label="Twitter"><Icon name="BrandTwitter" size={16}/></a>
+    <footer className="smf">
+      <div className="smf-inner">
+        <div className="smf-grid">
+          <div className="smf-intro">
+            <img className="smf-logo" src="../../assets/brand/sm-logo-mark.png" alt=""/>
+            <div className="smf-member">
+              <p>Platinum &amp; Gold members can enjoy Members' Price on eligible products by placing orders through the order form.</p>
+              <a className="smf-circle" href="catalogues.html" aria-label="View order form">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+            </div>
+          </div>
+          <div className="smf-cols">
+            <div className="smf-col">
+              <input type="checkbox" id="smf-acc-1" className="smf-acc-cb"/>
+              <label htmlFor="smf-acc-1" className="smf-acc"><h4>Customer care</h4><svg className="smf-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></label>
+              <div className="smf-acc-body">
+              <ul>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Shipping &amp; Delivery</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#">Privacy policy</a></li>
+                <li><a href="#">Term &amp; Service</a></li>
+                <li><a href="contact.html">Locate our store</a></li>
+              </ul>
+              </div>
+            </div>
+            <div className="smf-col">
+              <input type="checkbox" id="smf-acc-2" className="smf-acc-cb"/>
+              <label htmlFor="smf-acc-2" className="smf-acc"><h4>Explore</h4><svg className="smf-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></label>
+              <div className="smf-acc-body">
+              <ul>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="catalogues.html">E-Catalog</a></li>
+                <li><a href="product-list.html#/medallions">Lion Bullion</a></li>
+                <li><a href="#">Customize corporate gifts</a></li>
+              </ul>
+              </div>
+            </div>
+            <div className="smf-col">
+              <input type="checkbox" id="smf-acc-3" className="smf-acc-cb"/>
+              <label htmlFor="smf-acc-3" className="smf-acc"><h4>About &amp; Resource</h4><svg className="smf-chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg></label>
+              <div className="smf-acc-body">
+              <ul>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="promotion.html">Latest news</a></li>
+              </ul>
+              <div className="smf-socials">
+                <a className="smf-circle" href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                <a className="smf-circle" href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                <a className="smf-circle" href="#" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+              </div>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
+      </div>
+      <div className="smf-bottom">
+        <span>Coin Gallery (Head Office), 20 Teban Gardens Crescent, S 608928 (Mon - Fri 8.30am to 4.30pm)</span>
+        <span>© 2019 Singapore Mint. All Rights Reserved.</span>
       </div>
     </footer>
-
-    {/* OUR STORES */}
-    <section className="stores-strip" style={{background:'#000',padding:'40px 0 32px'}}>
-      <div className="stores-inner" style={{padding:'0 56px'}}>
-      <h2 style={{fontFamily:'var(--font-label)',fontWeight:800,fontSize:22,letterSpacing:'.06em',textTransform:'uppercase',margin:'0 0 36px',color:'#fff'}}>Our Stores</h2>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:40}}>
-        {[
-          {name:'Coin Gallery (Head Office)',addr:'20 Teban Gardens Crescent, S 608928',tel:'+65 6895 0288',hours:'Mon – Fri, 8.30am – 4.30pm'},
-          {name:'Chinatown Point',addr:'133 New Bridge Road, #02-18, S 059413',tel:'+65 6222 2486',hours:'Daily, 11.00am – 9.30pm'},
-          {name:'Suntec City Mall',addr:'3 Temasek Blvd, #02-719 East Wing Tower 3, S 038983',tel:'+65 6336 2878',hours:'Daily, 11.00am – 9.30pm'},
-        ].map((s,i)=>(
-          <div key={i} style={{borderTop:'2px solid var(--brand-red-800)',paddingTop:20}}>
-            <div style={{fontFamily:'var(--font-label)',fontWeight:700,fontSize:14,textTransform:'uppercase',letterSpacing:'.05em',marginBottom:14,color:'#fff'}}>{s.name}</div>
-            <div style={{fontFamily:'var(--font-body)',fontSize:14,lineHeight:'22px',color:'var(--ink-300)',marginBottom:6}}>{s.addr}</div>
-            <div style={{fontFamily:'var(--font-body)',fontSize:14,lineHeight:'22px',color:'var(--ink-300)',marginBottom:4}}>{s.tel}</div>
-            <div style={{fontFamily:'var(--font-body)',fontSize:14,lineHeight:'22px',color:'var(--ink-400)'}}>{s.hours}</div>
-          </div>
-        ))}
-      </div>
-        <div className="base" style={{marginTop:40,color:'#fff',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-          <img src="../../assets/brand/sm-logo-slogan.png" alt="The Singapore Mint" style={{height:28,filter:'brightness(0) invert(1)'}}/>
-          © 2019 Singapore Mint. All Rights Reserved.
-        </div>
-      </div>
-    </section>
   </div>
 );
 ReactDOM.createRoot(document.getElementById('root')).render(<App/>);

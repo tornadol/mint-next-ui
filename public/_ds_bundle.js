@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"TheSingaporeMintDesignSystem_6a655a","components":[{"name":"Icon","sourcePath":"assets/icons/Icon.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CoinCard","sourcePath":"components/core/CoinCard.jsx"},{"name":"ContextMenu","sourcePath":"components/core/ContextMenu.jsx"},{"name":"Footer","sourcePath":"components/core/Footer.jsx"},{"name":"Hero","sourcePath":"components/core/Hero.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"MenuItem","sourcePath":"components/core/MenuItem.jsx"},{"name":"Navi","sourcePath":"components/core/Navi.jsx"},{"name":"SectionHeader","sourcePath":"components/core/SectionHeader.jsx"},{"name":"Home","sourcePath":"next-export/pages/index.js"}],"sourceHashes":{"assets/data/categories.js":"9f17e9b9a571","assets/icons/Icon.jsx":"b81dfc2559d3","assets/icons/icon-data.js":"6db9ccfe3eb0","components/core/Badge.jsx":"5708e14a569f","components/core/Button.jsx":"3c1b2979dbc6","components/core/CoinCard.jsx":"e411a8059380","components/core/ContextMenu.jsx":"0e72715b30d5","components/core/Footer.jsx":"66406a164d49","components/core/Hero.jsx":"738fd634c91e","components/core/Input.jsx":"d9cfb450de42","components/core/MenuItem.jsx":"0db2a220510d","components/core/Navi.jsx":"6051f84177db","components/core/SectionHeader.jsx":"40b7b328463b","components/core/SiteFooter.jsx":"808ac26411e3","components/core/chat-bubble.js":"0af0e20bfa21","components/core/click-collect.js":"3bc5f1b6e394","next-export/next.config.js":"9d21b881efb5","next-export/pages/index.js":"286390f745c3","next-export/public/assets/data/categories.js":"9f17e9b9a571","next-export/public/components/core/chat-bubble.js":"0af0e20bfa21","next-export/public/components/core/click-collect.js":"3bc5f1b6e394","next-export/public/components/core/site-footer.runtime.js":"808ac26411e3"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"TheSingaporeMintDesignSystem_6a655a","components":[{"name":"Icon","sourcePath":"assets/icons/Icon.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CoinCard","sourcePath":"components/core/CoinCard.jsx"},{"name":"ContextMenu","sourcePath":"components/core/ContextMenu.jsx"},{"name":"Footer","sourcePath":"components/core/Footer.jsx"},{"name":"Hero","sourcePath":"components/core/Hero.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"MenuItem","sourcePath":"components/core/MenuItem.jsx"},{"name":"Navi","sourcePath":"components/core/Navi.jsx"},{"name":"SectionHeader","sourcePath":"components/core/SectionHeader.jsx"},{"name":"Home","sourcePath":"next-export/pages/index.js"}],"sourceHashes":{"assets/data/categories.js":"9f17e9b9a571","assets/icons/Icon.jsx":"b81dfc2559d3","assets/icons/icon-data.js":"6db9ccfe3eb0","components/core/Badge.jsx":"5708e14a569f","components/core/Button.jsx":"3c1b2979dbc6","components/core/CoinCard.jsx":"e411a8059380","components/core/ContextMenu.jsx":"0e72715b30d5","components/core/Footer.jsx":"66406a164d49","components/core/Hero.jsx":"738fd634c91e","components/core/Input.jsx":"d9cfb450de42","components/core/MenuItem.jsx":"0db2a220510d","components/core/Navi.jsx":"b38d9201d335","components/core/SectionHeader.jsx":"40b7b328463b","components/core/SiteFooter.jsx":"e346ec227452","components/core/chat-bubble.js":"0af0e20bfa21","components/core/click-collect.js":"3bc5f1b6e394","next-export/next.config.js":"1fbbe899bd8d","next-export/pages/index.js":"286390f745c3","next-export/public/assets/data/categories.js":"9f17e9b9a571","next-export/public/components/core/chat-bubble.js":"0af0e20bfa21","next-export/public/components/core/click-collect.js":"3bc5f1b6e394","next-export/public/components/core/site-footer.runtime.js":"e346ec227452"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -930,17 +930,66 @@ const popularProducts = [{
   code: 'S217',
   price: '$65'
 }];
+const OVERLAY_NAV = [{
+  label: 'Shop',
+  href: 'product-list.html',
+  subs: ['View all', 'Coins & Numismatics', 'Ingots & Medallions', 'Gifts & Collectibles', 'Character Collectibles', 'Online Promotion']
+}, {
+  label: 'About Us',
+  href: 'about.html',
+  subs: ['Our Story', 'Craftsmanship', 'Milestones', 'Careers']
+}, {
+  label: 'Latest',
+  href: 'promotion.html',
+  subs: ['Promotions', 'Events', 'Catalogues & Order Form', 'Stay Connected with Us']
+}, {
+  label: 'Contact Us',
+  href: 'contact.html',
+  subs: ['Head Office', 'Retail Stores', 'Customer Service', 'FAQ & Help Centre']
+}];
+const OVERLAY_SUB_HREF = {
+  'View all': 'product-list.html',
+  'Coins & Numismatics': 'product-list.html#/coins',
+  'Ingots & Medallions': 'product-list.html#/medallions',
+  'Gifts & Collectibles': 'product-list.html#/gifts',
+  'Character Collectibles': 'product-list.html#/character',
+  'Online Promotion': 'product-list.html#/promo',
+  'Our Story': 'about.html',
+  'Craftsmanship': 'about.html',
+  'Milestones': 'about.html',
+  'Careers': 'about.html',
+  'Promotions': 'promotion.html',
+  'Events': 'events.html',
+  'Catalogues & Order Form': 'catalogues.html',
+  'Stay Connected with Us': 'stay-connected.html',
+  'Head Office': 'contact.html',
+  'Retail Stores': 'contact.html',
+  'Customer Service': 'contact.html',
+  'FAQ & Help Centre': 'faq.html'
+};
 function Navi({
   items = ['Shop', 'About Us', 'Latest', 'Contact Us'],
   active = 'Shop',
   logoSrc = LOGO,
   sticky = true,
+  overlay = true,
   style
 }) {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [drawerSection, setDrawerSection] = React.useState(null);
   const [shopOpen, setShopOpen] = React.useState(false);
   const [latestOpen, setLatestOpen] = React.useState(false);
+  const [ovMenu, setOvMenu] = React.useState(null);
+  const [ovLeft, setOvLeft] = React.useState(0);
+  const headerRef = React.useRef(null);
+  const openOv = React.useCallback((i, e) => {
+    setOvMenu(i);
+    try {
+      const hr = headerRef.current.getBoundingClientRect();
+      const ir = e.currentTarget.getBoundingClientRect();
+      setOvLeft(Math.max(0, ir.left - hr.left - 48));
+    } catch (_) {}
+  }, []);
   const [searchOpen, setSearchOpen] = React.useState(false);
   const [cartOpen, setCartOpen] = React.useState(false);
   const [cart, setCart] = React.useState([]);
@@ -1123,11 +1172,45 @@ function Navi({
     return () => document.removeEventListener('keydown', onKey);
   }, [searchOpen]);
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, `
-        .sm-navi-links{display:flex;gap:8px;margin-left:32px;align-items:center}
+        .sm-navi-links{display:flex;gap:8px;margin-left:0;align-items:center}
+        .home-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+        @media(max-width:900px){.home-logo{position:static;top:auto;transform:none}}
         html,body{overflow-x:hidden}
         @media(max-width:900px){.sm-navi-logo{height:24px!important}}
         @media(max-width:600px){.sm-navi-logo{height:22px!important}}
         .sm-navi-right{margin-left:auto;display:flex;align-items:center;gap:16px}
+        .sm-navi-overlay{color:#fff}
+        .sm-navi-overlay a{color:#fff!important}
+        .sm-navi-overlay .sm-nav-item{color:#fff!important}
+        .sm-navi-overlay .sm-nav-item:hover{background:rgba(255,255,255,.14)}
+        .sm-navi-overlay .sm-nav-item.shop-active{color:#fff!important;background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)}
+        .sm-navi-overlay .sm-navi-login{color:#fff!important}
+        .sm-navi-overlay svg{color:#fff}
+        .sm-navi-overlay .sm-navi-logo{filter:brightness(0) invert(1)}
+        .sm-navi-overlay .home-logo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+        .sm-navi-overlay .sm-navi-links{margin-left:0}
+        @media(max-width:900px){.sm-navi-overlay .home-logo{position:static;transform:none}}
+        .sm-ov-nav{gap:24px!important;flex-wrap:nowrap}
+        /* Overlay header: true 3-column flex so logo is centered by layout and nav can never overlap/clip */
+        .sm-navi-overlay .home-logo{position:static!important;left:auto;top:auto;transform:none!important;order:2;margin:0}
+        .sm-navi-overlay .sm-ov-nav{order:1;flex:1 1 0;min-width:0;max-width:none}
+        .sm-navi-overlay .sm-ov-right{order:3;flex:1 1 0;justify-content:flex-end}
+        @media(max-width:900px){.sm-navi-overlay .sm-ov-nav{flex:0 1 auto}.sm-navi-overlay .sm-ov-right{flex:0 0 auto}}
+        .sm-ov-nav .sm-nav-item{text-transform:none!important;font-weight:300!important;font-size:15px!important;letter-spacing:0!important;padding:8px 0!important;border-radius:0!important;white-space:nowrap;display:inline-flex!important;align-items:center;gap:5px;cursor:pointer}
+        .sm-ov-nav .sm-nav-item .ov-chev{transition:transform .16s;opacity:.85}
+        .sm-ov-nav .sm-nav-item:hover .ov-chev{transform:rotate(180deg)}
+        .sm-navi-overlay .sm-ov-nav .sm-nav-item:hover{background:transparent!important;opacity:.75}
+        .sm-ov-link{font-family:var(--font-label);font-weight:300;font-size:16px;color:#fff!important;text-decoration:none;cursor:pointer}
+        .sm-ov-right a,.sm-ov-right button{cursor:pointer}
+        .sm-ov-link:hover{opacity:.75}
+        .sm-ov-right{gap:24px!important}
+        .sm-ov-panel{position:absolute;top:80px;left:0;right:0;background:rgba(44,40,42,.9);box-shadow:0 16px 40px rgba(0,0,0,.18);z-index:39;animation:smFadeIn .16s ease}
+        .sm-navi-overlay .sm-ov-panel{background:rgba(44,40,42,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:none}
+        .sm-ov-inner{max-width:none;width:100%;margin:0;padding:12px 48px 40px;box-sizing:border-box}
+        .sm-ov-list{display:flex;flex-direction:column;gap:2px;max-width:340px}
+        .sm-ov-sub{font-family:var(--font-label);font-weight:400;font-size:17px;color:rgba(255,255,255,.88);text-decoration:none;padding:9px 0;cursor:pointer}
+        .sm-ov-sub:hover{color:#fff}
+        @media(max-width:900px){.sm-ov-nav,.sm-ov-panel{display:none!important}}
         .sm-navi-hamburger{display:none}
         .sm-navi-login{display:inline-flex;align-items:center;gap:8px;color:var(--ink-1000);font-family:var(--font-label);font-weight:700;font-size:16px;text-decoration:none}
         .sm-nav-item{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-family:var(--font-label);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;text-decoration:none;border:1px solid transparent;background:transparent;color:var(--ink-1000);transition:background .15s}
@@ -1232,7 +1315,7 @@ function Navi({
         .sm-drawer-nav a:hover{background:var(--ink-25)}
         .sm-drawer-sub a:hover{background:#fff!important;color:#cf0731!important}
         .sm-drawer-footer{margin-top:auto;padding:24px;border-top:1px solid var(--ink-100);display:flex;flex-direction:column;gap:12px}
-        @media(max-width:900px){
+        @media(max-width:1024px){
           .sm-navi-links{display:none}
           .sm-navi-hamburger{display:inline-flex!important}
           .sm-navi-login span:last-child{display:none}
@@ -1244,34 +1327,62 @@ function Navi({
           .sm-navi-right{gap:8px}
           .sm-navi-right svg{width:18px!important;height:18px!important}
         }
+        /* Overlay (black) header — mobile declutter */
+        @media(max-width:900px){
+          .sm-ov-right{gap:14px!important}
+          .sm-ov-right svg{width:20px!important;height:20px!important}
+        }
+        @media(max-width:600px){
+          .sm-ov-right{gap:12px!important}
+          .sm-ov-right svg{width:20px!important;height:20px!important}
+          .sm-ov-right .sm-ov-link{display:none!important}
+          .sm-ov-right .sm-ov-icon-extra{display:none!important}
+        }
       `), /*#__PURE__*/React.createElement("header", {
+    ref: headerRef,
+    className: overlay ? 'sm-navi-overlay' : '',
+    onMouseLeave: () => setOvMenu(null),
     style: {
-      position: sticky ? 'sticky' : 'relative',
+      position: overlay ? sticky ? 'sticky' : 'relative' : sticky ? 'sticky' : 'relative',
       top: 0,
+      left: 0,
+      right: 0,
       zIndex: 40,
       width: '100%',
       height: 80,
-      background: 'var(--surface-panel)',
-      borderBottom: '1px solid var(--border-nav)',
-      backdropFilter: 'blur(10px)',
-      WebkitBackdropFilter: 'blur(10px)',
+      background: overlay ? '#0d0b0c' : 'var(--surface-panel)',
+      borderBottom: overlay ? '1px solid rgba(255,255,255,.08)' : '1px solid var(--border-nav)',
+      backdropFilter: overlay ? 'none' : 'blur(10px)',
+      WebkitBackdropFilter: overlay ? 'none' : 'blur(10px)',
       boxSizing: 'border-box',
       ...style
     }
   }, /*#__PURE__*/React.createElement("div", {
     style: {
       height: '100%',
-      maxWidth: 1280,
+      maxWidth: 'none',
+      width: '100%',
       margin: '0 auto',
       display: 'flex',
       alignItems: 'center',
-      padding: '0 24px',
+      padding: '0 48px',
       boxSizing: 'border-box'
     }
   }, /*#__PURE__*/React.createElement("a", {
     href: "index.html",
     "aria-label": "Home",
-    style: {
+    className: "home-logo",
+    style: overlay ? {
+      display: 'inline-flex',
+      alignItems: 'center',
+      flexShrink: 0,
+      position: 'static',
+      left: 'auto',
+      top: 'auto',
+      transform: 'none',
+      order: 2,
+      margin: 0
+    } : {
       display: 'inline-flex',
       alignItems: 'center',
       flexShrink: 0
@@ -1286,7 +1397,36 @@ function Navi({
       flexShrink: 0
     }
   })), /*#__PURE__*/React.createElement("nav", {
-    className: "sm-navi-links"
+    className: "sm-navi-links sm-ov-nav",
+    style: overlay ? {
+      order: 1,
+      flex: '1 1 0',
+      minWidth: 0,
+      maxWidth: 'none',
+      overflow: 'visible'
+    } : undefined
+  }, OVERLAY_NAV.map((c, i) => /*#__PURE__*/React.createElement("a", {
+    key: c.label,
+    href: c.href,
+    className: "sm-nav-item",
+    onMouseEnter: e => openOv(i, e)
+  }, c.label, /*#__PURE__*/React.createElement("svg", {
+    className: "ov-chev",
+    width: "11",
+    height: "11",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2.5",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))))), /*#__PURE__*/React.createElement("nav", {
+    className: "sm-navi-links",
+    style: {
+      display: 'none'
+    }
   }, /*#__PURE__*/React.createElement("div", {
     className: "sm-shop-wrap",
     ref: shopRef
@@ -1523,8 +1663,147 @@ function Navi({
       fontSize: 13,
       cursor: 'pointer'
     }
-  }, "Sign Out")))), /*#__PURE__*/React.createElement("div", {
-    className: "sm-navi-right"
+  }, "Sign Out")))), overlay && /*#__PURE__*/React.createElement("div", {
+    className: "sm-navi-right sm-ov-right",
+    style: {
+      order: 3,
+      flex: '1 1 0',
+      justifyContent: 'flex-end'
+    }
+  }, user && (user.name || user.email) && user.name !== 'Guest User' ? /*#__PURE__*/React.createElement("a", {
+    href: "account.html#info",
+    className: "sm-ov-link"
+  }, (user.name || user.email || '').split('@')[0]) : /*#__PURE__*/React.createElement("a", {
+    href: "login.html",
+    className: "sm-ov-link"
+  }, "Login"), /*#__PURE__*/React.createElement("a", {
+    href: "wishlist.html",
+    "aria-label": "Wishlist",
+    className: "sm-ov-icon-extra",
+    style: {
+      color: '#fff',
+      display: 'inline-flex',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "Heart",
+    size: 22
+  }), wishlist.length > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: 'absolute',
+      top: -6,
+      right: -8,
+      background: '#cf0731',
+      color: '#fff',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 700,
+      fontSize: 10,
+      minWidth: 16,
+      height: 16,
+      borderRadius: 999,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0 4px'
+    }
+  }, wishlist.length)), /*#__PURE__*/React.createElement("a", {
+    href: "compare.html",
+    "aria-label": "Compare products",
+    className: "sm-ov-icon-extra",
+    style: {
+      color: '#fff',
+      display: 'inline-flex',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "22",
+    height: "22",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 4v17"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7 21h10"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 8l-4 8a4 4 0 008 0L6 8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 8l-4 8a4 4 0 008 0L18 8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3 7l9-1 9 1"
+  })), compare.length > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: 'absolute',
+      top: -6,
+      right: -8,
+      background: '#cf0731',
+      color: '#fff',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 700,
+      fontSize: 10,
+      minWidth: 16,
+      height: 16,
+      borderRadius: 999,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0 4px'
+    }
+  }, compare.length)), /*#__PURE__*/React.createElement("a", {
+    href: "#",
+    "aria-label": "Cart",
+    onClick: e => {
+      e.preventDefault();
+      setCartOpen(true);
+    },
+    style: {
+      color: '#fff',
+      display: 'inline-flex',
+      position: 'relative'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "ShoppingBag",
+    size: 22
+  }), cartCount > 0 && /*#__PURE__*/React.createElement("span", {
+    style: {
+      position: 'absolute',
+      top: -6,
+      right: -8,
+      background: '#cf0731',
+      color: '#fff',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 700,
+      fontSize: 10,
+      minWidth: 16,
+      height: 16,
+      borderRadius: 999,
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0 4px'
+    }
+  }, cartCount)), /*#__PURE__*/React.createElement("button", {
+    className: "sm-navi-hamburger",
+    onClick: () => setDrawerOpen(true),
+    style: {
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer',
+      color: '#fff',
+      alignItems: 'center',
+      padding: 0
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "Menu",
+    size: 24
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "sm-navi-right",
+    style: overlay ? {
+      display: 'none'
+    } : undefined
   }, user ? /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative'
@@ -2185,7 +2464,21 @@ function Navi({
   }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
     name: "Menu",
     size: 24
-  }))))), /*#__PURE__*/React.createElement("div", {
+  })))), ovMenu != null && /*#__PURE__*/React.createElement("div", {
+    className: "sm-ov-panel",
+    onMouseEnter: () => setOvMenu(ovMenu)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sm-ov-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "sm-ov-list",
+    style: {
+      marginLeft: ovLeft
+    }
+  }, OVERLAY_NAV[ovMenu].subs.map(sb => /*#__PURE__*/React.createElement("a", {
+    key: sb,
+    href: OVERLAY_SUB_HREF[sb] || OVERLAY_NAV[ovMenu].href,
+    className: "sm-ov-sub"
+  }, sb)))))), /*#__PURE__*/React.createElement("div", {
     className: `sm-drawer${drawerOpen ? ' open' : ''}`
   }, /*#__PURE__*/React.createElement("div", {
     className: "sm-drawer-bg",
@@ -2331,7 +2624,60 @@ function Navi({
     name: "User",
     size: 20
   }), " My Account"), /*#__PURE__*/React.createElement("a", {
+    href: "wishlist.html",
+    onClick: () => setDrawerOpen(false),
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      color: 'var(--ink-1000)',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 700,
+      fontSize: 15,
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/React.createElement(__ds_scope.Icon, {
+    name: "Heart",
+    size: 20
+  }), " Wishlist"), /*#__PURE__*/React.createElement("a", {
+    href: "compare.html",
+    onClick: () => setDrawerOpen(false),
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 10,
+      color: 'var(--ink-1000)',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 700,
+      fontSize: 15,
+      textDecoration: 'none'
+    }
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "20",
+    height: "20",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.6",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M12 4v17"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M7 21h10"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 8l-4 8a4 4 0 008 0L6 8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M18 8l-4 8a4 4 0 008 0L18 8z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M3 7l9-1 9 1"
+  })), " Compare"), /*#__PURE__*/React.createElement("a", {
     href: "#",
+    onClick: e => {
+      e.preventDefault();
+      setDrawerOpen(false);
+      setCartOpen(true);
+    },
     style: {
       display: 'flex',
       alignItems: 'center',
@@ -2539,162 +2885,276 @@ function SiteFooter({
     tel: '+65 6336 2878',
     hours: 'Daily, 11.00am – 9.30pm'
   }];
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("footer", {
-    className: "site"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "footer-inner"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cols"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "col"
-  }, /*#__PURE__*/React.createElement("h4", null, "ABOUT US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "about.html"
-  }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "News")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Careers")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Events")))), /*#__PURE__*/React.createElement("div", {
-    className: "col"
-  }, /*#__PURE__*/React.createElement("h4", null, "GET HELP"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Order Status")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Delivery")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Returns")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Payment Options")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Find a Store")))), /*#__PURE__*/React.createElement("div", {
-    className: "col"
-  }, /*#__PURE__*/React.createElement("h4", null, "LEGAL"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "General Info")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Privacy Policy")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Terms of Service")))), /*#__PURE__*/React.createElement("div", {
-    className: "contact-mobile"
-  }, /*#__PURE__*/React.createElement("h4", null, "TALK TO US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "salesadmin@singaporemint.com.sg"), /*#__PURE__*/React.createElement("li", null, "+65 6566 2626"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Send Us Feedbacks"))), /*#__PURE__*/React.createElement("div", {
-    className: "socials"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    "aria-label": "Facebook"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: "BrandFacebook",
-    size: 16
-  })), /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    "aria-label": "LinkedIn"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: "BrandLinkedin",
-    size: 16
-  })), /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    "aria-label": "Twitter"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: "BrandTwitter",
-    size: 16
-  }))))))), !noStores && /*#__PURE__*/React.createElement("section", {
-    className: "stores-strip",
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, `.member-banner{background:linear-gradient(105deg, #a80018 0%, #cc0020 40%, #e01028 62%, #c1001c 100%)!important}.member-banner::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/member-wave.jpg') center/cover no-repeat;opacity:.5;mix-blend-mode:overlay;pointer-events:none}.member-inner{position:relative;z-index:1;flex-direction:column!important;text-align:center;gap:14px!important}.member-banner p{white-space:nowrap}@media(max-width:768px){.member-inner{gap:16px!important;padding:32px 24px!important}.member-banner h3{font-size:22px!important;line-height:1.3}.member-banner p{white-space:normal;max-width:420px;margin:6px auto 0}.member-banner .btn-dark{width:100%!important;max-width:320px}}`), /*#__PURE__*/React.createElement("section", {
+    className: "member-banner",
     style: {
-      background: '#000',
-      padding: '40px 0 32px'
+      width: '100vw',
+      position: 'relative',
+      left: '50%',
+      right: '50%',
+      marginLeft: '-50vw',
+      marginRight: '-50vw',
+      background: 'linear-gradient(105deg, #a80018 0%, #cc0020 40%, #e01028 62%, #c1001c 100%)',
+      color: '#fff',
+      overflow: 'hidden'
     }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "stores-inner",
+    className: "member-inner",
     style: {
-      padding: '0 56px',
       maxWidth: 1280,
       margin: '0 auto',
+      padding: '44px 56px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 14,
       boxSizing: 'border-box'
     }
-  }, /*#__PURE__*/React.createElement("h2", {
-    style: {
-      fontFamily: 'var(--font-label)',
-      fontWeight: 800,
-      fontSize: 22,
-      letterSpacing: '.06em',
-      textTransform: 'uppercase',
-      margin: '0 0 36px',
-      color: '#fff'
-    }
-  }, "Our Stores"), /*#__PURE__*/React.createElement("div", {
-    className: "stores-grid",
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3,1fr)',
-      gap: 40
-    }
-  }, stores.map((s, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      borderTop: '2px solid var(--brand-red-800)',
-      paddingTop: 20
-    }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontFamily: 'var(--font-label)',
       fontWeight: 700,
-      fontSize: 14,
+      fontSize: 32,
+      margin: 0,
+      lineHeight: 1.1,
       textTransform: 'uppercase',
-      letterSpacing: '.05em',
-      marginBottom: 14,
-      color: '#fff'
+      letterSpacing: '.01em'
     }
-  }, s.name), /*#__PURE__*/React.createElement("div", {
+  }, "Become a member & Get 15% off"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: 'var(--font-body)',
-      fontSize: 14,
-      lineHeight: '22px',
-      color: 'var(--ink-300)',
-      marginBottom: 6
-    }
-  }, s.addr), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: 'var(--font-body)',
-      fontSize: 14,
-      lineHeight: '22px',
-      color: 'var(--ink-300)',
-      marginBottom: 4
-    }
-  }, s.tel), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: 'var(--font-body)',
-      fontSize: 14,
-      lineHeight: '22px',
-      color: 'var(--ink-400)'
-    }
-  }, s.hours)))), /*#__PURE__*/React.createElement("div", {
-    className: "base",
-    style: {
-      marginTop: 40,
-      color: '#fff',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      gap: '14px 24px'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/brand/sm-logo-slogan.png",
-    alt: "The Singapore Mint",
-    style: {
-      height: 26,
-      filter: 'brightness(0) invert(1)',
-      flexShrink: 0
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 13,
-      color: 'var(--ink-400)',
+      margin: 0,
+      opacity: .92,
       whiteSpace: 'nowrap'
     }
-  }, "\xA9 2019 Singapore Mint. All Rights Reserved.")))));
+  }, "Be first to receive updates on new collections, inspiration, gift ideas and exclusive access"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-dark",
+    style: {
+      marginTop: 8,
+      background: 'transparent',
+      color: '#fff',
+      padding: '13px 40px',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 600,
+      fontSize: 14,
+      textTransform: 'uppercase',
+      letterSpacing: '.06em',
+      border: '1px solid rgba(255,255,255,.7)',
+      borderRadius: 999,
+      cursor: 'pointer',
+      whiteSpace: 'nowrap'
+    }
+  }, "Sign Up"))), /*#__PURE__*/React.createElement("style", null, `
+        .smf{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:#1f1f1f;color:#fff;overflow:hidden;font-family:'Mona Sans',Inter,system-ui,sans-serif}
+        .smf::before{content:"";position:absolute;inset:0;background:#0a0406 url('../../assets/imagery/hero-bg-red.png') center/cover no-repeat;opacity:.5;pointer-events:none}
+        .smf::after{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.34;mix-blend-mode:screen;pointer-events:none}
+        .smf-inner{position:relative;z-index:1;width:100%;max-width:none;margin:0;padding:0 48px;box-sizing:border-box}
+        .smf-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+        .smf-intro{display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px 28px 0;gap:24px}
+        .smf-logo{width:64px;height:48px;object-fit:contain;filter:brightness(0) invert(1)}
+        .smf-member p{font-size:18px;font-weight:400;line-height:1.3;letter-spacing:-.02em;max-width:520px;margin:0 0 16px}
+        .smf-cols{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}
+        .smf-col{border-left:1px solid rgba(255,255,255,.15);padding:36px 40px 28px;display:flex;flex-direction:column}
+        .smf-col h4{font-size:16px;font-weight:500;line-height:32px;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 12px}
+        .smf-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+        .smf-col a{font-size:14px;font-weight:500;line-height:24px;color:#fff;opacity:.85;text-decoration:none}
+        .smf-col a:hover{opacity:1}
+        .smf-circle{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.30);color:#fff;display:inline-flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;transition:border-color .15s}
+        .smf-circle:hover{border-color:rgba(255,255,255,.80)}
+        .smf-socials{display:flex;gap:12px;margin-top:auto;padding-top:20px}
+        .smf-bottom{position:relative;z-index:1;width:100%;max-width:none;margin:0;padding:16px 48px 28px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:1px solid rgba(255,255,255,.15)}
+        .smf-bottom span{font-size:14px;color:rgba(255,255,255,.60)}
+        .smf-acc-cb{display:none}
+        .smf-acc{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+        .smf-chev{display:none;flex:0 0 auto;align-self:center;transition:transform .25s;opacity:.7}
+        .smf-acc-body{display:block}
+        .smf a:focus-visible,.smf-circle:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
+        @media(max-width:920px){.smf-grid{grid-template-columns:1fr;gap:40px}.smf-intro{padding-right:0}}
+        @media(max-width:560px){.smf-inner{padding:28px 22px 18px}.smf-grid{gap:0}.smf-intro{padding:6px 0 22px;gap:16px}.smf-logo{width:52px;height:40px}.smf-member p{font-size:15px;line-height:1.4;margin:0 0 14px}.smf-cols{grid-template-columns:1fr}.smf-col{border-left:0;margin:0 -22px;padding:16px 22px 0;border-top:1px solid rgba(255,255,255,.15)}.smf-col h4{line-height:1.4;margin:0}.smf-acc{cursor:pointer;padding-bottom:16px}.smf-chev{display:block}.smf-acc-body{max-height:0;overflow:hidden;transition:max-height .28s ease}.smf-acc-cb:checked ~ .smf-acc-body{max-height:420px}.smf-acc-cb:checked ~ .smf-acc{padding-bottom:12px}.smf-acc-cb:checked ~ .smf-acc .smf-chev{transform:rotate(180deg)}.smf-col a{line-height:22px}.smf-acc-body{padding-bottom:0}.smf-acc-cb:checked ~ .smf-acc-body{padding-bottom:16px}.smf-socials{padding-top:14px}.smf-bottom{padding:14px 22px 22px;gap:6px}.smf-bottom span{font-size:12px}}
+      `), /*#__PURE__*/React.createElement("footer", {
+    className: "smf"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-intro"
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "smf-logo",
+    src: "../../assets/brand/sm-logo-mark.png",
+    alt: ""
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "smf-member"
+  }, /*#__PURE__*/React.createElement("p", null, "Platinum & Gold members can enjoy Members' Price on eligible products by placing orders through the order form."), /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "catalogues.html",
+    "aria-label": "View order form"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14M13 6l6 6-6 6"
+  }))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-cols"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-col"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    id: "smf-acc-1",
+    className: "smf-acc-cb"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "smf-acc-1",
+    className: "smf-acc"
+  }, /*#__PURE__*/React.createElement("h4", null, "Customer care"), /*#__PURE__*/React.createElement("svg", {
+    className: "smf-chev",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-acc-body"
+  }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "contact.html"
+  }, "Contact")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Shipping & Delivery")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "faq.html"
+  }, "FAQ")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Privacy policy")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Term & Service")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "contact.html"
+  }, "Locate our store"))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-col"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    id: "smf-acc-2",
+    className: "smf-acc-cb"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "smf-acc-2",
+    className: "smf-acc"
+  }, /*#__PURE__*/React.createElement("h4", null, "Explore"), /*#__PURE__*/React.createElement("svg", {
+    className: "smf-chev",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-acc-body"
+  }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "events.html"
+  }, "Events")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "catalogues.html"
+  }, "E-Catalog")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "product-list.html#/medallions"
+  }, "Lion Bullion")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Customize corporate gifts"))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-col"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    id: "smf-acc-3",
+    className: "smf-acc-cb"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "smf-acc-3",
+    className: "smf-acc"
+  }, /*#__PURE__*/React.createElement("h4", null, "About & Resource"), /*#__PURE__*/React.createElement("svg", {
+    className: "smf-chev",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-acc-body"
+  }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "about.html"
+  }, "About us")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "promotion.html"
+  }, "Latest news"))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-socials"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "#",
+    "aria-label": "Facebook"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+  }))), /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "#",
+    "aria-label": "LinkedIn"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "2",
+    y: "9",
+    width: "4",
+    height: "12"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "4",
+    cy: "4",
+    r: "2"
+  }))), /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "#",
+    "aria-label": "X"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M4 4l16 16M20 4L4 20"
+  }))))))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-bottom"
+  }, /*#__PURE__*/React.createElement("span", null, "Coin Gallery (Head Office), 20 Teban Gardens Crescent, S 608928 (Mon - Fri 8.30am to 4.30pm)"), /*#__PURE__*/React.createElement("span", null, "\xA9 2019 Singapore Mint. All Rights Reserved."))));
 }
 function ChatBubble() {
   return null;
@@ -2821,7 +3281,7 @@ try { (() => {
 // next-export/next.config.js
 try { (() => {
 /** @type {import('next').NextConfig} */
-const pages = ['product-list', 'product-detail', 'about', 'contact', 'wishlist', 'compare', 'checkout', 'order-history', 'login', 'logout', 'account', 'promotion', 'events', 'catalogues', 'stay-connected', 'faq', 'register'];
+const pages = ['product-list', 'product-detail', 'about', 'contact', 'wishlist', 'compare', 'checkout', 'order-history', 'order-tracking', 'login', 'logout', 'account', 'promotion', 'events', 'catalogues', 'stay-connected', 'faq', 'register'];
 module.exports = {
   reactStrictMode: true,
   async rewrites() {
@@ -3217,162 +3677,276 @@ function SiteFooter({
     tel: '+65 6336 2878',
     hours: 'Daily, 11.00am – 9.30pm'
   }];
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("footer", {
-    className: "site"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "footer-inner"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "cols"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "col"
-  }, /*#__PURE__*/React.createElement("h4", null, "ABOUT US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "about.html"
-  }, "Our Story")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "News")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Careers")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Events")))), /*#__PURE__*/React.createElement("div", {
-    className: "col"
-  }, /*#__PURE__*/React.createElement("h4", null, "GET HELP"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Order Status")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Delivery")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Returns")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Payment Options")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Find a Store")))), /*#__PURE__*/React.createElement("div", {
-    className: "col"
-  }, /*#__PURE__*/React.createElement("h4", null, "LEGAL"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "General Info")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Privacy Policy")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Terms of Service")))), /*#__PURE__*/React.createElement("div", {
-    className: "contact-mobile"
-  }, /*#__PURE__*/React.createElement("h4", null, "TALK TO US"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "salesadmin@singaporemint.com.sg"), /*#__PURE__*/React.createElement("li", null, "+65 6566 2626"), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
-    href: "#"
-  }, "Send Us Feedbacks"))), /*#__PURE__*/React.createElement("div", {
-    className: "socials"
-  }, /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    "aria-label": "Facebook"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: "BrandFacebook",
-    size: 16
-  })), /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    "aria-label": "LinkedIn"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: "BrandLinkedin",
-    size: 16
-  })), /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    "aria-label": "Twitter"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    name: "BrandTwitter",
-    size: 16
-  }))))))), !noStores && /*#__PURE__*/React.createElement("section", {
-    className: "stores-strip",
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("style", null, `.member-banner{background:linear-gradient(105deg, #a80018 0%, #cc0020 40%, #e01028 62%, #c1001c 100%)!important}.member-banner::before{content:"";position:absolute;inset:0;background:url('../../assets/imagery/member-wave.jpg') center/cover no-repeat;opacity:.5;mix-blend-mode:overlay;pointer-events:none}.member-inner{position:relative;z-index:1;flex-direction:column!important;text-align:center;gap:14px!important}.member-banner p{white-space:nowrap}@media(max-width:768px){.member-inner{gap:16px!important;padding:32px 24px!important}.member-banner h3{font-size:22px!important;line-height:1.3}.member-banner p{white-space:normal;max-width:420px;margin:6px auto 0}.member-banner .btn-dark{width:100%!important;max-width:320px}}`), /*#__PURE__*/React.createElement("section", {
+    className: "member-banner",
     style: {
-      background: '#000',
-      padding: '40px 0 32px'
+      width: '100vw',
+      position: 'relative',
+      left: '50%',
+      right: '50%',
+      marginLeft: '-50vw',
+      marginRight: '-50vw',
+      background: 'linear-gradient(105deg, #a80018 0%, #cc0020 40%, #e01028 62%, #c1001c 100%)',
+      color: '#fff',
+      overflow: 'hidden'
     }
   }, /*#__PURE__*/React.createElement("div", {
-    className: "stores-inner",
+    className: "member-inner",
     style: {
-      padding: '0 56px',
       maxWidth: 1280,
       margin: '0 auto',
+      padding: '44px 56px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 14,
       boxSizing: 'border-box'
     }
-  }, /*#__PURE__*/React.createElement("h2", {
-    style: {
-      fontFamily: 'var(--font-label)',
-      fontWeight: 800,
-      fontSize: 22,
-      letterSpacing: '.06em',
-      textTransform: 'uppercase',
-      margin: '0 0 36px',
-      color: '#fff'
-    }
-  }, "Our Stores"), /*#__PURE__*/React.createElement("div", {
-    className: "stores-grid",
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3,1fr)',
-      gap: 40
-    }
-  }, stores.map((s, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      borderTop: '2px solid var(--brand-red-800)',
-      paddingTop: 20
-    }
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h3", {
     style: {
       fontFamily: 'var(--font-label)',
       fontWeight: 700,
-      fontSize: 14,
+      fontSize: 32,
+      margin: 0,
+      lineHeight: 1.1,
       textTransform: 'uppercase',
-      letterSpacing: '.05em',
-      marginBottom: 14,
-      color: '#fff'
+      letterSpacing: '.01em'
     }
-  }, s.name), /*#__PURE__*/React.createElement("div", {
+  }, "Become a member & Get 15% off"), /*#__PURE__*/React.createElement("p", {
     style: {
       fontFamily: 'var(--font-body)',
-      fontSize: 14,
-      lineHeight: '22px',
-      color: 'var(--ink-300)',
-      marginBottom: 6
-    }
-  }, s.addr), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: 'var(--font-body)',
-      fontSize: 14,
-      lineHeight: '22px',
-      color: 'var(--ink-300)',
-      marginBottom: 4
-    }
-  }, s.tel), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontFamily: 'var(--font-body)',
-      fontSize: 14,
-      lineHeight: '22px',
-      color: 'var(--ink-400)'
-    }
-  }, s.hours)))), /*#__PURE__*/React.createElement("div", {
-    className: "base",
-    style: {
-      marginTop: 40,
-      color: '#fff',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      gap: '14px 24px'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/brand/sm-logo-slogan.png",
-    alt: "The Singapore Mint",
-    style: {
-      height: 26,
-      filter: 'brightness(0) invert(1)',
-      flexShrink: 0
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontSize: 13,
-      color: 'var(--ink-400)',
+      margin: 0,
+      opacity: .92,
       whiteSpace: 'nowrap'
     }
-  }, "\xA9 2019 Singapore Mint. All Rights Reserved.")))));
+  }, "Be first to receive updates on new collections, inspiration, gift ideas and exclusive access"), /*#__PURE__*/React.createElement("button", {
+    className: "btn-dark",
+    style: {
+      marginTop: 8,
+      background: 'transparent',
+      color: '#fff',
+      padding: '13px 40px',
+      fontFamily: 'var(--font-label)',
+      fontWeight: 600,
+      fontSize: 14,
+      textTransform: 'uppercase',
+      letterSpacing: '.06em',
+      border: '1px solid rgba(255,255,255,.7)',
+      borderRadius: 999,
+      cursor: 'pointer',
+      whiteSpace: 'nowrap'
+    }
+  }, "Sign Up"))), /*#__PURE__*/React.createElement("style", null, `
+        .smf{position:relative;width:100vw;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;background:#1f1f1f;color:#fff;overflow:hidden;font-family:'Mona Sans',Inter,system-ui,sans-serif}
+        .smf::before{content:"";position:absolute;inset:0;background:#0a0406 url('../../assets/imagery/hero-bg-red.png') center/cover no-repeat;opacity:.5;pointer-events:none}
+        .smf::after{content:"";position:absolute;inset:0;background:url('../../assets/imagery/noise.png');opacity:.34;mix-blend-mode:screen;pointer-events:none}
+        .smf-inner{position:relative;z-index:1;width:100%;max-width:none;margin:0;padding:0 48px;box-sizing:border-box}
+        .smf-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+        .smf-intro{display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px 28px 0;gap:24px}
+        .smf-logo{width:64px;height:48px;object-fit:contain;filter:brightness(0) invert(1)}
+        .smf-member p{font-size:18px;font-weight:400;line-height:1.3;letter-spacing:-.02em;max-width:520px;margin:0 0 16px}
+        .smf-cols{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}
+        .smf-col{border-left:1px solid rgba(255,255,255,.15);padding:36px 40px 28px;display:flex;flex-direction:column}
+        .smf-col h4{font-size:16px;font-weight:500;line-height:32px;letter-spacing:-.03em;text-transform:uppercase;margin:0 0 12px}
+        .smf-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+        .smf-col a{font-size:14px;font-weight:500;line-height:24px;color:#fff;opacity:.85;text-decoration:none}
+        .smf-col a:hover{opacity:1}
+        .smf-circle{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.30);color:#fff;display:inline-flex;align-items:center;justify-content:center;background:transparent;cursor:pointer;transition:border-color .15s}
+        .smf-circle:hover{border-color:rgba(255,255,255,.80)}
+        .smf-socials{display:flex;gap:12px;margin-top:auto;padding-top:20px}
+        .smf-bottom{position:relative;z-index:1;width:100%;max-width:none;margin:0;padding:16px 48px 28px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;border-top:1px solid rgba(255,255,255,.15)}
+        .smf-bottom span{font-size:14px;color:rgba(255,255,255,.60)}
+        .smf-acc-cb{display:none}
+        .smf-acc{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+        .smf-chev{display:none;flex:0 0 auto;align-self:center;transition:transform .25s;opacity:.7}
+        .smf-acc-body{display:block}
+        .smf a:focus-visible,.smf-circle:focus-visible{outline:2px solid #fff;outline-offset:3px;border-radius:4px}
+        @media(max-width:920px){.smf-grid{grid-template-columns:1fr;gap:40px}.smf-intro{padding-right:0}}
+        @media(max-width:560px){.smf-inner{padding:28px 22px 18px}.smf-grid{gap:0}.smf-intro{padding:6px 0 22px;gap:16px}.smf-logo{width:52px;height:40px}.smf-member p{font-size:15px;line-height:1.4;margin:0 0 14px}.smf-cols{grid-template-columns:1fr}.smf-col{border-left:0;margin:0 -22px;padding:16px 22px 0;border-top:1px solid rgba(255,255,255,.15)}.smf-col h4{line-height:1.4;margin:0}.smf-acc{cursor:pointer;padding-bottom:16px}.smf-chev{display:block}.smf-acc-body{max-height:0;overflow:hidden;transition:max-height .28s ease}.smf-acc-cb:checked ~ .smf-acc-body{max-height:420px}.smf-acc-cb:checked ~ .smf-acc{padding-bottom:12px}.smf-acc-cb:checked ~ .smf-acc .smf-chev{transform:rotate(180deg)}.smf-col a{line-height:22px}.smf-acc-body{padding-bottom:0}.smf-acc-cb:checked ~ .smf-acc-body{padding-bottom:16px}.smf-socials{padding-top:14px}.smf-bottom{padding:14px 22px 22px;gap:6px}.smf-bottom span{font-size:12px}}
+      `), /*#__PURE__*/React.createElement("footer", {
+    className: "smf"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-grid"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-intro"
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "smf-logo",
+    src: "../../assets/brand/sm-logo-mark.png",
+    alt: ""
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "smf-member"
+  }, /*#__PURE__*/React.createElement("p", null, "Platinum & Gold members can enjoy Members' Price on eligible products by placing orders through the order form."), /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "catalogues.html",
+    "aria-label": "View order form"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M5 12h14M13 6l6 6-6 6"
+  }))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-cols"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "smf-col"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    id: "smf-acc-1",
+    className: "smf-acc-cb"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "smf-acc-1",
+    className: "smf-acc"
+  }, /*#__PURE__*/React.createElement("h4", null, "Customer care"), /*#__PURE__*/React.createElement("svg", {
+    className: "smf-chev",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-acc-body"
+  }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "contact.html"
+  }, "Contact")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Shipping & Delivery")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "faq.html"
+  }, "FAQ")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Privacy policy")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Term & Service")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "contact.html"
+  }, "Locate our store"))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-col"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    id: "smf-acc-2",
+    className: "smf-acc-cb"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "smf-acc-2",
+    className: "smf-acc"
+  }, /*#__PURE__*/React.createElement("h4", null, "Explore"), /*#__PURE__*/React.createElement("svg", {
+    className: "smf-chev",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-acc-body"
+  }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "events.html"
+  }, "Events")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "catalogues.html"
+  }, "E-Catalog")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "product-list.html#/medallions"
+  }, "Lion Bullion")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "#"
+  }, "Customize corporate gifts"))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-col"
+  }, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    id: "smf-acc-3",
+    className: "smf-acc-cb"
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: "smf-acc-3",
+    className: "smf-acc"
+  }, /*#__PURE__*/React.createElement("h4", null, "About & Resource"), /*#__PURE__*/React.createElement("svg", {
+    className: "smf-chev",
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("polyline", {
+    points: "6 9 12 15 18 9"
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-acc-body"
+  }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "about.html"
+  }, "About us")), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    href: "promotion.html"
+  }, "Latest news"))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-socials"
+  }, /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "#",
+    "aria-label": "Facebook"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+  }))), /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "#",
+    "aria-label": "LinkedIn"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "18",
+    height: "18",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "2",
+    y: "9",
+    width: "4",
+    height: "12"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "4",
+    cy: "4",
+    r: "2"
+  }))), /*#__PURE__*/React.createElement("a", {
+    className: "smf-circle",
+    href: "#",
+    "aria-label": "X"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: "16",
+    height: "16",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M4 4l16 16M20 4L4 20"
+  }))))))))), /*#__PURE__*/React.createElement("div", {
+    className: "smf-bottom"
+  }, /*#__PURE__*/React.createElement("span", null, "Coin Gallery (Head Office), 20 Teban Gardens Crescent, S 608928 (Mon - Fri 8.30am to 4.30pm)"), /*#__PURE__*/React.createElement("span", null, "\xA9 2019 Singapore Mint. All Rights Reserved."))));
 }
 function ChatBubble() {
   return null;
