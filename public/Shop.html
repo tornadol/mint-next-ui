@@ -57,6 +57,9 @@
   .filter-grp{border-top:1px solid #dcdddd;padding-top:16px;display:flex;flex-direction:column;gap:12px;margin-top:28px}
   aside .filter-grp:first-of-type{margin-top:0}
   .filter-grp-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:500;letter-spacing:.96px;text-transform:uppercase;color:var(--grey-60)}
+  .filter-grp-h{width:100%;background:none;border:none;cursor:pointer;padding:0}
+  .filter-grp-chev{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;color:var(--grey-60);transition:transform .18s}
+  .filter-grp-body{display:flex;flex-direction:column;gap:12px;margin-top:12px}
   .filter-row{display:flex;align-items:center;gap:10px;font-family:var(--desktop-body-m-font-family);font-size:15px;color:#000;cursor:pointer}
   .filter-row input{width:16px;height:16px;accent-color:#000;margin:0;flex:0 0 auto}
   .toggle-row{display:flex;justify-content:space-between;align-items:center;font-family:var(--desktop-body-m-font-family);font-size:14px;color:var(--grey-60)}
@@ -70,7 +73,7 @@
   .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
   .shop-card{display:flex;flex-direction:column;background:var(--grey-10)}
   .shop-img{position:relative;height:288px;background:#fff;overflow:hidden}
-  .shop-img>img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78%;height:78%;object-fit:contain;transition:transform .4s var(--ease-standard)}
+  .shop-img>img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78%;height:78%;object-fit:contain;object-position:center;transition:transform .4s var(--ease-standard)}
   .shop-card:hover .shop-img>img{transform:translate(-50%,-50%) scale(1.05)}
   .shop-badge{position:absolute;top:0;left:0;z-index:2;display:inline-flex;align-items:center;padding:6px 14px;font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:500;letter-spacing:.96px}
   .shop-fab{position:absolute;right:16px;bottom:16px;width:44px;height:44px;border-radius:999px;background:#000;display:flex;align-items:center;justify-content:center}
@@ -87,7 +90,7 @@
   .shop-meta{display:inline-flex;align-items:center;gap:8px}
   .shop-meta span{font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:500;letter-spacing:.96px;text-transform:uppercase;color:var(--grey-80)}
   .shop-link{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .shop-link>img{width:78%;height:78%;object-fit:contain;transition:transform .4s var(--ease-standard)}
+  .shop-link>img{width:100%;height:100%;padding:11%;object-fit:contain;object-position:center;transition:transform .4s var(--ease-standard)}
   .shop-card:hover .shop-link>img{transform:scale(1.05)}
   .shop-textlink{text-decoration:none;cursor:pointer}
   .shop-name{font-family:var(--desktop-body-XL-font-family);font-weight:500;font-size:20px;color:#000}
@@ -279,7 +282,7 @@ function Ic({name,size=22,color}){
 const mLink={fontFamily:'var(--desktop-body-m-font-family)',fontSize:16,fontWeight:400,color:'#000',lineHeight:1.2};
 const mHead={fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontSize:12,fontWeight:500,letterSpacing:'0.96px',textTransform:'uppercase',color:'#BABABA'};
 const RAFFLES_SLUG={'Sanrio':'sanrio','Peanuts':'peanuts','Pokemon':'pokemon','Teletubbies':'teletubbies','Strawberry Shortcake':'strawberry-shortcake','Mr Merlion':'mr-merlion'};
-function navHref(label){if(!label)return '#';if(RAFFLES_SLUG[label])return 'Collection.html?c='+RAFFLES_SLUG[label];const m={'About us':'About.html','Membership':'Membership.html','Visit our stores':'Stores.html','All Raffles Mint':'Collection.html','Custom corporate gifts':'CorporateGifts.html','Catalogue orders':'CatalogueOrders.html','Coin recycling':'CoinRecycling.html'};return m[label]||'Shop.html';}
+function navHref(label){if(!label)return '#';if(RAFFLES_SLUG[label])return '/Collection?c='+RAFFLES_SLUG[label];const m={'About us':'/About','Membership':'/Membership','Visit our stores':'/Stores','All Raffles Mint':'/Collection','Custom corporate gifts':'/CorporateGifts','Catalogue orders':'/CatalogueOrders','Coin recycling':'/CoinRecycling'};return m[label]||'/Shop';}
 
 const SHOP_MENU_A = ['Bestsellers','Sale items','Shop all'];
 const SHOP_MENU_B = [
@@ -344,9 +347,9 @@ function MobMenu({open,onClose,onCart}){
           <div className="mob-search"><input placeholder="Search..."/><Ic name="IconsSearch" color="var(--grey-60)"/></div>
           <button className="mob-row" onClick={()=>setSub('shop')}>Shop<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
           <button className="mob-row" onClick={()=>setSub('discover')}>Discover<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
-          <a className="mob-row" href="/news">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
-          <a className="mob-row" href="/wishlist">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
-          <a className="mob-row" href="/compare">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="/News">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
+          <a className="mob-row" href="/Favourites">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="/Compare">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
         </div>
         <a href="#" className="mob-login">Login/Register</a>
       </> : <div className="mob-menu-body">
@@ -382,7 +385,7 @@ function CartDrawer({open,onClose}){
           <button className="cart-x" aria-label="Close cart" onClick={onClose}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg></button>
         </div>
         <div className="cart-body">
-          {gone ? <div className="cart-empty"><p>Your cart is empty.</p><a href="/shop" className="cart-shopall">Shop all</a></div> : <div className="cart-item">
+          {gone ? <div className="cart-empty"><p>Your cart is empty.</p><a href="/Shop" className="cart-shopall">Shop all</a></div> : <div className="cart-item">
             <div className="cart-item-img"><img src="assets/coin-horse-gold.png" alt=""/></div>
             <div className="cart-item-main">
               <div className="cart-item-top">
@@ -407,8 +410,8 @@ function CartDrawer({open,onClose}){
         </div>
         {!gone && <div className="cart-foot">
           <div className="cart-subtotal"><span>Subtotal</span><span>{money(unit*qty)}</span></div>
-          <button className="cart-checkout" onClick={()=>location.href='Checkout.html'}>Checkout</button>
-          <button className="cart-viewcart" onClick={()=>location.href='Cart.html'}>View cart</button>
+          <button className="cart-checkout" onClick={()=>location.href='/Checkout'}>Checkout</button>
+          <button className="cart-viewcart" onClick={()=>location.href='/Cart'}>View cart</button>
         </div>}
       </aside>
     </>
@@ -422,11 +425,11 @@ function Header(){
   return (
     <header className="site-header" style={{position:'relative',background:'#fff',borderBottom:'1px solid rgba(0,0,0,.4)'}} onMouseLeave={()=>setMenu(null)}>
       <div className="wrap" style={{height:72,display:'grid',gridTemplateColumns:'1fr auto 1fr',alignItems:'center'}}>
-        <a href="/" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
+        <a href="/Homepage" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
         <nav className="hdr-nav" style={{display:'flex',gap:30,justifySelf:'center'}}>
-          <a className="navlink" href="/shop" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
-          <a className="navlink" href="/about" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
-          <a className="navlink" href="/news" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
+          <a className="navlink" href="/Shop" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
+          <a className="navlink" href="/About" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
+          <a className="navlink" href="/News" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
         </nav>
         <div style={{display:'flex',alignItems:'center',gap:6,justifySelf:'end'}}>
           <button className="icobtn hdr-util"><Ic name="IconsSearch"/></button>
@@ -435,13 +438,13 @@ function Header(){
               <button className="acct-trigger" aria-label="Account">{u.name}</button>
               <div className="acct-menu">
                 <div className="acct-head"><div className="acct-name">{u.name}</div><div className="acct-email">{u.email}</div></div>
-                <a className="acct-link" href="/account"><Ic name="IconsAccount" size={18}/>My Account</a>
+                <a className="acct-link" href="/Account"><Ic name="IconsAccount" size={18}/>My Account</a>
                 <button className="acct-link acct-signout" onClick={()=>{localStorage.removeItem('tsm_user');location.reload();}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 00-2 2v12a2 2 0 002 2h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>Sign out</button>
               </div>
             </div>
-          ):(<a className="icobtn hdr-util" href="/login" aria-label="Account"><Ic name="IconsAccount"/></a>);})()}
-          <button className="icobtn hdr-util" aria-label="Favorites" onClick={()=>location.href='Favourites.html'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>{Store.count('fav')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('fav')}</span>}</button>
-          <button className="icobtn hdr-util" aria-label="Compare" onClick={()=>location.href='Compare.html'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M12 4.5a1 1 0 100-.01M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>{Store.count('cmp')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('cmp')}</span>}</button>
+          ):(<a className="icobtn hdr-util" href="/Login" aria-label="Account"><Ic name="IconsAccount"/></a>);})()}
+          <button className="icobtn hdr-util" aria-label="Favorites" onClick={()=>location.href='/Favourites'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>{Store.count('fav')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('fav')}</span>}</button>
+          <button className="icobtn hdr-util" aria-label="Compare" onClick={()=>location.href='/Compare'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M12 4.5a1 1 0 100-.01M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>{Store.count('cmp')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('cmp')}</span>}</button>
           <button className="icobtn" style={{position:'relative'}} aria-label="Cart" onClick={()=>setCart(true)}><Ic name="IconsCart"/><span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:Store.count('cart')>0?'flex':'none',alignItems:'center',justifyContent:'center'}}>{Store.count('cart')}</span></button>
           <button className="icobtn hdr-burger" aria-label="Menu" onClick={()=>setMob(true)}><Ic name="IconsMenu"/></button>
         </div>
@@ -455,7 +458,7 @@ function Header(){
           </div>
           <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_B.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
           <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_C.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
-          <a href="/shop" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
+          <a href="/Shop" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
             <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'#fff'}}>Year of the Horse 2026</div>
             <span className="arrow-cta" style={{color:'#fff'}}>Shop<span className="ln"/></span>
             <div style={{alignSelf:'stretch',display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
@@ -464,7 +467,7 @@ function Header(){
               <img src="assets/coin-botanic-silver.png" style={{width:100,marginTop:-10}}/>
             </div>
           </a>
-          <a href="/shop" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
+          <a href="/Shop" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
             <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'var(--tsm-black)'}}>Gifting Ideas</div>
             <span className="arrow-cta" style={{color:'var(--tsm-black)'}}>Shop<span className="ln"/></span>
             <div style={{alignSelf:'stretch',flex:1,display:'flex',alignItems:'center',justifyContent:'center',gap:16}}>
@@ -502,11 +505,11 @@ function CardMedia({n}){
 }
 
 const COLLECTIONS=[
-  {t:'Year of the Horse 2026',img:'assets/coll-1.png',href:'Collection.html'},
-  {t:'Singapore Botanic Gardens',img:'assets/coll-2.png',href:'Collection.html'},
-  {t:'Raffles Mint',img:'assets/coll-3.png',href:'Collection.html'},
-  {t:'National Treasures of the World',img:'assets/coll-4.png',href:'Collection.html'},
-  {t:'Sanrio',img:'assets/sbt-jewelry.png',href:'Collection.html?c=sanrio'},
+  {t:'Year of the Horse 2026',img:'assets/coll-1.png',href:'/Collection'},
+  {t:'Singapore Botanic Gardens',img:'assets/coll-2.png',href:'/Collection'},
+  {t:'Raffles Mint',img:'assets/coll-3.png',href:'/Collection'},
+  {t:'National Treasures of the World',img:'assets/coll-4.png',href:'/Collection'},
+  {t:'Sanrio',img:'assets/sbt-jewelry.png',href:'/Collection?c=sanrio'},
 ];
 const PRODUCTS=[
   {name:'Singapore Lunar Horse',code:'S010',ed:'MINTED 2026',desc:'5 troy oz 999.9 Fine Gold Proof Coin',img:'assets/coin-horse-gold.png',price:33700,type:'Coins',coll:'2026 Lunar New Year',mat:'Gold',label:'PRE-ORDER',inStock:true},
@@ -542,7 +545,7 @@ function ShopCard({p}){
     <article className="shop-card">
       <div className="shop-img">
         {badge&&<span className="shop-badge" style={{background:badge.bg,color:badge.c}}>{p.label}</span>}
-        <a href="/product" className="shop-link" aria-label={p.name}><img src={p.img} alt={p.name}/></a>
+        <a href="/Product" className="shop-link" aria-label={p.name}><img src={p.img} alt={p.name}/></a>
         <div className="card-actions">
           <button className={"card-act"+(fav?' on':'')} onClick={()=>Store.toggle('fav',id)} aria-label="Add to favourites"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg></span><span className="lbl">Favourite</span></button>
           <button className={"card-act"+(cmp?' on':'')} onClick={()=>Store.toggle('cmp',id)} aria-label="Compare"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="lbl">Compare</span></button>
@@ -550,7 +553,7 @@ function ShopCard({p}){
         </div>
       </div>
       <div className="shop-info">
-        <a href="/product" className="shop-textlink" style={{display:'flex',flexDirection:'column',gap:8}}>
+        <a href="/Product" className="shop-textlink" style={{display:'flex',flexDirection:'column',gap:8}}>
           <div className="shop-meta"><span>{p.code}</span>{p.ed&&<><span style={{width:3,height:3,borderRadius:'50%',background:'var(--grey-80)'}}/><span>{p.ed}</span></>}</div>
           <div className="shop-name">{p.name}</div>
           <div className="shop-desc">{p.desc}</div>
@@ -566,10 +569,11 @@ function ShopCard({p}){
   );
 }
 function CollTile({c}){
-  return (<a href={c.href||'Collection.html'} className="coll-tile" style={{backgroundImage:`url(${c.img})`}}><span className="lbl">{c.t}</span><span className="arrow-cta" style={{position:'absolute',left:20,bottom:20,zIndex:2,color:'#fff'}}><span className="ln"/></span></a>);
+  return (<a href={c.href||'/Collection'} className="coll-tile" style={{backgroundImage:`url(${c.img})`}}><span className="lbl">{c.t}</span><span className="arrow-cta" style={{position:'absolute',left:20,bottom:20,zIndex:2,color:'#fff'}}><span className="ln"/></span></a>);
 }
 function FGroup({title,children,mobileOnly}){
-  return (<div className={"filter-grp"+(mobileOnly?" mob-only-grp":"")}><div className="filter-grp-h">{title}<Ic name="IconsDropdown" size={16}/></div>{children}</div>);
+  const [open,setOpen]=useState(true);
+  return (<div className={"filter-grp"+(mobileOnly?" mob-only-grp":"")}><button type="button" className="filter-grp-h" onClick={()=>setOpen(o=>!o)} aria-expanded={open}>{title}<span className="filter-grp-chev" style={{transform:open?"rotate(180deg)":"none"}}><Ic name="IconsDropdown" size={14}/></span></button>{open&&<div className="filter-grp-body">{children}</div>}</div>);
 }
 
 function App(){

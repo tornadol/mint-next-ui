@@ -1,5 +1,8 @@
-// Homepage is served via the rewrite in next.config.js (/ → Homepage.html).
-// This file is required by the App Router but is never reached in practice.
+import { redirect } from "next/navigation";
+
+// The finished storefront pages live as static HTML under /public.
+// Landing on "/" sends you to the homepage. Replace this with a real
+// app-router page once you begin porting components (see README.md).
 export default function Home() {
-  return null;
+  redirect("/Homepage.html");
 }

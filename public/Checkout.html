@@ -56,6 +56,9 @@
   .cart-continue{position:absolute;left:40px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;gap:12px;color:var(--grey-60);font-family:var(--desktop-body-l-font-family);font-size:18px}
   .cart-steps{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:0}
   .cart-step{display:flex;flex-direction:column;align-items:center;gap:10px;width:120px;position:relative}
+  .cart-step-link{cursor:pointer;text-decoration:none}
+  .cart-step-link:hover .cart-step-num{background:var(--tsm-black);border-color:var(--tsm-black)}
+  .cart-step-link:hover .cart-step-label{color:#000}
   .cart-step-num{width:40px;height:40px;border-radius:50%;border:2px solid var(--grey-40,#c9cacb);display:flex;align-items:center;justify-content:center;font-family:var(--desktop-body-l-font-family);font-size:16px;font-weight:500;color:var(--grey-60);background:#fff}
   .cart-step-label{font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-60);white-space:nowrap}
   .cart-step.on .cart-step-num{background:var(--tsm-black);border-color:var(--tsm-black);color:#fff}
@@ -63,7 +66,8 @@
   .cart-step.done .cart-step-num{background:var(--grey-60);border-color:var(--grey-60);color:#fff}
   .cart-step.done .cart-step-label{color:var(--grey-60)}
   .cart-step-line.done{background:var(--grey-60)}
-  .co-page{gap:28px;background:var(--grey-10);clip-path:inset(0 -100vmax);box-shadow:0 0 0 100vmax var(--grey-10);padding-top:56px;padding-bottom:80px;margin-top:8px}
+  .co-page{position:relative;gap:28px;padding-top:56px;padding-bottom:80px;margin-top:8px}
+  .co-page::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:102vw;transform:translateX(-50%);background:var(--grey-10);z-index:-1}
   .co-block{display:flex;flex-direction:column;gap:16px}
   .co-h{margin:0;font-weight:400;font-size:30px;color:#000}
   .co-sub{margin:0;font-family:var(--desktop-body-l-font-family);font-size:18px;color:var(--grey-60)}
@@ -346,6 +350,12 @@
     .cart-proceed{width:100% !important}
     .addr-select{grid-template-columns:1fr !important}
     .dropoff-slots{grid-template-columns:1fr !important}
+    .dropoff{padding:24px 20px !important;gap:24px !important}
+    .dropoff-days{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important}
+    .day-chip{padding:14px 12px !important;font-size:16px !important;text-align:center}
+    .day-pick-wrap{grid-column:1 / -1}
+    .day-pick{justify-content:center}
+    .slot-card{padding:16px 18px !important}
     .fedex-grid{grid-template-columns:1fr !important}
     .pay-methods{flex-direction:column !important}
     .pay-method{min-width:0 !important}
@@ -357,6 +367,9 @@
     .co-final{flex-direction:column !important;align-items:stretch !important}
     .co-pay{width:100% !important}
     .co-h{font-size:24px !important}
+    .co-userinfo-row{gap:12px !important}
+    .co-userinfo-k{flex:0 0 110px !important}
+    .co-userinfo-v{min-width:0;word-break:break-word;overflow-wrap:anywhere;text-align:right;margin-left:auto}
     .hdr-nav{display:none !important}
     .site-header .wrap{display:flex !important;justify-content:space-between !important;align-items:center !important}
     .hdr-util{display:none !important}
@@ -407,7 +420,7 @@ function Ic({name,size=22,color}){
 const mLink={fontFamily:'var(--desktop-body-m-font-family)',fontSize:16,fontWeight:400,color:'#000',lineHeight:1.2};
 const mHead={fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontSize:12,fontWeight:500,letterSpacing:'0.96px',textTransform:'uppercase',color:'#BABABA'};
 const RAFFLES_SLUG={'Sanrio':'sanrio','Peanuts':'peanuts','Pokemon':'pokemon','Teletubbies':'teletubbies','Strawberry Shortcake':'strawberry-shortcake','Mr Merlion':'mr-merlion'};
-function navHref(label){if(!label)return '#';if(RAFFLES_SLUG[label])return 'Collection.html?c='+RAFFLES_SLUG[label];const m={'About us':'About.html','Membership':'Membership.html','Visit our stores':'Stores.html','All Raffles Mint':'Collection.html','Custom corporate gifts':'CorporateGifts.html','Catalogue orders':'CatalogueOrders.html','Coin recycling':'CoinRecycling.html'};return m[label]||'Shop.html';}
+function navHref(label){if(!label)return '#';if(RAFFLES_SLUG[label])return '/Collection?c='+RAFFLES_SLUG[label];const m={'About us':'/About','Membership':'/Membership','Visit our stores':'/Stores','All Raffles Mint':'/Collection','Custom corporate gifts':'/CorporateGifts','Catalogue orders':'/CatalogueOrders','Coin recycling':'/CoinRecycling'};return m[label]||'/Shop';}
 
 const SHOP_MENU_A = ['Bestsellers','Sale items','Shop all'];
 const SHOP_MENU_B = [
@@ -472,9 +485,9 @@ function MobMenu({open,onClose,onCart}){
           <div className="mob-search"><input placeholder="Search..."/><Ic name="IconsSearch" color="var(--grey-60)"/></div>
           <button className="mob-row" onClick={()=>setSub('shop')}>Shop<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
           <button className="mob-row" onClick={()=>setSub('discover')}>Discover<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
-          <a className="mob-row" href="/news">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
-          <a className="mob-row" href="/wishlist">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
-          <a className="mob-row" href="/compare">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="/News">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
+          <a className="mob-row" href="/Favourites">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="/Compare">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
         </div>
         <a href="#" className="mob-login">Login/Register</a>
       </> : <div className="mob-menu-body">
@@ -510,7 +523,7 @@ function CartDrawer({open,onClose}){
           <button className="cart-x" aria-label="Close cart" onClick={onClose}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg></button>
         </div>
         <div className="cart-body">
-          {gone ? <div className="cart-empty"><p>Your cart is empty.</p><a href="/shop" className="cart-shopall">Shop all</a></div> : <div className="cart-item">
+          {gone ? <div className="cart-empty"><p>Your cart is empty.</p><a href="/Shop" className="cart-shopall">Shop all</a></div> : <div className="cart-item">
             <div className="cart-item-img"><img src="assets/coin-horse-gold.png" alt=""/></div>
             <div className="cart-item-main">
               <div className="cart-item-top">
@@ -535,8 +548,8 @@ function CartDrawer({open,onClose}){
         </div>
         {!gone && <div className="cart-foot">
           <div className="cart-subtotal"><span>Subtotal</span><span>{money(unit*qty)}</span></div>
-          <button className="cart-checkout" onClick={()=>location.href='Checkout.html'}>Checkout</button>
-          <button className="cart-viewcart" onClick={()=>location.href='Cart.html'}>View cart</button>
+          <button className="cart-checkout" onClick={()=>location.href='/Checkout'}>Checkout</button>
+          <button className="cart-viewcart" onClick={()=>location.href='/Cart'}>View cart</button>
         </div>}
       </aside>
     </>
@@ -549,11 +562,11 @@ function Header(){
   return (
     <header className="site-header" style={{position:'relative',background:'#fff',borderBottom:'1px solid rgba(0,0,0,.4)'}} onMouseLeave={()=>setMenu(null)}>
       <div className="wrap" style={{height:72,display:'grid',gridTemplateColumns:'1fr auto 1fr',alignItems:'center'}}>
-        <a href="/" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
+        <a href="/Homepage" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
         <nav className="hdr-nav" style={{display:'flex',gap:30,justifySelf:'center'}}>
-          <a className="navlink" href="/shop" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
-          <a className="navlink" href="/about" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
-          <a className="navlink" href="/news" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
+          <a className="navlink" href="/Shop" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
+          <a className="navlink" href="/About" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
+          <a className="navlink" href="/News" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
         </nav>
         <div style={{display:'flex',alignItems:'center',gap:6,justifySelf:'end'}}>
           <button className="icobtn hdr-util"><Ic name="IconsSearch"/></button>
@@ -562,13 +575,13 @@ function Header(){
               <button className="acct-trigger" aria-label="Account">{u.name}</button>
               <div className="acct-menu">
                 <div className="acct-head"><div className="acct-name">{u.name}</div><div className="acct-email">{u.email}</div></div>
-                <a className="acct-link" href="/account"><Ic name="IconsAccount" size={18}/>My Account</a>
+                <a className="acct-link" href="/Account"><Ic name="IconsAccount" size={18}/>My Account</a>
                 <button className="acct-link acct-signout" onClick={()=>{localStorage.removeItem('tsm_user');location.reload();}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 00-2 2v12a2 2 0 002 2h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>Sign out</button>
               </div>
             </div>
-          ):(<a className="icobtn hdr-util" href="/login" aria-label="Account"><Ic name="IconsAccount"/></a>);})()}
-          <button className="icobtn hdr-util" aria-label="Favorites" onClick={()=>location.href='Favourites.html'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg></button>
-          <button className="icobtn hdr-util" aria-label="Compare" onClick={()=>location.href='Compare.html'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M12 4.5a1 1 0 100-.01M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
+          ):(<a className="icobtn hdr-util" href="/Login" aria-label="Account"><Ic name="IconsAccount"/></a>);})()}
+          <button className="icobtn hdr-util" aria-label="Favorites" onClick={()=>location.href='/Favourites'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg></button>
+          <button className="icobtn hdr-util" aria-label="Compare" onClick={()=>location.href='/Compare'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M12 4.5a1 1 0 100-.01M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></button>
           <button className="icobtn" style={{position:'relative'}} aria-label="Cart" onClick={()=>setCart(true)}><Ic name="IconsCart"/><span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>3</span></button>
           <button className="icobtn hdr-burger" aria-label="Menu" onClick={()=>setMob(true)}><Ic name="IconsMenu"/></button>
         </div>
@@ -582,7 +595,7 @@ function Header(){
           </div>
           <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_B.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
           <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_C.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
-          <a href="/shop" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
+          <a href="/Shop" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
             <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'#fff'}}>Year of the Horse 2026</div>
             <span className="arrow-cta" style={{color:'#fff'}}>Shop<span className="ln"/></span>
             <div style={{alignSelf:'stretch',display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
@@ -591,7 +604,7 @@ function Header(){
               <img src="assets/coin-botanic-silver.png" style={{width:100,marginTop:-10}}/>
             </div>
           </a>
-          <a href="/shop" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
+          <a href="/Shop" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
             <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'var(--tsm-black)'}}>Gifting Ideas</div>
             <span className="arrow-cta" style={{color:'var(--tsm-black)'}}>Shop<span className="ln"/></span>
             <div style={{alignSelf:'stretch',flex:1,display:'flex',alignItems:'center',justifyContent:'center',gap:16}}>
@@ -711,12 +724,14 @@ function App(){
 
     {/* Checkout progress */}
     <section className="wrap cart-progress">
-      <a href="/cart" className="cart-continue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>Update your order</a>
+      <a href="/Cart" className="cart-continue"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>Update your order</a>
       <div className="cart-steps">
         {STEPS.map(([n,l],i)=>(
           <React.Fragment key={n}>
             {i>0&&<span className={"cart-step-line"+(i<=1?" done":"")}/>}
-            <div className={"cart-step"+(i===1?" on":"")+(i<1?" done":"")}><span className="cart-step-num">{n}</span><span className="cart-step-label">{l}</span></div>
+            {i===0
+              ? <a href="/Cart" className={"cart-step done cart-step-link"}><span className="cart-step-num">{n}</span><span className="cart-step-label">{l}</span></a>
+              : <div className={"cart-step"+(i===1?" on":"")}><span className="cart-step-num">{n}</span><span className="cart-step-label">{l}</span></div>}
           </React.Fragment>
         ))}
       </div>
@@ -749,14 +764,14 @@ function App(){
       <div className="cart-rule"/>
       <div className="co-block">
         <h2 className="serif co-h">Your details</h2>
-        {!CU && <p className="co-sub">Fill in your personal details. Already have an account? <a href="/login">Log in here</a></p>}
+        {!CU && <p className="co-sub">Fill in your personal details. Already have an account? <a href="/Login">Log in here</a></p>}
       </div>
       {CU ? (
         <div className="co-userinfo">
           <div className="co-userinfo-row"><span className="co-userinfo-k">Full name</span><span className="co-userinfo-v">{CU.name}</span></div>
           <div className="co-userinfo-row"><span className="co-userinfo-k">Email</span><span className="co-userinfo-v">{CU.email}</span></div>
           <div className="co-userinfo-row"><span className="co-userinfo-k">Phone number</span><span className="co-userinfo-v">+65 9086 1623</span></div>
-          <a href="/account" className="acctp-link co-userinfo-edit">Edit details</a>
+          <a href="/Account" className="acctp-link co-userinfo-edit">Edit details</a>
         </div>
       ) : (<>
       <div className="co-form">
@@ -941,9 +956,28 @@ function App(){
       </div>}
 
       <div className="cart-rule"/>
+      <div className="cart-promo">
+        <div className="cart-promo-row">
+          <span className="cart-promo-label">Promotional code</span>
+          <div className="cart-promo-field">
+            <input value={promo?'OFF15':''} placeholder="Enter code" onChange={()=>{}}/>
+            <button className="cart-promo-btn" onClick={()=>setPromo(p=>!p)}>{promo?'Remove':'Apply'}</button>
+          </div>
+        </div>
+      </div>
+      <div className="cart-rule"/>
+      <div className="cart-totals">
+        <div className="cart-total-row"><span>Subtotal</span><span>{money(subtotal)}</span></div>
+        {promo&&<div className="cart-total-row"><span>Discount</span><span>&minus; {money(discount)} <span className="cart-muted">(15% Discount)</span></span></div>}
+        <div className="cart-total-row cart-total-delivery"><span><span className="cart-strong">Delivery</span><br/><span className="cart-muted">Pre-orders available from 01 Jan 2026</span></span><span>{money(15)}</span></div>
+      </div>
+      <div className="cart-rule"/>
+      <div className="cart-grandtotal"><span>Total</span><span className="cart-grandtotal-val">{money(total+15)}<span className="cart-muted">Includes 9% GST</span></span></div>
+
+      <div className="cart-rule"/>
       <div className="co-final">
         <label className="co-check"><input type="checkbox" checked={terms} onChange={e=>setTerms(e.target.checked)}/><span>I agree to the <a href="#">terms and conditions</a> <em>(Mandatory)</em></span></label>
-        <button className="co-pay" disabled={!terms} onClick={()=>{if(terms)location.href='Payment.html';}}>Pay & place order</button>
+        <button className="co-pay" disabled={!terms} onClick={()=>{if(terms)location.href='/Payment';}}>Pay & place order</button>
       </div>
     </section>
 
