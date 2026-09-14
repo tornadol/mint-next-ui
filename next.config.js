@@ -51,6 +51,11 @@ module.exports = {
           source: `/${slug}`,
           destination: `/${file}.html`,
         })),
+        // PascalCase paths → static HTML files (used by in-page links)
+        ...pageMap.map(({ file }) => ({
+          source: `/${file}`,
+          destination: `/${file}.html`,
+        })),
       ],
     };
   },
