@@ -357,9 +357,9 @@ function MobMenu({open,onClose,onCart}){
           <div className="mob-search"><input placeholder="Search..."/><Ic name="IconsSearch" color="var(--grey-60)"/></div>
           <button className="mob-row" onClick={()=>setSub('shop')}>Shop<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
           <button className="mob-row" onClick={()=>setSub('discover')}>Discover<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
-          <a className="mob-row" href="News.html">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
-          <a className="mob-row" href="Favourites.html">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
-          <a className="mob-row" href="Compare.html">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="/news">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
+          <a className="mob-row" href="/wishlist">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="/compare">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
         </div>
         <a href="#" className="mob-login">Login/Register</a>
       </> : <div className="mob-menu-body">
@@ -395,7 +395,7 @@ function CartDrawer({open,onClose}){
           <button className="cart-x" aria-label="Close cart" onClick={onClose}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg></button>
         </div>
         <div className="cart-body">
-          {gone ? <div className="cart-empty"><p>Your cart is empty.</p><a href="Shop.html" className="cart-shopall">Shop all</a></div> : <div className="cart-item">
+          {gone ? <div className="cart-empty"><p>Your cart is empty.</p><a href="/shop" className="cart-shopall">Shop all</a></div> : <div className="cart-item">
             <div className="cart-item-img"><img src="assets/coin-horse-gold.png" alt=""/></div>
             <div className="cart-item-main">
               <div className="cart-item-top">
@@ -439,11 +439,11 @@ function Header({overlay}){
   return (
     <header className={"site-header"+(overlay?" hdr-overlay":"")} style={hs} onMouseLeave={()=>setMenu(null)}>
       <div className="wrap" style={{height:72,display:'grid',gridTemplateColumns:'1fr auto 1fr',alignItems:'center'}}>
-        <a href="Homepage.html" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src={overlay?"assets/logo-white.svg":"assets/logo.svg"} style={{height:24,display:'block'}}/></a>
+        <a href="/" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src={overlay?"assets/logo-white.svg":"assets/logo.svg"} style={{height:24,display:'block'}}/></a>
         <nav className="hdr-nav" style={{display:'flex',gap:30,justifySelf:'center'}}>
-          <a className="navlink" href="Shop.html" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
-          <a className="navlink" href="About.html" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
-          <a className="navlink" href="News.html" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
+          <a className="navlink" href="/shop" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
+          <a className="navlink" href="/about" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
+          <a className="navlink" href="/news" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
         </nav>
         <div style={{display:'flex',alignItems:'center',gap:6,justifySelf:'end',color:ink}}>
           <button className="icobtn hdr-util"><Ic name="IconsSearch" color={ink}/></button>
@@ -452,11 +452,11 @@ function Header({overlay}){
               <button className="acct-trigger" aria-label="Account" style={{color:ink}}>{u.name}</button>
               <div className="acct-menu">
                 <div className="acct-head"><div className="acct-name">{u.name}</div><div className="acct-email">{u.email}</div></div>
-                <a className="acct-link" href="Account.html"><Ic name="IconsAccount" size={18}/>My Account</a>
+                <a className="acct-link" href="/account"><Ic name="IconsAccount" size={18}/>My Account</a>
                 <button className="acct-link acct-signout" onClick={()=>{localStorage.removeItem('tsm_user');location.reload();}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 00-2 2v12a2 2 0 002 2h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>Sign out</button>
               </div>
             </div>
-          ):(<a className="icobtn hdr-util" href="Login.html" aria-label="Account"><Ic name="IconsAccount" color={ink}/></a>);})()}
+          ):(<a className="icobtn hdr-util" href="/login" aria-label="Account"><Ic name="IconsAccount" color={ink}/></a>);})()}
           <button className="icobtn hdr-util" aria-label="Favorites" onClick={()=>location.href='Favourites.html'} style={{color:ink}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>{Store.count('fav')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('fav')}</span>}</button>
           <button className="icobtn hdr-util" aria-label="Compare" onClick={()=>location.href='Compare.html'} style={{color:ink}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M12 4.5a1 1 0 100-.01M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>{Store.count('cmp')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('cmp')}</span>}</button>
           <button className="icobtn" style={{position:'relative'}} aria-label="Cart" onClick={()=>setCart(true)}><Ic name="IconsCart" color={ink}/><span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:Store.count('cart')>0?'flex':'none',alignItems:'center',justifyContent:'center'}}>{Store.count('cart')}</span></button>
@@ -472,7 +472,7 @@ function Header({overlay}){
           </div>
           <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_B.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
           <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_C.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
-          <a href="Shop.html" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
+          <a href="/shop" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
             <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'#fff'}}>Year of the Horse 2026</div>
             <span className="arrow-cta" style={{color:'#fff'}}>Shop<span className="ln"/></span>
             <div style={{alignSelf:'stretch',display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
@@ -481,7 +481,7 @@ function Header({overlay}){
               <img src="assets/coin-botanic-silver.png" style={{width:100,marginTop:-10}}/>
             </div>
           </a>
-          <a href="Shop.html" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
+          <a href="/shop" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
             <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'var(--tsm-black)'}}>Gifting Ideas</div>
             <span className="arrow-cta" style={{color:'var(--tsm-black)'}}>Shop<span className="ln"/></span>
             <div style={{alignSelf:'stretch',flex:1,display:'flex',alignItems:'center',justifyContent:'center',gap:16}}>
@@ -597,7 +597,7 @@ function ShopCard({p}){
     <article className="shop-card">
       <div className="shop-img">
         {badge&&<span className="shop-badge" style={{background:badge.bg,color:badge.c}}>{p.label}</span>}
-        <a href="Product.html" className="shop-link" aria-label={p.name}><img src={p.img} alt={p.name}/></a>
+        <a href="/product" className="shop-link" aria-label={p.name}><img src={p.img} alt={p.name}/></a>
         <div className="card-actions">
           <button className={"card-act"+(fav?' on':'')} onClick={()=>Store.toggle('fav',id)} aria-label="Add to favourites"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg></span><span className="lbl">Favourite</span></button>
           <button className={"card-act"+(cmp?' on':'')} onClick={()=>Store.toggle('cmp',id)} aria-label="Compare"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="lbl">Compare</span></button>
@@ -605,7 +605,7 @@ function ShopCard({p}){
         </div>
       </div>
       <div className="shop-info">
-        <a href="Product.html" className="shop-textlink" style={{display:'flex',flexDirection:'column',gap:8}}>
+        <a href="/product" className="shop-textlink" style={{display:'flex',flexDirection:'column',gap:8}}>
           <div className="shop-meta"><span>{p.code}</span>{p.ed&&<><span style={{width:3,height:3,borderRadius:'50%',background:'var(--grey-80)'}}/><span>{p.ed}</span></>}</div>
           <div className="shop-name">{p.name}</div>
           <div className="shop-desc">{p.desc}</div>
@@ -765,7 +765,7 @@ function App(){
     <section className="wrap other-coll" style={{padding:'80px 40px 96px',display:'flex',flexDirection:'column',gap:40}}>
       <div className="other-coll-head" style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:20}}>
         <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:36,lineHeight:1.2,color:'#000'}}>Shop other Raffles Mint collections</h2>
-        <a href="Collection.html" style={{display:'inline-flex',alignItems:'center',gap:16,color:'var(--grey-60)',flex:'0 0 auto'}}>
+        <a href="/collection" style={{display:'inline-flex',alignItems:'center',gap:16,color:'var(--grey-60)',flex:'0 0 auto'}}>
           <span style={{fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontSize:14,fontWeight:500,letterSpacing:'.08em',textTransform:'uppercase'}}>View all</span>
           <span className="arrow-cta" style={{color:'var(--grey-60)'}}><span className="ln"/></span>
         </a>
