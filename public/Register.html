@@ -88,12 +88,12 @@ function Login(){
   const submit=(e)=>{e.preventDefault();
     if(!name.trim()||!email.trim()||pw.length<6){setErr('Please enter your name, email and a password of at least 6 characters.');return;}
     if(!agree){setErr('Please agree to the terms and conditions to continue.');return;}
-    setErr('');setBusy(true);try{localStorage.setItem('tsm_user',JSON.stringify({name:name.trim(),email:email.trim()}));}catch(e){}setTimeout(()=>{location.href='/Homepage';},900);
+    setErr('');setBusy(true);try{localStorage.setItem('tsm_user',JSON.stringify({name:name.trim(),email:email.trim()}));}catch(e){}setTimeout(()=>{location.href='/';},900);
   };
   return (
     <div className="login-split">
       <div className="login-brand">
-        <a href="/Homepage" className="login-brand-logo" aria-label="The Singapore Mint"><img src="assets/logo.svg" alt="The Singapore Mint"/></a>
+        <a href="/" className="login-brand-logo" aria-label="The Singapore Mint"><img src="assets/logo.svg" alt="The Singapore Mint"/></a>
         <div className="login-brand-art"><img src="assets/coin-horse-silver.png" alt=""/></div>
         <div className="login-brand-copy">
           <h2 className="login-brand-h">Crafted in Singapore<br/>since 1968</h2>

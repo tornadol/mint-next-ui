@@ -19,6 +19,11 @@ function fixHtmlLinks(content) {
   content = content.replace(/'([A-Z][A-Za-z]+)\.html([^']*)'/g, "'/$1$2'");
   // JS regex patterns: \.html$ -> remove \.html
   content = content.replace(/\\\.html\$/g, '$');
+  // Homepage links -> root
+  content = content.replace(/href="\/Homepage"/g, 'href="/"');
+  content = content.replace(/href='\/Homepage'/g, "href='/'");
+  content = content.replace(/location\.href='\/Homepage'/g, "location.href='/'");
+  content = content.replace(/location\.href="\/Homepage"/g, 'location.href="/"');
   return content;
 }
 
