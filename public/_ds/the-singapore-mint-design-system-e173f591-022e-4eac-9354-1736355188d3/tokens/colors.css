@@ -1,0 +1,57 @@
+/* The Singapore Mint — Color tokens
+   Values read verbatim from the Figma source (exact RGB, not snapped). */
+:root {
+  /* ---- Brand: Gold (the primary Mint identity) ---- */
+  --tsm-gold: #ac854f;           /* rgb(172,133,79) — primary brand gold */
+  --tsm-gold-bright: #c69c55;    /* rgb(198,156,85) — lighter gold, strokes/accents */
+  --tsm-gold-deep: #b99a50;      /* rgb(185,154,80) */
+  --tsm-gold-copper: #d17b4c;    /* rgb(209,123,76) — warm copper tone */
+  --tsm-sand: #ddd9c9;           /* rgb(221,217,201) — pale sand hero ground */
+
+  /* ---- Brand: Red (CTAs, membership, sale) ---- */
+  --tsm-red: #ee313d;            /* rgb(238,49,61) — logo / primary red */
+  --tsm-red-pure: #ed1b2f;       /* rgb(237,27,47) — bright promo red */
+  --tsm-red-coral: #f15a4b;      /* rgb(241,90,75) */
+  --tsm-red-deep: #aa3730;       /* rgb(170,55,48) */
+  --tsm-red-pressed: #d14e3d;    /* rgb(209,78,61) */
+  --tsm-pink-tint: #fcd6d8;      /* rgb(252,214,216) — pre-order label ground */
+
+  /* ---- Accent ---- */
+  --tsm-blue: #1b92ed;           /* rgb(27,146,237) — links / Singpass */
+  --tsm-yellow: #fee56a;         /* rgb(254,229,106) */
+
+  /* ---- Ink / Neutrals ---- */
+  --tsm-black: #000000;
+  --tsm-ink: #2f2d26;            /* rgb(47,45,38) — warm near-black */
+  --tsm-slate: #3e4854;          /* rgb(62,72,84) */
+  --tsm-slate-2: #2e3640;        /* rgb(46,54,64) */
+  --tsm-blue-grey: #6a7282;      /* rgb(106,114,130) */
+  --tsm-grey-600: #666767;       /* rgb(102,103,103) */
+  --tsm-grey-500: #7a7a7a;       /* rgb(122,122,122) */
+  --tsm-grey-400: #999a9a;       /* rgb(153,154,154) */
+  --tsm-grey-300: #bababa;       /* rgb(186,186,186) */
+  --tsm-grey-200: #dcdddd;       /* rgb(220,221,221) */
+  --tsm-grey-150: #d9d9d9;       /* rgb(217,217,217) */
+  --tsm-grey-100: #eeeeee;       /* rgb(238,238,238) */
+  --tsm-white: #ffffff;
+
+  /* ---- Semantic aliases ---- */
+  --color-brand: var(--tsm-gold);
+  --color-accent: var(--tsm-red);
+  --text-primary: var(--tsm-black);
+  --text-secondary: var(--tsm-grey-500);
+  --text-muted: var(--tsm-grey-400);
+  --text-inverse: var(--tsm-white);
+  --text-link: var(--tsm-black);
+  --text-price-sale: var(--tsm-red);
+  --surface-page: var(--tsm-white);
+  --surface-subtle: var(--tsm-grey-100);
+  --surface-card: var(--tsm-white);
+  --surface-hero: var(--tsm-sand);
+  --surface-dark: var(--tsm-black);
+  --surface-membership: var(--tsm-red-pure);
+  --border-default: var(--tsm-grey-200);
+  --border-strong: var(--tsm-grey-300);
+  --border-input: var(--tsm-grey-300);
+  --focus-ring: var(--tsm-gold);
+}

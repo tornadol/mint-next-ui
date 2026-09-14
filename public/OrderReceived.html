@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Order received — The Singapore Mint</title>
+<link rel="stylesheet" href="_ds/the-singapore-mint-design-system-e173f591-022e-4eac-9354-1736355188d3/tokens/fonts.css"/>
+<style>
+:root{--tsm-red:#ed1b2f;--tsm-black:#1a1a1a;--grey-10:#f4f4f2;--grey-40:#c9cacb;--grey-60:#8a8a8a;--grey-80:#5a5a5a}
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:"Kumbh Sans",Helvetica,Arial,sans-serif;color:var(--tsm-black);background:var(--grey-10)}
+.serif{font-family:"Domine",Georgia,serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1440px;margin:0 auto;width:100%;padding:0 40px}
+/* header */
+.hdr{background:#fff;border-bottom:1px solid var(--grey-40)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:106px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Domine",serif;font-size:22px;font-weight:400}
+.logo b{color:var(--tsm-red);font-weight:700}
+.hdr-nav{display:flex;gap:24px}
+.hdr-nav a{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.hdr-ic{display:flex;gap:20px;color:#000}
+.hdr-ic svg{display:block}
+/* progress */
+.prog{background:#fff;padding:34px 0 40px}
+.prog-in{display:flex;align-items:flex-start;justify-content:center;gap:0}
+.step{display:flex;flex-direction:column;align-items:center;gap:10px;width:120px}
+.step-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:16px}
+.step.done .step-num{background:var(--grey-60)}
+.step.on .step-num{background:#000}
+.step-label{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.step{width:auto}
+.step.done .step-label{color:var(--grey-60)}
+.step.on .step-label{color:#000}
+.step-line{flex:0 0 180px;max-width:180px;height:1px;background:var(--grey-40);margin-top:20px}
+/* content */
+.oc{padding:48px 40px 80px;max-width:1360px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+.oc-head{display:flex;flex-direction:column;gap:20px}
+.oc-head-top{display:flex;align-items:center;gap:20px}
+.oc-badge{width:80px;height:80px;flex:0 0 auto;border-radius:50%;border:2px solid #000;display:flex;align-items:center;justify-content:center}
+.oc-order-no{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.oc-title{margin:4px 0 0;font-weight:400;font-size:36px;line-height:1.2}
+.rule{height:1px;background:var(--grey-40)}
+.oc-intro{max-width:900px;font-size:20px;line-height:1.5;color:var(--grey-80)}
+.oc-card{background:#fff;padding:32px 20px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.oc-col-h{font-size:24px;font-weight:600;margin:0 0 32px}
+.oc-details{display:flex;flex-direction:column;gap:40px}
+.oc-detail-grid{display:flex;gap:20px;flex-wrap:wrap}
+.oc-dblock{display:flex;flex-direction:column;gap:12px;min-width:240px}
+.oc-k{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-40)}
+.oc-v{font-size:18px;line-height:1.5}
+.oc-summary{padding-left:20px;border-left:1px solid #eee;display:flex;flex-direction:column;gap:28px}
+.oc-sum-cols{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-40)}
+.oc-sum-cols .r{display:flex;gap:56px}
+.oc-item{display:flex;gap:16px;align-items:flex-start}
+.oc-item-img{width:96px;height:96px;flex:0 0 auto;background:var(--grey-10);display:flex;align-items:center;justify-content:center}
+.oc-item-img img{width:80%;height:80%;object-fit:contain}
+.oc-item-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.oc-item-name{font-size:16px;font-weight:600}
+.oc-badge-pre{align-self:flex-start;padding:4px 8px;background:#fbe0e2;color:var(--tsm-red);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.oc-item-meta{font-size:12px;line-height:1.5;color:var(--grey-80)}
+.oc-item-qty{width:40px;text-align:center;font-size:16px;font-weight:600}
+.oc-item-sub{width:110px;text-align:right;font-size:16px;font-weight:600}
+.oc-totals{display:flex;flex-direction:column;gap:10px}
+.oc-trow{display:flex;justify-content:space-between;font-size:16px}
+.oc-trow .lbl{font-weight:600}
+.oc-muted{color:var(--grey-60)}
+.oc-grand{display:flex;justify-content:space-between;align-items:flex-start}
+.oc-grand .lbl{font-size:20px;font-weight:600}
+.oc-grand-v{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.oc-grand-amt{font-size:20px;font-weight:600}
+.oc-grand-gst{font-size:12px;color:var(--grey-60)}
+.oc-foot{display:flex;flex-direction:column;gap:32px}
+.oc-foot-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.oc-help .u{font-weight:600;color:var(--grey-80);text-decoration:underline}
+.oc-help .m{color:var(--grey-60)}
+.oc-cta{height:48px;padding:0 24px;border-radius:100px;background:#000;color:#fff;display:inline-flex;align-items:center;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+/* footer */
+.ft{background:#000;color:#fff;padding:56px 0 48px}
+.ft-cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-top:44px}
+.ft-h{color:var(--tsm-red);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px}
+.ft-store{margin-bottom:24px}
+.ft-store .n{font-size:18px;margin-bottom:8px}
+.ft-store .a{font-size:15px;line-height:1.6;color:#ddd}
+.ft-links a{display:block;font-size:18px;margin-bottom:12px}
+.ft-copy{margin-top:40px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-60)}
+@media(max-width:860px){
+  .wrap,.oc{padding-left:20px;padding-right:20px}
+  .hdr-nav,.hdr-ic{display:none}
+  .step-line{flex-basis:60px}
+  .oc-card{grid-template-columns:1fr}
+  .oc-summary{padding-left:0;border-left:none;border-top:1px solid #eee;padding-top:28px}
+  .oc-title{font-size:28px}
+  .ft-cols{grid-template-columns:1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="/"><b>◆</b> The Singapore Mint</a>
+  <nav class="hdr-nav"><a href="Shop.html">Shop</a><a href="#">Discover</a><a href="News.html">News</a></nav>
+  <div class="hdr-ic">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 8h12l-1 12H7L6 8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 8a3 3 0 016 0" stroke="currentColor" stroke-width="1.6"/></svg>
+  </div>
+</div></header>
+
+<div class="prog"><div class="wrap prog-in">
+  <div class="step done"><div class="step-num">1</div><div class="step-label">Cart</div></div>
+  <div class="step-line"></div>
+  <div class="step done"><div class="step-num">2</div><div class="step-label">Checkout</div></div>
+  <div class="step-line"></div>
+  <div class="step on"><div class="step-num">3</div><div class="step-label">Order Received</div></div>
+</div></div>
+
+<main class="oc">
+  <div class="oc-head">
+    <div class="oc-head-top">
+      <div class="oc-badge"><svg width="34" height="34" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="oc-order-no">Order #HG799871N</div><h1 class="serif oc-title">Your Order Is Received</h1></div>
+    </div>
+    <div class="rule"></div>
+    <p class="oc-intro">Thank you for your purchase, you will receive an email with your order and tracking information + an account confirmation email.</p>
+  </div>
+
+  <div class="oc-card">
+    <div class="oc-details">
+      <h2 class="oc-col-h">Order Details</h2>
+      <div class="oc-detail-grid">
+        <div class="oc-dblock">
+          <div class="oc-k">Delivery or Self-collection</div><div class="oc-v">Delivery</div>
+          <div class="oc-k" style="margin-top:20px">Shipping address</div><div class="oc-v">John Tan Ming Xin<br/>123 Alexandra Road, #18-293<br/>Singapore 123456<br/>Singapore</div>
+        </div>
+        <div class="oc-dblock">
+          <div class="oc-k">Contact information</div><div class="oc-v">John Tan Ming Xin<br/>john123@gmail.com<br/>+65 9086 1623</div>
+        </div>
+      </div>
+    </div>
+    <div class="oc-summary">
+      <h2 class="oc-col-h">Item Summary</h2>
+      <div class="oc-sum-cols"><span>Item</span><span class="r"><span>Qty</span><span>Subtotal</span></span></div>
+      <div class="oc-item">
+        <div class="oc-item-img"><img src="assets/coin-horse-gold.png" alt=""/></div>
+        <div class="oc-item-main">
+          <div class="oc-item-name">Singapore Lunar Horse</div>
+          <span class="oc-badge-pre">Pre-order</span>
+          <div class="oc-item-meta">5 troy oz 999.9 Fine Gold Proof Coin<br/>S010</div>
+        </div>
+        <div class="oc-item-qty">1</div>
+        <div class="oc-item-sub">S$33,700.00</div>
+      </div>
+      <div class="rule" style="background:#eee"></div>
+      <div class="oc-totals">
+        <div class="oc-trow"><span class="lbl">Subtotal</span><span>S$33,700.00</span></div>
+        <div class="oc-trow"><span class="lbl">Discount</span><span>- S$5,055.00 <span class="oc-muted">(15% Discount)</span></span></div>
+        <div class="oc-trow"><span class="lbl">Delivery</span><span>S$15.00</span></div>
+      </div>
+      <div class="rule" style="background:#eee"></div>
+      <div class="oc-grand"><span class="lbl">Total paid</span><span class="oc-grand-v"><span class="oc-grand-amt">S$28,660.00</span><span class="oc-grand-gst">Includes 9% GST</span></span></div>
+    </div>
+  </div>
+
+  <div class="oc-foot">
+    <div class="rule"></div>
+    <div class="oc-foot-row">
+      <div class="oc-help"><span class="m">Need help? </span><a href="#" class="u">Contact Us</a></div>
+      <a href="/" class="oc-cta">Continue shopping</a>
+    </div>
+  </div>
+</main>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-cols">
+    <div>
+      <div class="ft-h">The Singapore Mint Stores</div>
+      <div class="ft-store"><div class="n">Coin Gallery (Head Office)</div><div class="a">20 Teban Gardens Crescent<br/>S608928<br/>+65 6895 0288<br/>Mon - Fri from 8.30am to 4.30pm</div></div>
+      <div class="ft-store"><div class="n">Chinatown Point</div><div class="a">133 New Bridge Road, #02-18<br/>S059413<br/>+65 6222 2486<br/>Daily from 11.00am to 9.30pm</div></div>
+      <div class="ft-store"><div class="n">Suntec City Mall</div><div class="a">3 Temasek Blvd, #02-719 East Wing Tower 3<br/>S038983<br/>+65 6336 2878<br/>Daily from 11.00am to 9.30pm</div></div>
+    </div>
+    <div><div class="ft-h">Support</div><div class="ft-links"><a href="#">FAQs</a><a href="#">Contact us</a></div></div>
+    <div><div class="ft-h">Legal</div><div class="ft-links"><a href="#">Lifetime guarantee</a><a href="#">Return policy</a><a href="#">Privacy policy</a><a href="#">Terms &amp; conditions</a></div></div>
+    <div><div class="ft-h">Connect</div><div class="ft-links"><a href="#">Instagram</a><a href="#">Facebook</a></div></div>
+  </div>
+  <div class="ft-copy">Copyright © 2023 The Singapore Mint. All Rights Reserved.</div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create account — The Singapore Mint</title>
+<link rel="stylesheet" href="_ds/the-singapore-mint-design-system-e173f591-022e-4eac-9354-1736355188d3/styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+:root{
+  --tsm-black:rgba(0,0,0,1);--white:rgba(255,255,255,1);--grey-60:rgba(153,154,154,1);--grey-80:rgba(122,122,122,1);--tsm-red:rgba(237,27,47,1);--grey-10:rgba(245,244,242,1);
+  --font-serif:"Domine",Georgia,serif;--font-sans:"Kumbh Sans",Helvetica,Arial,sans-serif;
+  --desktop-body-l-font-family:"Kumbh Sans",Helvetica;--desktop-body-m-font-family:"Kumbh Sans",Helvetica;
+  --desktop-subheading-5-uppercase-font-family:"Kumbh Sans",Helvetica;
+}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--font-sans);color:var(--tsm-black);background:#fff}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:var(--font-serif)}
+  .login-split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+  /* LEFT */
+  .login-brand{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#8f1218 0%,#6d0d12 55%,#4a080c 100%);display:flex;flex-direction:column;justify-content:space-between;padding:48px}
+  .login-brand-logo img{height:26px;display:block;filter:brightness(0) invert(1)}
+  .login-brand-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+  .login-brand-art img{width:66%;max-width:520px;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+  .login-brand-copy{position:relative;z-index:2;max-width:520px}
+  .login-brand-h{margin:0 0 16px;font-family:var(--font-sans);font-weight:800;font-size:52px;line-height:1.02;letter-spacing:-0.5px;color:#fff;text-transform:uppercase}
+  .login-brand-sub{margin:0;font-size:18px;line-height:1.5;color:rgba(255,255,255,.78)}
+  /* RIGHT */
+  .login-panel{display:flex;align-items:center;justify-content:center;padding:48px}
+  .login-card{width:100%;max-width:440px;display:flex;flex-direction:column;gap:24px}
+  .login-title{margin:0;font-family:var(--font-sans);font-weight:800;font-size:40px;letter-spacing:-0.5px;color:#000;text-transform:uppercase}
+  .login-new{margin:0;font-size:16px;color:var(--grey-80)}
+  .login-new a{color:var(--tsm-red);font-weight:600}
+  .login-form{display:flex;flex-direction:column;gap:20px}
+  .login-field{display:flex;flex-direction:column;gap:10px}
+  .login-label{font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#000}
+  .login-input{width:100%;height:60px;border:none;border-radius:4px;background:var(--grey-10);padding:0 18px;font-family:var(--desktop-body-l-font-family);font-size:18px;color:#000;outline:none;transition:box-shadow .16s}
+  .login-input:focus{box-shadow:inset 0 0 0 1px #000}
+  .login-pw{position:relative;display:flex}
+  .login-pw .login-input{padding-right:76px}
+  .login-eye{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--grey-60)}
+  .login-forgot-row{display:flex;justify-content:flex-end;margin-top:-6px}
+  .login-forgot{color:var(--tsm-red);font-size:15px;font-weight:600}
+  .login-err{margin:0;font-size:14px;color:var(--tsm-red)}
+  .login-ok{margin:0;font-size:14px;color:#1a7f37;font-weight:600}
+  .login-submit{height:60px;border:none;border-radius:100px;background:var(--tsm-black);color:#fff;font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .16s;display:flex;align-items:center;justify-content:center}
+  .login-submit:hover{background:#000}
+  .login-submit:disabled{cursor:default}
+  .login-spinner{width:22px;height:22px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:login-spin .7s linear infinite}
+  @keyframes login-spin{to{transform:rotate(360deg)}}
+  .login-demo{border:1px solid #e6e6e3;border-radius:8px;background:var(--grey-10);padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+  .login-demo-h{font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#000}
+  .login-demo-v{font-family:var(--desktop-body-m-font-family);font-size:15px;color:var(--grey-80)}
+  .login-or{display:flex;align-items:center;gap:16px;color:var(--grey-60);font-size:15px}
+  .login-or::before,.login-or::after{content:'';flex:1;height:1px;background:#dcdddd}
+  .login-oauth{display:flex;align-items:center;justify-content:center;gap:14px;height:60px;border-radius:100px;background:#fff;border:1px solid var(--grey-60);font-family:var(--desktop-body-l-font-family);font-size:17px;font-weight:600;color:#000;transition:background .16s,border-color .16s}
+  .login-oauth:hover{background:var(--grey-10);border-color:var(--grey-60)}
+  .login-oauth-ic{display:inline-flex}
+  .login-foot{margin:0;text-align:center;font-size:16px;color:var(--grey-80)}
+  .login-foot a{color:var(--tsm-red);font-weight:700}
+  .reg-agree{display:flex;align-items:flex-start;gap:10px;font-family:var(--desktop-body-m-font-family);font-size:14px;color:var(--grey-80);cursor:pointer;margin-top:-4px}
+  .reg-agree input{width:18px;height:18px;margin:2px 0 0;flex:0 0 auto;accent-color:var(--tsm-black)}
+  .reg-agree a{color:var(--tsm-red);font-weight:600;text-decoration:underline}
+  @media(max-width:900px){
+    .login-split{grid-template-columns:1fr}
+    .login-brand{display:none}
+    .login-panel{padding:40px 20px}
+    .login-title{font-size:32px}
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" data-presets="react">
+const {useState}=React;
+function Login(){
+  const [email,setEmail]=useState('');
+  const [pw,setPw]=useState('');
+  const [name,setName]=useState('');
+  const [showPw,setShowPw]=useState(false);
+  const [agree,setAgree]=useState(false);
+  const [err,setErr]=useState('');
+  const [busy,setBusy]=useState(false);
+  const submit=(e)=>{e.preventDefault();
+    if(!name.trim()||!email.trim()||pw.length<6){setErr('Please enter your name, email and a password of at least 6 characters.');return;}
+    if(!agree){setErr('Please agree to the terms and conditions to continue.');return;}
+    setErr('');setBusy(true);try{localStorage.setItem('tsm_user',JSON.stringify({name:name.trim(),email:email.trim()}));}catch(e){}setTimeout(()=>{location.href="/";},900);
+  };
+  return (
+    <div className="login-split">
+      <div className="login-brand">
+        <a href="/" className="login-brand-logo" aria-label="The Singapore Mint"><img src="assets/logo.svg" alt="The Singapore Mint"/></a>
+        <div className="login-brand-art"><img src="assets/coin-horse-silver.png" alt=""/></div>
+        <div className="login-brand-copy">
+          <h2 className="login-brand-h">Crafted in Singapore<br/>since 1968</h2>
+          <p className="login-brand-sub">Create an account to unlock member pricing, order tracking and early access to new releases.</p>
+        </div>
+      </div>
+      <div className="login-panel">
+        <div className="login-card">
+          <h1 className="login-title">Create account</h1>
+          <p className="login-new">Already have an account? <a href="Login.html">Sign in</a></p>
+          <form className="login-form" onSubmit={submit}>
+            <label className="login-field"><span className="login-label">Full name</span><input className="login-input" type="text" value={name} onChange={e=>{setName(e.target.value);setErr('');}} placeholder="Your full name" autoComplete="name"/></label>
+            <label className="login-field"><span className="login-label">Email address</span><input className="login-input" type="email" value={email} onChange={e=>{setEmail(e.target.value);setErr('');}} placeholder="you@example.com" autoComplete="email"/></label>
+            <label className="login-field"><span className="login-label">Password</span>
+              <div className="login-pw"><input className="login-input" type={showPw?'text':'password'} value={pw} onChange={e=>{setPw(e.target.value);setErr('');}} placeholder="Create a password (min. 6 characters)" autoComplete="new-password"/><button type="button" className="login-eye" onClick={()=>setShowPw(v=>!v)}>{showPw?'Hide':'Show'}</button></div>
+            </label>
+            <label className="reg-agree"><input type="checkbox" checked={agree} onChange={e=>{setAgree(e.target.checked);setErr('');}}/><span>I agree to the <a href="#">terms and conditions</a> and <a href="#">privacy policy</a>.</span></label>
+            {err&&<p className="login-err">{err}</p>}
+            <button type="submit" className="login-submit" disabled={busy}>{busy?<span className="login-spinner" aria-label="Creating account"/>:'Create account'}</button>
+          </form>
+          <div className="login-or"><span>or continue with</span></div>
+          <button type="button" className="login-oauth"><span className="login-oauth-ic"><svg width="22" height="22" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span>Continue with Google</button>
+          <button type="button" className="login-oauth"><span className="login-oauth-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.25h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></span>Continue with Facebook</button>
+          <p className="login-foot">Already have an account? <a href="Login.html">Sign in</a></p>
+        </div>
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Login/>);
+</script>
+<!-- support chat widget -->
+<style>
+.sm-chat-btn{position:fixed;right:24px;bottom:24px;z-index:900;width:60px;height:60px;border-radius:50%;border:none;padding:0;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.25);background:none;transition:transform .18s}
+.sm-chat-btn:hover{transform:scale(1.06)}
+.sm-chat-btn svg{width:100%;height:100%;display:block;border-radius:50%}
+.sm-chat-panel{position:fixed;right:24px;bottom:96px;z-index:901;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.28);display:none;flex-direction:column;font-family:var(--font-sans,"Kumbh Sans",sans-serif)}
+.sm-chat-panel.open{display:flex}
+.sm-chat-head{background:#03363d;color:#fff;padding:22px 24px;display:flex;align-items:center;justify-content:space-between}
+.sm-chat-head h3{margin:0;font-family:var(--font-sans,"Kumbh Sans",sans-serif);font-size:22px;font-weight:700}
+.sm-chat-close{background:none;border:none;color:#fff;cursor:pointer;display:inline-flex;padding:4px}
+.sm-chat-body{padding:24px}
+.sm-chat-greet{margin:0 0 24px;font-size:18px;line-height:1.5;color:#3a3a3a}
+.sm-chat-row{display:flex;gap:14px}
+.sm-chat-input{flex:1;min-width:0;border:1px solid #dcdddd;border-radius:12px;padding:16px;font-size:16px;font-family:inherit;outline:none;color:#000}
+.sm-chat-input:focus{border-color:#03363d}
+.sm-chat-send{flex:0 0 auto;border:none;border-radius:12px;padding:0 26px;background:var(--tsm-red,#ed1b2f);color:#fff;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer}
+.sm-chat-send:hover{background:#cf1526}
+</style>
+<button class="sm-chat-btn" aria-label="Chat with support" onclick="document.getElementById('sm-chat-panel').classList.toggle('open')"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="400" cy="400" r="400" fill="#03363d"></circle><path fill="#fff" d="M383 359V541H236zM383 289q0 61-43 103.5T236 435V289zM417 541q0-61 43-103.5T564 395v146zM417 471 564 289v182z"></path></svg></button>
+<div class="sm-chat-panel" id="sm-chat-panel">
+  <div class="sm-chat-head"><h3>Chat with us</h3><button class="sm-chat-close" aria-label="Close" onclick="document.getElementById('sm-chat-panel').classList.remove('open')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <div class="sm-chat-body">
+    <p class="sm-chat-greet">Hi! Our team typically replies in a few minutes. How can we help you today?</p>
+    <div class="sm-chat-row"><input class="sm-chat-input" placeholder="Type a message..."/><button class="sm-chat-send">Send</button></div>
+  </div>
+</div>
+</body>
+</html>

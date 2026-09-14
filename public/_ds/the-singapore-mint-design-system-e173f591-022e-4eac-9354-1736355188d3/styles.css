@@ -1,0 +1,14 @@
+/* The Singapore Mint — Design System
+   Global CSS entry point. Consumers link THIS file only.
+   Order: fonts → foundation tokens → component image maps. */
+
+/* Foundations */
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+
+/* Component bitmap fills (Figma-extracted product/nav/editorial imagery) */
+@import "./components/navigation/fig-assets.css";
+@import "./components/product/fig-assets.css";
+@import "./components/content/fig-assets.css";

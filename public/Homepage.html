@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Singapore Mint</title>
+<link rel="stylesheet" href="_ds/the-singapore-mint-design-system-e173f591-022e-4eac-9354-1736355188d3/styles.css">
+<link rel="stylesheet" href="hero/fig-assets.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="_ds/the-singapore-mint-design-system-e173f591-022e-4eac-9354-1736355188d3/_ds_bundle.js"></script>
+<script src="hero/Components.bundle.js"></script>
+<style>
+:root{
+  --tsm-black:rgba(0,0,0,1);--white:rgba(255,255,255,1);--tsm-grey:rgba(102,103,103,1);--grey-60:rgba(153,154,154,1);--grey-80:rgba(122,122,122,1);--tsm-red:rgba(238,49,61,1);
+  --desktop-h2-font-family:"Domine",Helvetica;--desktop-h2-font-weight:400;--desktop-h2-font-size:36px;--desktop-h2-letter-spacing:0px;--desktop-h2-line-height:139.9999976158142%;--desktop-h2-font-style:normal;
+  --desktop-body-XL-font-family:"Kumbh Sans",Helvetica;--desktop-body-XL-font-weight:400;--desktop-body-XL-font-size:20px;--desktop-body-XL-letter-spacing:0px;--desktop-body-XL-line-height:normal;--desktop-body-XL-font-style:normal;
+  --desktop-body-m-font-family:"Kumbh Sans",Helvetica;--desktop-body-m-font-weight:400;--desktop-body-m-font-size:16px;--desktop-body-m-letter-spacing:0px;--desktop-body-m-line-height:normal;--desktop-body-m-font-style:normal;
+  --desktop-subheading-5-uppercase-font-family:"Kumbh Sans",Helvetica;--desktop-subheading-5-uppercase-font-weight:500;--desktop-subheading-5-uppercase-font-size:12px;--desktop-subheading-5-uppercase-letter-spacing:0.96px;--desktop-subheading-5-uppercase-line-height:normal;--desktop-subheading-5-uppercase-font-style:normal;
+  --desktop-body-XXS-font-family:"Kumbh Sans",Helvetica;--desktop-body-XXS-font-weight:400;--desktop-body-XXS-font-size:10px;--desktop-body-XXS-letter-spacing:0px;--desktop-body-XXS-line-height:120.00000476837158%;--desktop-body-XXS-font-style:normal;
+  --desktop-subheading-4-uppercase-font-family:"Kumbh Sans",Helvetica;--desktop-subheading-4-uppercase-font-weight:500;--desktop-subheading-4-uppercase-font-size:14px;--desktop-subheading-4-uppercase-letter-spacing:1.12px;--desktop-subheading-4-uppercase-line-height:normal;--desktop-subheading-4-uppercase-font-style:normal;
+  --desktop-body-l-font-family:"Kumbh Sans",Helvetica;--desktop-body-l-font-weight:400;--desktop-body-l-font-size:18px;--desktop-body-l-letter-spacing:0px;--desktop-body-l-line-height:normal;--desktop-body-l-font-style:normal;
+  --desktop-caption-uppercase-font-family:"Kumbh Sans",Helvetica;--desktop-caption-uppercase-font-weight:500;--desktop-caption-uppercase-font-size:10px;--desktop-caption-uppercase-letter-spacing:0.8px;--desktop-caption-uppercase-line-height:normal;--desktop-caption-uppercase-font-style:normal;
+  --grey-10:rgba(245,244,242,1);--red-20:rgba(252,229,231,1);
+  --desktop-subheading-2-font-family:"Domine",Helvetica;--desktop-subheading-2-font-weight:400;--desktop-subheading-2-font-size:22px;--desktop-subheading-2-letter-spacing:0px;--desktop-subheading-2-line-height:130%;--desktop-subheading-2-font-style:normal;
+  --desktop-subheading-3-font-family:"Kumbh Sans",Helvetica;--desktop-subheading-3-font-weight:600;--desktop-subheading-3-font-size:18px;--desktop-subheading-3-letter-spacing:0px;--desktop-subheading-3-line-height:normal;--desktop-subheading-3-font-style:normal;
+  --desktop-subheading-1-font-family:"Domine",Helvetica;--desktop-subheading-1-font-weight:400;--desktop-subheading-1-font-size:24px;--desktop-subheading-1-letter-spacing:0px;--desktop-subheading-1-line-height:130%;--desktop-subheading-1-font-style:normal;
+}
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden}
+  body{font-family:var(--font-sans);color:var(--tsm-black);background:var(--tsm-white)}
+  a{color:inherit;text-decoration:none}
+  a:hover{color:var(--tsm-gold)}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  .wrap{max-width:1440px;margin:0 auto;padding:0 40px}
+  .eyebrow{font-family:var(--desktop-subheading-5-uppercase-font-family);font-weight:var(--desktop-subheading-5-uppercase-font-weight);font-size:var(--desktop-subheading-5-uppercase-font-size);letter-spacing:var(--desktop-subheading-5-uppercase-letter-spacing);text-transform:uppercase;color:var(--tsm-grey)}
+  .serif{font-family:var(--font-serif)}
+  .arrow-cta{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .arrow-cta .ln{position:relative;width:34px;height:1px;background:currentColor;transition:width .2s}
+  .arrow-cta .ln::after{content:"";position:absolute;right:0;top:50%;width:6px;height:6px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:translateY(-50%) rotate(45deg)}
+  .arrow-cta:hover .ln{width:52px}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:#fff;box-shadow:-8px 0 40px rgba(0,0,0,.18);z-index:60;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .32s var(--ease-standard)}
+  .drawer.open{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .3s;z-index:55}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .btn-red{background:var(--tsm-red-pure);color:#fff;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:15px 30px;transition:background .18s}
+  .btn-red:hover{background:var(--tsm-red-deep)}
+  .navlink{font-family:var(--desktop-subheading-5-uppercase-font-family);font-weight:var(--desktop-subheading-5-uppercase-font-weight);font-size:var(--desktop-subheading-5-uppercase-font-size);letter-spacing:var(--desktop-subheading-5-uppercase-letter-spacing);text-transform:uppercase;padding:8px 0}
+  .navlink:hover{color:var(--tsm-gold)}
+  .icobtn{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:999px;transition:background .16s;color:var(--tsm-black)}
+  .hdr-util{position:relative}
+  .icobtn:hover{background:rgba(0,0,0,.06)}
+  /* hide the baked short hero divider; the full-width one lives between header and banner */
+  #root svg:has(>path[d^="M 0 -0.5 L 0 0 L 1360"]){display:none !important}
+  /* Footer (design-system nav-bar spec) */
+  .navigation-nav-bar{display:flex;flex-direction:column;width:100%;max-width:1440px;margin:0 auto;align-items:flex-start;gap:60px;padding:60px 40px;position:relative;background-color:var(--tsm-black)}
+  .navigation-nav-bar .frame{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;padding:0 0 60px;position:relative;align-self:stretch;width:100%;flex:0 0 auto;border-bottom:1px solid var(--tsm-grey)}
+  .navigation-nav-bar .text-wrapper{position:relative;width:fit-content;font-family:var(--desktop-h2-font-family);font-weight:var(--desktop-h2-font-weight);color:var(--white);font-size:var(--desktop-h2-font-size);letter-spacing:var(--desktop-h2-letter-spacing);line-height:var(--desktop-h2-line-height);white-space:nowrap;font-style:var(--desktop-h2-font-style)}
+  .navigation-nav-bar .div{display:flex;flex-direction:column;width:440px;max-width:100%;align-items:flex-start;gap:28px;position:relative}
+  .navigation-nav-bar .p{position:relative;align-self:stretch;font-family:var(--desktop-body-XL-font-family);font-weight:var(--desktop-body-XL-font-weight);color:var(--white);font-size:var(--desktop-body-XL-font-size);letter-spacing:var(--desktop-body-XL-letter-spacing);line-height:var(--desktop-body-XL-line-height);font-style:var(--desktop-body-XL-font-style);margin:0}
+  .navigation-nav-bar .frame-2{display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:relative;align-self:stretch;width:100%;flex:0 0 auto}
+  .navigation-nav-bar .newsletter-signup{display:flex;height:48px;align-items:center;justify-content:space-between;padding:0 0 0 14px;position:relative;align-self:stretch;width:100%;border:1px solid var(--tsm-grey)}
+  .navigation-nav-bar .text-wrapper-2{flex:1;position:relative;display:flex;align-items:center;background:transparent;border:none;outline:none;font-family:var(--desktop-body-m-font-family);font-weight:var(--desktop-body-m-font-weight);color:var(--white);font-size:var(--desktop-body-m-font-size);letter-spacing:var(--desktop-body-m-letter-spacing);line-height:var(--desktop-body-m-line-height);font-style:var(--desktop-body-m-font-style)}
+  .navigation-nav-bar .text-wrapper-2::placeholder{color:var(--tsm-grey)}
+  .navigation-nav-bar .CTA-buttons-desktop{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;position:relative;align-self:stretch;flex:0 0 auto;background-color:var(--tsm-grey);cursor:pointer}
+  .navigation-nav-bar .text-wrapper-3{position:relative;width:fit-content;font-family:var(--desktop-subheading-5-uppercase-font-family);font-weight:var(--desktop-subheading-5-uppercase-font-weight);color:var(--grey-60);font-size:var(--desktop-subheading-5-uppercase-font-size);letter-spacing:var(--desktop-subheading-5-uppercase-letter-spacing);line-height:var(--desktop-subheading-5-uppercase-line-height);font-style:var(--desktop-subheading-5-uppercase-font-style)}
+  .navigation-nav-bar .text-wrapper-4{position:relative;align-self:stretch;font-family:var(--desktop-body-XXS-font-family);font-weight:var(--desktop-body-XXS-font-weight);color:var(--grey-80);font-size:var(--desktop-body-XXS-font-size);letter-spacing:var(--desktop-body-XXS-letter-spacing);line-height:var(--desktop-body-XXS-line-height);font-style:var(--desktop-body-XXS-font-style);margin:0}
+  .navigation-nav-bar .frame-3{display:flex;flex-direction:column;align-items:flex-start;gap:60px;position:relative;align-self:stretch;width:100%;flex:0 0 auto}
+  .navigation-nav-bar .frame-4{display:flex;align-items:flex-start;gap:20px;position:relative;align-self:stretch;width:100%;flex:0 0 auto}
+  .navigation-nav-bar .frame-5{display:flex;flex-direction:column;width:670px;align-items:flex-start;gap:28px;position:relative}
+  .navigation-nav-bar .text-wrapper-5{position:relative;width:fit-content;font-family:var(--desktop-subheading-4-uppercase-font-family);font-weight:var(--desktop-subheading-4-uppercase-font-weight);color:var(--tsm-red);font-size:var(--desktop-subheading-4-uppercase-font-size);letter-spacing:var(--desktop-subheading-4-uppercase-letter-spacing);line-height:var(--desktop-subheading-4-uppercase-line-height);font-style:var(--desktop-subheading-4-uppercase-font-style)}
+  .navigation-nav-bar .frame-6{display:inline-flex;flex-direction:column;align-items:flex-start;gap:12px;position:relative;flex:0 0 auto}
+  .navigation-nav-bar .text-wrapper-6{position:relative;width:fit-content;font-family:var(--desktop-body-l-font-family);font-weight:var(--desktop-body-l-font-weight);color:var(--white);font-size:var(--desktop-body-l-font-size);letter-spacing:var(--desktop-body-l-letter-spacing);line-height:var(--desktop-body-l-line-height);font-style:var(--desktop-body-l-font-style)}
+  .navigation-nav-bar .text-wrapper-7{position:relative;width:fit-content;font-family:var(--desktop-body-m-font-family);font-weight:var(--desktop-body-m-font-weight);color:var(--white);font-size:var(--desktop-body-m-font-size);letter-spacing:var(--desktop-body-m-letter-spacing);line-height:var(--desktop-body-m-line-height);font-style:var(--desktop-body-m-font-style);margin:0}
+  .navigation-nav-bar .frame-7{display:flex;flex-direction:column;align-items:flex-start;gap:28px;position:relative;flex:1;flex-grow:1}
+  .navigation-nav-bar .text-wrapper-8{position:relative;width:fit-content;font-family:var(--desktop-body-l-font-family);font-weight:var(--desktop-body-l-font-weight);color:var(--white);font-size:var(--desktop-body-l-font-size);letter-spacing:var(--desktop-body-l-letter-spacing);line-height:var(--desktop-body-l-line-height);font-style:var(--desktop-body-l-font-style)}
+  .navigation-nav-bar .frame-8{display:flex;align-items:center;gap:20px;position:relative;align-self:stretch;width:100%;flex:0 0 auto}
+  .navigation-nav-bar .copyright-the{position:relative;align-self:stretch;font-family:var(--desktop-caption-uppercase-font-family);font-weight:var(--desktop-caption-uppercase-font-weight);color:var(--tsm-grey);font-size:var(--desktop-caption-uppercase-font-size);letter-spacing:var(--desktop-caption-uppercase-letter-spacing);line-height:var(--desktop-caption-uppercase-line-height);font-style:var(--desktop-caption-uppercase-font-style);margin:0}
+  .navigation-nav-bar a{color:inherit}
+  .navigation-nav-bar a:hover{color:var(--tsm-gold)}
+  .foot-head{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:flex-start;width:100%}
+  .foot-body{display:contents}
+  .foot-toggle{display:none;color:var(--tsm-red);transition:transform .2s}
+  .foot-acc.open .foot-toggle{transform:rotate(180deg)}
+  .hero-slide{aspect-ratio:2880/1600;background:url(assets/hero-banner.png) center/cover no-repeat}
+  .hdr-burger{display:none}
+  .hero-mob-text{display:none}
+  .mob-menu{position:fixed;inset:0;background:#fff;z-index:200;display:flex;flex-direction:column}
+  .mob-menu-top{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid #EDEDED;flex:0 0 auto}
+  .mob-menu-body{flex:1;overflow-y:auto;padding:0 24px 24px}
+  .mob-search{display:flex;align-items:center;gap:10px;padding:18px 0;border-bottom:1px solid #EDEDED}
+  .mob-search input{flex:1;min-width:0;border:none;outline:none;background:none;font-family:var(--desktop-body-l-font-family);font-size:18px;color:#000}
+  .mob-search input::placeholder{color:var(--grey-60)}
+  .mob-row{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 0;font-family:var(--desktop-body-l-font-family);font-size:18px;color:#000;background:none;border:none;cursor:pointer;text-align:left}
+  .mob-chev{display:inline-flex;transform:rotate(-90deg);color:#000}
+  .mob-login{display:block;margin:16px 24px 24px;padding:15px;background:var(--tsm-red);color:#fff;border-radius:100px;text-align:center;font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .mob-login:hover{color:#fff}
+  .mob-back{display:flex;align-items:center;gap:10px;padding:18px 0;background:none;border:none;cursor:pointer;font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--grey-60);border-bottom:1px solid #EDEDED;width:100%;justify-content:flex-start}
+  .mob-grp{display:flex;flex-direction:column;gap:20px;padding:28px 0;border-bottom:1px solid #EDEDED}
+  .mob-grp-h{font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:12px;font-weight:500;letter-spacing:.96px;text-transform:uppercase;color:#BABABA}
+  .mob-grp-a{display:inline-flex;align-items:center;gap:8px;font-family:var(--desktop-body-l-font-family);font-size:18px;color:#000}
+  .mob-grp-a.all{text-decoration:underline}
+  @media(min-width:769px){.mob-menu{display:none !important}}
+  .card-actions{position:absolute;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;align-items:flex-end;z-index:2}
+  .card-act{height:34px;border-radius:999px;background:var(--tsm-black);color:#fff;display:flex;align-items:center;overflow:hidden;cursor:pointer;border:none;padding:0;transition:box-shadow .2s}
+  .card-act:hover{box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .card-act .ic{width:34px;height:34px;flex:0 0 34px;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:width .28s var(--ease-standard),flex-basis .28s var(--ease-standard)}
+  .card-act:hover .ic{width:0;flex-basis:0}
+  .card-act .lbl{max-width:0;white-space:nowrap;overflow:hidden;font-family:var(--desktop-subheading-5-uppercase-font-family);font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:none;transition:max-width .28s var(--ease-standard),padding .28s var(--ease-standard)}
+  .card-act:hover .lbl{max-width:160px;padding:0 18px}
+  .card-act.on{background:var(--tsm-red)}
+  @media(max-width:768px){
+    .card-actions{right:10px !important;bottom:10px !important;gap:6px !important}
+    .card-act{height:30px !important}
+    .card-act .ic{width:30px !important;height:30px !important;flex-basis:30px !important}
+    .card-act .lbl{display:none !important}
+    .card-act:hover .ic{width:30px !important;flex-basis:30px !important}
+    .card-act:hover .lbl{max-width:0 !important;padding:0 !important}
+    .wrap{padding:0 20px}
+    .hdr-nav{display:none !important}
+    .site-header .wrap{display:flex !important;justify-content:space-between !important;align-items:center !important}
+    .hdr-util{display:none !important}
+    .hdr-burger{display:flex !important}
+    .site-header{border-bottom-color:#BABABA !important}
+    .hero-slide{aspect-ratio:786/1490 !important;background-image:url(assets/hero-banner-mob.png) !important}
+    .hero-mob-text{display:flex !important;flex-direction:column;gap:16px;position:absolute;top:96px;left:20px;right:20px;z-index:2}
+    .na-grid{display:flex !important;grid-template-columns:none !important;overflow-x:auto;gap:16px !important;padding-bottom:0;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none !important}
+    .na-grid>article{flex:0 0 256px;scroll-snap-align:start}
+    .na-grid::-webkit-scrollbar{display:none !important}
+    #new-arrivals-heading{white-space:normal !important}
+    .news-outer{padding-left:20px !important}
+    .sbt-section{padding:36px 0 !important}
+    .news-sec{padding:40px 0 48px !important}
+    .news-row{overflow-x:auto;scrollbar-width:none;height:auto !important;padding-right:20px}
+    .news-row::-webkit-scrollbar{display:none}
+    .news-row>article{width:288px !important;flex:0 0 288px !important;margin-right:0 !important}
+    .news-row>article a{width:100% !important;flex:none !important;justify-content:flex-start !important;gap:24px !important}
+    .news-row>article>div:first-child{height:240px !important}
+    .sbt-grid{gap:12px !important}
+    .sbt-tile{aspect-ratio:380/520 !important;background-position:center !important;background-size:cover !important}
+    .sbt-tile span{font-size:22px !important;top:18px !important;left:18px !important}
+    .sbt-0{background-image:url(assets/sbt-coins.png) !important}
+    .sbt-1{background-image:url(assets/sbt-medallions.png) !important}
+    .sbt-2{background-image:url(assets/sbt-figurines.png) !important}
+    .sbt-3{background-image:url(assets/sbt-jewelry.png) !important}
+    .sbt-4{background-image:url(assets/sbt-notes.png) !important}
+    .sbt-5{background-image:url(assets/sbt-international.png) !important}
+    .banner-inner{aspect-ratio:auto !important;min-height:300px !important}
+    .horse-band{background-image:url(assets/year-horse-mob.png) !important;min-height:520px !important;background-position:top center !important}
+    .botanic-band{background-image:url(assets/botanic-mob.png) !important;min-height:520px !important;background-position:top center !important}
+    .horse-eyebrow{top:5% !important;left:20px !important}
+    .horse-copy{bottom:6% !important;left:20px !important;gap:18px !important}
+    .horse-copy .serif{font-size:38px !important}
+    .horse-copy .serif,.horse-copy p,.horse-copy .arrow-cta{color:#fff !important}
+    .horse-cta-label{display:none}
+    .botanic-eyebrow{top:5% !important;left:20px !important}
+    .botanic-copy{bottom:6% !important;left:20px !important;right:20px;width:auto !important;max-width:none !important;gap:14px !important}
+    .botanic-copy>div{gap:12px !important}
+    .botanic-copy .serif{font-size:clamp(22px,6.5vw,38px) !important;line-height:1.2 !important;color:#fff !important}
+    .botanic-copy p{font-size:clamp(13px,3.6vw,16px) !important;width:auto !important;color:#fff !important}
+    .botanic-copy .arrow-cta{color:#fff !important}
+    .proudly-sec{height:auto !important;padding:36px 0 40px !important}
+    .proudly-row{flex-direction:column !important;gap:24px !important;margin-top:20px !important}
+    .proudly-row>div{width:100% !important}
+    .proudly-img{display:block !important}
+    .skyline-sec{display:none !important}
+    .bullion-band{background-image:linear-gradient(341deg,rgba(0,0,0,.55),rgba(0,0,0,0) 60%),url(assets/bullion-mob.png) !important;min-height:600px !important;background-size:cover,cover !important;background-position:center,center !important}
+    .navigation-nav-bar{padding:40px 20px !important}
+    .navigation-nav-bar .text-wrapper{font-size:32px !important;line-height:1.15 !important;word-break:break-word}
+    .navigation-nav-bar .frame{flex-direction:column !important;gap:28px !important}
+    .navigation-nav-bar .div{width:100% !important}
+    .navigation-nav-bar .frame-4{flex-direction:column !important;gap:40px !important}
+    .navigation-nav-bar .frame-5{width:100% !important}
+    .foot-head{justify-content:space-between;cursor:pointer}
+    .foot-toggle{display:inline-flex}
+    .foot-acc:not(.open) .foot-body{display:none}
+  }
+</style>
+<style>
+.acct{position:relative;display:inline-flex;align-items:center}
+.acct-trigger{display:inline-flex;align-items:center;height:40px;padding:0 8px;font-family:var(--desktop-body-l-font-family);font-size:16px;color:inherit;background:none;border:none;cursor:pointer;white-space:nowrap}
+.acct-menu{position:absolute;top:calc(100% + 10px);right:0;width:288px;background:#fff;box-shadow:0 24px 60px rgba(0,0,0,.20);border-radius:14px;padding:6px 0;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .16s,transform .16s;z-index:120;color:#000}
+.acct:hover .acct-menu,.acct:focus-within .acct-menu{opacity:1;visibility:visible;transform:none}
+.acct-menu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.acct::after{content:"";position:absolute;top:100%;right:0;width:288px;height:16px}
+.acct-head{padding:18px 22px 16px;display:flex;flex-direction:column;gap:4px}
+.acct-name{font-family:var(--desktop-body-XL-font-family);font-weight:700;font-size:18px;color:#000}
+.acct-email{font-family:var(--desktop-body-m-font-family);font-size:15px;color:var(--grey-60)}
+.acct-link{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:16px 22px;border-top:1px solid #ededed;border-left:none;border-right:none;border-bottom:none;background:none;font-family:var(--desktop-body-XL-font-family);font-weight:600;font-size:17px;color:#000;cursor:pointer}
+.acct-link:hover{background:var(--grey-10)}
+.acct-signout{color:var(--tsm-red)}
+</style>
+</head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { useState, useRef, useLayoutEffect, useEffect } = React;
+const Store={
+  get(k){try{return JSON.parse(localStorage.getItem('tsm_'+k))||[]}catch(e){return[]}},
+  toggle(k,id){let a=Store.get(k);a=a.indexOf(id)>=0?a.filter(x=>x!==id):a.concat([id]);localStorage.setItem('tsm_'+k,JSON.stringify(a));window.dispatchEvent(new Event('tsm-store'));return a},
+  has(k,id){return Store.get(k).indexOf(id)>=0},
+  count(k){return Store.get(k).length}
+};
+function useStore(){const[,f]=useState(0);useEffect(()=>{const h=()=>f(x=>x+1);window.addEventListener('tsm-store',h);window.addEventListener('storage',h);return()=>{window.removeEventListener('tsm-store',h);window.removeEventListener('storage',h)}},[]);}
+const NS = window.TheSingaporeMintDesignSystem_e173f5 || {};
+function Ic({name,size=22,color}){
+  const C = NS[name];
+  const glyph = C ? <C size={size}/> : (NS.Icon ? <NS.Icon name={name} size={size}/> : null);
+  return glyph ? <span style={{color,display:'inline-flex'}}>{glyph}</span> : <span style={{width:size,height:size,display:'inline-block'}}/>;
+}
+
+const NAV_H = 106; // baked nav-strip height inside the 1440x800 hero frame
+
+const SHOP_MENU_A = ['Bestsellers','Sale items','Shop all'];
+const SHOP_MENU_B = [
+  {h:'Shop by Type',items:['Coins','Medallions & Ingots','Figurines & Ornaments','Jewelry & Accessories','Notes','International Collectibles'],all:'All types'},
+  {h:'Raffles Mint',items:['Sanrio','Peanuts','Pokemon','Teletubbies','Strawberry Shortcake','Mr Merlion'],all:'All Raffles Mint'},
+];
+const SHOP_MENU_C = [
+  {h:'Shop by Theme',items:['2026 Lunar New Year','Singapore Series','Pop Culture'],all:'All themes'},
+  {h:'Gifting Ideas',items:['Corporate','Babies','Weddings'],all:'All gifting ideas'},
+];
+const DISCOVER_MENU = [
+  {h:'The Singapore Mint',items:['About us','Membership','Visit our stores']},
+  {h:'Our Services',items:['Custom corporate gifts','Catalogue orders','Coin recycling']},
+  {h:'Investment-grade bullion',items:['Lion Bullion by The Singapore Mint'],ext:true},
+];
+const mLink={fontFamily:'var(--desktop-body-m-font-family)',fontSize:16,fontWeight:400,color:'#000',lineHeight:1.2};
+const mHead={fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontSize:12,fontWeight:500,letterSpacing:'0.96px',textTransform:'uppercase',color:'#BABABA'};
+const RAFFLES_SLUG={'Sanrio':'sanrio','Peanuts':'peanuts','Pokemon':'pokemon','Teletubbies':'teletubbies','Strawberry Shortcake':'strawberry-shortcake','Mr Merlion':'mr-merlion'};
+function navHref(label){if(!label)return '#';if(RAFFLES_SLUG[label])return 'Collection.html?c='+RAFFLES_SLUG[label];const m={'About us':'About.html','Membership':'Membership.html','Visit our stores':'Stores.html','All Raffles Mint':'Collection.html','Custom corporate gifts':'CorporateGifts.html','Catalogue orders':'CatalogueOrders.html','Coin recycling':'CoinRecycling.html'};return m[label]||'Shop.html';}
+function FootAcc({title,cls,children}){
+  const [open,setOpen]=useState(false);
+  return (
+    <div className={(cls||'frame-7')+' foot-acc'+(open?' open':'')}>
+      <button type="button" className="foot-head" onClick={()=>setOpen(o=>!o)}>
+        <div className="text-wrapper-5">{title}</div>
+        <span className="foot-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
+      </button>
+      <div className="foot-body">{children}</div>
+    </div>
+  );
+}
+const MSHOP=[
+  {h:'SHOP',items:['Bestsellers',{t:'Sale items',tag:true}],all:'Shop all'},
+  {h:'SHOP BY TYPE',items:['Coins','Medallions & Ingots','Figurines & Ornaments','Jewelry & Accessories','Notes','International Collectibles'],all:'All types'},
+  {h:'SHOP BY THEME',items:['2026 Lunar New Year','Singapore Series','Pop Culture'],all:'Shop all'},
+  {h:'RAFFLES MINT',items:['Sanrio','Peanuts','Pokemon','Teletubbies','Strawberry Shortcake','Mr Merlion'],all:'All Raffles Mint'},
+  {h:'GIFTING IDEAS',items:['Corporate','Babies','Weddings'],all:'All gifting ideas'},
+];
+function MobGroup({g}){
+  return (
+    <div className="mob-grp">
+      <div className="mob-grp-h">{g.h}</div>
+      {g.items.map((it,idx)=>{
+        const label = typeof it==='string'?it:it.t;
+        const tag = typeof it==='object'&&it.tag;
+        return <a key={idx} href={g.ext?"https://lionbullion.com.sg/":navHref(label)} target={g.ext?"_blank":undefined} rel={g.ext?"noopener noreferrer":undefined} className="mob-grp-a">{label}{tag&&<Ic name="IconsDiscount" size={14} color="var(--tsm-red)"/>}{g.ext&&<Ic name="IconsOpenLink" size={12}/>}</a>;
+      })}
+      {g.all&&<a href={navHref(g.all)} className="mob-grp-a all">{g.all}</a>}
+    </div>
+  );
+}
+function MobMenu({open,onClose,onCart}){
+  const [sub,setSub]=useState(null);
+  if(!open) return null;
+  const groups = sub==='shop'?MSHOP:sub==='discover'?DISCOVER_MENU:null;
+  return ReactDOM.createPortal((
+    <div className="mob-menu">
+      <div className="mob-menu-top">
+        <img src="assets/logo.svg" style={{height:22,display:'block'}}/>
+        <div style={{display:'flex',alignItems:'center',gap:10}}>
+          <button className="icobtn" aria-label="Cart" onClick={onCart}><Ic name="IconsCart"/></button>
+          <button className="icobtn" aria-label="Close menu" onClick={()=>{setSub(null);onClose();}}><Ic name="IconsClose"/></button>
+        </div>
+      </div>
+      {!sub ? <>
+        <div className="mob-menu-body">
+          <div className="mob-search"><input placeholder="Search..."/><Ic name="IconsSearch" color="var(--grey-60)"/></div>
+          <button className="mob-row" onClick={()=>setSub('shop')}>Shop<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
+          <button className="mob-row" onClick={()=>setSub('discover')}>Discover<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></button>
+          <a className="mob-row" href="News.html">News<span className="mob-chev"><Ic name="IconsDropdown" size={18}/></span></a>
+          <a className="mob-row" href="Favourites.html">Favourites<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+          <a className="mob-row" href="Compare.html">Compare<span className="mob-chev"><Ic name="IconsLeftArrow" size={16}/></span></a>
+        </div>
+        <a href="#" className="mob-login">Login/Register</a>
+      </> : <div className="mob-menu-body">
+        <button className="mob-back" onClick={()=>setSub(null)}><Ic name="IconsLeftArrow" size={16}/>Back</button>
+        {groups.map(g=><MobGroup key={g.h} g={g}/>)}
+      </div>}
+    </div>
+  ), document.body);
+}
+function MenuGroup({group}){
+  return (
+    <div style={{width:210,display:'flex',flexDirection:'column',gap:20}}>
+      <div style={mHead}>{group.h}</div>
+      <div style={{display:'flex',flexDirection:'column',gap:12,opacity:.8}}>
+        {group.items.map(x=><a key={x} href={group.ext?"https://lionbullion.com.sg/":navHref(x)} target={group.ext?"_blank":undefined} rel={group.ext?"noopener noreferrer":undefined} style={{...mLink,display:'inline-flex',alignItems:'flex-end',gap:6}}>{x}{group.ext&&<Ic name="IconsOpenLink" size={12}/>}</a>)}
+        {group.all && <a href={navHref(group.all)} style={{...mLink,textDecoration:'underline'}}>{group.all}</a>}
+      </div>
+    </div>
+  );
+}
+
+/* Header (logo + centered nav + icons) with Shop mega-menu */
+function Header({cartCount,onCart,overlay}){
+  useStore();
+  const [menu,setMenu]=useState(null);
+  const [mob,setMob]=useState(false);
+  return (
+    <header className="site-header" style={{position:'relative',background:(overlay&&!menu)?'transparent':'#fff',borderBottom:'1px solid rgba(0,0,0,.4)'}} onMouseLeave={()=>setMenu(null)}>
+      <div className="wrap" style={{height:72,display:'grid',gridTemplateColumns:'1fr auto 1fr',alignItems:'center'}}>
+        <a href="/" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
+        <nav className="hdr-nav" style={{display:'flex',gap:30,justifySelf:'center'}}>
+          <a className="navlink" href="Shop.html" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
+          <a className="navlink" href="About.html" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
+          <a className="navlink" href="News.html" onMouseEnter={()=>setMenu(null)} style={(menu?false:/(news|article)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>News</a>
+        </nav>
+        <div style={{display:'flex',alignItems:'center',gap:6,justifySelf:'end'}}>
+          <button className="icobtn hdr-util"><Ic name="IconsSearch"/></button>
+          {(()=>{let u=null;try{u=JSON.parse(localStorage.getItem('tsm_user'));}catch(e){}return u?(
+            <div className="acct hdr-util" tabIndex={0}>
+              <button className="acct-trigger" aria-label="Account">{u.name}</button>
+              <div className="acct-menu">
+                <div className="acct-head"><div className="acct-name">{u.name}</div><div className="acct-email">{u.email}</div></div>
+                <a className="acct-link" href="Account.html"><Ic name="IconsAccount" size={18}/>My Account</a>
+                <button className="acct-link acct-signout" onClick={()=>{localStorage.removeItem('tsm_user');location.reload();}}><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 17l5-5-5-5M20 12H9M12 4H6a2 2 0 00-2 2v12a2 2 0 002 2h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>Sign out</button>
+              </div>
+            </div>
+          ):(<a className="icobtn hdr-util" href="Login.html" aria-label="Account"><Ic name="IconsAccount"/></a>);})()}
+          <button className="icobtn hdr-util" aria-label="Favorites" onClick={()=>location.href='Favourites.html'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg>{Store.count('fav')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('fav')}</span>}</button>
+          <button className="icobtn hdr-util" aria-label="Compare" onClick={()=>location.href='Compare.html'}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M12 4.5a1 1 0 100-.01M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>{Store.count('cmp')>0&&<span style={{position:'absolute',top:-2,right:-2,minWidth:16,height:16,padding:'0 4px',borderRadius:999,background:'var(--tsm-red,#ed1b2f)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center'}}>{Store.count('cmp')}</span>}</button>
+          <button className="icobtn" onClick={onCart} style={{position:'relative'}}>
+            <Ic name="IconsCart"/>
+            {cartCount>0 && <span style={{position:'absolute',top:2,right:2,minWidth:16,height:16,borderRadius:999,background:'var(--tsm-red-pure)',color:'#fff',fontSize:10,fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center',padding:'0 4px'}}>{cartCount}</span>}
+          </button>
+          <button className="icobtn hdr-burger" aria-label="Menu" onClick={()=>setMob(true)}><Ic name="IconsMenu"/></button>
+        </div>
+      </div>
+      {menu==='shop' && <div style={{position:'absolute',top:'100%',left:0,width:'100%',background:'#fff',borderTop:'1px solid #EDEDED',boxShadow:'0 24px 40px rgba(0,0,0,.08)',zIndex:20}}>
+        <div className="wrap" style={{display:'flex',gap:20,padding:'40px 40px 48px',alignItems:'stretch'}}>
+          <div style={{width:210,display:'flex',flexDirection:'column',gap:20}}>
+            {SHOP_MENU_A.map(x=>(
+              <a key={x} href={navHref(x)} style={{...mLink,fontSize:20,display:'inline-flex',alignItems:'center',gap:6}}>{x}{x==='Sale items'&&<Ic name="IconsDiscount" size={14} color="var(--tsm-red)"/>}</a>
+            ))}
+          </div>
+          <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_B.map(g=><MenuGroup key={g.h} group={g}/>)}</div>
+          <div style={{width:210,display:'flex',flexDirection:'column',gap:32}}>{SHOP_MENU_C.map(g=><MenuGroup key={g.h} group={g}/>)}</div>          <a href="Shop.html" style={{flex:1,minWidth:0,background:'radial-gradient(ellipse 65% 65% at 50% 50%, #EE313D 0%, #A70000 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'#fff'}}>
+            <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'#fff'}}>Year of the Horse 2026</div>
+            <span className="arrow-cta" style={{color:'#fff'}}>Shop<span className="ln"/></span>
+            <div style={{alignSelf:'stretch',display:'flex',flexDirection:'column',alignItems:'center',gap:2}}>
+              <img src="assets/coin-horse-gold.png" style={{width:130}}/>
+              <img src="assets/cat-snake.png" style={{width:120,marginTop:-10}}/>
+              <img src="assets/coin-botanic-silver.png" style={{width:100,marginTop:-10}}/>
+            </div>
+          </a>
+          <a href="Shop.html" style={{flex:1,minWidth:0,background:'linear-gradient(215deg,#F5E3BA 0%,#C1A96B 100%)',display:'flex',flexDirection:'column',alignItems:'flex-start',gap:20,padding:'28px 20px',overflow:'hidden',color:'var(--tsm-black)'}}>
+            <div style={{alignSelf:'stretch',fontFamily:'var(--desktop-body-XL-font-family)',fontSize:20,fontWeight:500,color:'var(--tsm-black)'}}>Gifting Ideas</div>
+            <span className="arrow-cta" style={{color:'var(--tsm-black)'}}>Shop<span className="ln"/></span>
+            <div style={{alignSelf:'stretch',flex:1,display:'flex',alignItems:'center',justifyContent:'center',gap:16}}>
+              <img src="assets/coin-horse-silver.png" style={{width:130,filter:'drop-shadow(-4px 4px 9px rgba(0,0,0,.18))'}}/>
+              <img src="assets/cat-vanda.png" style={{width:110,filter:'drop-shadow(-4px 4px 9px rgba(0,0,0,.18))'}}/>
+            </div>
+          </a>
+        </div>
+      </div>}
+      {menu==='discover' && <div style={{position:'absolute',top:'100%',left:0,width:'100%',background:'#fff',borderTop:'1px solid #EDEDED',boxShadow:'0 24px 40px rgba(0,0,0,.08)',zIndex:20}}>
+        <div className="wrap" style={{display:'flex',gap:20,padding:'40px 40px 60px',justifyContent:'center'}}>
+          {DISCOVER_MENU.map(g=><MenuGroup key={g.h} group={g}/>)}
+        </div>
+      </div>}
+      <MobMenu open={mob} onClose={()=>setMob(false)} onCart={()=>{setMob(false);onCart&&onCart();}}/>
+    </header>
+  );
+}
+const HERO_SLIDES = ['assets/hero-banner.png','assets/hero-banner.png','assets/hero-banner.png'];
+function HeroSlider({cartCount,onCart}){
+  const [i,setI]=useState(0);
+  const n=HERO_SLIDES.length;
+  const go=(x)=>setI((x+n)%n);
+  useLayoutEffect(()=>{ const t=setInterval(()=>setI(v=>(v+1)%n),6000); return ()=>clearInterval(t); },[n]);
+  return (
+    <div style={{position:'relative',width:'100%',overflow:'hidden',background:'var(--tsm-sand)'}}>
+      {/* slider track */}
+      <div style={{display:'flex',transform:`translateX(${-i*100}%)`,transition:'transform .6s var(--ease-standard)'}}>
+        {HERO_SLIDES.map((src,k)=>(
+          <div key={k} className="hero-slide" style={{flex:'0 0 100%'}}/>
+        ))}
+      </div>
+      {/* header overlay */}
+      <div style={{position:'absolute',top:0,left:0,right:0,zIndex:3}}>
+        <Header cartCount={cartCount} onCart={onCart} overlay/>
+      </div>
+      {/* mobile banner copy */}
+      <div className="hero-mob-text">
+        <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:28,lineHeight:1.25,color:'var(--tsm-black)'}}>Gallop into a prosperous New Year</h2>
+        <p style={{margin:0,fontFamily:'var(--desktop-body-m-font-family)',fontSize:15,lineHeight:1.55,color:'var(--tsm-black)'}}>Celebrate 2026 with Year of the Horse coins designed for gifting and good fortune.</p>
+        <a href="#" className="arrow-cta" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
+      </div>
+      {/* dots (bottom-left) */}
+      <div style={{position:'absolute',bottom:34,left:40,zIndex:3,display:'flex',gap:9,alignItems:'center'}}>
+        {HERO_SLIDES.map((_,k)=>(
+          <button key={k} aria-label={`Slide ${k+1}`} onClick={()=>setI(k)} style={{width:9,height:9,flex:'0 0 9px',padding:0,border:'none',borderRadius:'50%',appearance:'none',display:'block',background:k===i?'var(--tsm-red-pure)':'rgba(0,0,0,.22)',transition:'background .25s'}}/>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const NEW_ARRIVALS = [
+  {id:1,img:'assets/coin-horse-gold.png',badge:'PRE-ORDER',badgeType:'preorder',code:'S010',edition:'MINTED 2026',name:'Singapore Lunar Horse',desc:'5 troy oz 999.9 Fine Gold Proof Coin',price:'S$33,700.00'},
+  {id:2,img:'assets/coin-horse-gold.png',code:'RMQ058',name:'Peanuts',desc:'Snoopy & Woodstock Snuggles 24K Gold Foil Mini Figure',price:'S$45.00'},
+  {id:3,img:'assets/coin-horse-gold.png',code:'QA02',name:'Vanda Miss Joaquim',desc:'Coloured Keychain',price:'S$35.00'},
+  {id:4,img:'assets/coin-bandstand-gold.png',badge:'WAITLIST',badgeType:'waitlist',code:'R248',edition:'MINTED 2025',name:'Singapore Botanic Gardens 10 Years',desc:'5 troy oz 999.9 Fine Gold Proof Coin',price:'S$138.00'},
+];
+const CATS = [
+  {name:'Coins',img:'assets/cat-coins.png'},
+  {name:'Medallions\n& Ingots',img:'assets/cat-medallions.png'},
+  {name:'Figurines\n& Ornaments',img:'assets/cat-figurines.png'},
+  {name:'Jewelry\n& Accessories',img:'assets/cat-jewelry.png'},
+  {name:'Notes',img:'assets/cat-notes.png'},
+  {name:'International\nCollectibles',img:'assets/cat-international.png'},
+];
+const NEWS = [
+  {category:'ANNOUNCEMENT',title:'Welcome your little one with special newborn privileges',img:'assets/news-1.jpg',bgPos:'100% 100%'},
+  {category:'EVENT',title:'The Singapore Mint 2026 Lunar Fair event at Chinatown Point',img:'assets/news-2.jpg',date:'FEB 10, 2026',bgPos:'50% 50%'},
+  {category:'EVENT',title:<>The Singapore Mint 2026 <br/>lunar roadshows</>,img:'assets/news-3.jpg',date:'JAN 28 – FEB 16, 2026',bgPos:'100% 100%'},
+  {category:'ANNOUNCEMENT',title:'Lorem ipsum dolroes amet ipsum elair emt',img:'assets/news-1.jpg',bgPos:'100% 100%'},
+];
+
+function ProductCard({p,onAdd}){
+  const [hover,setHover]=useState(false);
+  useStore();
+  const id=p.code+'|'+p.name;
+  const fav=Store.has('fav',id),cmp=Store.has('cmp',id),inCart=Store.has('cart',id);
+  const badgeStyle = p.badgeType==='waitlist'
+    ? {background:'var(--grey-60)',color:'#fff'}
+    : {background:'var(--red-20)',color:'var(--tsm-red)'};
+  return (
+    <article onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)} style={{display:'flex',flexDirection:'column',width:'100%',background:'var(--grey-10)'}}>
+      <div style={{position:'relative',width:'100%',height:300,background:'#fff',overflow:'hidden'}}>
+        {p.badge && <div style={{position:'absolute',top:0,left:0,zIndex:2,display:'inline-flex',alignItems:'center',padding:'6px 14px',...badgeStyle}}>
+          <span style={{fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontWeight:'var(--desktop-subheading-5-uppercase-font-weight)',fontSize:'var(--desktop-subheading-5-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-5-uppercase-letter-spacing)'}}>{p.badge}</span>
+        </div>}
+        <a href="Product.html" aria-label={p.name} style={{position:'absolute',inset:0,zIndex:1,display:'block',cursor:'pointer'}}/>
+        <img src={p.img} alt={p.name} style={{position:'absolute',top:'50%',left:'50%',transform:`translate(-50%,-50%) scale(${hover?1.05:1})`,width:'80%',height:'80%',objectFit:'contain',transition:'transform .4s var(--ease-standard)'}}/>
+        <div className="card-actions">
+          <button className={"card-act"+(fav?' on':'')} onClick={()=>Store.toggle('fav',id)} aria-label="Add to favourites"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 21l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.18L12 21z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/></svg></span><span className="lbl">Favourite</span></button>
+          <button className={"card-act"+(cmp?' on':'')} onClick={()=>Store.toggle('cmp',id)} aria-label="Compare"><span className="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v17M7.5 21h9M4 7h16M4 7l-2.5 5.5a3 3 0 006 0L4 7zM20 7l-2.5 5.5a3 3 0 006 0L20 7z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></span><span className="lbl">Compare</span></button>
+          <button className={"card-act"+(inCart?' on':'')} onClick={()=>Store.toggle('cart',id)} aria-label={`Add ${p.name} to cart`}><span className="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h2l1.5 11h10l1.8-8H7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/><circle cx="9.5" cy="19.5" r="1.3" fill="currentColor"/><circle cx="17" cy="19.5" r="1.3" fill="currentColor"/></svg></span><span className="lbl">Add to cart</span></button>
+        </div>
+      </div>
+      <div style={{display:'flex',flexDirection:'column',gap:20,paddingTop:20,width:'100%',flex:1}}>
+        <a href="Product.html" style={{display:'flex',flexDirection:'column',gap:8,width:'100%',textDecoration:'none',cursor:'pointer'}}>
+          <div style={{display:'inline-flex',alignItems:'center',gap:8}}>
+            <span className="eyebrow" style={{color:'var(--grey-80)'}}>{p.code}</span>
+            {p.edition && <><span style={{width:3,height:3,borderRadius:'50%',background:'var(--grey-80)'}}/><span className="eyebrow" style={{color:'var(--grey-80)'}}>{p.edition}</span></>}
+          </div>
+          <h3 style={{margin:0,fontFamily:'var(--desktop-subheading-2-font-family)',fontWeight:'var(--desktop-subheading-2-font-weight)',fontSize:18,lineHeight:1.3,color:'var(--tsm-black)',width:'100%',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{p.name}</h3>
+          <p style={{margin:0,fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:13,color:'var(--grey-80)',lineHeight:1.4,width:'100%',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{p.desc}</p>
+        </a>
+        <div style={{display:'flex',flexDirection:'column',gap:12,width:'100%',marginTop:'auto'}}>
+          <div style={{width:'100%',height:1,background:'#dcdddd'}}/>
+          <p style={{margin:0,fontFamily:'var(--desktop-subheading-3-font-family)',fontWeight:'var(--desktop-subheading-3-font-weight)',fontSize:'var(--desktop-subheading-3-font-size)',color:'var(--tsm-black)'}}>{p.price}</p>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function App(){
+  useStore();
+  const [drawer,setDrawer]=useState(false);
+  const cartItems=Store.get('cart').map(id=>NEW_ARRIVALS.find(p=>(p.code+'|'+p.name)===id)).filter(Boolean);
+  const [email,setEmail]=useState('');
+  const [isSubmitted,setIsSubmitted]=useState(false);
+  const submitNewsletter=(e)=>{ e.preventDefault(); if(email.trim()) setIsSubmitted(true); };
+  const remove=(p)=>Store.toggle('cart',p.code+'|'+p.name);
+  const total=cartItems.reduce((s,p)=>s+Number(String(p.price).replace(/[^0-9.]/g,'')),0);
+  const naRef=useRef(null);
+  const naTimer=useRef(null);
+  const onNaScroll=()=>{const el=naRef.current;if(!el)return;el.classList.add('scrolling');clearTimeout(naTimer.current);naTimer.current=setTimeout(()=>el.classList.remove('scrolling'),700);};
+
+  return (<>
+    {/* Hero slider with overlaid header */}
+    <HeroSlider cartCount={Store.count('cart')} onCart={()=>setDrawer(true)}/>
+
+    {/* New arrivals */}
+    <section aria-labelledby="new-arrivals-heading" style={{background:'var(--grey-10)',padding:'60px 0'}}>
+      <div className="wrap">
+        <div style={{display:'flex',flexDirection:'column',gap:32,marginBottom:44}}>
+          <p style={{margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'var(--grey-80)'}}>Shop</p>
+          <div style={{display:'inline-flex',flexDirection:'column',gap:16,alignItems:'flex-start'}}>
+            <h2 id="new-arrivals-heading" className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'var(--tsm-black)',whiteSpace:'nowrap'}}>Discover our new arrivals</h2>
+            <a href="#" className="arrow-cta" aria-label="View all new arrivals" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
+          </div>
+        </div>
+      </div>
+      <div className="wrap">
+        <div ref={naRef} onScroll={onNaScroll} className="na-grid" style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',alignItems:'stretch',gap:36}}>
+          {NEW_ARRIVALS.map(p=><ProductCard key={p.id} p={p}/>)}
+        </div>
+      </div>
+    </section>
+
+    {/* Gold theme band — A spirited start (bg image + horse watermark + coins) */}
+    <section style={{position:'relative',width:'100%',overflow:'hidden',background:'radial-gradient(50% 50% at 62% 54%, rgba(185,154,80,1) 0%, rgba(219,188,113,1) 100%)'}}>
+      <div className="banner-inner horse-band" style={{position:'relative',width:'100%',aspectRatio:'1440/620',backgroundImage:'url(assets/top-section.png)',backgroundSize:'cover',backgroundPosition:'center'}}>
+        <div className="wrap" style={{position:'absolute',inset:0,padding:'0 40px'}}>
+          <p className="horse-eyebrow" style={{position:'absolute',top:'9.7%',left:40,margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'#fff'}}>Year of the Horse 2026</p>
+          <div className="horse-copy" style={{position:'absolute',left:40,bottom:'8%',width:552,maxWidth:'calc(100% - 80px)',display:'flex',flexDirection:'column',gap:28,alignItems:'flex-start'}}>
+            <div style={{display:'flex',flexDirection:'column',gap:20,width:'100%'}}>
+              <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'#fff'}}>A spirited start to 2026</h2>
+              <p style={{margin:0,width:432,maxWidth:'100%',fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'#fff',lineHeight:1.6}}>Celebrate the new year with majestic horse designs crafted for good fortune, blending cultural richness with timeless elegance.</p>
+            </div>
+            <a href="#" className="arrow-cta" style={{color:'#fff'}}><span className="horse-cta-label">Discover the story</span><span className="ln"/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Botanic Gardens band — bg image, matching the Year of the Horse layout */}
+    <section style={{position:'relative',width:'100%',overflow:'hidden',background:'linear-gradient(120deg,#cfd8e2,#dbe2ea)'}}>
+      <div className="banner-inner botanic-band" style={{position:'relative',width:'100%',aspectRatio:'1440/620',backgroundImage:'url(assets/botanic-section.png)',backgroundSize:'cover',backgroundPosition:'center'}}>
+        <div className="wrap" style={{position:'absolute',inset:0,padding:'0 40px'}}>
+          <p className="botanic-eyebrow" style={{position:'absolute',top:'9.7%',left:40,margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'#fff'}}>Singapore Botanic Gardens</p>
+          <div className="botanic-copy" style={{position:'absolute',left:40,bottom:'8%',width:552,maxWidth:'calc(100% - 80px)',display:'flex',flexDirection:'column',gap:28,alignItems:'flex-start'}}>
+            <div style={{display:'flex',flexDirection:'column',gap:20,width:'100%'}}>
+              <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'#fff'}}>Singapore heritage in full bloom</h2>
+              <p style={{margin:0,width:432,maxWidth:'100%',fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'#fff',lineHeight:1.6}}>A finely crafted keepsake marking the Singapore Botanic Gardens' 165th anniversary in silver.</p>
+            </div>
+            <a href="#" className="arrow-cta" style={{color:'#fff'}}>Shop the collection<span className="ln"/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Shop by type — 2 columns */}
+    <section className="sbt-section" style={{padding:'72px 0'}}>
+      <div className="wrap">
+        <h2 className="serif" style={{fontSize:34,fontWeight:400,margin:'0 0 32px'}}>Shop by type</h2>
+        <div className="sbt-grid" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
+          {CATS.map((c,ci)=>(
+            <a key={c.name} href="#" className={"sbt-tile sbt-"+ci} style={{position:'relative',aspectRatio:'1340/548',background:`#fff url(${c.img}) center/cover no-repeat`,display:'block'}}>
+              <span className="serif" style={{position:'absolute',top:28,left:34,fontSize:32,fontWeight:400,whiteSpace:'pre-line',lineHeight:1.4,letterSpacing:0,color:'#7A7A7A'}}>{c.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Membership band */}
+    <section style={{background:'var(--tsm-red-pure)',color:'#fff'}}>
+      <div className="wrap" style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:40,padding:'52px 40px',flexWrap:'wrap'}}>
+        <h2 className="serif" style={{fontSize:30,fontWeight:400,margin:0,maxWidth:520,lineHeight:1.25}}>Enjoy priority releases, special prices and more when you become a member</h2>
+        <div style={{maxWidth:360}}>
+          <p style={{fontSize:14,lineHeight:1.6,color:'rgba(255,255,255,.9)',margin:'0 0 16px'}}>Sign up for a free account or membership tier to access member benefits across selected products, releases and events.</p>
+          <a href="#" className="arrow-cta" style={{color:'#fff'}}>Learn more<span className="ln"/></a>
+        </div>
+      </div>
+    </section>
+
+    {/* Proudly minting */}
+    <section className="proudly-sec" style={{background:'#fff',padding:'60px 0 100px',height:250}}>
+      <div className="wrap">
+        <p style={{margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'var(--grey-60)'}}>The Singapore Mint</p>
+        <div className="proudly-row" style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',gap:40,marginTop:33}}>
+          <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'var(--tsm-black)'}}>Proudly minting<br/>Singapore's story</h2>
+          <div style={{width:326,maxWidth:'100%',display:'flex',flexDirection:'column',gap:28,alignItems:'flex-start'}}>
+            <p style={{margin:0,fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'var(--tsm-black)',lineHeight:1.6}}>From circulation coins to commemoratives, each piece is crafted with meaning, artistry and our nation's heritage.</p>
+            <a href="#" className="arrow-cta" aria-label="Learn more about The Singapore Mint" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
+          </div>
+        </div>
+      </div>
+      <div className="wrap"><img className="proudly-img" src="assets/skyline-mob.png" alt="Singapore skyline" style={{display:'none',width:'100%',height:240,objectFit:'cover',marginTop:32}}/></div>
+    </section>
+
+    {/* Skyline full-bleed */}
+    <section className="skyline-sec">
+      <div className="wrap" style={{padding:0}}>
+        <div style={{aspectRatio:'16/6',background:`#333 url(assets/skyline.jpg) center/cover`,width:'100%',padding:'31px 14px',marginBottom:63}}/>
+      </div>
+    </section>
+
+    {/* Lion Bullion — matching the Year of the Horse layout */}
+    <section style={{position:'relative',width:'100%',overflow:'hidden',background:'#0c0c0e'}}>
+      <div className="banner-inner bullion-band" style={{position:'relative',width:'100%',aspectRatio:'1440/620',backgroundImage:'url(assets/bullion.png)',backgroundSize:'cover',backgroundPosition:'center'}}>
+        <div className="wrap" style={{position:'absolute',inset:0,padding:'0 40px',top:4}}>
+          <p style={{position:'absolute',top:'9.7%',left:40,margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'var(--tsm-gold-bright)'}}>Lion Bullion · A Singapore Mint company</p>
+          <div style={{position:'absolute',left:40,bottom:'8%',width:552,maxWidth:'calc(100% - 80px)',display:'flex',flexDirection:'column',gap:28,alignItems:'flex-start'}}>
+            <div style={{display:'flex',flexDirection:'column',gap:20,width:'100%'}}>
+              <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'#fff'}}>Investment-grade gold bullion from The Singapore Mint</h2>
+              <p style={{margin:0,width:432,maxWidth:'100%',fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'#fff',lineHeight:1.6}}>Discover gold and silver bars and coins crafted to trusted, everyday standards, precisely and preciously.</p>
+            </div>
+            <a href="#" className="arrow-cta" style={{color:'#fff'}}>Explore bullion<span className="ln"/></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* News */}
+    <section className="news-sec" aria-labelledby="news-announcements-heading" style={{overflow:'hidden',background:'#fff',padding:'80px 0 120px'}}>
+      <div style={{maxWidth:1440,margin:'0 auto',width:'100%',boxSizing:'border-box',paddingLeft:40,display:'flex',flexDirection:'column',alignItems:'flex-start',gap:40}} className="news-outer">
+      <div style={{display:'inline-flex',alignItems:'center',gap:16}}>
+        <h2 id="news-announcements-heading" style={{margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'var(--grey-60)'}}>News &amp; announcements</h2>
+        <span className="arrow-cta" aria-hidden="true" style={{color:'var(--tsm-black)'}}><span className="ln" style={{width:26}}/></span>
+      </div>
+      <div className="news-row" style={{display:'flex',alignItems:'stretch',gap:20,height:500}}>
+        {NEWS.map((n,i)=>(
+          <article key={i} style={{display:'flex',flexDirection:'column',alignItems:'flex-start',gap:24,width:400,flex:'0 0 400px',marginRight:i===NEWS.length-1?-260:0}}>
+            {n.img
+              ? <div role="img" aria-label={`${n.category} article`} style={{position:'relative',height:322,width:'100%',background:`url(${n.img})`,backgroundSize:'cover',backgroundPosition:n.bgPos||'center'}}>
+                  {n.date && <div style={{display:'inline-flex',alignItems:'center',background:'var(--tsm-black)',padding:'6px 14px'}}>
+                    <span style={{fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontWeight:'var(--desktop-subheading-5-uppercase-font-weight)',fontSize:'var(--desktop-subheading-5-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-5-uppercase-letter-spacing)',color:'#fff'}}>{n.date}</span>
+                  </div>}
+                </div>
+              : <div style={{position:'relative',height:322,width:'100%'}}>
+                  <img src={n.small} alt="Article image" style={{position:'absolute',left:0,top:0,height:322,width:140,objectFit:'contain'}}/>
+                </div>}
+            <a href={`#news-item-${i+1}`} style={{display:'flex',width:334,flex:1,flexDirection:'column',alignItems:'flex-start',justifyContent:'space-between'}}>
+              <div style={{display:'flex',width:'100%',flexDirection:'column',alignItems:'flex-start',gap:12}}>
+                <div style={{width:'100%',fontFamily:'var(--desktop-subheading-5-uppercase-font-family)',fontWeight:'var(--desktop-subheading-5-uppercase-font-weight)',fontSize:'var(--desktop-subheading-5-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-5-uppercase-letter-spacing)',textTransform:'uppercase',color:'var(--grey-60)'}}>{n.category}</div>
+                <p style={{margin:0,width:'100%',fontFamily:'var(--desktop-subheading-1-font-family)',fontWeight:'var(--desktop-subheading-1-font-weight)',fontSize:'var(--desktop-subheading-1-font-size)',lineHeight:'var(--desktop-subheading-1-line-height)',color:'var(--tsm-black)'}}>{n.title}</p>
+              </div>
+              <span className="arrow-cta" aria-hidden="true" style={{color:'var(--tsm-black)'}}><span className="ln"/></span>
+            </a>
+          </article>
+        ))}
+      </div>
+      </div>
+    </section>
+
+    {/* Footer */}
+    <footer style={{background:'var(--tsm-black)'}}>
+      <div className="navigation-nav-bar">
+        <div className="frame">
+          <div className="text-wrapper">Stay connected with us</div>
+          <div className="div">
+            <p className="p">Be the first to know about new releases, exclusive drops and seasonal collections.</p>
+            <form className="frame-2" onSubmit={submitNewsletter}>
+              <div className="newsletter-signup">
+                <label htmlFor="newsletter-email" style={{position:'absolute',width:1,height:1,overflow:'hidden',clip:'rect(0 0 0 0)'}}>Email Address</label>
+                <input id="newsletter-email" name="email" type="email" required aria-describedby="newsletter-consent" className="text-wrapper-2" placeholder="Email Address" value={email} onChange={e=>{setEmail(e.target.value);setIsSubmitted(false);}}/>
+                <button type="submit" className="CTA-buttons-desktop"><div className="text-wrapper-3">SIGN UP</div></button>
+              </div>
+              <p id="newsletter-consent" className="text-wrapper-4">By providing your email address and clicking on "Sign Up", you consent to the collection, use, and disclosure of your personal data by The Singapore Mint, its related companies, and business partners, to send you promotional and marketing information and materials, including information on events, promotions and lucky draws.</p>
+              <p aria-live="polite" style={{position:'absolute',width:1,height:1,overflow:'hidden',clip:'rect(0 0 0 0)'}}>{isSubmitted?'Thank you for signing up to our newsletter.':''}</p>
+            </form>
+          </div>
+        </div>
+        <div className="frame-3">
+          <div className="frame-4">
+            <FootAcc title="THE SINGAPORE MINT STORES" cls="frame-5">
+              <div className="frame-6">
+                <div className="text-wrapper-6">Coin Gallery (Head Office)</div>
+                <p className="text-wrapper-7">20 Teban Gardens Crescent<br/>S608928<br/>+65 6895 0288<br/>Mon - Fri from 8.30am to 4.30pm</p>
+              </div>
+              <div className="frame-6">
+                <div className="text-wrapper-6">Chinatown Point</div>
+                <p className="text-wrapper-7">133 New Bridge Road, #02-18<br/>S059413<br/>+65 6222 2486<br/>Daily from 11.00am to 9.30pm</p>
+              </div>
+              <div className="frame-6">
+                <div className="text-wrapper-6">Suntec City Mall</div>
+                <p className="text-wrapper-7">3 Temasek Blvd, #02-719 East Wing Tower 3<br/>S038983<br/>+65 6336 2878<br/>Daily from 11.00am to 9.30pm</p>
+              </div>
+            </FootAcc>
+            <FootAcc title="SUPPORT">
+              <div className="frame-6">
+                <a className="text-wrapper-6" href="#">FAQs</a>
+                <a className="text-wrapper-8" href="#">Contact us</a>
+              </div>
+            </FootAcc>
+            <FootAcc title="LEGAL">
+              <div className="frame-6">
+                <a className="text-wrapper-6" href="#">Lifetime guarantee</a>
+                <a className="text-wrapper-8" href="#">Return policy</a>
+                <a className="text-wrapper-8" href="#">Privacy policy</a>
+                <a className="text-wrapper-8" href="#">Terms &amp; conditions</a>
+              </div>
+            </FootAcc>
+            <div className="frame-7">
+              <div className="text-wrapper-5">CONNECT</div>
+              <div className="frame-8">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow The Singapore Mint on Instagram" style={{color:'#fff',display:'inline-flex'}}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5" stroke="currentColor" strokeWidth="1.7"/><circle cx="12" cy="12" r="4.3" stroke="currentColor" strokeWidth="1.7"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Follow The Singapore Mint on Facebook" style={{color:'#fff',display:'inline-flex'}}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 8.5h-2V7c0-.7.2-1 1-1h1V3.2C15.1 3.1 14.2 3 13.4 3c-2.1 0-3.4 1.3-3.4 3.6v1.9H8V11.4h2V21h3.5v-9.6h2.1l.4-2.9Z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <p className="copyright-the">COPYRIGHT © 2023 THE SINGAPORE MINT. ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </footer>
+
+    {/* Cart drawer */}
+    <div className={"scrim"+(drawer?" open":"")} onClick={()=>setDrawer(false)}/>
+    <aside className={"drawer"+(drawer?" open":"")} style={{width:520,maxWidth:'100vw',background:'#f2f2f0'}}>
+      <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:16,padding:'33px 40px 24px'}}>
+        <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:26,color:'#000'}}>Shopping Cart ({cartItems.length})</h2>
+        <button onClick={()=>setDrawer(false)} aria-label="Close cart" style={{display:'inline-flex',color:'#000'}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg></button>
+      </div>
+      <div style={{flex:1,minHeight:0,overflowY:'auto',padding:'0 40px',display:cartItems.length?'block':'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:24,textAlign:'center'}}>
+        {cartItems.length===0 && <><p style={{margin:0,fontSize:16,color:'#6b6b6b'}}>Your cart is empty.</p><a href="Shop.html" style={{alignSelf:'stretch',height:56,display:'flex',alignItems:'center',justifyContent:'center',borderRadius:100,background:'#1a1a1a',color:'#fff',fontSize:14,fontWeight:600,letterSpacing:'.08em',textTransform:'uppercase'}}>Shop all</a></>}
+        {cartItems.map((p,i)=>(
+          <div key={i} style={{display:'flex',gap:16,padding:'16px 0',borderTop:'1px solid #b9b9b6'}}>
+            <div style={{flex:'0 0 96px',height:128,background:'#fff',display:'flex',alignItems:'center',justifyContent:'center'}}><img src={p.img} style={{width:'80%',height:'80%',objectFit:'contain'}}/></div>
+            <div style={{flex:1,minWidth:0,display:'flex',flexDirection:'column',gap:10}}>
+              <div style={{display:'flex',justifyContent:'space-between',gap:12,alignItems:'flex-start'}}>
+                <div className="serif" style={{fontWeight:400,fontSize:18,lineHeight:1.2,color:'#000'}}>{p.name}</div>
+                <div style={{fontWeight:600,fontSize:15,whiteSpace:'nowrap'}}>{p.price}</div>
+              </div>
+              <div style={{fontSize:13,color:'#6b6b6b'}}>{p.desc}</div>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+                <span style={{display:'inline-flex',alignItems:'center',gap:14,border:'1px solid #d3d3cf',padding:'6px 14px',fontSize:14}}>1</span>
+                <button onClick={()=>remove(p)} style={{fontSize:10,letterSpacing:'.08em',textTransform:'uppercase',color:'#6b6b6b'}}>Remove</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{padding:'20px 40px 32px',borderTop:'1px solid #b9b9b6',display:cartItems.length?'flex':'none',flexDirection:'column',gap:20}}>
+        <div style={{display:'flex',justifyContent:'space-between',fontWeight:600,fontSize:16}}><span>Subtotal</span><span>S${total.toLocaleString('en-SG',{minimumFractionDigits:2})}</span></div>
+        <button onClick={()=>location.href='Checkout.html'} style={{height:48,borderRadius:100,background:'#1a1a1a',color:'#fff',fontSize:14,fontWeight:600,letterSpacing:'.08em',textTransform:'uppercase',cursor:'pointer'}}>Checkout</button>
+        <button onClick={()=>location.href='Cart.html'} style={{height:48,borderRadius:100,background:'transparent',border:'2px solid #6b6b6b',color:'#6b6b6b',fontSize:14,fontWeight:600,letterSpacing:'.08em',textTransform:'uppercase',cursor:'pointer'}}>View cart</button>
+      </div>
+    </aside>
+  </>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+<!-- support chat widget -->
+<style>
+.sm-chat-btn{position:fixed;right:24px;bottom:24px;z-index:900;width:60px;height:60px;border-radius:50%;border:none;padding:0;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.25);background:none;transition:transform .18s}
+.sm-chat-btn:hover{transform:scale(1.06)}
+.sm-chat-btn svg{width:100%;height:100%;display:block;border-radius:50%}
+.sm-chat-panel{position:fixed;right:24px;bottom:96px;z-index:901;width:360px;max-width:calc(100vw - 32px);background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.28);display:none;flex-direction:column;font-family:var(--font-sans,"Kumbh Sans",sans-serif)}
+.sm-chat-panel.open{display:flex}
+.sm-chat-head{background:#03363d;color:#fff;padding:22px 24px;display:flex;align-items:center;justify-content:space-between}
+.sm-chat-head h3{margin:0;font-family:var(--font-sans,"Kumbh Sans",sans-serif);font-size:22px;font-weight:700}
+.sm-chat-close{background:none;border:none;color:#fff;cursor:pointer;display:inline-flex;padding:4px}
+.sm-chat-body{padding:24px}
+.sm-chat-greet{margin:0 0 24px;font-size:18px;line-height:1.5;color:#3a3a3a}
+.sm-chat-row{display:flex;gap:14px}
+.sm-chat-input{flex:1;min-width:0;border:1px solid #dcdddd;border-radius:12px;padding:16px;font-size:16px;font-family:inherit;outline:none;color:#000}
+.sm-chat-input:focus{border-color:#03363d}
+.sm-chat-send{flex:0 0 auto;border:none;border-radius:12px;padding:0 26px;background:var(--tsm-red,#ed1b2f);color:#fff;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer}
+.sm-chat-send:hover{background:#cf1526}
+</style>
+<button class="sm-chat-btn" aria-label="Chat with support" onclick="document.getElementById('sm-chat-panel').classList.toggle('open')"><svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="400" cy="400" r="400" fill="#03363d"></circle><path fill="#fff" d="M383 359V541H236zM383 289q0 61-43 103.5T236 435V289zM417 541q0-61 43-103.5T564 395v146zM417 471 564 289v182z"></path></svg></button>
+<div class="sm-chat-panel" id="sm-chat-panel">
+  <div class="sm-chat-head"><h3>Chat with us</h3><button class="sm-chat-close" aria-label="Close" onclick="document.getElementById('sm-chat-panel').classList.remove('open')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <div class="sm-chat-body">
+    <p class="sm-chat-greet">Hi! Our team typically replies in a few minutes. How can we help you today?</p>
+    <div class="sm-chat-row"><input class="sm-chat-input" placeholder="Type a message..."/><button class="sm-chat-send">Send</button></div>
+  </div>
+</div>
+</body>
+</html>
