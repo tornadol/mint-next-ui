@@ -81,13 +81,13 @@ function Login(){
   const [err,setErr]=useState('');
   const [busy,setBusy]=useState(false);
   const submit=(e)=>{e.preventDefault();
-    if(email.trim().toLowerCase()==='guest@gmail.com'&&pw==='Abc@abc'){setErr('');setBusy(true);try{localStorage.setItem('tsm_user',JSON.stringify({name:'Guest User',email:'guest@gmail.com'}));}catch(e){}setTimeout(()=>{location.href="/";},900);}
+    if(email.trim().toLowerCase()==='guest@gmail.com'&&pw==='Abc@abc'){setErr('');setBusy(true);try{localStorage.setItem('tsm_user',JSON.stringify({name:'Guest User',email:'guest@gmail.com'}));}catch(e){}setTimeout(()=>{location.href='Homepage.html';},900);}
     else{setErr('Incorrect email or password. Use the demo credentials below.');}
   };
   return (
     <div className="login-split">
       <div className="login-brand">
-        <a href="/" className="login-brand-logo" aria-label="The Singapore Mint"><img src="assets/logo.svg" alt="The Singapore Mint"/></a>
+        <a href="Homepage.html" className="login-brand-logo" aria-label="The Singapore Mint"><img src="assets/logo.svg" alt="The Singapore Mint"/></a>
         <div className="login-brand-art"><img src="assets/coin-horse-silver.png" alt=""/></div>
         <div className="login-brand-copy">
           <h2 className="login-brand-h">Crafted in Singapore<br/>since 1968</h2>

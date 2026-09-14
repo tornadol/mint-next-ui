@@ -311,7 +311,7 @@ function Header({cartCount,onCart,overlay}){
   return (
     <header className="site-header" style={{position:'relative',background:(overlay&&!menu)?'transparent':'#fff',borderBottom:'1px solid rgba(0,0,0,.4)'}} onMouseLeave={()=>setMenu(null)}>
       <div className="wrap" style={{height:72,display:'grid',gridTemplateColumns:'1fr auto 1fr',alignItems:'center'}}>
-        <a href="/" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
+        <a href="#" aria-label="The Singapore Mint" style={{justifySelf:'start'}}><img src="assets/logo.svg" style={{height:24,display:'block'}}/></a>
         <nav className="hdr-nav" style={{display:'flex',gap:30,justifySelf:'center'}}>
           <a className="navlink" href="Shop.html" onMouseEnter={()=>setMenu('shop')} style={(menu?menu==='shop':/(shop|collection|product|compare|favourites)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Shop</a>
           <a className="navlink" href="About.html" onMouseEnter={()=>setMenu('discover')} style={(menu?menu==='discover':/(about|corporategifts|account|stores|membership|catalogueorders|coinrecycling)\.html$/i.test(location.pathname))?{color:'#000',borderBottom:'2px solid #000'}:undefined}>Discover</a>
@@ -396,7 +396,7 @@ function HeroSlider({cartCount,onCart}){
       <div className="hero-mob-text">
         <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:28,lineHeight:1.25,color:'var(--tsm-black)'}}>Gallop into a prosperous New Year</h2>
         <p style={{margin:0,fontFamily:'var(--desktop-body-m-font-family)',fontSize:15,lineHeight:1.55,color:'var(--tsm-black)'}}>Celebrate 2026 with Year of the Horse coins designed for gifting and good fortune.</p>
-        <a href="#" className="arrow-cta" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
+        <a href="Collection.html?c=year-of-the-horse" className="arrow-cta" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
       </div>
       {/* dots (bottom-left) */}
       <div style={{position:'absolute',bottom:34,left:40,zIndex:3,display:'flex',gap:9,alignItems:'center'}}>
@@ -493,7 +493,7 @@ function App(){
           <p style={{margin:0,fontFamily:'var(--desktop-subheading-4-uppercase-font-family)',fontWeight:'var(--desktop-subheading-4-uppercase-font-weight)',fontSize:'var(--desktop-subheading-4-uppercase-font-size)',letterSpacing:'var(--desktop-subheading-4-uppercase-letter-spacing)',textTransform:'uppercase',color:'var(--grey-80)'}}>Shop</p>
           <div style={{display:'inline-flex',flexDirection:'column',gap:16,alignItems:'flex-start'}}>
             <h2 id="new-arrivals-heading" className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'var(--tsm-black)',whiteSpace:'nowrap'}}>Discover our new arrivals</h2>
-            <a href="#" className="arrow-cta" aria-label="View all new arrivals" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
+            <a href="Shop.html" className="arrow-cta" aria-label="View all new arrivals" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
           </div>
         </div>
       </div>
@@ -514,7 +514,7 @@ function App(){
               <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'#fff'}}>A spirited start to 2026</h2>
               <p style={{margin:0,width:432,maxWidth:'100%',fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'#fff',lineHeight:1.6}}>Celebrate the new year with majestic horse designs crafted for good fortune, blending cultural richness with timeless elegance.</p>
             </div>
-            <a href="#" className="arrow-cta" style={{color:'#fff'}}><span className="horse-cta-label">Discover the story</span><span className="ln"/></a>
+            <a href="Collection.html?c=year-of-the-horse" className="arrow-cta" style={{color:'#fff'}}><span className="horse-cta-label">Discover the story</span><span className="ln"/></a>
           </div>
         </div>
       </div>
@@ -530,7 +530,7 @@ function App(){
               <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'#fff'}}>Singapore heritage in full bloom</h2>
               <p style={{margin:0,width:432,maxWidth:'100%',fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'#fff',lineHeight:1.6}}>A finely crafted keepsake marking the Singapore Botanic Gardens' 165th anniversary in silver.</p>
             </div>
-            <a href="#" className="arrow-cta" style={{color:'#fff'}}>Shop the collection<span className="ln"/></a>
+            <a href="Shop.html" className="arrow-cta" style={{color:'#fff'}}>Shop the collection<span className="ln"/></a>
           </div>
         </div>
       </div>
@@ -556,7 +556,7 @@ function App(){
         <h2 className="serif" style={{fontSize:30,fontWeight:400,margin:0,maxWidth:520,lineHeight:1.25}}>Enjoy priority releases, special prices and more when you become a member</h2>
         <div style={{maxWidth:360}}>
           <p style={{fontSize:14,lineHeight:1.6,color:'rgba(255,255,255,.9)',margin:'0 0 16px'}}>Sign up for a free account or membership tier to access member benefits across selected products, releases and events.</p>
-          <a href="#" className="arrow-cta" style={{color:'#fff'}}>Learn more<span className="ln"/></a>
+          <a href="Membership.html" className="arrow-cta" style={{color:'#fff'}}>Learn more<span className="ln"/></a>
         </div>
       </div>
     </section>
@@ -569,7 +569,7 @@ function App(){
           <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'var(--tsm-black)'}}>Proudly minting<br/>Singapore's story</h2>
           <div style={{width:326,maxWidth:'100%',display:'flex',flexDirection:'column',gap:28,alignItems:'flex-start'}}>
             <p style={{margin:0,fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'var(--tsm-black)',lineHeight:1.6}}>From circulation coins to commemoratives, each piece is crafted with meaning, artistry and our nation's heritage.</p>
-            <a href="#" className="arrow-cta" aria-label="Learn more about The Singapore Mint" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
+            <a href="About.html" className="arrow-cta" aria-label="Learn more about The Singapore Mint" style={{color:'var(--tsm-black)'}}><span className="ln"/></a>
           </div>
         </div>
       </div>
@@ -593,7 +593,7 @@ function App(){
               <h2 className="serif" style={{margin:0,fontWeight:400,fontSize:'var(--desktop-h2-font-size)',lineHeight:'var(--desktop-h2-line-height)',letterSpacing:'var(--desktop-h2-letter-spacing)',color:'#fff'}}>Investment-grade gold bullion from The Singapore Mint</h2>
               <p style={{margin:0,width:432,maxWidth:'100%',fontFamily:'var(--desktop-body-m-font-family)',fontWeight:'var(--desktop-body-m-font-weight)',fontSize:'var(--desktop-body-m-font-size)',color:'#fff',lineHeight:1.6}}>Discover gold and silver bars and coins crafted to trusted, everyday standards, precisely and preciously.</p>
             </div>
-            <a href="#" className="arrow-cta" style={{color:'#fff'}}>Explore bullion<span className="ln"/></a>
+            <a href="https://lionbullion.com.sg/" target="_blank" rel="noopener" className="arrow-cta" style={{color:'#fff'}}>Explore bullion<span className="ln"/></a>
           </div>
         </div>
       </div>
